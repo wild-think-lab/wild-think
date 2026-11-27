@@ -1,6 +1,6 @@
 ---
 title: 抓包：用 tcpdump 证明包到没到
-module: 进阶篇
+module: 熟练篇
 summary: 三条常用过滤表达式起步，配一个"打个 80 端口的包，看它到底有没有到服务器"的完整实验。
 minutes: 20
 ---

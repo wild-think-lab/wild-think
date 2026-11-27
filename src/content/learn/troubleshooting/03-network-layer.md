@@ -1,6 +1,6 @@
 ---
 title: 网络层排错：从 ping 到抓包
-module: 熟练篇
+module: 入门篇
 summary: 五条命令的排查链、DNS/端口/路由/TLS 四类常见断裂点，以及什么时候该抓包、抓到之后看什么。
 minutes: 26
 ---

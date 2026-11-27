@@ -1,6 +1,6 @@
 ---
 title: 数据处理与报表：pandas 的实用姿势
-module: 熟练篇
+module: 进阶篇
 summary: 读大文件的分块、常用清洗动作、分组聚合、导出与调度，五个"pandas 一跑就 OOM"的原因。
 minutes: 50
 ---

@@ -1,6 +1,6 @@
 ---
 title: HTTP：一次请求长什么样
-module: 进阶篇
+module: 熟练篇
 summary: 请求行、头、正文三段结构，状态码归类，以及用 curl 自己发出一次请求看全程。
 minutes: 20
 ---

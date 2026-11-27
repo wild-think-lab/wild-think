@@ -1,6 +1,6 @@
 ---
 title: 文件读写与异常处理
-module: 基础篇
+module: 熟练篇
 summary: with 打开文件、编码问题、JSON 与 CSV 读写，以及 try/except 的正确用法（而不是吞掉所有错误）。
 minutes: 22
 ---

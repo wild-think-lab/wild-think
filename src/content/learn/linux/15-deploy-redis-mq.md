@@ -1,6 +1,6 @@
 ---
 title: 部署缓存与消息：Redis 与 RabbitMQ
-module: 熟练篇
+module: 进阶篇
 summary: Redis 的安装与四个必改配置、持久化取舍；RabbitMQ 的安装、vhost 与队列、五个"消费不动"的原因。
 minutes: 50
 ---

@@ -1,6 +1,6 @@
 ---
 title: 虚拟环境与依赖管理
-module: 进阶篇
+module: 熟练篇
 summary: 一个项目一个环境，requirements.txt 让"我电脑上能跑"变成"哪都能跑"。
 minutes: 20
 ---

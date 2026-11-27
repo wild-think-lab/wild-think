@@ -1,6 +1,6 @@
 ---
 title: 从 Deployment 到"能上生产"：资源、探针、PDB 与滚动
-module: 熟练篇
+module: 入门篇
 summary: request/limit 的取舍、三类探针、PDB 与优雅终止、滚动发布的参数，以及"发布时零 5xx"的四件事。
 minutes: 22
 ---

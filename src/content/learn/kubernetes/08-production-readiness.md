@@ -1,6 +1,6 @@
 ---
 title: 第 8 章 · 上生产的最后一公里：资源、HPA、PDB 与发布策略
-module: 进阶篇
+module: 熟练篇
 summary: 资源配额与 LimitRange、HPA 的正确前提、PDB 怎么保证滚动更新不断、蓝绿与金丝雀的落地方式，以及上线前的检查清单。
 minutes: 22
 ---

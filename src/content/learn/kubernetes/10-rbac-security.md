@@ -1,6 +1,6 @@
 ---
 title: 第 10 章 · 权限与安全：RBAC、ServiceAccount 与最小化
-module: 进阶篇
+module: 熟练篇
 summary: RBAC 四要素、ServiceAccount 与 token、Pod 安全上下文、审计日志，以及五个"权限配了但没管住"的原因。
 minutes: 50
 ---

@@ -1,6 +1,6 @@
 ---
 title: 用 Python 调接口：requests 的正确姿势
-module: 熟练篇
+module: 进阶篇
 summary: 超时与重试、连接复用、错误处理、分页与批量，以及五个"脚本卡死"的原因。
 minutes: 45
 ---

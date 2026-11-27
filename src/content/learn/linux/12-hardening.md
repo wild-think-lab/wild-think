@@ -1,6 +1,6 @@
 ---
 title: 主机安全加固：从能用到敢放公网
-module: 进阶篇
+module: 熟练篇
 summary: SSH 加固、账号与 sudo、防火墙默认拒绝、SELinux、补丁与审计,以及五个"加固后把自己锁在外面"的坑。
 minutes: 50
 ---

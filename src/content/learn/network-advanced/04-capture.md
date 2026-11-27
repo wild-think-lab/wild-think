@@ -1,6 +1,6 @@
 ---
 title: 抓包：用证据代替猜测
-module: 熟练篇
+module: 入门篇
 summary: tcpdump 的十个过滤器、三次握手与重传怎么看、Wireshark 的三个实用视图，以及"抓不到包"的原因。
 minutes: 30
 ---

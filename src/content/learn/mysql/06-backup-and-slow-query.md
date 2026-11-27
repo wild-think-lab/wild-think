@@ -1,6 +1,6 @@
 ---
 title: 备份与慢查询：让数据库能被救、能被优化
-module: 进阶篇
+module: 熟练篇
 summary: mysqldump 与 xtrabackup 怎么选、binlog 时间点恢复的完整流程、慢查询怎么变成可行动的三步。
 minutes: 13
 ---

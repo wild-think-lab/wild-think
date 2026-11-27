@@ -1,6 +1,6 @@
 ---
 title: 第 4 章 · 配置与密钥：ConfigMap 与 Secret 的正确用法
-module: 熟练篇
+module: 入门篇
 summary: 配置从哪来、改配置怎么触发重启、Secret 到底安不安全、四种外置密钥方案、以及"改了配置没生效"的排查。
 minutes: 16
 ---

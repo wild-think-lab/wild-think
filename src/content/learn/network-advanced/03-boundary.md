@@ -1,6 +1,6 @@
 ---
 title: 边界：NAT、防火墙与"为什么外面访问不到"
-module: 熟练篇
+module: 入门篇
 summary: SNAT/DNAT 的区别、端口映射的写法、防火墙默认策略，以及"映射了还是访问不到"的四层排查。
 minutes: 30
 ---

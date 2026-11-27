@@ -1,6 +1,6 @@
 ---
 title: 第 4 章：网络与存储排障
-module: 熟练篇
+module: 入门篇
 summary: Pod 五层排查顺序、CNI 与 MTU、PVC 挂不上的六种原因、iSCSI/NFS 卡住的处理。
 minutes: 50
 ---

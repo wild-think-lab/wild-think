@@ -1,6 +1,6 @@
 ---
 title: 函数与模块：把代码拆开
-module: 基础篇
+module: 入门篇
 summary: 定义函数、参数与返回值、作用域，以及 finally 那句"库是怎么 import 进来的"。
 minutes: 20
 ---

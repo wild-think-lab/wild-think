@@ -1,6 +1,6 @@
 ---
 title: 索引与 EXPLAIN：为什么这条 SQL 慢
-module: 熟练篇
+module: 入门篇
 summary: B+ 树索引为什么能加速、哪种写法会让索引失效、EXPLAIN 的每一列怎么读，以及一个从慢查询到加对索引的完整流程。
 minutes: 14
 ---

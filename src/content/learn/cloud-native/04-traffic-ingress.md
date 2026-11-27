@@ -1,6 +1,6 @@
 ---
 title: 流量入口：Service、Ingress 与"为什么外部访问不到"
-module: 熟练篇
+module: 入门篇
 summary: ClusterIP/NodePort/LB 三种 Service、Ingress 路由与注解、外部访问的四层链路，以及六个"访问不到"的排查点。
 minutes: 20
 ---

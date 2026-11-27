@@ -1,6 +1,6 @@
 ---
 title: 第 7 章 · Helm：把一堆 YAML 变成可发布的产品
-module: 进阶篇
+module: 熟练篇
 summary: Chart 的目录结构、values 分层、模板语法与常用函数、依赖管理、release 的升级与回滚，以及"helm 装的和平常用的不一样"的原因。
 minutes: 20
 ---

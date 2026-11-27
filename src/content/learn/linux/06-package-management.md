@@ -1,6 +1,6 @@
 ---
 title: 软件包管理：装、卸、查、升级
-module: 基础篇
+module: 入门篇
 summary: 两套命令体系（apt 与 dnf/yum）的对照表，仓库、依赖、锁问题一次讲清。
 minutes: 18
 ---

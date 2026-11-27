@@ -1,6 +1,6 @@
 ---
 title: 日志与排错：从"打不开"到定位原因
-module: 进阶篇
+module: 熟练篇
 summary: journalctl 与 /var/log 两条线，加上一套五步排查顺序，把"服务挂了"拆成可验证的小问题。
 minutes: 22
 ---

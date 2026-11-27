@@ -1,6 +1,6 @@
 ---
 title: IP 与子网：地址怎么定位一台机器
-module: 基础篇
+module: 入门篇
 summary: IP、掩码、网关、CIDR 一次讲透，含"两台机器在同一网段吗"的手算练习。
 minutes: 20
 ---

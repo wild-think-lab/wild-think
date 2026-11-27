@@ -1,6 +1,6 @@
 ---
 title: Docker Compose：一套服务一个文件
-module: 熟练篇
+module: 入门篇
 summary: 用一份 compose.yaml 起 nginx + api + db + redis，讲清依赖顺序、环境变量注入、健康检查与常用命令。
 minutes: 12
 ---

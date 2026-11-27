@@ -1,6 +1,6 @@
 ---
 title: 远程接入：WireGuard 与 OpenVPN
-module: 熟练篇
+module: 进阶篇
 summary: WireGuard 的密钥与路由配置、OpenVPN 的证书体系、两条链路的取舍，五个"连上了但访问不了"的原因。
 minutes: 45
 ---

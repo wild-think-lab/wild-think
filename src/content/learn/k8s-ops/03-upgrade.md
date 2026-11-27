@@ -1,6 +1,6 @@
 ---
 title: 第 3 章：集群升级不回滚
-module: 熟练篇
+module: 入门篇
 summary: 版本约束与顺序、弃用 API 扫描、etcd 快照、逐台 drain、升级后验证清单。
 minutes: 45
 ---

@@ -1,6 +1,6 @@
 ---
 title: DNS：域名怎么变成 IP
-module: 进阶篇
+module: 入门篇
 summary: 解析链路、常见记录类型、缓存与 TTL，以及"改了解析为什么不生效"。
 minutes: 20
 ---

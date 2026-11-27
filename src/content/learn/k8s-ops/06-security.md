@@ -1,6 +1,6 @@
 ---
 title: 第 6 章：安全边界与审计
-module: 进阶篇
+module: 熟练篇
 summary: 四层边界（API/Pod/网络/供应链）、RBAC 最小化的写法、审计日志、以及五个"配了但还是被绕过"的原因。
 minutes: 50
 ---

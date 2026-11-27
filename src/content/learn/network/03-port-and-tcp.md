@@ -1,6 +1,6 @@
 ---
 title: 端口与 TCP：连接是怎么建立的
-module: 基础篇
+module: 入门篇
 summary: 端口是"程序的门牌号"，三次握手解释了为什么会有 connection refused 和 timeout 两种截然不同的报错。
 minutes: 18
 ---

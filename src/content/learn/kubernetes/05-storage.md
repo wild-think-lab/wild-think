@@ -1,6 +1,6 @@
 ---
 title: 第 5 章 · 存储：PV、PVC、StorageClass 与 StatefulSet
-module: 熟练篇
+module: 入门篇
 summary: 三层存储模型、动态供给怎么走、访问模式的区别、StatefulSet 的稳定身份、以及"数据到底存在哪"的排查。
 minutes: 18
 ---

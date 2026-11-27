@@ -1,6 +1,6 @@
 ---
 title: 部署应用运行时：Java / Node / Python 上线
-module: 熟练篇
+module: 进阶篇
 summary: 三种运行时的安装与 systemd 托管、JVM 内存、Node 进程管理、Python 虚拟环境，以及五个"能跑但上线就挂"的原因。
 minutes: 50
 ---

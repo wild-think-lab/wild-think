@@ -1,6 +1,6 @@
 ---
 title: 负载均衡与代理：LVS / HAProxy / Nginx
-module: 熟练篇
+module: 进阶篇
 summary: 四层与七层的分工、常见算法、健康检查与会话保持，五个"加了 LB 反而更慢"的原因。
 minutes: 45
 ---

@@ -1,6 +1,6 @@
 ---
 title: 从单机到编排：Compose 之后往哪走
-module: 进阶篇
+module: 熟练篇
 summary: 单机上限、迁移到 K8s 的判定、Compose 与 K8s 的映射表、以及五个"上了编排反而更乱"的原因。
 minutes: 40
 ---

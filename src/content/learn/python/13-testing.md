@@ -1,6 +1,6 @@
 ---
 title: 测试与质量：pytest 与 CI 门禁
-module: 熟练篇
+module: 进阶篇
 summary: pytest 的固件与参数化、覆盖率的意义、在 CI 里跑什么、五个"测试写了但没用"的原因。
 minutes: 45
 ---

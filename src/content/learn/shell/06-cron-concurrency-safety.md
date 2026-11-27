@@ -1,6 +1,6 @@
 ---
 title: 定时、并发与安全边界：脚本上生产前的最后一关
-module: 进阶篇
+module: 熟练篇
 summary: cron 与 systemd timer 怎么选、并发执行如何防重入、危险操作为什么一定要先 dry-run。学完能把脚本放心放进生产。
 minutes: 13
 ---

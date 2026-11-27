@@ -1,6 +1,6 @@
 ---
 title: 第 9 章 · 网络模型深入：Pod 是怎么被"连起来"的
-module: 进阶篇
+module: 熟练篇
 summary: CNI 的职责、overlay 与 underlay、DNS 与 Service 的关系、NetworkPolicy 的生效条件。
 minutes: 50
 ---

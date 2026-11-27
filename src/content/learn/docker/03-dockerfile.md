@@ -1,6 +1,6 @@
 ---
 title: Dockerfile：把应用打成镜像
-module: 熟练篇
+module: 入门篇
 summary: 一个能上生产的 Dockerfile 长什么样：基础镜像怎么选、层怎么排、多阶段构建怎么砍体积、哪些写法必须避免。
 minutes: 13
 ---

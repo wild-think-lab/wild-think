@@ -1,6 +1,6 @@
 ---
 title: 第 11 章 · 自己装一个集群：kubeadm 从零到可用
-module: 进阶篇
+module: 熟练篇
 summary: 前置条件、初始化、加入节点、CNI 与存储、以及五个"初始化失败"的常见原因。
 minutes: 55
 ---

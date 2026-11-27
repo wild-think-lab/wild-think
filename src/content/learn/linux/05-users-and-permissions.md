@@ -1,6 +1,6 @@
 ---
 title: 权限与用户：为什么总被 Permission denied
-module: 基础篇
+module: 入门篇
 summary: 读懂 ls -l 那串字母，理解 rwx 三位一组，弄明白"为什么我必须加 sudo"和"为什么脚本跑不起来"。
 minutes: 18
 ---

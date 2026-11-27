@@ -1,6 +1,6 @@
 ---
 title: 第 6 章 · 排障五步法：从 Pod 起不来到底层网络
-module: 进阶篇
+module: 入门篇
 summary: 一套固定顺序：看状态 → 看事件 → 看日志 → 进容器 → 查下层。每一层给操作与判读标准，覆盖 Pending、CrashLoop、ImagePull、OOM 四大类。
 minutes: 25
 ---

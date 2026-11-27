@@ -1,6 +1,6 @@
 ---
 title: 部署文件共享与备份：Samba / NFS / rsync
-module: 熟练篇
+module: 进阶篇
 summary: Samba 给 Windows、NFS 给 Linux、rsync 做增量同步，权限映射的五个坑与备份策略。
 minutes: 45
 ---

@@ -1,6 +1,6 @@
 ---
 title: 进程与服务：让程序在后台活下去
-module: 进阶篇
+module: 入门篇
 summary: 进程怎么看、怎么杀，systemd 怎么管服务，以及"程序一关终端就死"的根本原因。
 minutes: 20
 ---
