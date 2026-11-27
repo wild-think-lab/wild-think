@@ -145,6 +145,20 @@ export const COURSES: Course[] = [
       '用 GitOps 把变更纳入 review 与回滚',
     ],
   },
+  {
+    id: 'network-advanced',
+    name: '网络进阶：从会用到会设计',
+    en: 'NETWORK IN PRACTICE',
+    tag: '网络进阶',
+    desc: '在会用 ping 和 curl 之后往下走一层。先讲二层与 VLAN，再讲路由与边界，然后用抓包把"不通"变成证据，最后落到一张小型网络该怎么规划。',
+    icon: 'network',
+    accent: '#5eb0ff',
+    can: [
+      '能画清一张网络：网段、VLAN、出口与回程',
+      '面对"不通"能按层缩小到具体一跳',
+      '能独立规划一个小机房或办公网',
+    ],
+  },
 ];
 
 export const COURSE_MAP = new Map(COURSES.map((c) => [c.id, c]));
