@@ -50,11 +50,27 @@ src/
 
 ## 部署
 
-推送到 `main` 即由 GitHub Actions 自动构建并发布到 GitHub Pages（见 `.github/workflows/deploy.yml`）。
+当前线上通过 **gh-pages 分支** 发布（GitHub Pages 的 source 设为 `gh-pages` 分支）：
 
-首次部署需在仓库 Settings → Pages 里把 Source 设为 **GitHub Actions**。
+```bash
+npm run build
+# 将 dist/ 内容提交到 gh-pages 分支（保持 .nojekyll）
+```
+
+想要"推 main 自动发布"，可在本机执行一次授权，让 GitHub CLI 拿到 workflow 权限，然后把
+`docs/deploy-actions.example.yml` 复制为 `.github/workflows/deploy.yml` 并提交：
+
+```bash
+gh auth refresh -s workflow,repo,read:org
+```
+
+随后在仓库 Settings → Pages 把 Source 改为 **GitHub Actions**，删除 gh-pages 分支即可。
+OAuth App 令牌没有 `workflow` 权限时，GitHub 会拒绝推送任何 `.github/workflows/` 下的文件。
 
 > 说明：站点挂在项目页 `/wild-think/` 子路径下，所有内链必须经过 `src/lib/url.ts` 的 `u()` 包装，否则会 404。
+>
+> 标签路由只保留 `src/pages/tags/[...tag].astro`（标签可能含 `/`，如 `TCP/IP`）。
+> 同目录的 `[tag].astro` 已停用（`getStaticPaths` 返回空），可以直接删除。
 
 ## 设计约定
 
