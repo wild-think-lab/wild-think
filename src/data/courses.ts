@@ -131,6 +131,20 @@ export const COURSES: Course[] = [
       '把一次故障变成能复用的 runbook 与案例',
     ],
   },
+  {
+    id: 'cloud-native',
+    name: '云原生交付：从镜像到 GitOps',
+    en: 'CLOUD NATIVE DELIVERY',
+    tag: '云原生',
+    desc: '不堆概念。先讲清云原生到底解决什么问题，再落到镜像工程化、能上生产的 Deployment、流量入口、GitOps 交付与容量核算，每一步都配可落地的配置。',
+    icon: 'cloud',
+    accent: '#4dd0e1',
+    can: [
+      '做出小、快、可追溯、非 root 的镜像',
+      '把 Deployment 配到"发布不掉容量、回滚有路"',
+      '用 GitOps 把变更纳入 review 与回滚',
+    ],
+  },
 ];
 
 export const COURSE_MAP = new Map(COURSES.map((c) => [c.id, c]));
