@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v5.18.2"><title>MySQL 索引为什么是 B+ 树：从回表代价讲起 · 野生思考</title><meta name="description" content="聚集索引与二级索引的区别决定了&#34;回表&#34;的代价，也决定了覆盖索引、最左前缀、索引下推这些优化为什么有效。"><meta name="author" content="wild-think-lab"><meta name="theme-color" content="#08080a"><link rel="canonical" href="https://wild-think-lab.github.io/wild-think/writing/mysql-index-bplus-tree"><link rel="icon" type="image/svg+xml" href="/wild-think/favicon.svg"><link rel="alternate" type="application/rss+xml" title="野生思考" href="/wild-think/rss.xml"><meta property="og:type" content="article"><meta property="og:site_name" content="野生思考"><meta property="og:title" content="MySQL 索引为什么是 B+ 树：从回表代价讲起 · 野生思考"><meta property="og:description" content="聚集索引与二级索引的区别决定了&#34;回表&#34;的代价，也决定了覆盖索引、最左前缀、索引下推这些优化为什么有效。"><meta property="og:url" content="https://wild-think-lab.github.io/wild-think/writing/mysql-index-bplus-tree"><meta name="twitter:card" content="summary_large_image"><script>
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light') document.documentElement.classList.add('light');
+      } catch (e) {}
+    </script><link rel="stylesheet" href="/wild-think/_astro/about.BeOWH9B9.css"></head> <body> <a class="skip" href="#main">跳到正文</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="/wild-think/"> <span class="brand-mark">野</span> <span>野生思考</span> <span class="brand-sub">/ wild-think</span> </a> <nav class="nav" aria-label="主导航"> <a href="/wild-think/topics/"> 专题 </a><a href="/wild-think/writing/" aria-current="true"> 文章 </a><a href="/wild-think/tags/"> 标签 </a><a href="/wild-think/archive/"> 归档 </a><a href="/wild-think/about/"> 关于 </a> </nav> <div class="header-actions"> <a class="icon-btn" href="/wild-think/search/" aria-label="搜索" title="搜索 ( / )"> <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>  </a> <button class="icon-btn" id="theme-toggle" aria-label="切换深浅色" title="切换主题"> <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="theme-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="theme-moon" aria-hidden="true"><path d="M12 3a6 6 0 009 9 9 9 0 11-9-9z"/></svg>  </button> <button class="icon-btn menu-btn" id="menu-toggle" aria-label="打开菜单"> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>  </button> </div> </div> <nav class="mobile-nav container" id="mobile-nav" aria-label="移动端导航"> <a href="/wild-think/topics/">专题</a><a href="/wild-think/writing/">文章</a><a href="/wild-think/tags/">标签</a><a href="/wild-think/archive/">归档</a><a href="/wild-think/about/">关于</a> <a href="/wild-think/search/">搜索</a> </nav> </header> <main id="main">  <div class="reading-bar" id="reading-bar"></div> <div class="container"> <div class="breadcrumb" style="padding-top:26px"> <a href="/wild-think/">首页</a><i>/</i> <a href="/wild-think/topics/db/">数据库知识库</a><i>/</i> <span>MySQL 索引为什么是 B+ 树：从回表代价讲起</span> </div> <div class="article-wrap"> <article> <header class="article-head"> <h1>MySQL 索引为什么是 B+ 树：从回表代价讲起</h1> <div class="article-meta"> <a class="topic-pill" href="/wild-think/topics/db/">DATABASE</a> <span>2026-11-20</span> <span class="sep">·</span> <span style="display:inline-flex;align-items:center;gap:4px"> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3.2 2"/></svg>  5 min
+</span>  </div> <p class="article-lead">聚集索引与二级索引的区别决定了&quot;回表&quot;的代价，也决定了覆盖索引、最左前缀、索引下推这些优化为什么有效。</p> </header> <div class="prose" style="margin-top:34px"> <p>“给字段加索引就快了”——这句话在二级索引上经常不成立。要理解为什么，得先理解 InnoDB 的两层索引结构。</p>
+<h2 id="一两种索引两种存储">一、两种索引，两种存储</h2>
+<p>InnoDB 的表数据本身就是一棵 B+ 树，按主键排序，叶子节点存<strong>完整行</strong>——这叫<strong>聚集索引（clustered index）</strong>。</p>
+<p>二级索引（普通索引）是另一棵 B+ 树，叶子节点存的是<strong>索引列 + 主键值</strong>，不含整行。</p>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>主键索引叶子：  [id=1] → 完整行</span></span>
+<span class="line"><span>二级索引叶子：  [name='tom'] → id=1</span></span></code></pre>
+<p>所以通过二级索引查整行，需要<strong>拿主键再回主键索引查一次</strong>，这就是回表（random I/O）。回表次数越多，索引的收益越容易被吃掉。</p>
+<h2 id="二覆盖索引让回表不发生">二、覆盖索引：让回表不发生</h2>
+<p>如果查询需要的列全在二级索引里，就不需要回表。</p>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">-- 需要回表（还要 name 之外的列）</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#5DE4C7">SELECT</span><span style="color:#24292E;--shiki-dark:#A6ACCD"> id, </span><span style="color:#D73A49;--shiki-dark:#5DE4C7">name</span><span style="color:#24292E;--shiki-dark:#A6ACCD">, email </span><span style="color:#D73A49;--shiki-dark:#5DE4C7">FROM</span><span style="color:#24292E;--shiki-dark:#A6ACCD"> users </span><span style="color:#D73A49;--shiki-dark:#5DE4C7">WHERE</span><span style="color:#D73A49;--shiki-dark:#5DE4C7"> name</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> =</span><span style="color:#032F62;--shiki-dark:#A6ACCD"> '</span><span style="color:#032F62;--shiki-dark:#5DE4C7">tom</span><span style="color:#032F62;--shiki-dark:#A6ACCD">'</span><span style="color:#24292E;--shiki-dark:#A6ACCD">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">-- 覆盖索引：只取索引内已有的列</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#5DE4C7">SELECT</span><span style="color:#24292E;--shiki-dark:#A6ACCD"> id, </span><span style="color:#D73A49;--shiki-dark:#5DE4C7">name</span><span style="color:#D73A49;--shiki-dark:#5DE4C7"> FROM</span><span style="color:#24292E;--shiki-dark:#A6ACCD"> users </span><span style="color:#D73A49;--shiki-dark:#5DE4C7">WHERE</span><span style="color:#D73A49;--shiki-dark:#5DE4C7"> name</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> =</span><span style="color:#032F62;--shiki-dark:#A6ACCD"> '</span><span style="color:#032F62;--shiki-dark:#5DE4C7">tom</span><span style="color:#032F62;--shiki-dark:#A6ACCD">'</span><span style="color:#24292E;--shiki-dark:#A6ACCD">;   </span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">-- id 是隐含的主键，天然在内</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#24292E;--shiki-dark:#A6ACCD">EXPLAIN </span><span style="color:#D73A49;--shiki-dark:#5DE4C7">SELECT</span><span style="color:#24292E;--shiki-dark:#A6ACCD"> id, </span><span style="color:#D73A49;--shiki-dark:#5DE4C7">name</span><span style="color:#D73A49;--shiki-dark:#5DE4C7"> FROM</span><span style="color:#24292E;--shiki-dark:#A6ACCD"> users </span><span style="color:#D73A49;--shiki-dark:#5DE4C7">WHERE</span><span style="color:#D73A49;--shiki-dark:#5DE4C7"> name</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> =</span><span style="color:#032F62;--shiki-dark:#A6ACCD"> '</span><span style="color:#032F62;--shiki-dark:#5DE4C7">tom</span><span style="color:#032F62;--shiki-dark:#A6ACCD">'</span><span style="color:#24292E;--shiki-dark:#A6ACCD">\G</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">-- Extra: Using index  ← 出现这个就说明是覆盖索引</span></span></code></pre>
+<p>设计建议：高频查询列组合成<strong>联合索引</strong>，把 SELECT 中出现的列尽量包含进去，用”索引变宽”换”不回表”。</p>
+<h2 id="三联合索引的最左前缀">三、联合索引的最左前缀</h2>
+<p>联合索引 <code>(a, b, c)</code> 的排序是”先按 a，a 相同再按 b，再按 c”。因此：</p>
+<table>
+<thead>
+<tr>
+<th>条件</th>
+<th>是否能用索引</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>a=1</code></td>
+<td>用 a</td>
+</tr>
+<tr>
+<td><code>a=1 AND b=2</code></td>
+<td>用 a,b</td>
+</tr>
+<tr>
+<td><code>a=1 AND b=2 AND c=3</code></td>
+<td>全用</td>
+</tr>
+<tr>
+<td><code>b=2</code></td>
+<td><strong>不能</strong>（跳过了 a）</td>
+</tr>
+<tr>
+<td><code>a=1 AND c=3</code></td>
+<td>用 a，c 无法走索引定位（5.6+ 可用索引下推过滤）</td>
+</tr>
+</tbody>
+</table>
+<p>范围条件会”截断”后续列：</p>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">-- a 用了范围，b 只能靠索引下推过滤，不能用于精确定位</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#5DE4C7">WHERE</span><span style="color:#24292E;--shiki-dark:#A6ACCD"> a </span><span style="color:#D73A49;--shiki-dark:#91B4D5">></span><span style="color:#005CC5;--shiki-dark:#5DE4C7"> 1</span><span style="color:#D73A49;--shiki-dark:#5DE4C7"> AND</span><span style="color:#24292E;--shiki-dark:#A6ACCD"> b </span><span style="color:#D73A49;--shiki-dark:#91B4D5">=</span><span style="color:#005CC5;--shiki-dark:#5DE4C7"> 2</span></span></code></pre>
+<p>所以<strong>把等值条件放前、范围条件放后</strong>，是联合索引排序的基本原则。</p>
+<h2 id="四索引下推icp">四、索引下推（ICP）</h2>
+<p>MySQL 5.6 引入：在存储引擎层就用索引中的列过滤，减少回表次数。</p>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#24292E;--shiki-dark:#A6ACCD">EXPLAIN ... </span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">-- Extra: Using index condition</span></span></code></pre>
+<p>例如 <code>(name, age)</code> 索引上 <code>WHERE name LIKE 'tom%' AND age > 20</code>，ICP 会在索引里先比 age，只有命中的才回表。</p>
+<h2 id="五什么时候索引反而有害">五、什么时候索引反而有害</h2>
+<ol>
+<li><strong>区分度低</strong>：<code>status</code> 只有两个值，单独建索引几乎无用，选择度接近 50% 时优化器可能直接走全表。</li>
+<li><strong>写多读少</strong>：每个索引都要在写入时维护，索引越多写入越慢，还会放大 redo/binlog 体积。</li>
+<li><strong>索引列参与计算或函数</strong>：<code>WHERE DATE(created_at) = '2026-11-01'</code> 无法用索引，应改写成范围：<code>created_at >= '2026-11-01' AND created_at &#x3C; '2026-11-02'</code>。</li>
+<li><strong>隐式类型转换</strong>：<code>WHERE phone = 13800000000</code>（整型）而 <code>phone</code> 是 varchar，会走全表。</li>
+<li><strong>前缀模糊</strong>：<code>LIKE '%abc'</code> 无法用 B+ 树定位，只能扫。</li>
+</ol>
+<h2 id="六索引设计的可操作流程">六、索引设计的可操作流程</h2>
+<ol>
+<li>从慢查询日志里取 TOP SQL（<code>pt-query-digest</code> 或 <code>performance_schema</code>）。</li>
+<li>看 <code>EXPLAIN</code> 的 <code>type</code>（<code>ref</code>/<code>range</code> 较好，<code>ALL</code> 是全表）与 <code>rows</code>（估算扫描行数）。</li>
+<li>判断是否回表：<code>Extra</code> 里没有 <code>Using index</code> 就要考虑覆盖。</li>
+<li>设计联合索引，等值在前、范围在后，尽量把 SELECT 列纳入。</li>
+<li>上线前用 <code>EXPLAIN</code> + 实际耗时（<code>EXPLAIN ANALYZE</code>，8.0.18+）验证，并观察写入延迟是否上升。</li>
+<li>定期清理无用索引：<code>sys.schema_unused_indexes</code>。</li>
+</ol>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">-- 8.0 查看索引使用情况</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#5DE4C7">SELECT</span><span style="color:#24292E;--shiki-dark:#A6ACCD"> object_schema, object_name, index_name </span><span style="color:#D73A49;--shiki-dark:#5DE4C7">FROM</span><span style="color:#005CC5;--shiki-dark:#A6ACCD"> sys</span><span style="color:#24292E;--shiki-dark:#A6ACCD">.</span><span style="color:#005CC5;--shiki-dark:#A6ACCD">schema_unused_indexes</span><span style="color:#24292E;--shiki-dark:#A6ACCD">;</span></span></code></pre>
+<blockquote>
+<p>一句话：<strong>索引不是”给列加个东西”，而是”按查询的形状重新组织一份数据副本”。形状不对，再多的索引也只是拖慢写入。</strong></p>
+</blockquote> </div> <footer class="article-foot"> <div class="article-tags"> <a class="chip" href="/wild-think/tags/MySQL/">#MySQL</a><a class="chip" href="/wild-think/tags/%E7%B4%A2%E5%BC%95/">#索引</a><a class="chip" href="/wild-think/tags/B%2B%E6%A0%91/">#B+树</a><a class="chip" href="/wild-think/tags/%E4%BC%98%E5%8C%96/">#优化</a><a class="chip" href="/wild-think/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">#数据库</a> </div> <div class="prevnext"> <a class="pn" href="/wild-think/writing/linux-baseline-hardening/"> <small>← 上一篇</small> <span>Linux 服务器基线加固清单：从账号到内核的十二项检查</span> </a> <a class="pn next" href="/wild-think/writing/subnetting-and-vlsm/"> <small>下一篇 →</small> <span>子网划分与 VLSM：从需求反推掩码，而不是背公式</span> </a> </div> <div style="margin-top:26px;font-family:var(--font-mono);font-size:11.5px;color:var(--dim);letter-spacing:.04em">
+// 如需转载，注明来源即可 · 数据库知识库 </div> </footer> </article> <aside class="toc" id="toc"> <div class="toc-title">On this page</div> <ul> <li class="depth-2"> <a href="#一两种索引两种存储">一、两种索引，两种存储</a> </li><li class="depth-2"> <a href="#二覆盖索引让回表不发生">二、覆盖索引：让回表不发生</a> </li><li class="depth-2"> <a href="#三联合索引的最左前缀">三、联合索引的最左前缀</a> </li><li class="depth-2"> <a href="#四索引下推icp">四、索引下推（ICP）</a> </li><li class="depth-2"> <a href="#五什么时候索引反而有害">五、什么时候索引反而有害</a> </li><li class="depth-2"> <a href="#六索引设计的可操作流程">六、索引设计的可操作流程</a> </li> </ul> </aside> </div> </div> <script type="module">const c=document.getElementById("reading-bar"),n=()=>{const e=document.documentElement,t=e.scrollHeight-e.clientHeight,o=t>0?e.scrollTop/t*100:0;c&&(c.style.width=Math.min(100,Math.max(0,o))+"%")};document.addEventListener("scroll",n,{passive:!0});window.addEventListener("resize",n);n();const i=Array.from(document.querySelectorAll("#toc a")),r=i.map(e=>document.getElementById(decodeURIComponent(e.hash.slice(1)))).filter(Boolean);if(r.length){const e=new IntersectionObserver(t=>{t.forEach(o=>{o.isIntersecting&&i.forEach(s=>s.classList.toggle("active",decodeURIComponent(s.hash.slice(1))===o.target.id))})},{rootMargin:"-90px 0px -70% 0px",threshold:0});r.forEach(t=>e.observe(t))}</script>  </main> <footer class="site-footer"> <div class="container"> <div class="footer-grid"> <div class="footer-brand"> <a class="brand" href="/wild-think/"> <span class="brand-mark">野</span> <span>野生思考</span> </a> <p>把复杂的技术，变成可以落地复现的思考与实践</p> </div> <div class="footer-col"> <h4>专题</h4> <a href="/wild-think/topics/linux/">Linux 运维知识库</a><a href="/wild-think/topics/network/">计算机网络与路由交换</a><a href="/wild-think/topics/security/">网络安全与渗透基础</a><a href="/wild-think/topics/sre-cloud/">云原生与 SRE 体系</a><a href="/wild-think/topics/db/">数据库知识库</a> </div> <div class="footer-col"> <h4>站点</h4> <a href="/wild-think/writing/">全部文章</a> <a href="/wild-think/archive/">归档</a> <a href="/wild-think/tags/">标签</a> <a href="/wild-think/about/">关于本站</a> <a href="/wild-think/rss.xml">RSS 订阅</a> </div> </div> <div class="footer-bottom"> <span>© 2026–2026 野生思考 · wild-think-lab</span> <span class="sig">// 把复杂的技术，写成可以走的路</span> </div> </div> </footer> <button class="to-top" id="to-top" aria-label="回到顶部"> <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg>  </button> <script type="module">const o=document.documentElement,c=document.getElementById("theme-toggle");c?.addEventListener("click",()=>{o.classList.toggle("light");try{localStorage.setItem("theme",o.classList.contains("light")?"light":"dark")}catch{}});const i=document.getElementById("menu-toggle"),d=document.getElementById("mobile-nav");i?.addEventListener("click",()=>{d?.classList.toggle("open")});const n=document.getElementById("to-top"),l=()=>{n?.classList.toggle("show",window.scrollY>700)};window.addEventListener("scroll",l,{passive:!0});l();n?.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));document.addEventListener("keydown",t=>{const e=t.target,s=e&&/^(INPUT|TEXTAREA)$/.test(e.tagName);t.key==="/"&&!s&&(t.preventDefault(),location.href="/wild-think/search/")});</script>  </body> </html>

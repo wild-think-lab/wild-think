@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v5.18.2"><title>Linux 日志体系：journald 与 rsyslog 到底谁在写日志 · 野生思考</title><meta name="description" content="搞清楚 journald、rsyslog 的分工与数据流，才能在两套日志之间快速定位故障，而不是把 /var/log 翻一遍碰运气。"><meta name="author" content="wild-think-lab"><meta name="theme-color" content="#08080a"><link rel="canonical" href="https://wild-think-lab.github.io/wild-think/writing/journald-rsyslog-architecture"><link rel="icon" type="image/svg+xml" href="/wild-think/favicon.svg"><link rel="alternate" type="application/rss+xml" title="野生思考" href="/wild-think/rss.xml"><meta property="og:type" content="article"><meta property="og:site_name" content="野生思考"><meta property="og:title" content="Linux 日志体系：journald 与 rsyslog 到底谁在写日志 · 野生思考"><meta property="og:description" content="搞清楚 journald、rsyslog 的分工与数据流，才能在两套日志之间快速定位故障，而不是把 /var/log 翻一遍碰运气。"><meta property="og:url" content="https://wild-think-lab.github.io/wild-think/writing/journald-rsyslog-architecture"><meta name="twitter:card" content="summary_large_image"><script>
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light') document.documentElement.classList.add('light');
+      } catch (e) {}
+    </script><link rel="stylesheet" href="/wild-think/_astro/about.BeOWH9B9.css"></head> <body> <a class="skip" href="#main">跳到正文</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="/wild-think/"> <span class="brand-mark">野</span> <span>野生思考</span> <span class="brand-sub">/ wild-think</span> </a> <nav class="nav" aria-label="主导航"> <a href="/wild-think/topics/"> 专题 </a><a href="/wild-think/writing/" aria-current="true"> 文章 </a><a href="/wild-think/tags/"> 标签 </a><a href="/wild-think/archive/"> 归档 </a><a href="/wild-think/about/"> 关于 </a> </nav> <div class="header-actions"> <a class="icon-btn" href="/wild-think/search/" aria-label="搜索" title="搜索 ( / )"> <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>  </a> <button class="icon-btn" id="theme-toggle" aria-label="切换深浅色" title="切换主题"> <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="theme-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="theme-moon" aria-hidden="true"><path d="M12 3a6 6 0 009 9 9 9 0 11-9-9z"/></svg>  </button> <button class="icon-btn menu-btn" id="menu-toggle" aria-label="打开菜单"> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>  </button> </div> </div> <nav class="mobile-nav container" id="mobile-nav" aria-label="移动端导航"> <a href="/wild-think/topics/">专题</a><a href="/wild-think/writing/">文章</a><a href="/wild-think/tags/">标签</a><a href="/wild-think/archive/">归档</a><a href="/wild-think/about/">关于</a> <a href="/wild-think/search/">搜索</a> </nav> </header> <main id="main">  <div class="reading-bar" id="reading-bar"></div> <div class="container"> <div class="breadcrumb" style="padding-top:26px"> <a href="/wild-think/">首页</a><i>/</i> <a href="/wild-think/topics/linux/">Linux 运维知识库</a><i>/</i> <span>Linux 日志体系：journald 与 rsyslog 到底谁在写日志</span> </div> <div class="article-wrap"> <article> <header class="article-head"> <h1>Linux 日志体系：journald 与 rsyslog 到底谁在写日志</h1> <div class="article-meta"> <a class="topic-pill" href="/wild-think/topics/linux/">LINUX &amp; SYSTEM</a> <span>2026-11-24</span> <span class="sep">·</span> <span style="display:inline-flex;align-items:center;gap:4px"> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3.2 2"/></svg>  6 min
+</span>  </div> <p class="article-lead">搞清楚 journald、rsyslog 的分工与数据流，才能在两套日志之间快速定位故障，而不是把 /var/log 翻一遍碰运气。</p> </header> <div class="prose" style="margin-top:34px"> <p>很多人在服务器上排障的第一反应是 <code>cat /var/log/messages</code>，然后发现”没有这条日志”，就判定”服务没报错”。实际上日志系统是两条并行链路，你看到的那份可能根本不是服务真实输出的那一份。</p>
+<h2 id="一两条链路的分工">一、两条链路的分工</h2>
+<p>systemd 体系下，日志的起点都是同一个：<strong>进程把消息写到 stdout/stderr 或 syslog socket</strong>。之后分成两支。</p>
+<table>
+<thead>
+<tr>
+<th>链路</th>
+<th>收集者</th>
+<th>存储位置</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>systemd 链路</td>
+<td><code>systemd-journald</code></td>
+<td><code>/run/log/journal</code>（内存）或 <code>/var/log/journal</code>（持久）</td>
+<td>二进制、结构化字段、带优先级与单元信息</td>
+</tr>
+<tr>
+<td>syslog 链路</td>
+<td><code>rsyslog</code> / <code>syslog-ng</code></td>
+<td><code>/var/log/messages</code>、<code>/var/log/secure</code> 等文本</td>
+<td>纯文本、规则灵活、可转发到远端</td>
+</tr>
+</tbody>
+</table>
+<p>关键点：<strong>journald 会把日志转发给 rsyslog</strong>（通过 <code>/run/systemd/journal/syslog</code> socket），所以早先的文本日志常常是 journald 的”副本”。但方向不是反的——rsyslog 收到的日志不会再回流到 journald。</p>
+<p>这解释了两种常见现象：</p>
+<ul>
+<li>服务用 <code>systemd</code> 托管、直接打印到 stdout 时，日志只在 journald 里；如果 rsyslog 没配置对应规则，<code>/var/log/messages</code> 里就看不到。</li>
+<li>rsyslog 挂了（比如磁盘满、配置写错），journalctl 依然有日志，因为 journald 不依赖 rsyslog。</li>
+</ul>
+<h2 id="二journalctl-的正确打开方式">二、journalctl 的正确打开方式</h2>
+<p><code>journalctl</code> 的信息密度远高于 <code>grep /var/log/messages</code>，因为它按字段检索。</p>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic"># 只看某个单元，并且是本次开机以来</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">journalctl</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -u</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> nginx</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> --since</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> today</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic"># 按优先级过滤（0 emerg → 7 debug），只看 err 及以上</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">journalctl</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -p</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> err</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -b</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic"># 内核环形缓冲区相关</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">journalctl</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -k</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> --since</span><span style="color:#032F62;--shiki-dark:#A6ACCD"> "</span><span style="color:#032F62;--shiki-dark:#5DE4C7">1 hour ago</span><span style="color:#032F62;--shiki-dark:#A6ACCD">"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic"># 按可执行文件名过滤（程序没跑在 systemd 单元里时特别有用）</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">journalctl</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> _COMM=sshd</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -n</span><span style="color:#005CC5;--shiki-dark:#5DE4C7"> 100</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic"># 结构化输出，方便喂给 jq</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">journalctl</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -u</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> sshd</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -o</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> json-pretty</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -n</span><span style="color:#005CC5;--shiki-dark:#5DE4C7"> 5</span></span></code></pre>
+<p>常用字段：<code>_PID</code>、<code>_UID</code>、<code>_COMM</code>、<code>_EXE</code>、<code>_SYSTEMD_UNIT</code>、<code>PRIORITY</code>、<code>SYSLOG_IDENTIFIER</code>。排查”到底是谁在刷日志”时，<code>journalctl -o json | jq -r '._COMM' | sort | uniq -c | sort -rn</code> 比翻文本快得多。</p>
+<h2 id="三持久化别忘了默认可能不落盘">三、持久化：别忘了默认可能不落盘</h2>
+<p><code>/run/log/journal</code> 在 tmpfs 上，<strong>重启即丢</strong>。要保留历史，需要让目录存在并重启 journald：</p>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">sudo</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> mkdir</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -p</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /var/log/journal</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">sudo</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> systemctl</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> restart</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> systemd-journald</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic"># 验证：持久化后 Storage 应为 persistent</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">journalctl</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> --disk-usage</span></span></code></pre>
+<p>容量控制写在 <code>/etc/systemd/journald.conf</code>：</p>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="ini"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#A6ACCD">[</span><span style="color:#6F42C1;--shiki-dark:#91B4D5">Journal</span><span style="color:#6F42C1;--shiki-dark:#A6ACCD">]</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#5DE4C7">Storage</span><span style="color:#24292E;--shiki-dark:#A6ACCD">=persistent</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#5DE4C7">SystemMaxUse</span><span style="color:#24292E;--shiki-dark:#A6ACCD">=2G</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#5DE4C7">SystemKeepFree</span><span style="color:#24292E;--shiki-dark:#A6ACCD">=1G</span></span>
+<span class="line"><span style="color:#D73A49;--shiki-dark:#5DE4C7">MaxRetentionSec</span><span style="color:#24292E;--shiki-dark:#A6ACCD">=30day</span></span></code></pre>
+<p><code>SystemMaxUse</code> 之外还有 <code>RuntimeMaxUse</code>（tmpfs 部分）。压测机器上曾出现过 journal 占满 <code>/run</code> 导致其他服务写临时文件失败的情况，这类问题只能靠限额避免。</p>
+<h2 id="四rsyslog-侧的规则与转发">四、rsyslog 侧的规则与转发</h2>
+<p><code>/etc/rsyslog.conf</code> 的核心是”选择器 + 动作”：</p>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span># 认证类日志单独存一份，并且不重复写入 messages</span></span>
+<span class="line"><span>authpriv.*                       /var/log/secure</span></span>
+<span class="line"><span>&#x26; stop</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 把 warning 及以上的内核日志转发到日志服务器</span></span>
+<span class="line"><span>kern.warning                     @@192.168.10.20:514</span></span></code></pre>
+<p><code>@</code> 是 UDP，<code>@@</code> 是 TCP。集中式日志场景下建议 TCP + 磁盘缓冲，否则网络抖动会静默丢日志：</p>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>*.*  action(type="omfwd" target="log01" port="514" protocol="tcp"</span></span>
+<span class="line"><span>       queue.type="disk" queue.size="50000" action.resumeRetryCount="-1")</span></span></code></pre>
+<p>改完配置必须做语法校验，否则重启直接失败：</p>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">sudo</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> rsyslogd</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -N1</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">sudo</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> systemctl</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> restart</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> rsyslog</span></span></code></pre>
+<h2 id="五一条实用的排障顺序">五、一条实用的排障顺序</h2>
+<ol>
+<li><code>systemctl status &#x3C;svc></code> 看退出码与最近三行（这是 journald 取的）。</li>
+<li><code>journalctl -u &#x3C;svc> -n 80 --no-pager</code> 看完整上下文，注意时间戳是否连续。</li>
+<li>若进程不在 systemd 管理下，改用 <code>journalctl _COMM=&#x3C;name></code> 或 <code>journalctl _PID=&#x3C;pid></code>。</li>
+<li>需要长期证据、要给审计看，回到 <code>/var/log/&#x3C;对应文件></code>，并确认 rsyslog 规则没把它丢弃（<code>&#x26; stop</code> 会阻止后续规则）。</li>
+<li>交叉验证：<code>logrotate</code> 是否刚切过文件，<code>grep</code> 到的是旧文件还是新文件。</li>
+</ol>
+<blockquote>
+<p><strong>一个典型坑</strong>：日志”消失”往往不是服务没输出，而是 journald 的 <code>Storage=volatile</code> + 重启，或 rsyslog 规则里 <code>&#x26; stop</code> 把 <code>authpriv</code> 从 <code>messages</code> 里截走了。判断依据是先看 journald 有没有，再看 rsyslog 有没有。</p>
+</blockquote> </div> <footer class="article-foot"> <div class="article-tags"> <a class="chip" href="/wild-think/tags/Linux/">#Linux</a><a class="chip" href="/wild-think/tags/journald/">#journald</a><a class="chip" href="/wild-think/tags/rsyslog/">#rsyslog</a><a class="chip" href="/wild-think/tags/%E6%97%A5%E5%BF%97/">#日志</a><a class="chip" href="/wild-think/tags/%E6%8E%92%E9%9A%9C/">#排障</a> </div> <div class="prevnext"> <a class="pn" href="/wild-think/writing/centos7-yum-repair/"> <small>← 上一篇</small> <span>实验：CentOS 7 YUM 源失效的四种修复路径</span> </a> <a class="pn next" href="/wild-think/writing/kinglinux-design-tradeoffs/"> <small>下一篇 →</small> <span>项目：KingLinux 的设计取舍——为什么本地客户端比网页更难做对</span> </a> </div> <div style="margin-top:26px;font-family:var(--font-mono);font-size:11.5px;color:var(--dim);letter-spacing:.04em">
+// 如需转载，注明来源即可 · Linux 运维知识库 </div> </footer> </article> <aside class="toc" id="toc"> <div class="toc-title">On this page</div> <ul> <li class="depth-2"> <a href="#一两条链路的分工">一、两条链路的分工</a> </li><li class="depth-2"> <a href="#二journalctl-的正确打开方式">二、journalctl 的正确打开方式</a> </li><li class="depth-2"> <a href="#三持久化别忘了默认可能不落盘">三、持久化：别忘了默认可能不落盘</a> </li><li class="depth-2"> <a href="#四rsyslog-侧的规则与转发">四、rsyslog 侧的规则与转发</a> </li><li class="depth-2"> <a href="#五一条实用的排障顺序">五、一条实用的排障顺序</a> </li> </ul> </aside> </div> </div> <script type="module">const c=document.getElementById("reading-bar"),n=()=>{const e=document.documentElement,t=e.scrollHeight-e.clientHeight,o=t>0?e.scrollTop/t*100:0;c&&(c.style.width=Math.min(100,Math.max(0,o))+"%")};document.addEventListener("scroll",n,{passive:!0});window.addEventListener("resize",n);n();const i=Array.from(document.querySelectorAll("#toc a")),r=i.map(e=>document.getElementById(decodeURIComponent(e.hash.slice(1)))).filter(Boolean);if(r.length){const e=new IntersectionObserver(t=>{t.forEach(o=>{o.isIntersecting&&i.forEach(s=>s.classList.toggle("active",decodeURIComponent(s.hash.slice(1))===o.target.id))})},{rootMargin:"-90px 0px -70% 0px",threshold:0});r.forEach(t=>e.observe(t))}</script>  </main> <footer class="site-footer"> <div class="container"> <div class="footer-grid"> <div class="footer-brand"> <a class="brand" href="/wild-think/"> <span class="brand-mark">野</span> <span>野生思考</span> </a> <p>把复杂的技术，变成可以落地复现的思考与实践</p> </div> <div class="footer-col"> <h4>专题</h4> <a href="/wild-think/topics/linux/">Linux 运维知识库</a><a href="/wild-think/topics/network/">计算机网络与路由交换</a><a href="/wild-think/topics/security/">网络安全与渗透基础</a><a href="/wild-think/topics/sre-cloud/">云原生与 SRE 体系</a><a href="/wild-think/topics/db/">数据库知识库</a> </div> <div class="footer-col"> <h4>站点</h4> <a href="/wild-think/writing/">全部文章</a> <a href="/wild-think/archive/">归档</a> <a href="/wild-think/tags/">标签</a> <a href="/wild-think/about/">关于本站</a> <a href="/wild-think/rss.xml">RSS 订阅</a> </div> </div> <div class="footer-bottom"> <span>© 2026–2026 野生思考 · wild-think-lab</span> <span class="sig">// 把复杂的技术，写成可以走的路</span> </div> </div> </footer> <button class="to-top" id="to-top" aria-label="回到顶部"> <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg>  </button> <script type="module">const o=document.documentElement,c=document.getElementById("theme-toggle");c?.addEventListener("click",()=>{o.classList.toggle("light");try{localStorage.setItem("theme",o.classList.contains("light")?"light":"dark")}catch{}});const i=document.getElementById("menu-toggle"),d=document.getElementById("mobile-nav");i?.addEventListener("click",()=>{d?.classList.toggle("open")});const n=document.getElementById("to-top"),l=()=>{n?.classList.toggle("show",window.scrollY>700)};window.addEventListener("scroll",l,{passive:!0});l();n?.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));document.addEventListener("keydown",t=>{const e=t.target,s=e&&/^(INPUT|TEXTAREA)$/.test(e.tagName);t.key==="/"&&!s&&(t.preventDefault(),location.href="/wild-think/search/")});</script>  </body> </html>

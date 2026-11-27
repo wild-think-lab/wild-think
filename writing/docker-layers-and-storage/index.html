@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v5.18.2"><title>镜像分层、写时复制与存储驱动：为什么容器磁盘会悄悄涨 · 野生思考</title><meta name="description" content="从镜像分层理解容器的读写机制，再解释 overlay2 下&#34;删了文件反而更占空间&#34;、磁盘持续增长的真实原因与治理手段。"><meta name="author" content="wild-think-lab"><meta name="theme-color" content="#08080a"><link rel="canonical" href="https://wild-think-lab.github.io/wild-think/writing/docker-layers-and-storage"><link rel="icon" type="image/svg+xml" href="/wild-think/favicon.svg"><link rel="alternate" type="application/rss+xml" title="野生思考" href="/wild-think/rss.xml"><meta property="og:type" content="article"><meta property="og:site_name" content="野生思考"><meta property="og:title" content="镜像分层、写时复制与存储驱动：为什么容器磁盘会悄悄涨 · 野生思考"><meta property="og:description" content="从镜像分层理解容器的读写机制，再解释 overlay2 下&#34;删了文件反而更占空间&#34;、磁盘持续增长的真实原因与治理手段。"><meta property="og:url" content="https://wild-think-lab.github.io/wild-think/writing/docker-layers-and-storage"><meta name="twitter:card" content="summary_large_image"><script>
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light') document.documentElement.classList.add('light');
+      } catch (e) {}
+    </script><link rel="stylesheet" href="/wild-think/_astro/about.BeOWH9B9.css"></head> <body> <a class="skip" href="#main">跳到正文</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="/wild-think/"> <span class="brand-mark">野</span> <span>野生思考</span> <span class="brand-sub">/ wild-think</span> </a> <nav class="nav" aria-label="主导航"> <a href="/wild-think/topics/"> 专题 </a><a href="/wild-think/writing/" aria-current="true"> 文章 </a><a href="/wild-think/tags/"> 标签 </a><a href="/wild-think/archive/"> 归档 </a><a href="/wild-think/about/"> 关于 </a> </nav> <div class="header-actions"> <a class="icon-btn" href="/wild-think/search/" aria-label="搜索" title="搜索 ( / )"> <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>  </a> <button class="icon-btn" id="theme-toggle" aria-label="切换深浅色" title="切换主题"> <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="theme-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="theme-moon" aria-hidden="true"><path d="M12 3a6 6 0 009 9 9 9 0 11-9-9z"/></svg>  </button> <button class="icon-btn menu-btn" id="menu-toggle" aria-label="打开菜单"> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>  </button> </div> </div> <nav class="mobile-nav container" id="mobile-nav" aria-label="移动端导航"> <a href="/wild-think/topics/">专题</a><a href="/wild-think/writing/">文章</a><a href="/wild-think/tags/">标签</a><a href="/wild-think/archive/">归档</a><a href="/wild-think/about/">关于</a> <a href="/wild-think/search/">搜索</a> </nav> </header> <main id="main">  <div class="reading-bar" id="reading-bar"></div> <div class="container"> <div class="breadcrumb" style="padding-top:26px"> <a href="/wild-think/">首页</a><i>/</i> <a href="/wild-think/topics/sre-cloud/">云原生与 SRE 体系</a><i>/</i> <span>镜像分层、写时复制与存储驱动：为什么容器磁盘会悄悄涨</span> </div> <div class="article-wrap"> <article> <header class="article-head"> <h1>镜像分层、写时复制与存储驱动：为什么容器磁盘会悄悄涨</h1> <div class="article-meta"> <a class="topic-pill" href="/wild-think/topics/sre-cloud/">CLOUD NATIVE &amp; SRE</a> <span>2026-11-22</span> <span class="sep">·</span> <span style="display:inline-flex;align-items:center;gap:4px"> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3.2 2"/></svg>  5 min
+</span>  </div> <p class="article-lead">从镜像分层理解容器的读写机制，再解释 overlay2 下&quot;删了文件反而更占空间&quot;、磁盘持续增长的真实原因与治理手段。</p> </header> <div class="prose" style="margin-top:34px"> <p>容器不是虚拟机，没有独立的磁盘镜像。它共享内核，用<strong>联合挂载</strong>把若干只读层叠成一份可写视图。理解了这一层，很多”玄学”问题就解释得通。</p>
+<h2 id="一镜像--只读层的叠加">一、镜像 = 只读层的叠加</h2>
+<p><code>Dockerfile</code> 的每条 <code>RUN</code>、<code>COPY</code>、<code>ADD</code> 都会产生新的一层。层是<strong>只读且可复用</strong>的：两个镜像共享同一个基础层时，磁盘上只有一份。</p>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>alpine:3.19                     ← 基础层</span></span>
+<span class="line"><span>├─ RUN apk add curl             ← 层 2：安装的包</span></span>
+<span class="line"><span>├─ COPY app.jar /app/           ← 层 3：应用文件</span></span>
+<span class="line"><span>└─ CMD ["java","-jar","/app/app.jar"]</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">docker</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> history</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> --no-trunc</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> &#x3C;</span><span style="color:#032F62;--shiki-dark:#ADD7FF">imag</span><span style="color:#24292E;--shiki-dark:#A6ACCD">e</span><span style="color:#D73A49;--shiki-dark:#91B4D5">></span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">     # 每层大小与创建指令</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">docker</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> image</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> inspect</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> &#x3C;</span><span style="color:#032F62;--shiki-dark:#ADD7FF">imag</span><span style="color:#24292E;--shiki-dark:#A6ACCD">e</span><span style="color:#D73A49;--shiki-dark:#91B4D5">></span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> --format</span><span style="color:#032F62;--shiki-dark:#A6ACCD"> '</span><span style="color:#032F62;--shiki-dark:#5DE4C7">{{.RootFS.Layers}}</span><span style="color:#032F62;--shiki-dark:#A6ACCD">'</span></span></code></pre>
+<p>所以<strong>指令顺序决定缓存命中与体积</strong>：把变化频繁的 <code>COPY 源码</code> 放在安装依赖之后，依赖层就能复用缓存，构建更快、镜像更小。</p>
+<h2 id="二容器层是写时复制cow">二、容器层是写时复制（CoW）</h2>
+<p>容器启动时在最上面加一个<strong>可写层</strong>。读文件时从下往上找；写文件时：</p>
+<ul>
+<li>文件在下层只读层 → 先把整个文件<strong>复制到可写层</strong>，再修改（copy-up）</li>
+<li>文件已在可写层 → 直接改</li>
+</ul>
+<p>这带来两个后果：</p>
+<ol>
+<li><strong>修改大文件代价高</strong>：改 1 字节也要复制整个文件。</li>
+<li><strong>删除不是真删</strong>：在下层删除文件，只是在上层写一个”白障（whiteout）“标记，下层那块空间<strong>依然被镜像层占用</strong>。</li>
+</ol>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic"># 典型反例：临时下载大文件又删掉，镜像照样变大</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">RUN</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> curl</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -o</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /tmp/big.tar.gz</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> http://...</span><span style="color:#24292E;--shiki-dark:#A6ACCD"> &#x26;&#x26; </span><span style="color:#6F42C1;--shiki-dark:#91B4D5">tar</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -xzf</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /tmp/big.tar.gz</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -C</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /opt</span><span style="color:#24292E;--shiki-dark:#A6ACCD"> &#x26;&#x26; </span><span style="color:#6F42C1;--shiki-dark:#91B4D5">rm</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /tmp/big.tar.gz</span></span></code></pre>
+<p>正确做法是<strong>同一层内完成下载、使用、清理</strong>（如上，因为写在同一 <code>RUN</code> 里，白障不产生新块）。或者用多阶段构建，把中间产物留在 builder 阶段。</p>
+<h2 id="三磁盘持续增长的六个来源">三、磁盘持续增长的六个来源</h2>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">docker</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> system</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> df</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -v</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">          # 镜像/容器/卷/构建缓存各自占用</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">du</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -sh</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /var/lib/docker/</span><span style="color:#005CC5;--shiki-light-font-style:inherit;--shiki-dark:#ADD7FF;--shiki-dark-font-style:italic">*</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">     # 目录级实际占用</span></span></code></pre>
+<ol>
+<li><strong>停止但未删除的容器</strong>：可写层仍在。<code>docker ps -a</code> 里一堆 Exited 就是它。</li>
+<li><strong>悬空镜像（dangling）</strong>：<code>&#x3C;none>:&#x3C;none></code>，多为重建同名镜像产生。</li>
+<li><strong>构建缓存</strong>：<code>docker builder prune</code> 可清，默认保留量很大。</li>
+<li><strong>匿名卷</strong>：<code>docker run -v /data</code> 会创建匿名卷，容器删了卷还在。</li>
+<li><strong>容器日志</strong>：<code>*-json.log</code> 默认无上限，这是最常见的”夜里磁盘满”。</li>
+<li><strong>overlay2 目录碎片</strong>：大量小层导致 inode 与目录项开销。</li>
+</ol>
+<p>治理命令（按风险从低到高）：</p>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">docker</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> image</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> prune</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -f</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">                    # 悬空镜像</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">docker</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> container</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> prune</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -f</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">                # 已停止容器</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">docker</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> volume</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> prune</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -f</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">                   # 未使用的匿名卷（先确认没有数据）</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">docker</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> builder</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> prune</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> --filter</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> until=72h</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">  # 构建缓存</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">docker</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> system</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> prune</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -a</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> --volumes</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">         # 慎用：会删所有未使用对象</span></span></code></pre>
+<p>日志限额写进 <code>/etc/docker/daemon.json</code>（需重启 dockerd）：</p>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#24292E;--shiki-dark:#A6ACCD">{</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#A6ACCD">  "</span><span style="color:#005CC5;--shiki-dark:#E4F0FB">log-driver</span><span style="color:#005CC5;--shiki-dark:#A6ACCD">"</span><span style="color:#24292E;--shiki-dark:#A6ACCD">: </span><span style="color:#032F62;--shiki-dark:#A6ACCD">"</span><span style="color:#032F62;--shiki-dark:#5DE4C7">json-file</span><span style="color:#032F62;--shiki-dark:#A6ACCD">"</span><span style="color:#24292E;--shiki-dark:#A6ACCD">,</span></span>
+<span class="line"><span style="color:#005CC5;--shiki-dark:#A6ACCD">  "</span><span style="color:#005CC5;--shiki-dark:#E4F0FB">log-opts</span><span style="color:#005CC5;--shiki-dark:#A6ACCD">"</span><span style="color:#24292E;--shiki-dark:#A6ACCD">: { </span><span style="color:#005CC5;--shiki-dark:#A6ACCD">"</span><span style="color:#005CC5;--shiki-dark:#ADD7FF">max-size</span><span style="color:#005CC5;--shiki-dark:#A6ACCD">"</span><span style="color:#24292E;--shiki-dark:#A6ACCD">: </span><span style="color:#032F62;--shiki-dark:#A6ACCD">"</span><span style="color:#032F62;--shiki-dark:#5DE4C7">50m</span><span style="color:#032F62;--shiki-dark:#A6ACCD">"</span><span style="color:#24292E;--shiki-dark:#A6ACCD">, </span><span style="color:#005CC5;--shiki-dark:#A6ACCD">"</span><span style="color:#005CC5;--shiki-dark:#ADD7FF">max-file</span><span style="color:#005CC5;--shiki-dark:#A6ACCD">"</span><span style="color:#24292E;--shiki-dark:#A6ACCD">: </span><span style="color:#032F62;--shiki-dark:#A6ACCD">"</span><span style="color:#032F62;--shiki-dark:#5DE4C7">3</span><span style="color:#032F62;--shiki-dark:#A6ACCD">"</span><span style="color:#24292E;--shiki-dark:#A6ACCD"> }</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#A6ACCD">}</span></span></code></pre>
+<h2 id="四存储驱动对比overlay2-为什么是默认">四、存储驱动对比（overlay2 为什么是默认）</h2>
+<table>
+<thead>
+<tr>
+<th>驱动</th>
+<th>原理</th>
+<th>适用</th>
+<th>局限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>overlay2</td>
+<td>联合挂载，多层目录叠加</td>
+<td>绝大多数 Linux 生产环境</td>
+<td>层数过多时性能下降，inode 消耗高</td>
+</tr>
+<tr>
+<td>btrfs / zfs</td>
+<td>快照式</td>
+<td>需要快照/配额能力</td>
+<td>内存占用高，稳定性依赖文件系统成熟度</td>
+</tr>
+<tr>
+<td>devicemapper</td>
+<td>块设备 thin pool</td>
+<td>老环境</td>
+<td>已逐步弃用，pool 满会导致容器全挂</td>
+</tr>
+<tr>
+<td>vfs</td>
+<td>每层完整复制</td>
+<td>测试、特殊文件系统</td>
+<td>极慢、极占空间，<strong>不要用于生产</strong></td>
+</tr>
+</tbody>
+</table>
+<p>查看当前驱动：<code>docker info | grep -i storage</code>。</p>
+<h2 id="五实践约定">五、实践约定</h2>
+<ul>
+<li>基础镜像用最小化版本（<code>alpine</code>、<code>distroless</code>），减少层数与攻击面。</li>
+<li>一个 <code>RUN</code> 里完成”装—用—清”，避免白障残留。</li>
+<li>用多阶段构建把编译工具链留在 builder 阶段。</li>
+<li>业务数据一律走 volume 或 bind mount，<strong>不要写容器可写层</strong>（容器重建即丢）。</li>
+<li>给 <code>/var/lib/docker</code> 单独分区或独立盘，避免容器把系统盘写满导致整机异常。</li>
+</ul>
+<blockquote>
+<p>一句话：<strong>容器的”磁盘”是叠出来的，不是分出来的。删除不代表释放，复制不代表新增——只有理解 CoW，才知道空间到底去哪了。</strong></p>
+</blockquote> </div> <footer class="article-foot"> <div class="article-tags"> <a class="chip" href="/wild-think/tags/Docker/">#Docker</a><a class="chip" href="/wild-think/tags/%E5%AE%B9%E5%99%A8/">#容器</a><a class="chip" href="/wild-think/tags/%E9%95%9C%E5%83%8F%E5%88%86%E5%B1%82/">#镜像分层</a><a class="chip" href="/wild-think/tags/overlay2/">#overlay2</a><a class="chip" href="/wild-think/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/">#云原生</a> </div> <div class="prevnext"> <a class="pn" href="/wild-think/writing/subnetting-and-vlsm/"> <small>← 上一篇</small> <span>子网划分与 VLSM：从需求反推掩码，而不是背公式</span> </a> <a class="pn next" href="/wild-think/writing/centos7-yum-repair/"> <small>下一篇 →</small> <span>实验：CentOS 7 YUM 源失效的四种修复路径</span> </a> </div> <div style="margin-top:26px;font-family:var(--font-mono);font-size:11.5px;color:var(--dim);letter-spacing:.04em">
+// 如需转载，注明来源即可 · 云原生与 SRE 体系 </div> </footer> </article> <aside class="toc" id="toc"> <div class="toc-title">On this page</div> <ul> <li class="depth-2"> <a href="#一镜像--只读层的叠加">一、镜像 = 只读层的叠加</a> </li><li class="depth-2"> <a href="#二容器层是写时复制cow">二、容器层是写时复制（CoW）</a> </li><li class="depth-2"> <a href="#三磁盘持续增长的六个来源">三、磁盘持续增长的六个来源</a> </li><li class="depth-2"> <a href="#四存储驱动对比overlay2-为什么是默认">四、存储驱动对比（overlay2 为什么是默认）</a> </li><li class="depth-2"> <a href="#五实践约定">五、实践约定</a> </li> </ul> </aside> </div> </div> <script type="module">const c=document.getElementById("reading-bar"),n=()=>{const e=document.documentElement,t=e.scrollHeight-e.clientHeight,o=t>0?e.scrollTop/t*100:0;c&&(c.style.width=Math.min(100,Math.max(0,o))+"%")};document.addEventListener("scroll",n,{passive:!0});window.addEventListener("resize",n);n();const i=Array.from(document.querySelectorAll("#toc a")),r=i.map(e=>document.getElementById(decodeURIComponent(e.hash.slice(1)))).filter(Boolean);if(r.length){const e=new IntersectionObserver(t=>{t.forEach(o=>{o.isIntersecting&&i.forEach(s=>s.classList.toggle("active",decodeURIComponent(s.hash.slice(1))===o.target.id))})},{rootMargin:"-90px 0px -70% 0px",threshold:0});r.forEach(t=>e.observe(t))}</script>  </main> <footer class="site-footer"> <div class="container"> <div class="footer-grid"> <div class="footer-brand"> <a class="brand" href="/wild-think/"> <span class="brand-mark">野</span> <span>野生思考</span> </a> <p>把复杂的技术，变成可以落地复现的思考与实践</p> </div> <div class="footer-col"> <h4>专题</h4> <a href="/wild-think/topics/linux/">Linux 运维知识库</a><a href="/wild-think/topics/network/">计算机网络与路由交换</a><a href="/wild-think/topics/security/">网络安全与渗透基础</a><a href="/wild-think/topics/sre-cloud/">云原生与 SRE 体系</a><a href="/wild-think/topics/db/">数据库知识库</a> </div> <div class="footer-col"> <h4>站点</h4> <a href="/wild-think/writing/">全部文章</a> <a href="/wild-think/archive/">归档</a> <a href="/wild-think/tags/">标签</a> <a href="/wild-think/about/">关于本站</a> <a href="/wild-think/rss.xml">RSS 订阅</a> </div> </div> <div class="footer-bottom"> <span>© 2026–2026 野生思考 · wild-think-lab</span> <span class="sig">// 把复杂的技术，写成可以走的路</span> </div> </div> </footer> <button class="to-top" id="to-top" aria-label="回到顶部"> <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg>  </button> <script type="module">const o=document.documentElement,c=document.getElementById("theme-toggle");c?.addEventListener("click",()=>{o.classList.toggle("light");try{localStorage.setItem("theme",o.classList.contains("light")?"light":"dark")}catch{}});const i=document.getElementById("menu-toggle"),d=document.getElementById("mobile-nav");i?.addEventListener("click",()=>{d?.classList.toggle("open")});const n=document.getElementById("to-top"),l=()=>{n?.classList.toggle("show",window.scrollY>700)};window.addEventListener("scroll",l,{passive:!0});l();n?.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));document.addEventListener("keydown",t=>{const e=t.target,s=e&&/^(INPUT|TEXTAREA)$/.test(e.tagName);t.key==="/"&&!s&&(t.preventDefault(),location.href="/wild-think/search/")});</script>  </body> </html>

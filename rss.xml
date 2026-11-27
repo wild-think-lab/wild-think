@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>野生思考</title>
+    <link>https://wild-think-lab.github.io/wild-think</link>
+    <description>把复杂的技术，变成可以落地复现的思考与实践</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 27 Nov 2026 05:04:05 GMT</lastBuildDate>
+    <self>https://wild-think-lab.github.io/wild-thinkrss.xml</self>
+    <item>
+      <title>项目：本站的发布流程与内容工作流</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/publishing-workflow/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/publishing-workflow/</guid>
+      <pubDate>Fri, 27 Nov 2026 00:00:00 GMT</pubDate>
+      <description>从写好一篇 Markdown 到线上可访问，中间有几步是必须的：schema 校验、base 前缀、索引重建、发布验证。这份记录可当作模板复用。</description>
+    </item>
+    <item>
+      <title>这个博客是怎么搭的：Astro 静态站点的取舍清单</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/how-this-blog-is-built/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/how-this-blog-is-built/</guid>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 GMT</pubDate>
+      <description>从主题选型、内容模型、路由设计到搜索引擎与部署，说明一个纯静态技术博客的完整技术决策，以及为什么放弃 Tailwind 与第三方统计。</description>
+    </item>
+    <item>
+      <title>项目：KingLinux 的设计取舍——为什么本地客户端比网页更难做对</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/kinglinux-design-tradeoffs/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/kinglinux-design-tradeoffs/</guid>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+      <description>一个面向教学的全栈本地客户端，难点不在功能列表，而在&quot;多技术栈共存、可离线运行、可增量更新&quot;这三件事上。这里记录关键决策与踩过的坑。</description>
+    </item>
+    <item>
+      <title>Linux 日志体系：journald 与 rsyslog 到底谁在写日志</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/journald-rsyslog-architecture/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/journald-rsyslog-architecture/</guid>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+      <description>搞清楚 journald、rsyslog 的分工与数据流，才能在两套日志之间快速定位故障，而不是把 /var/log 翻一遍碰运气。</description>
+    </item>
+    <item>
+      <title>实验：CentOS 7 YUM 源失效的四种修复路径</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/centos7-yum-repair/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/centos7-yum-repair/</guid>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+      <description>CentOS 7 停止维护后，默认源返回 404 或镜像站改路径，yum 全面不可用。按&quot;镜像站替换 / 本地仓库 / 内网代理 / 离线 RPM&quot;四条路径给出可执行脚本与验证方式。</description>
+    </item>
+    <item>
+      <title>镜像分层、写时复制与存储驱动：为什么容器磁盘会悄悄涨</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/docker-layers-and-storage/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/docker-layers-and-storage/</guid>
+      <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
+      <description>从镜像分层理解容器的读写机制，再解释 overlay2 下&quot;删了文件反而更占空间&quot;、磁盘持续增长的真实原因与治理手段。</description>
+    </item>
+    <item>
+      <title>子网划分与 VLSM：从需求反推掩码，而不是背公式</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/subnetting-and-vlsm/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/subnetting-and-vlsm/</guid>
+      <pubDate>Sat, 21 Nov 2026 00:00:00 GMT</pubDate>
+      <description>常规划分适合&quot;每段人数相同&quot;的场景，VLSM 适合&quot;每段人数差异巨大&quot;的真实项目。两种做法都给出完整演算，并说明可浪费与不可浪费的边界。</description>
+    </item>
+    <item>
+      <title>MySQL 索引为什么是 B+ 树：从回表代价讲起</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/mysql-index-bplus-tree/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/mysql-index-bplus-tree/</guid>
+      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+      <description>聚集索引与二级索引的区别决定了&quot;回表&quot;的代价，也决定了覆盖索引、最左前缀、索引下推这些优化为什么有效。</description>
+    </item>
+    <item>
+      <title>Linux 服务器基线加固清单：从账号到内核的十二项检查</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/linux-baseline-hardening/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/linux-baseline-hardening/</guid>
+      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
+      <description>加固不是跑一个脚本就结束。按&quot;账号—权限—服务—网络—日志—内核&quot;六组顺序做，每项都给出验证命令与回滚方式。</description>
+    </item>
+    <item>
+      <title>Linux 权限模型：rwx、特殊位、ACL 与 capability 各自解决什么问题</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/permission-model/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/permission-model/</guid>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 GMT</pubDate>
+      <description>权限问题几乎从不是&quot;chmod 777 就能解决&quot;，而是你没分清 DAC、特殊权限位、ACL 与 capability 这四层机制各管什么。</description>
+    </item>
+    <item>
+      <title>Pod 起不来的五层排查法：从 Pending 到 CrashLoopBackOff</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/pod-troubleshooting-five-layers/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/pod-troubleshooting-five-layers/</guid>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+      <description>K8s 里&quot;Pod 不健康&quot;是一句无效描述。按调度—网络—存储—镜像—进程五层拆解，每一层都有对应的 describe/events/logs 判据。</description>
+    </item>
+    <item>
+      <title>我的终端工具箱：十来件真正每天在用的东西</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/terminal-toolbox/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/terminal-toolbox/</guid>
+      <pubDate>Sun, 15 Nov 2026 00:00:00 GMT</pubDate>
+      <description>不是&quot;50 个神仙工具&quot;清单，而是能说清&quot;解决什么问题、替代了什么、什么时候不要用&quot;的十来件。</description>
+    </item>
+    <item>
+      <title>OSPF 邻居建立不起来的排查清单：从 Down 到 Full 卡在哪一步</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/ospf-neighbor-troubleshooting/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/ospf-neighbor-troubleshooting/</guid>
+      <pubDate>Sat, 14 Nov 2026 00:00:00 GMT</pubDate>
+      <description>OSPF 邻居卡在 Init、Exstart、或者是永远 Down，对应的是完全不同的七类原因。按状态定位，比逐个参数撞运气快得多。</description>
+    </item>
+    <item>
+      <title>注入类漏洞为什么总是存在：从数据与代码不分离讲起</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/injection-vulnerability-model/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/injection-vulnerability-model/</guid>
+      <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+      <description>SQL 注入、命令注入、模板注入本质是同一个问题：不可信的输入被当成&quot;代码/结构&quot;解析。理解这一点，比记住防御清单更重要。</description>
+    </item>
+    <item>
+      <title>事件循环、微任务与渲染时机：为什么 Promise 比 setTimeout 先跑</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/event-loop-and-microtasks/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/event-loop-and-microtasks/</guid>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+      <description>把任务队列、微任务检查点、渲染与 requestAnimationFrame 串成一条时间线，才能解释&quot;明明写在前面却后执行&quot;的现象。</description>
+    </item>
+    <item>
+      <title>磁盘满了但文件找不到：df 与 du 对不上的七种原因</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/disk-full-troubleshooting/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/disk-full-troubleshooting/</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <description>df 说 100%、du 算出只有一半，这类&quot;幽灵占用&quot;有固定排查路径：已删除但被进程持有的文件、inode 耗尽、保留块、快照、日志系统自身。</description>
+    </item>
+    <item>
+      <title>NAT 不止一种：六类 NAT 的行为差异与选型</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/nat-types-and-selection/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/nat-types-and-selection/</guid>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+      <description>静态 NAT、动态 NAT、NAPT、NAT Server、双向 NAT、CGNAT/NAT444 的行为、适用场景与验证方式各不相同，混用概念会导致&quot;配置看着对但不通&quot;。</description>
+    </item>
+    <item>
+      <title>Linux 运维高频面试题：结论、原理、追问三层答法</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/linux-interview-tiers/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/linux-interview-tiers/</guid>
+      <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
+      <description>同一个问题，回答&quot;是什么&quot;只能及格，讲清&quot;为什么&quot;和&quot;边界在哪&quot;才算合格。这里给的是可以直接背下来的答题结构。</description>
+    </item>
+    <item>
+      <title>应急响应六阶段：从判据到复盘的完整动作链</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/incident-response-six-phases/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/incident-response-six-phases/</guid>
+      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+      <description>出了安全事件，最怕的是&quot;边猜边操作&quot;。按准备—检测—抑制—根除—恢复—复盘六阶段推进，每一步都有明确的输入、输出与判断依据。</description>
+    </item>
+    <item>
+      <title>监控指标设计：把&quot;CPU 高&quot;换成&quot;用户受影响了吗&quot;</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/metrics-and-alerting-design/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/metrics-and-alerting-design/</guid>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+      <description>告警噪音的根因不是阈值定得不对，而是指标体系不完整——只有资源指标，没有服务指标。用 USE + RED 两套方法组合，再落到分级告警。</description>
+    </item>
+    <item>
+      <title>网络方向面试题：从三次握手问到丢包定位</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/network-interview-tiers/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/network-interview-tiers/</guid>
+      <pubDate>Sat, 31 Oct 2026 00:00:00 GMT</pubDate>
+      <description>网络题最容易答成背书。把每条结论挂到&quot;能验证的现象&quot;上，面试官就知道你真抓过包。</description>
+    </item>
+    <item>
+      <title>慢查询定位：从慢日志到执行计划的完整链路</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/slow-query-locating/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/slow-query-locating/</guid>
+      <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+      <description>定位慢 SQL 不是&quot;看 EXPLAIN 就行&quot;。先确认慢日志是否开着、抓的是不是真凶，再用执行计划与统计信息判断瓶颈在 CPU、I/O 还是锁。</description>
+    </item>
+    <item>
+      <title>实验：Zabbix 502 / 前端空白 / 数据库连不上的分层排错</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/zabbix-stack-troubleshooting/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/zabbix-stack-troubleshooting/</guid>
+      <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Zabbix 的故障几乎都能归到&quot;PHP-FPM → Web 服务器 → MariaDB → zabbix-server&quot;四层之一。按层给出日志位置、判据命令与常见根因。</description>
+    </item>
+    <item>
+      <title>缓存穿透、击穿、雪崩：三个名字对应三套解法</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/cache-penetration-breakdown-avalanche/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/cache-penetration-breakdown-avalanche/</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+      <description>这三个词经常被混用。用&quot;数据在不在、并发高不高、失效是否集中&quot;三个维度区分它们，才能选对解法。</description>
+    </item>
+    <item>
+      <title>实验：三层交换机上做 VLAN 间路由 + OSPF 互通</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/vlan-ospf-three-tier-lab/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/vlan-ospf-three-tier-lab/</guid>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 GMT</pubDate>
+      <description>从零搭一个&quot;两台三层交换机 + 两端接入 VLAN&quot;的实验，含完整配置、验证命令、以及四个必踩的坑。</description>
+    </item>
+    <item>
+      <title>脚本模板：一份能直接用的 Linux 巡检脚本</title>
+      <link>https://wild-think-lab.github.io/wild-think/writing/healthcheck-script-template/</link>
+      <guid isPermaLink="true">https://wild-think-lab.github.io/wild-think/writing/healthcheck-script-template/</guid>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+      <description>巡检脚本的价值是&quot;结构统一、指标可比&quot;，不是堆命令。这份模板给出收敛的输出格式、阈值判断与结构化落盘，可直接改成你要的项。</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,160 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v5.18.2"><title>应急响应六阶段：从判据到复盘的完整动作链 · 野生思考</title><meta name="description" content="出了安全事件，最怕的是&#34;边猜边操作&#34;。按准备—检测—抑制—根除—恢复—复盘六阶段推进，每一步都有明确的输入、输出与判断依据。"><meta name="author" content="wild-think-lab"><meta name="theme-color" content="#08080a"><link rel="canonical" href="https://wild-think-lab.github.io/wild-think/writing/incident-response-six-phases"><link rel="icon" type="image/svg+xml" href="/wild-think/favicon.svg"><link rel="alternate" type="application/rss+xml" title="野生思考" href="/wild-think/rss.xml"><meta property="og:type" content="article"><meta property="og:site_name" content="野生思考"><meta property="og:title" content="应急响应六阶段：从判据到复盘的完整动作链 · 野生思考"><meta property="og:description" content="出了安全事件，最怕的是&#34;边猜边操作&#34;。按准备—检测—抑制—根除—恢复—复盘六阶段推进，每一步都有明确的输入、输出与判断依据。"><meta property="og:url" content="https://wild-think-lab.github.io/wild-think/writing/incident-response-six-phases"><meta name="twitter:card" content="summary_large_image"><script>
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light') document.documentElement.classList.add('light');
+      } catch (e) {}
+    </script><link rel="stylesheet" href="/wild-think/_astro/about.BeOWH9B9.css"></head> <body> <a class="skip" href="#main">跳到正文</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="/wild-think/"> <span class="brand-mark">野</span> <span>野生思考</span> <span class="brand-sub">/ wild-think</span> </a> <nav class="nav" aria-label="主导航"> <a href="/wild-think/topics/"> 专题 </a><a href="/wild-think/writing/" aria-current="true"> 文章 </a><a href="/wild-think/tags/"> 标签 </a><a href="/wild-think/archive/"> 归档 </a><a href="/wild-think/about/"> 关于 </a> </nav> <div class="header-actions"> <a class="icon-btn" href="/wild-think/search/" aria-label="搜索" title="搜索 ( / )"> <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>  </a> <button class="icon-btn" id="theme-toggle" aria-label="切换深浅色" title="切换主题"> <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="theme-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="theme-moon" aria-hidden="true"><path d="M12 3a6 6 0 009 9 9 9 0 11-9-9z"/></svg>  </button> <button class="icon-btn menu-btn" id="menu-toggle" aria-label="打开菜单"> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>  </button> </div> </div> <nav class="mobile-nav container" id="mobile-nav" aria-label="移动端导航"> <a href="/wild-think/topics/">专题</a><a href="/wild-think/writing/">文章</a><a href="/wild-think/tags/">标签</a><a href="/wild-think/archive/">归档</a><a href="/wild-think/about/">关于</a> <a href="/wild-think/search/">搜索</a> </nav> </header> <main id="main">  <div class="reading-bar" id="reading-bar"></div> <div class="container"> <div class="breadcrumb" style="padding-top:26px"> <a href="/wild-think/">首页</a><i>/</i> <a href="/wild-think/topics/security/">网络安全与渗透基础</a><i>/</i> <span>应急响应六阶段：从判据到复盘的完整动作链</span> </div> <div class="article-wrap"> <article> <header class="article-head"> <h1>应急响应六阶段：从判据到复盘的完整动作链</h1> <div class="article-meta"> <a class="topic-pill" href="/wild-think/topics/security/">SECURITY</a> <span>2026-11-05</span> <span class="sep">·</span> <span style="display:inline-flex;align-items:center;gap:4px"> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3.2 2"/></svg>  6 min
+</span>  </div> <p class="article-lead">出了安全事件，最怕的是&quot;边猜边操作&quot;。按准备—检测—抑制—根除—恢复—复盘六阶段推进，每一步都有明确的输入、输出与判断依据。</p> </header> <div class="prose" style="margin-top:34px"> <p>应急响应的目标不是”把服务赶紧拉起来”，而是<strong>在控制损失的前提下，把事实固定下来</strong>。顺序颠倒，证据就没了。</p>
+<h2 id="一准备prepare">一、准备（Prepare）</h2>
+<p>平时就该有的东西，事发时才想不起来就晚了：</p>
+<ul>
+<li>资产清单（IP、归属业务、负责人）与网络拓扑</li>
+<li>账号权限矩阵、跳板机与日志集中平台</li>
+<li>离线取证工具包（<code>dd</code>、<code>memdump</code>、<code>tcpdump</code>、<code>auditd</code> 规则集、哈希校验工具）</li>
+<li>联系链（业务、法务、云厂商、监管报送口径）</li>
+<li>已知的应急剧本：Web 入侵、挖矿、勒索、数据外泄</li>
+</ul>
+<h2 id="二检测与确认detect">二、检测与确认（Detect）</h2>
+<p>先回答三个问题：<strong>什么时间、影响范围、是否仍在活动</strong>。</p>
+<h3 id="主机侧快速判据">主机侧快速判据</h3>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic"># 1) 异常进程与资源占用</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">ps</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> auxf</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> --sort=-%cpu</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> |</span><span style="color:#6F42C1;--shiki-dark:#91B4D5"> head</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -20</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">ps</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> auxf</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> --sort=-%mem</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> |</span><span style="color:#6F42C1;--shiki-dark:#91B4D5"> head</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -15</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic"># 2) 网络连接：外联可疑 IP、监听异常端口</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">ss</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -antp</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> |</span><span style="color:#6F42C1;--shiki-dark:#91B4D5"> grep</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> ESTAB</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">ss</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -lntup</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic"># 3) 持久化点（攻击者最爱）</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">crontab</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -l</span><span style="color:#24292E;--shiki-dark:#A6ACCD">; </span><span style="color:#6F42C1;--shiki-dark:#91B4D5">ls</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -l</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /etc/cron.</span><span style="color:#005CC5;--shiki-light-font-style:inherit;--shiki-dark:#ADD7FF;--shiki-dark-font-style:italic">*</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /var/spool/cron/</span><span style="color:#005CC5;--shiki-light-font-style:inherit;--shiki-dark:#ADD7FF;--shiki-dark-font-style:italic">*</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">systemctl</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> list-units</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> --type=service</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> --state=running</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">ls</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -l</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /etc/rc.local</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /etc/profile.d/</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">cat</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /etc/ld.so.preload</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">            # 空文件才对，有内容高度可疑</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic"># 4) 账号侧</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">last</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -a</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> |</span><span style="color:#6F42C1;--shiki-dark:#91B4D5"> head</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -30</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">lastb</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> |</span><span style="color:#6F42C1;--shiki-dark:#91B4D5"> head</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -20</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">                  # 爆破痕迹</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">awk</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -F:</span><span style="color:#032F62;--shiki-dark:#A6ACCD"> '</span><span style="color:#032F62;--shiki-dark:#5DE4C7">$3==0{print $1}</span><span style="color:#032F62;--shiki-dark:#A6ACCD">'</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /etc/passwd</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">grep</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -E</span><span style="color:#032F62;--shiki-dark:#A6ACCD"> "</span><span style="color:#032F62;--shiki-dark:#5DE4C7">sshd|sudo</span><span style="color:#032F62;--shiki-dark:#A6ACCD">"</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /var/log/secure</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> |</span><span style="color:#6F42C1;--shiki-dark:#91B4D5"> tail</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -50</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic"># 5) 文件完整性</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">rpm</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -Va</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> --nofiles</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> --nodigest</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> 2></span><span style="color:#032F62;--shiki-dark:#ADD7FF">/dev/null</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> |</span><span style="color:#6F42C1;--shiki-dark:#91B4D5"> head</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -50</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">   # RHEL 系</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">debsums</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -c</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> 2></span><span style="color:#032F62;--shiki-dark:#ADD7FF">/dev/null</span><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">                                # Debian 系</span></span></code></pre>
+<h3 id="判据组合比单点更重要">判据组合比单点更重要</h3>
+<ul>
+<li>一个”高 CPU 进程”可能是业务问题；<strong>高 CPU + 外联陌生 IP + <code>ld.so.preload</code> 非空</strong>才是强信号。</li>
+<li><code>sshd</code> 有大量失败登录但无成功登录，说明在爆破；<strong>有成功登录且来源 IP 陌生</strong>才是入侵。</li>
+</ul>
+<h3 id="检出前的第一动作">检出前的第一动作</h3>
+<p><strong>不要</strong>急着 <code>kill</code>、<code>reboot</code>、<code>rm</code>。先做：</p>
+<ol>
+<li>时间线对齐：<code>date</code>、<code>timedatectl</code>，确认主机与日志平台时间一致。</li>
+<li>抓取易失数据：内存中进程、网络连接、登录会话（进程一重启就没了）。</li>
+<li>记录现场：截图/命令输出存证，写明执行时间与执行人。</li>
+</ol>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic"># 易失数据快照（示例）</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#A6ACCD">{ </span><span style="color:#6F42C1;--shiki-dark:#91B4D5">date</span><span style="color:#24292E;--shiki-dark:#A6ACCD">; </span><span style="color:#6F42C1;--shiki-dark:#91B4D5">hostname</span><span style="color:#24292E;--shiki-dark:#A6ACCD">; </span><span style="color:#6F42C1;--shiki-dark:#91B4D5">uptime</span><span style="color:#24292E;--shiki-dark:#A6ACCD">; } </span><span style="color:#D73A49;--shiki-dark:#91B4D5">></span><span style="color:#24292E;--shiki-dark:#A6ACCD"> /evidence/00-context.txt</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">ss</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -antp</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> ></span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /evidence/01-connections.txt</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">ps</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> auxf</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> ></span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /evidence/02-processes.txt</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">sha256sum</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /evidence/</span><span style="color:#005CC5;--shiki-light-font-style:inherit;--shiki-dark:#ADD7FF;--shiki-dark-font-style:italic">*</span><span style="color:#032F62;--shiki-dark:#ADD7FF">.txt</span></span></code></pre>
+<h2 id="三抑制contain">三、抑制（Contain）</h2>
+<p>目标是<strong>切断攻击者通路，同时保住业务</strong>。常用手段按”影响从大到小”排序：</p>
+<table>
+<thead>
+<tr>
+<th>手段</th>
+<th>适用</th>
+<th>风险</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>出口/入口防火墙封禁恶意 IP</td>
+<td>已确定单点来源</td>
+<td>可能误封 CDN/代理 IP</td>
+</tr>
+<tr>
+<td>隔离主机（下线网线/移出安全组）</td>
+<td>主机已失守</td>
+<td>业务立即中断</td>
+</tr>
+<tr>
+<td>停用被盗账号、重置凭据</td>
+<td>账号泄露</td>
+<td>影响合法用户</td>
+</tr>
+<tr>
+<td>关闭被利用的服务/端口</td>
+<td>漏洞正在被利用</td>
+<td>影响依赖方</td>
+</tr>
+</tbody>
+</table>
+<p>关键动作：<strong>封禁前先留存证据</strong>，否则后续溯源无据。封禁范围记录进时间线，便于复盘时判断”是否抑制到位”。</p>
+<h2 id="四根除eradicate">四、根除（Eradicate）</h2>
+<p>抑制只挡住通路，恶意代码可能还在。根除要做的是：</p>
+<ol>
+<li>定位入口：Web 日志、WAF 记录、文件上传目录、暴露的弱口令服务。</li>
+<li>清除持久化：cron、systemd unit、<code>~/.ssh/authorized_keys</code>、<code>/etc/ld.so.preload</code>、Web 目录下的 webshell。</li>
+<li>修补入口：打补丁、改配置、关闭暴露面。</li>
+<li>重置所有可能泄露的凭据（数据库、API Key、SSH 密钥、云账号 AK/SK）。</li>
+</ol>
+<p><strong>重建 vs 清理的选择</strong>：如果主机已确认被 root 级控制、或存在内核级 rootkit，最稳妥的做法是<strong>重装/重建</strong>，只迁移业务数据（并校验数据未被篡改）。清理”看起来干净了”的机器是最常见的返工来源。</p>
+<h2 id="五恢复recover">五、恢复（Recover）</h2>
+<ul>
+<li>分批恢复，先灰度一台，观察 24 小时。</li>
+<li>恢复后立刻验证：服务功能、日志上报、备份任务、监控告警都正常。</li>
+<li>加强监控窗口期：把近期异常行为（同一来源、相同路径、相似 UA）作为临时告警规则。</li>
+</ul>
+<h2 id="六复盘review">六、复盘（Review）</h2>
+<p>复盘不是写检查，是产出可执行改进项。模板：</p>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>时间线</td>
+<td>首次入侵、发现、抑制、根除、恢复各时间点</td>
+</tr>
+<tr>
+<td>入口</td>
+<td>具体漏洞/弱口令/配置</td>
+</tr>
+<tr>
+<td>影响</td>
+<td>数据、主机、时长、业务损失</td>
+</tr>
+<tr>
+<td>有效动作</td>
+<td>哪些判断与处置起了作用</td>
+</tr>
+<tr>
+<td>失效动作</td>
+<td>哪些监控没告警、哪些备份不可用</td>
+</tr>
+<tr>
+<td>改进项</td>
+<td>每条都要有负责人与截止时间</td>
+</tr>
+</tbody>
+</table>
+<h2 id="附常用命令速查防守侧">附：常用命令速查（防守侧）</h2>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic"># 找最近被修改的 Web 文件（webshell 常藏在这里）</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">find</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /var/www</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -type</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> f</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -mtime</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -3</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -name</span><span style="color:#032F62;--shiki-dark:#A6ACCD"> "</span><span style="color:#032F62;--shiki-dark:#5DE4C7">*.php</span><span style="color:#032F62;--shiki-dark:#A6ACCD">"</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -o</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -name</span><span style="color:#032F62;--shiki-dark:#A6ACCD"> "</span><span style="color:#032F62;--shiki-dark:#5DE4C7">*.jsp</span><span style="color:#032F62;--shiki-dark:#A6ACCD">"</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> |</span><span style="color:#6F42C1;--shiki-dark:#91B4D5"> head</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -40</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic"># 找可疑可执行文件</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">find</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /tmp</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /dev/shm</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /var/tmp</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -type</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> f</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -perm</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -111</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -mtime</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -7</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> 2></span><span style="color:#032F62;--shiki-dark:#ADD7FF">/dev/null</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic"># 检查 SSH 授权公钥（后门常用）</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">grep</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -r</span><span style="color:#032F62;--shiki-dark:#A6ACCD"> ""</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /root/.ssh/authorized_keys</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /home/</span><span style="color:#005CC5;--shiki-light-font-style:inherit;--shiki-dark:#ADD7FF;--shiki-dark-font-style:italic">*</span><span style="color:#032F62;--shiki-dark:#ADD7FF">/.ssh/authorized_keys</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> 2></span><span style="color:#032F62;--shiki-dark:#ADD7FF">/dev/null</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic"># 检查异常 SUID</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">find</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> /</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -xdev</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -perm</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -4000</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -newermt</span><span style="color:#032F62;--shiki-dark:#A6ACCD"> "</span><span style="color:#032F62;--shiki-dark:#5DE4C7">-7 days</span><span style="color:#032F62;--shiki-dark:#A6ACCD">"</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -type</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> f</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> 2></span><span style="color:#032F62;--shiki-dark:#ADD7FF">/dev/null</span></span></code></pre>
+<blockquote>
+<p>底线两条：<strong>先取证再操作；先抑制泄露再恢复业务</strong>。顺序反了，事件就从”技术问题”升级成”合规问题”。</p>
+</blockquote> </div> <footer class="article-foot"> <div class="article-tags"> <a class="chip" href="/wild-think/tags/%E5%AE%89%E5%85%A8/">#安全</a><a class="chip" href="/wild-think/tags/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/">#应急响应</a><a class="chip" href="/wild-think/tags/%E5%8F%96%E8%AF%81/">#取证</a><a class="chip" href="/wild-think/tags/%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/">#入侵排查</a><a class="chip" href="/wild-think/tags/%E7%AD%89%E4%BF%9D/">#等保</a> </div> <div class="prevnext"> <a class="pn" href="/wild-think/writing/metrics-and-alerting-design/"> <small>← 上一篇</small> <span>监控指标设计：把&quot;CPU 高&quot;换成&quot;用户受影响了吗&quot;</span> </a> <a class="pn next" href="/wild-think/writing/linux-interview-tiers/"> <small>下一篇 →</small> <span>Linux 运维高频面试题：结论、原理、追问三层答法</span> </a> </div> <div style="margin-top:26px;font-family:var(--font-mono);font-size:11.5px;color:var(--dim);letter-spacing:.04em">
+// 如需转载，注明来源即可 · 网络安全与渗透基础 </div> </footer> </article> <aside class="toc" id="toc"> <div class="toc-title">On this page</div> <ul> <li class="depth-2"> <a href="#一准备prepare">一、准备（Prepare）</a> </li><li class="depth-2"> <a href="#二检测与确认detect">二、检测与确认（Detect）</a> </li><li class="depth-3"> <a href="#主机侧快速判据">主机侧快速判据</a> </li><li class="depth-3"> <a href="#判据组合比单点更重要">判据组合比单点更重要</a> </li><li class="depth-3"> <a href="#检出前的第一动作">检出前的第一动作</a> </li><li class="depth-2"> <a href="#三抑制contain">三、抑制（Contain）</a> </li><li class="depth-2"> <a href="#四根除eradicate">四、根除（Eradicate）</a> </li><li class="depth-2"> <a href="#五恢复recover">五、恢复（Recover）</a> </li><li class="depth-2"> <a href="#六复盘review">六、复盘（Review）</a> </li><li class="depth-2"> <a href="#附常用命令速查防守侧">附：常用命令速查（防守侧）</a> </li> </ul> </aside> </div> </div> <script type="module">const c=document.getElementById("reading-bar"),n=()=>{const e=document.documentElement,t=e.scrollHeight-e.clientHeight,o=t>0?e.scrollTop/t*100:0;c&&(c.style.width=Math.min(100,Math.max(0,o))+"%")};document.addEventListener("scroll",n,{passive:!0});window.addEventListener("resize",n);n();const i=Array.from(document.querySelectorAll("#toc a")),r=i.map(e=>document.getElementById(decodeURIComponent(e.hash.slice(1)))).filter(Boolean);if(r.length){const e=new IntersectionObserver(t=>{t.forEach(o=>{o.isIntersecting&&i.forEach(s=>s.classList.toggle("active",decodeURIComponent(s.hash.slice(1))===o.target.id))})},{rootMargin:"-90px 0px -70% 0px",threshold:0});r.forEach(t=>e.observe(t))}</script>  </main> <footer class="site-footer"> <div class="container"> <div class="footer-grid"> <div class="footer-brand"> <a class="brand" href="/wild-think/"> <span class="brand-mark">野</span> <span>野生思考</span> </a> <p>把复杂的技术，变成可以落地复现的思考与实践</p> </div> <div class="footer-col"> <h4>专题</h4> <a href="/wild-think/topics/linux/">Linux 运维知识库</a><a href="/wild-think/topics/network/">计算机网络与路由交换</a><a href="/wild-think/topics/security/">网络安全与渗透基础</a><a href="/wild-think/topics/sre-cloud/">云原生与 SRE 体系</a><a href="/wild-think/topics/db/">数据库知识库</a> </div> <div class="footer-col"> <h4>站点</h4> <a href="/wild-think/writing/">全部文章</a> <a href="/wild-think/archive/">归档</a> <a href="/wild-think/tags/">标签</a> <a href="/wild-think/about/">关于本站</a> <a href="/wild-think/rss.xml">RSS 订阅</a> </div> </div> <div class="footer-bottom"> <span>© 2026–2026 野生思考 · wild-think-lab</span> <span class="sig">// 把复杂的技术，写成可以走的路</span> </div> </div> </footer> <button class="to-top" id="to-top" aria-label="回到顶部"> <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg>  </button> <script type="module">const o=document.documentElement,c=document.getElementById("theme-toggle");c?.addEventListener("click",()=>{o.classList.toggle("light");try{localStorage.setItem("theme",o.classList.contains("light")?"light":"dark")}catch{}});const i=document.getElementById("menu-toggle"),d=document.getElementById("mobile-nav");i?.addEventListener("click",()=>{d?.classList.toggle("open")});const n=document.getElementById("to-top"),l=()=>{n?.classList.toggle("show",window.scrollY>700)};window.addEventListener("scroll",l,{passive:!0});l();n?.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));document.addEventListener("keydown",t=>{const e=t.target,s=e&&/^(INPUT|TEXTAREA)$/.test(e.tagName);t.key==="/"&&!s&&(t.preventDefault(),location.href="/wild-think/search/")});</script>  </body> </html>

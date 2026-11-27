@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v5.18.2"><title>监控指标设计：把&quot;CPU 高&quot;换成&quot;用户受影响了吗&quot; · 野生思考</title><meta name="description" content="告警噪音的根因不是阈值定得不对，而是指标体系不完整——只有资源指标，没有服务指标。用 USE + RED 两套方法组合，再落到分级告警。"><meta name="author" content="wild-think-lab"><meta name="theme-color" content="#08080a"><link rel="canonical" href="https://wild-think-lab.github.io/wild-think/writing/metrics-and-alerting-design"><link rel="icon" type="image/svg+xml" href="/wild-think/favicon.svg"><link rel="alternate" type="application/rss+xml" title="野生思考" href="/wild-think/rss.xml"><meta property="og:type" content="article"><meta property="og:site_name" content="野生思考"><meta property="og:title" content="监控指标设计：把&#34;CPU 高&#34;换成&#34;用户受影响了吗&#34; · 野生思考"><meta property="og:description" content="告警噪音的根因不是阈值定得不对，而是指标体系不完整——只有资源指标，没有服务指标。用 USE + RED 两套方法组合，再落到分级告警。"><meta property="og:url" content="https://wild-think-lab.github.io/wild-think/writing/metrics-and-alerting-design"><meta name="twitter:card" content="summary_large_image"><script>
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light') document.documentElement.classList.add('light');
+      } catch (e) {}
+    </script><link rel="stylesheet" href="/wild-think/_astro/about.BeOWH9B9.css"></head> <body> <a class="skip" href="#main">跳到正文</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="/wild-think/"> <span class="brand-mark">野</span> <span>野生思考</span> <span class="brand-sub">/ wild-think</span> </a> <nav class="nav" aria-label="主导航"> <a href="/wild-think/topics/"> 专题 </a><a href="/wild-think/writing/" aria-current="true"> 文章 </a><a href="/wild-think/tags/"> 标签 </a><a href="/wild-think/archive/"> 归档 </a><a href="/wild-think/about/"> 关于 </a> </nav> <div class="header-actions"> <a class="icon-btn" href="/wild-think/search/" aria-label="搜索" title="搜索 ( / )"> <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>  </a> <button class="icon-btn" id="theme-toggle" aria-label="切换深浅色" title="切换主题"> <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="theme-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="theme-moon" aria-hidden="true"><path d="M12 3a6 6 0 009 9 9 9 0 11-9-9z"/></svg>  </button> <button class="icon-btn menu-btn" id="menu-toggle" aria-label="打开菜单"> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>  </button> </div> </div> <nav class="mobile-nav container" id="mobile-nav" aria-label="移动端导航"> <a href="/wild-think/topics/">专题</a><a href="/wild-think/writing/">文章</a><a href="/wild-think/tags/">标签</a><a href="/wild-think/archive/">归档</a><a href="/wild-think/about/">关于</a> <a href="/wild-think/search/">搜索</a> </nav> </header> <main id="main">  <div class="reading-bar" id="reading-bar"></div> <div class="container"> <div class="breadcrumb" style="padding-top:26px"> <a href="/wild-think/">首页</a><i>/</i> <a href="/wild-think/topics/sre-cloud/">云原生与 SRE 体系</a><i>/</i> <span>监控指标设计：把&quot;CPU 高&quot;换成&quot;用户受影响了吗&quot;</span> </div> <div class="article-wrap"> <article> <header class="article-head"> <h1>监控指标设计：把&quot;CPU 高&quot;换成&quot;用户受影响了吗&quot;</h1> <div class="article-meta"> <a class="topic-pill" href="/wild-think/topics/sre-cloud/">CLOUD NATIVE &amp; SRE</a> <span>2026-11-02</span> <span class="sep">·</span> <span style="display:inline-flex;align-items:center;gap:4px"> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3.2 2"/></svg>  6 min
+</span>  </div> <p class="article-lead">告警噪音的根因不是阈值定得不对，而是指标体系不完整——只有资源指标，没有服务指标。用 USE + RED 两套方法组合，再落到分级告警。</p> </header> <div class="prose" style="margin-top:34px"> <p>“CPU 85%，告警”——这类告警 90% 是噪音，因为它没回答一个关键问题：<strong>用户此刻受影响了吗</strong>。</p>
+<h2 id="一两套方法各有分工">一、两套方法各有分工</h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>关注对象</th>
+<th>指标</th>
+<th>适合</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>USE</strong></td>
+<td>资源（CPU、内存、磁盘、网络）</td>
+<td>Utilization / Saturation / Errors</td>
+<td>定位”哪里紧”</td>
+</tr>
+<tr>
+<td><strong>RED</strong></td>
+<td>服务（请求/业务）</td>
+<td>Rate / Errors / Duration</td>
+<td>判断”用户是否受影响”</td>
+</tr>
+</tbody>
+</table>
+<p><strong>告警应该主要由 RED 触发，USE 用于根因定位</strong>。反过来就是”资源一抖就告警，用户毫无感知”。</p>
+<h2 id="二先把四类黄金信号落地">二、先把四类黄金信号落地</h2>
+<p>对每个对外服务，至少采集：</p>
+<ol>
+<li><strong>流量</strong>：QPS / 请求速率（按路由维度）</li>
+<li><strong>错误</strong>：5xx 比例、业务错误码比例</li>
+<li><strong>延迟</strong>：P50 / P90 / P99，而不是平均值</li>
+<li><strong>饱和度</strong>：队列长度、连接池占用、线程池排队</li>
+</ol>
+<p>Prometheus 里延迟用 histogram，别用平均值：</p>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic"># 应用侧暴露（示例：直方图桶要贴合业务 SLO，比如 50ms/100ms/300ms/1s）</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#ADD7FF">http_request_duration_seconds_bucket{le="0.05"}</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#ADD7FF">http_request_duration_seconds_bucket{le="0.1"}</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#ADD7FF">http_request_duration_seconds_bucket{le="0.3"}</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#ADD7FF">http_request_duration_seconds_bucket{le="1"}</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span># P99（按路由），这才是用户体感</span></span>
+<span class="line"><span>histogram_quantile(0.99,</span></span>
+<span class="line"><span>  sum by (route, le) (rate(http_request_duration_seconds_bucket[5m])</span></span>
+<span class="line"><span>))</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 错误率</span></span>
+<span class="line"><span>sum(rate(http_requests_total{status=~"5.."}[5m))</span></span>
+<span class="line"><span>/</span></span>
+<span class="line"><span>sum(rate(http_requests_total[5m))</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># 资源饱和度：CPU 被限流的比例（容器场景最有用）</span></span>
+<span class="line"><span>rate(container_cpu_cfs_throttled_periods_total[5m])</span></span>
+<span class="line"><span>/</span></span>
+<span class="line"><span>rate(container_cpu_cfs_periods_total[5m])</span></span></code></pre>
+<p><code>container_cpu_cfs_throttled_periods</code> 比 <code>container_cpu_usage_seconds</code> 更有意义：<strong>usage 高只说明忙，throttled 高说明被限流、真的在受影响</strong>。</p>
+<h2 id="三告警分级p0p3-与响应动作绑定">三、告警分级：P0–P3 与响应动作绑定</h2>
+<p>分级不是为了好看，是为了让值班人一眼知道该不该起床。</p>
+<table>
+<thead>
+<tr>
+<th>级别</th>
+<th>判据</th>
+<th>通知方式</th>
+<th>响应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0</td>
+<td>核心服务不可用 / 数据丢失风险</td>
+<td>电话 + 短信 + 群</td>
+<td>立即，5 分钟内</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>核心服务降级（错误率 >1%、P99 超 SLO 2 倍）</td>
+<td>电话 + 群</td>
+<td>15 分钟内</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>非核心服务异常 / 资源接近瓶颈</td>
+<td>群消息</td>
+<td>工作时间内</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>趋势类（磁盘 7 天将满、证书 15 天到期）</td>
+<td>日报/工单</td>
+<td>排期处理</td>
+</tr>
+</tbody>
+</table>
+<p>写告警规则时，把”判据”写在注释里，避免后人乱调：</p>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#22863A;--shiki-dark:#5DE4C7">groups</span><span style="color:#24292E;--shiki-dark:#A6ACCD">:</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#A6ACCD">  - </span><span style="color:#22863A;--shiki-dark:#5DE4C7">name</span><span style="color:#24292E;--shiki-dark:#A6ACCD">: </span><span style="color:#032F62;--shiki-dark:#ADD7FF">svc-availability</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#5DE4C7">    rules</span><span style="color:#24292E;--shiki-dark:#A6ACCD">:</span></span>
+<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">      # P1：5xx 比例超过 1% 持续 5 分钟（判据：错误率，不是资源）</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#A6ACCD">      - </span><span style="color:#22863A;--shiki-dark:#5DE4C7">alert</span><span style="color:#24292E;--shiki-dark:#A6ACCD">: </span><span style="color:#032F62;--shiki-dark:#ADD7FF">HighErrorRate</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#5DE4C7">        expr</span><span style="color:#24292E;--shiki-dark:#A6ACCD">: </span><span style="color:#D73A49;--shiki-dark:#5DE4C7C0">|</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#ADD7FF">          sum(rate(http_requests_total{status=~"5.."}[5m)) by (job)</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#ADD7FF">          /</span></span>
+<span class="line"><span style="color:#032F62;--shiki-dark:#ADD7FF">          sum(rate(http_requests_total[5m)) by (job) > 0.01</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#5DE4C7">        for</span><span style="color:#24292E;--shiki-dark:#A6ACCD">: </span><span style="color:#032F62;--shiki-dark:#ADD7FF">5m</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#5DE4C7">        labels</span><span style="color:#24292E;--shiki-dark:#A6ACCD">: { </span><span style="color:#22863A;--shiki-dark:#5DE4C7">severity</span><span style="color:#24292E;--shiki-dark:#A6ACCD">: </span><span style="color:#032F62;--shiki-dark:#ADD7FF">P1</span><span style="color:#24292E;--shiki-dark:#A6ACCD"> }</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#5DE4C7">        annotations</span><span style="color:#24292E;--shiki-dark:#A6ACCD">:</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#5DE4C7">          summary</span><span style="color:#24292E;--shiki-dark:#A6ACCD">: </span><span style="color:#032F62;--shiki-dark:#A6ACCD">"</span><span style="color:#032F62;--shiki-dark:#5DE4C7">{{ $labels.job }} 5xx 比例 {{ $value | humanizePercentage }}</span><span style="color:#032F62;--shiki-dark:#A6ACCD">"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic">      # P2：磁盘 4 小时内将满（趋势类，提前量而非当前值）</span></span>
+<span class="line"><span style="color:#24292E;--shiki-dark:#A6ACCD">      - </span><span style="color:#22863A;--shiki-dark:#5DE4C7">alert</span><span style="color:#24292E;--shiki-dark:#A6ACCD">: </span><span style="color:#032F62;--shiki-dark:#ADD7FF">DiskWillFillIn4Hours</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#5DE4C7">        expr</span><span style="color:#24292E;--shiki-dark:#A6ACCD">: </span><span style="color:#032F62;--shiki-dark:#ADD7FF">predict_linear(node_filesystem_avail_bytes{fstype!~"tmpfs|overlay"}[1h], 4*3600) &#x3C; 0</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#5DE4C7">        for</span><span style="color:#24292E;--shiki-dark:#A6ACCD">: </span><span style="color:#032F62;--shiki-dark:#ADD7FF">10m</span></span>
+<span class="line"><span style="color:#22863A;--shiki-dark:#5DE4C7">        labels</span><span style="color:#24292E;--shiki-dark:#A6ACCD">: { </span><span style="color:#22863A;--shiki-dark:#5DE4C7">severity</span><span style="color:#24292E;--shiki-dark:#A6ACCD">: </span><span style="color:#032F62;--shiki-dark:#ADD7FF">P2</span><span style="color:#24292E;--shiki-dark:#A6ACCD"> }</span></span></code></pre>
+<p><code>predict_linear</code> 是趋势告警的关键：<strong>提前量告警比”已满告警”有用一个数量级</strong>。</p>
+<h2 id="四三个常见设计错误">四、三个常见设计错误</h2>
+<ol>
+<li><strong>只监控资源，不监控业务</strong>。CPU 70% 但订单失败率 30%，告警却一片安静。</li>
+<li><strong>阈值拍脑袋</strong>。阈值应从历史分位数与 SLO 推导：P99 长期 200ms，就把告警设在 400ms（2 倍 SLO），而不是”感觉 300ms 挺慢”。</li>
+<li><strong>告警没有 owner</strong>。没人负责的告警一定会被静音，静音掉的告警等于没有。</li>
+</ol>
+<h2 id="五降噪的具体手法">五、降噪的具体手法</h2>
+<ul>
+<li><code>for: 5m</code> 过滤瞬时抖动；对毛刺型指标用 <code>avg_over_time</code>。</li>
+<li>用 <code>unless</code> 做抑制：同一服务的”错误率告警”抑制其”延迟告警”，避免一次故障刷 20 条。</li>
+<li>维护期内静默（Alertmanager <code>silence</code>），并强制填写原因与时长。</li>
+<li>每月统计：告警总数、有效处置数、平均确认时间。<strong>有效率低于 50% 就该整组重写</strong>。</li>
+</ul>
+<blockquote>
+<p>一句话：<strong>指标回答”发生了什么”，SLO 回答”是否算故障”。没有 SLO 的告警体系，只能靠音量说话。</strong></p>
+</blockquote> </div> <footer class="article-foot"> <div class="article-tags"> <a class="chip" href="/wild-think/tags/Prometheus/">#Prometheus</a><a class="chip" href="/wild-think/tags/%E7%9B%91%E6%8E%A7/">#监控</a><a class="chip" href="/wild-think/tags/%E5%91%8A%E8%AD%A6/">#告警</a><a class="chip" href="/wild-think/tags/SRE/">#SRE</a><a class="chip" href="/wild-think/tags/%E6%8C%87%E6%A0%87%E8%AE%BE%E8%AE%A1/">#指标设计</a> </div> <div class="prevnext"> <a class="pn" href="/wild-think/writing/network-interview-tiers/"> <small>← 上一篇</small> <span>网络方向面试题：从三次握手问到丢包定位</span> </a> <a class="pn next" href="/wild-think/writing/incident-response-six-phases/"> <small>下一篇 →</small> <span>应急响应六阶段：从判据到复盘的完整动作链</span> </a> </div> <div style="margin-top:26px;font-family:var(--font-mono);font-size:11.5px;color:var(--dim);letter-spacing:.04em">
+// 如需转载，注明来源即可 · 云原生与 SRE 体系 </div> </footer> </article> <aside class="toc" id="toc"> <div class="toc-title">On this page</div> <ul> <li class="depth-2"> <a href="#一两套方法各有分工">一、两套方法各有分工</a> </li><li class="depth-2"> <a href="#二先把四类黄金信号落地">二、先把四类黄金信号落地</a> </li><li class="depth-2"> <a href="#三告警分级p0p3-与响应动作绑定">三、告警分级：P0–P3 与响应动作绑定</a> </li><li class="depth-2"> <a href="#四三个常见设计错误">四、三个常见设计错误</a> </li><li class="depth-2"> <a href="#五降噪的具体手法">五、降噪的具体手法</a> </li> </ul> </aside> </div> </div> <script type="module">const c=document.getElementById("reading-bar"),n=()=>{const e=document.documentElement,t=e.scrollHeight-e.clientHeight,o=t>0?e.scrollTop/t*100:0;c&&(c.style.width=Math.min(100,Math.max(0,o))+"%")};document.addEventListener("scroll",n,{passive:!0});window.addEventListener("resize",n);n();const i=Array.from(document.querySelectorAll("#toc a")),r=i.map(e=>document.getElementById(decodeURIComponent(e.hash.slice(1)))).filter(Boolean);if(r.length){const e=new IntersectionObserver(t=>{t.forEach(o=>{o.isIntersecting&&i.forEach(s=>s.classList.toggle("active",decodeURIComponent(s.hash.slice(1))===o.target.id))})},{rootMargin:"-90px 0px -70% 0px",threshold:0});r.forEach(t=>e.observe(t))}</script>  </main> <footer class="site-footer"> <div class="container"> <div class="footer-grid"> <div class="footer-brand"> <a class="brand" href="/wild-think/"> <span class="brand-mark">野</span> <span>野生思考</span> </a> <p>把复杂的技术，变成可以落地复现的思考与实践</p> </div> <div class="footer-col"> <h4>专题</h4> <a href="/wild-think/topics/linux/">Linux 运维知识库</a><a href="/wild-think/topics/network/">计算机网络与路由交换</a><a href="/wild-think/topics/security/">网络安全与渗透基础</a><a href="/wild-think/topics/sre-cloud/">云原生与 SRE 体系</a><a href="/wild-think/topics/db/">数据库知识库</a> </div> <div class="footer-col"> <h4>站点</h4> <a href="/wild-think/writing/">全部文章</a> <a href="/wild-think/archive/">归档</a> <a href="/wild-think/tags/">标签</a> <a href="/wild-think/about/">关于本站</a> <a href="/wild-think/rss.xml">RSS 订阅</a> </div> </div> <div class="footer-bottom"> <span>© 2026–2026 野生思考 · wild-think-lab</span> <span class="sig">// 把复杂的技术，写成可以走的路</span> </div> </div> </footer> <button class="to-top" id="to-top" aria-label="回到顶部"> <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg>  </button> <script type="module">const o=document.documentElement,c=document.getElementById("theme-toggle");c?.addEventListener("click",()=>{o.classList.toggle("light");try{localStorage.setItem("theme",o.classList.contains("light")?"light":"dark")}catch{}});const i=document.getElementById("menu-toggle"),d=document.getElementById("mobile-nav");i?.addEventListener("click",()=>{d?.classList.toggle("open")});const n=document.getElementById("to-top"),l=()=>{n?.classList.toggle("show",window.scrollY>700)};window.addEventListener("scroll",l,{passive:!0});l();n?.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));document.addEventListener("keydown",t=>{const e=t.target,s=e&&/^(INPUT|TEXTAREA)$/.test(e.tagName);t.key==="/"&&!s&&(t.preventDefault(),location.href="/wild-think/search/")});</script>  </body> </html>

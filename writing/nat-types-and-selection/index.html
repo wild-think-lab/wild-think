@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v5.18.2"><title>NAT 不止一种：六类 NAT 的行为差异与选型 · 野生思考</title><meta name="description" content="静态 NAT、动态 NAT、NAPT、NAT Server、双向 NAT、CGNAT/NAT444 的行为、适用场景与验证方式各不相同，混用概念会导致&#34;配置看着对但不通&#34;。"><meta name="author" content="wild-think-lab"><meta name="theme-color" content="#08080a"><link rel="canonical" href="https://wild-think-lab.github.io/wild-think/writing/nat-types-and-selection"><link rel="icon" type="image/svg+xml" href="/wild-think/favicon.svg"><link rel="alternate" type="application/rss+xml" title="野生思考" href="/wild-think/rss.xml"><meta property="og:type" content="article"><meta property="og:site_name" content="野生思考"><meta property="og:title" content="NAT 不止一种：六类 NAT 的行为差异与选型 · 野生思考"><meta property="og:description" content="静态 NAT、动态 NAT、NAPT、NAT Server、双向 NAT、CGNAT/NAT444 的行为、适用场景与验证方式各不相同，混用概念会导致&#34;配置看着对但不通&#34;。"><meta property="og:url" content="https://wild-think-lab.github.io/wild-think/writing/nat-types-and-selection"><meta name="twitter:card" content="summary_large_image"><script>
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light') document.documentElement.classList.add('light');
+      } catch (e) {}
+    </script><link rel="stylesheet" href="/wild-think/_astro/about.BeOWH9B9.css"></head> <body> <a class="skip" href="#main">跳到正文</a> <header class="site-header"> <div class="container header-inner"> <a class="brand" href="/wild-think/"> <span class="brand-mark">野</span> <span>野生思考</span> <span class="brand-sub">/ wild-think</span> </a> <nav class="nav" aria-label="主导航"> <a href="/wild-think/topics/"> 专题 </a><a href="/wild-think/writing/" aria-current="true"> 文章 </a><a href="/wild-think/tags/"> 标签 </a><a href="/wild-think/archive/"> 归档 </a><a href="/wild-think/about/"> 关于 </a> </nav> <div class="header-actions"> <a class="icon-btn" href="/wild-think/search/" aria-label="搜索" title="搜索 ( / )"> <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>  </a> <button class="icon-btn" id="theme-toggle" aria-label="切换深浅色" title="切换主题"> <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="theme-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="theme-moon" aria-hidden="true"><path d="M12 3a6 6 0 009 9 9 9 0 11-9-9z"/></svg>  </button> <button class="icon-btn menu-btn" id="menu-toggle" aria-label="打开菜单"> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>  </button> </div> </div> <nav class="mobile-nav container" id="mobile-nav" aria-label="移动端导航"> <a href="/wild-think/topics/">专题</a><a href="/wild-think/writing/">文章</a><a href="/wild-think/tags/">标签</a><a href="/wild-think/archive/">归档</a><a href="/wild-think/about/">关于</a> <a href="/wild-think/search/">搜索</a> </nav> </header> <main id="main">  <div class="reading-bar" id="reading-bar"></div> <div class="container"> <div class="breadcrumb" style="padding-top:26px"> <a href="/wild-think/">首页</a><i>/</i> <a href="/wild-think/topics/network/">计算机网络与路由交换</a><i>/</i> <span>NAT 不止一种：六类 NAT 的行为差异与选型</span> </div> <div class="article-wrap"> <article> <header class="article-head"> <h1>NAT 不止一种：六类 NAT 的行为差异与选型</h1> <div class="article-meta"> <a class="topic-pill" href="/wild-think/topics/network/">NETWORK</a> <span>2026-11-07</span> <span class="sep">·</span> <span style="display:inline-flex;align-items:center;gap:4px"> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3.2 2"/></svg>  6 min
+</span>  </div> <p class="article-lead">静态 NAT、动态 NAT、NAPT、NAT Server、双向 NAT、CGNAT/NAT444 的行为、适用场景与验证方式各不相同，混用概念会导致&quot;配置看着对但不通&quot;。</p> </header> <div class="prose" style="margin-top:34px"> <p>“NAT 就是把内网地址换成公网地址”——这句话只对了一半。实际工程里有六类 NAT，各自的匹配顺序、端口处理、会话方向完全不同。</p>
+<h2 id="一静态-nat一对一">一、静态 NAT（一对一）</h2>
+<p>一个内网地址永久映射到一个公网地址，不涉及端口转换。</p>
+<ul>
+<li>行为：双向、对称，外部可主动发起。</li>
+<li>场景：对外提供固定服务的服务器，需要固定公网地址。</li>
+<li>特点：映射关系写死在配置里，与流量是否存在无关（端口不会被占用）。</li>
+</ul>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span># 华为</span></span>
+<span class="line"><span>nat static global 203.0.113.10 inside 192.168.10.10</span></span>
+<span class="line"><span># 思科</span></span>
+<span class="line"><span>ip nat inside source static 192.168.10.10 203.0.113.10</span></span></code></pre>
+<h2 id="二动态-nat地址池">二、动态 NAT（地址池）</h2>
+<p>一组内网地址映射到一组公网地址，<strong>不转换端口</strong>，因此公网地址数少于内网主机数时会出现”地址耗尽，后续连接无法建立”。</p>
+<ul>
+<li>行为：通常是单向的（内→外），外部无法主动发起。</li>
+<li>场景：内网主机数 ≤ 公网地址数的中大型出口。</li>
+<li>特点：地址池是独占式分配，一个主机占用一个公网地址直到会话结束/超时。</li>
+</ul>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>ip nat pool PUBLIC 203.0.113.11 203.0.113.20 prefix-length 24</span></span>
+<span class="line"><span>ip nat inside source list 1 pool PUBLIC</span></span></code></pre>
+<h2 id="三napt--pat端口复用最常见">三、NAPT / PAT（端口复用，最常见）</h2>
+<p>多个内网地址共享<strong>一个</strong>公网地址，靠改写源端口区分会话。</p>
+<ul>
+<li>行为：单向（内→外），外部不能主动连入（除非另外做端口映射）。</li>
+<li>场景：绝大多数家用/中小企业出口，“Easy IP”就是它的设备侧实现。</li>
+<li>特点：内部维护”内网 IP:端口 ↔ 公网 IP:端口”的转换表；并发连接数受端口范围和会话表大小限制。</li>
+</ul>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span># 华为 Easy IP：直接把接口地址当公网地址用</span></span>
+<span class="line"><span>nat outbound 3000</span></span>
+<span class="line"><span># 思科</span></span>
+<span class="line"><span>ip nat inside source list 1 interface GigabitEthernet0/0 overload</span></span></code></pre>
+<p>验证要点：</p>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D;--shiki-light-font-style:inherit;--shiki-dark:#767C9DB0;--shiki-dark-font-style:italic"># Linux 上看 conntrack 表，能直观看到端口改写</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">sudo</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> conntrack</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -L</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -p</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> tcp</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> |</span><span style="color:#6F42C1;--shiki-dark:#91B4D5"> head</span></span>
+<span class="line"><span style="color:#6F42C1;--shiki-dark:#91B4D5">sudo</span><span style="color:#032F62;--shiki-dark:#ADD7FF"> ss</span><span style="color:#005CC5;--shiki-dark:#ADD7FF"> -tnp</span><span style="color:#D73A49;--shiki-dark:#91B4D5"> |</span><span style="color:#6F42C1;--shiki-dark:#91B4D5"> head</span></span></code></pre>
+<p><strong>常见误区</strong>：NAPT 之后，服务端看到的源 IP 全是同一个，基于源 IP 做限流/审计的方案会失效，需要在应用层改用账号维度或 X-Forwarded-For（前提是经过了可信代理）。</p>
+<h2 id="四nat-server--端口映射外部主动进入">四、NAT Server / 端口映射（外部主动进入）</h2>
+<p>把公网 IP 的某端口映射到内网主机的某端口。它和 NAPT 是互补关系：NAPT 管出，NAT Server 管进。</p>
+<ul>
+<li>行为：单向（外→内），回程自动反向转换。</li>
+<li>场景：对外暴露 Web/SSH 等单个服务端口。</li>
+<li>特点：<strong>只映射指定端口</strong>；用 <code>0.0.0.0</code> 或全端口映射（DMZ 主机）安全性差，慎用。</li>
+</ul>
+<pre class="astro-code astro-code-themes github-light poimandres" style="background-color:#fff;--shiki-dark-bg:#1b1e28;color:#24292e;--shiki-dark:#a6accd; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span># 华为</span></span>
+<span class="line"><span>nat server protocol tcp global 203.0.113.10 8080 inside 192.168.10.20 80</span></span>
+<span class="line"><span># 思科</span></span>
+<span class="line"><span>ip nat inside source static tcp 192.168.10.20 80 203.0.113.10 8080</span></span></code></pre>
+<h2 id="五双向-nat源与目的同时改写">五、双向 NAT（源与目的同时改写）</h2>
+<p>出入两个方向都做转换，典型用于：内网访问外部 SaaS 时既隐藏源地址，又把目的地址从虚拟 IP 换成真实 IP；或跨 VRF 场景。</p>
+<ul>
+<li>行为：一条流上存在两次改写，会话表条目更复杂。</li>
+<li>场景：多租户隔离、SD-WAN 出口、云上 VPC 对接。</li>
+<li>风险：排障时 <code>tcpdump</code> 抓到的地址”三处不一致”（客户端视角、中间设备视角、服务端视角），必须明确在哪一跳抓。</li>
+</ul>
+<h2 id="六nat444--cgnat运营商级-nat">六、NAT444 / CGNAT（运营商级 NAT）</h2>
+<p>两级 NAT：家庭 CPE 做一级，运营商侧再做一级。目的是在公网地址池有限时支撑大量用户。</p>
+<ul>
+<li>行为：端到端不再有唯一公网 IP，外部无法直接连入。</li>
+<li>影响：P2P、远程桌面、部分游戏联机、IPv4 端口映射全部受限；需要靠 STUN/TURN/中继或 UPnP 穿透。</li>
+<li>现状：IPv6 普及后逐步减少，但存量很大。判断方法：查到的”公网 IP”与 <code>traceroute</code> 出口不一致，或多设备共享同一出口 IP。</li>
+</ul>
+<h2 id="七选型速查">七、选型速查</h2>
+<table>
+<thead>
+<tr>
+<th>需求</th>
+<th>选型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>对外固定服务的服务器</td>
+<td>静态 NAT</td>
+</tr>
+<tr>
+<td>内部大量主机上网、公网地址充足</td>
+<td>动态 NAT（地址池）</td>
+</tr>
+<tr>
+<td>内部大量主机上网、只有 1 个公网地址</td>
+<td>NAPT / Easy IP</td>
+</tr>
+<tr>
+<td>外部访问内部单个端口</td>
+<td>NAT Server / 端口映射</td>
+</tr>
+<tr>
+<td>需要同时隐藏源并改写目的</td>
+<td>双向 NAT</td>
+</tr>
+<tr>
+<td>运营商大规模接入</td>
+<td>NAT444 / CGNAT</td>
+</tr>
+</tbody>
+</table>
+<h2 id="八nat-的四个共性坑">八、NAT 的四个共性坑</h2>
+<ol>
+<li><strong>会话表满</strong>：并发连接超限后新连接直接失败，表现为”时通时不通”。查 <code>display nat session</code> 数量与上限。</li>
+<li><strong>ALG 与特殊协议</strong>：FTP、SIP、PPTP 需要应用层网关改写载荷内的地址；关掉 ALG 会导致控制通道通了但数据通道不通。</li>
+<li><strong>超时设置</strong>：TCP 会话默认超时较长，UDP 短，长连接业务（数据库、消息推送）必须调大，否则出现”静默断连”。</li>
+<li><strong>回程路径不对称</strong>：多出口环境下，如果回程没走同一台 NAT 设备，会话表查不到，包被丢。要么做策略路由固定回程，要么在两端都做 NAT。</li>
+</ol>
+<blockquote>
+<p>排查 NAT 问题的顺序永远是：<strong>先确认是哪一类 NAT，再看会话表，最后抓包核对三处地址</strong>。跳过第一步，后面的命令都会白跑。</p>
+</blockquote> </div> <footer class="article-foot"> <div class="article-tags"> <a class="chip" href="/wild-think/tags/%E7%BD%91%E7%BB%9C/">#网络</a><a class="chip" href="/wild-think/tags/NAT/">#NAT</a><a class="chip" href="/wild-think/tags/%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2/">#路由交换</a><a class="chip" href="/wild-think/tags/%E5%8D%8E%E4%B8%BA/">#华为</a><a class="chip" href="/wild-think/tags/%E6%80%9D%E7%A7%91/">#思科</a> </div> <div class="prevnext"> <a class="pn" href="/wild-think/writing/linux-interview-tiers/"> <small>← 上一篇</small> <span>Linux 运维高频面试题：结论、原理、追问三层答法</span> </a> <a class="pn next" href="/wild-think/writing/disk-full-troubleshooting/"> <small>下一篇 →</small> <span>磁盘满了但文件找不到：df 与 du 对不上的七种原因</span> </a> </div> <div style="margin-top:26px;font-family:var(--font-mono);font-size:11.5px;color:var(--dim);letter-spacing:.04em">
+// 如需转载，注明来源即可 · 计算机网络与路由交换 </div> </footer> </article> <aside class="toc" id="toc"> <div class="toc-title">On this page</div> <ul> <li class="depth-2"> <a href="#一静态-nat一对一">一、静态 NAT（一对一）</a> </li><li class="depth-2"> <a href="#二动态-nat地址池">二、动态 NAT（地址池）</a> </li><li class="depth-2"> <a href="#三napt--pat端口复用最常见">三、NAPT / PAT（端口复用，最常见）</a> </li><li class="depth-2"> <a href="#四nat-server--端口映射外部主动进入">四、NAT Server / 端口映射（外部主动进入）</a> </li><li class="depth-2"> <a href="#五双向-nat源与目的同时改写">五、双向 NAT（源与目的同时改写）</a> </li><li class="depth-2"> <a href="#六nat444--cgnat运营商级-nat">六、NAT444 / CGNAT（运营商级 NAT）</a> </li><li class="depth-2"> <a href="#七选型速查">七、选型速查</a> </li><li class="depth-2"> <a href="#八nat-的四个共性坑">八、NAT 的四个共性坑</a> </li> </ul> </aside> </div> </div> <script type="module">const c=document.getElementById("reading-bar"),n=()=>{const e=document.documentElement,t=e.scrollHeight-e.clientHeight,o=t>0?e.scrollTop/t*100:0;c&&(c.style.width=Math.min(100,Math.max(0,o))+"%")};document.addEventListener("scroll",n,{passive:!0});window.addEventListener("resize",n);n();const i=Array.from(document.querySelectorAll("#toc a")),r=i.map(e=>document.getElementById(decodeURIComponent(e.hash.slice(1)))).filter(Boolean);if(r.length){const e=new IntersectionObserver(t=>{t.forEach(o=>{o.isIntersecting&&i.forEach(s=>s.classList.toggle("active",decodeURIComponent(s.hash.slice(1))===o.target.id))})},{rootMargin:"-90px 0px -70% 0px",threshold:0});r.forEach(t=>e.observe(t))}</script>  </main> <footer class="site-footer"> <div class="container"> <div class="footer-grid"> <div class="footer-brand"> <a class="brand" href="/wild-think/"> <span class="brand-mark">野</span> <span>野生思考</span> </a> <p>把复杂的技术，变成可以落地复现的思考与实践</p> </div> <div class="footer-col"> <h4>专题</h4> <a href="/wild-think/topics/linux/">Linux 运维知识库</a><a href="/wild-think/topics/network/">计算机网络与路由交换</a><a href="/wild-think/topics/security/">网络安全与渗透基础</a><a href="/wild-think/topics/sre-cloud/">云原生与 SRE 体系</a><a href="/wild-think/topics/db/">数据库知识库</a> </div> <div class="footer-col"> <h4>站点</h4> <a href="/wild-think/writing/">全部文章</a> <a href="/wild-think/archive/">归档</a> <a href="/wild-think/tags/">标签</a> <a href="/wild-think/about/">关于本站</a> <a href="/wild-think/rss.xml">RSS 订阅</a> </div> </div> <div class="footer-bottom"> <span>© 2026–2026 野生思考 · wild-think-lab</span> <span class="sig">// 把复杂的技术，写成可以走的路</span> </div> </div> </footer> <button class="to-top" id="to-top" aria-label="回到顶部"> <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg>  </button> <script type="module">const o=document.documentElement,c=document.getElementById("theme-toggle");c?.addEventListener("click",()=>{o.classList.toggle("light");try{localStorage.setItem("theme",o.classList.contains("light")?"light":"dark")}catch{}});const i=document.getElementById("menu-toggle"),d=document.getElementById("mobile-nav");i?.addEventListener("click",()=>{d?.classList.toggle("open")});const n=document.getElementById("to-top"),l=()=>{n?.classList.toggle("show",window.scrollY>700)};window.addEventListener("scroll",l,{passive:!0});l();n?.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));document.addEventListener("keydown",t=>{const e=t.target,s=e&&/^(INPUT|TEXTAREA)$/.test(e.tagName);t.key==="/"&&!s&&(t.preventDefault(),location.href="/wild-think/search/")});</script>  </body> </html>
