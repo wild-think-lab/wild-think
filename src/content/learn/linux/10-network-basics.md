@@ -1,6 +1,6 @@
 ---
 title: 网络基础与配置：这台机器通不通
-module: 熟练篇
+module: 入门篇
 summary: ip/ss 的用法、路由与网关、DNS 解析、防火墙放行，以及"能 ping 通但不能访问"的五种原因。
 minutes: 45
 ---

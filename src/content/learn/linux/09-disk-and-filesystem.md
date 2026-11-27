@@ -1,6 +1,6 @@
 ---
 title: 磁盘与文件系统：空间去哪了
-module: 熟练篇
+module: 入门篇
 summary: 分区与挂载、LVM 扩缩容、inode 与"删了文件空间不降"，以及磁盘满的六种真实原因。
 minutes: 45
 ---

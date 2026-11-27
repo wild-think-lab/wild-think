@@ -1,6 +1,6 @@
 ---
 title: 部署监控与日志平台（自建）
-module: 进阶篇
+module: 熟练篇
 summary: Prometheus + Grafana 的最小部署、Loki 收日志、告警接入，以及容量与保留期的估算。
 minutes: 50
 ---

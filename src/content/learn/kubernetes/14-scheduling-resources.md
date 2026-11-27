@@ -1,6 +1,6 @@
 ---
 title: 调度与资源治理：让 Pod 落在该在的节点
-module: 进阶篇
+module: 熟练篇
 summary: requests/limits 与 QoS、亲和与反亲和、污点与容忍、PDB 与优先级，五个"调度看起来随机"的原因。
 minutes: 50
 ---

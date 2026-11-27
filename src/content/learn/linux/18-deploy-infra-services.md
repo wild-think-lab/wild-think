@@ -1,6 +1,6 @@
 ---
 title: 部署内网基础服务：DNS / DHCP / NTP
-module: 进阶篇
+module: 熟练篇
 summary: 自建 DNS（dnsmasq/BIND）、DHCP 保留地址、NTP 时间同步,以及五个"内网服务互相打架"的原因。
 minutes: 45
 ---

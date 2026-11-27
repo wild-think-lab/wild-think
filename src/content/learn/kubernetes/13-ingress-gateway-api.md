@@ -1,6 +1,6 @@
 ---
 title: Ingress 与 Gateway API 实战
-module: 进阶篇
+module: 熟练篇
 summary: Ingress 的局限、nginx-ingress 与 traefik 的取舍、Gateway API 的模型、灰度与 TLS，五个"入口配好还是不通"的原因。
 minutes: 50
 ---
