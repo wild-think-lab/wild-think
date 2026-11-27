@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { GLOSSARY, TERM_TOTAL } from '../data/glossary';
+---
+<BaseLayout
+  title="技术术语表"
+  description="运维、网络、云原生、数据、安全、监控、AI 基础设施的高频术语，一句话讲清它到底解决什么问题，可搜索。"
+  active="glossary"
+>
+  <section class="section">
+    <div class="container">
+      <div class="page-head">
+        <div class="kicker">GLOSSARY · 术语表</div>
+        <h1>先对齐词，<br />再谈技术</h1>
+        <p>
+          面试、评审、看文档时最常见的卡点不是不会，而是"同一个词各自理解不同"。这里每条只写一句：它到底解决什么问题、什么时候该想到它。
+        </p>
+      </div>
+
+      <div class="sheet-stats">
+        <div><b>{TERM_TOTAL}</b><span>条术语</span></div>
+        <div><b>{GLOSSARY.length}</b><span>个领域</span></div>
+        <div><b>1</b><span>句话一条</span></div>
+      </div>
+
+      <div class="gl-bar">
+        <label class="gl-search">
+          <Icon name="search" size={16} />
+          <input id="gl-input" type="search" placeholder="搜术语、英文名或解释，例如 cgroup / 证书 / 限流" autocomplete="off" />
+          <span id="gl-count" class="gl-count"></span>
+        </label>
+        <div class="gl-chips" id="gl-chips">
+          <button class="gl-chip on" data-group="all">全部</button>
+          {GLOSSARY.map((g) => (
+            <button class="gl-chip" data-group={g.id}>{g.name}</button>
+          ))}
+        </div>
+      </div>
+
+      <div id="gl-body">
+        {GLOSSARY.map((g) => (
+          <section class="gl-group" data-group={g.id}>
+            <div class="gl-group-head">
+              <h2>{g.name}<em>{g.en}</em></h2>
+              <span class="gl-num">{g.terms.length}</span>
+            </div>
+            <dl class="gl-list">
+              {g.terms.map((t) => (
+                <div class="gl-item" data-k={`${t.term} ${t.en ?? ''} ${t.def}`.toLowerCase()}>
+                  <dt>
+                    <span class="gl-term">{t.term}</span>
+                    {t.en && <span class="gl-en">{t.en}</span>}
+                  </dt>
+                  <dd>{t.def}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        ))}
+        <p id="gl-empty" class="gl-empty" hidden>没有匹配的术语，换个关键词试试。</p>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      const input = document.getElementById('gl-input');
+      const chips = document.getElementById('gl-chips');
+      const body = document.getElementById('gl-body');
+      const count = document.getElementById('gl-count');
+      const empty = document.getElementById('gl-empty');
+      if (!input || !body) return;
+      let group = 'all';
+
+      const groups = Array.from(body.querySelectorAll('.gl-group'));
+
+      function apply() {
+        const q = input.value.trim().toLowerCase();
+        let visible = 0;
+        groups.forEach((sec) => {
+          const gid = sec.dataset.group;
+          const groupOk = group === 'all' || group === gid;
+          let n = 0;
+          sec.querySelectorAll('.gl-item').forEach((it) => {
+            const hit = groupOk && (!q || it.dataset.k.indexOf(q) >= 0);
+            it.hidden = !hit;
+            if (hit) n++;
+          });
+          sec.hidden = n === 0;
+          const num = sec.querySelector('.gl-num');
+          if (num) num.textContent = n;
+          visible += n;
+        });
+        if (empty) empty.hidden = visible > 0;
+        if (count) count.textContent = visible ? visible + ' 条' : '';
+      }
+
+      input.addEventListener('input', apply);
+      chips.addEventListener('click', (e) => {
+        const btn = e.target.closest('.gl-chip');
+        if (!btn) return;
+        group = btn.dataset.group || 'all';
+        chips.querySelectorAll('.gl-chip').forEach((b) => b.classList.toggle('on', b === btn));
+        apply();
+      });
+      apply();
+    })();
+  </script>
+</BaseLayout>
