@@ -4,12 +4,24 @@ import Icon from '../components/Icon.astro';
 import { u, f, tagHref } from '../lib/url';
 import { SITE, TOPICS, topicById } from '../lib/site';
 import { allPosts, allTags, postHref, postTopicId, fmtDate } from '../lib/posts';
+import { getCollection } from 'astro:content';
+import { COURSES } from '../data/courses';
 
 const posts = await allPosts();
 const latest = posts.slice(0, 6);
 const tags = (await allTags()).slice(0, 14);
 
+// 学习中心：每门课多少章
+const learnEntries = await getCollection('learn');
+const courseCount = (id: string) =>
+  learnEntries.filter((e) => e.id.startsWith(id + '/')).length;
+
 const paths = [
+  {
+    title: '完全不懂，从这里开始',
+    desc: '服务器是干什么的 → 命令行 12 个命令 → 网络四件事 → 亲手做完 LAMP 实验，跟着走能自己搭出一个网站。',
+    links: ['starter', 'linux', 'network'],
+  },
   {
     title: '从运维起步',
     desc: 'Linux 基础 → Shell 与权限 → 服务与日志 → 故障排查，先把一台机器管住。',
@@ -40,16 +52,17 @@ const paths = [
         </p>
 
         <div class="hero-cta">
-          <a class="btn btn-primary" href={u('/topics')}>
-            进入知识库
+          <a class="btn btn-primary" href={u('/learn')}>
+            从零开始学
             <Icon name="arrowRight" size={16} />
           </a>
+          <a class="btn" href={u('/topics')}>进入知识库</a>
           <a class="btn" href={u('/writing')}>浏览全部文章</a>
         </div>
 
         <div class="hero-stats">
           <div class="stat"><b>{String(posts.length).padStart(2, '0')}</b><span>篇笔记</span></div>
-          <div class="stat"><b>10</b><span>个专题</span></div>
+          <div class="stat"><b>{String(TOPICS.length).padStart(2, '0')}</b><span>个专题</span></div>
           <div class="stat"><b>{String(tags.length).padStart(2, '0')}</b><span>个标签</span></div>
           <div class="stat"><b>100%</b><span>可复现</span></div>
         </div>
@@ -85,7 +98,7 @@ const paths = [
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <h2>知识库专题 <span class="mono">/ 10 TOPICS</span></h2>
+        <h2>知识库专题 <span class="mono">/ {TOPICS.length} TOPICS</span></h2>
         <a class="more" href={u('/topics')}>全部专题 <Icon name="arrowRight" size={14} /></a>
       </div>
 
@@ -148,7 +161,33 @@ const paths = [
   <section class="section" style="padding-top:0">
     <div class="container">
       <div class="section-head">
-        <h2>三条阅读路径 <span class="mono">/ ROADMAP</span></h2>
+        <h2>学习中心 <span class="mono">/ LEARN FROM ZERO</span></h2>
+        <a class="more" href={u('/learn')}>全部课程 <Icon name="arrowRight" size={14} /></a>
+      </div>
+      <p style="margin:-6px 0 18px;font-size:13px;color:var(--muted);line-height:1.8;max-width:640px">
+        选一门，从第一章按顺序往下走。左边是章节树，右边是正文，每章末尾都有能动手验证的练习。
+      </p>
+      <div class="home-learn">
+        {
+          COURSES.map((c) => (
+            <a class="hl-card" href={u(`/learn/${c.id}`)} style={`--card-accent:${c.accent}`}>
+              <span class="hl-icon"><Icon name={c.icon} size={16} /></span>
+              <span class="hl-main">
+                <strong>{c.name}</strong>
+                <em>{c.desc}</em>
+              </span>
+              <span class="hl-meta">{courseCount(c.id)} 章</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="section-head">
+        <h2>四条阅读路径 <span class="mono">/ ROADMAP</span></h2>
       </div>
       <div class="topic-grid">
         {

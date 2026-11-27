@@ -23,6 +23,7 @@ const fullTitle = title ? `${title} · ${SITE.title}` : `${SITE.title} · ${SITE
 const canonical = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site).href;
 
 const nav = [
+  { key: 'learn', label: '学习', href: u('/learn') },
   { key: 'topics', label: '专题', href: u('/topics') },
   { key: 'writing', label: '文章', href: u('/writing') },
   { key: 'toolbox', label: '工具箱', href: u('/toolbox') },
@@ -137,6 +138,7 @@ const isActive = (href: string) => {
 
           <div class="footer-col">
             <h4>站点</h4>
+            <a href={u('/learn')}>学习中心</a>
             <a href={u('/writing')}>全部文章</a>
             <a href={u('/toolbox')}>工具箱</a>
             <a href={u('/archive')}>归档</a>

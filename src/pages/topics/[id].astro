@@ -42,6 +42,19 @@ const others = TOPICS.filter((t) => t.id !== topic.id).slice(0, 4);
     <div style="display:grid;gap:40px" class="topic-body">
       <div>
         {
+          topic.id === 'starter' && (
+            <a class="tool-callout" href={u('/learn')}>
+              <div class="tc-left">
+                <span class="tc-kicker">LEARN · 按章节推进</span>
+                <h3>想要"从第一章读到最后一章"？</h3>
+                <p>学习中心里有 Linux、Python、网络三门课，分模块、按顺序，左边是章节树，学完一章能自己验证。</p>
+              </div>
+              <span class="tc-go">进入学习中心</span>
+            </a>
+          )
+        }
+
+        {
           topic.id === 'tools' && (
             <a class="tool-callout" href={u('/toolbox')}>
               <div class="tc-left">

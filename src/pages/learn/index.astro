@@ -1,0 +1,272 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import { u } from '../../lib/url';
+import { getCollection } from 'astro:content';
+import { COURSES } from '../../data/courses';
+
+const all = await getCollection('learn');
+
+const stats = new Map<string, { chapters: number; modules: Set<string> }>();
+for (const c of COURSES) stats.set(c.id, { chapters: 0, modules: new Set() });
+for (const e of all) {
+  const course = e.id.split('/')[0];
+  const s = stats.get(course);
+  if (!s) continue;
+  s.chapters += 1;
+  s.modules.add(e.data.module);
+}
+---
+
+<BaseLayout
+  title="学习中心"
+  description="野生思考学习中心：按顺序学的技术路线。Linux、Python、网络三门课，每门分模块、按章节推进，讲清原理再动手验证。"
+  active="learn"
+>
+  <section class="section learn-page">
+    <div class="container">
+      <div class="page-head">
+        <div class="kicker">LEARN · 学习中心</div>
+        <h1>选一门，<br />从第一行命令开始走</h1>
+        <p>
+          不是文章列表——是排好顺序的课。每门课分模块、按章节推进，左边是进度树，
+          右边讲到第几章就点第几章；学完一章能自己验证，才算真的会了。
+        </p>
+      </div>
+
+      <div class="learn-grid">
+        {
+          COURSES.map((c) => {
+            const s = stats.get(c.id)!;
+            return (
+              <a class="course-card" href={u(`/learn/${c.id}`)} style={`--card-accent:${c.accent}`}>
+                <div class="cc-top">
+                  <span class="cc-icon"><Icon name={c.icon} size={18} /></span>
+                  <span class="cc-tag">{c.tag}</span>
+                </div>
+                <h2>{c.name}</h2>
+                <div class="cc-en">{c.en}</div>
+                <p class="cc-desc">{c.desc}</p>
+
+                <ul class="cc-can">
+                  {c.can.map((x) => (
+                    <li>{x}</li>
+                  ))}
+                </ul>
+
+                <div class="cc-foot">
+                  <span class="cc-meta">
+                    {s.modules.size} 个模块 · {s.chapters} 章
+                  </span>
+                  <span class="cc-go">
+                    开始学习
+                    <Icon name="arrowRight" size={14} />
+                  </span>
+                </div>
+              </a>
+            );
+          })
+        }
+      </div>
+
+      <div class="learn-note">
+        <div class="ln-item">
+          <b>怎么用</b>
+          <p>按章节顺序往下读，每章末尾有「动手做」。做完能自己验证结果，再翻下一章。</p>
+        </div>
+        <div class="ln-item">
+          <b>读到一半卡住</b>
+          <p>回到对应专题查更深的文章；课程讲"是什么、怎么做"，专题讲"为什么、出问题怎么查"。</p>
+        </div>
+        <div class="ln-item">
+          <b>完全不懂技术</b>
+          <p>先从 Linux 课的第 1 章读，再用「从零开始学技术」专题补齐背景。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .learn-page {
+    padding-top: 54px;
+    padding-bottom: 90px;
+  }
+
+  .learn-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 16px;
+    margin-top: 30px;
+  }
+
+  .course-card {
+    display: flex;
+    flex-direction: column;
+    padding: 22px 24px 18px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--panel);
+    transition: border-color 0.2s, transform 0.2s, background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .course-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      120% 90% at 0% 0%,
+      color-mix(in srgb, var(--card-accent) 12%, transparent),
+      transparent 60%
+    );
+    opacity: 0.8;
+    pointer-events: none;
+  }
+
+  .course-card:hover {
+    border-color: color-mix(in srgb, var(--card-accent) 45%, transparent);
+    transform: translateY(-2px);
+  }
+
+  .cc-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cc-icon {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    border: 1px solid var(--line);
+    color: var(--card-accent);
+    background: color-mix(in srgb, var(--card-accent) 10%, transparent);
+  }
+
+  .cc-tag {
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    padding: 3px 9px;
+    border-radius: 20px;
+    color: var(--card-accent);
+    border: 1px solid color-mix(in srgb, var(--card-accent) 35%, transparent);
+    background: color-mix(in srgb, var(--card-accent) 8%, transparent);
+  }
+
+  .course-card h2 {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 6px;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+
+  .cc-en {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    color: var(--dim);
+    margin-bottom: 12px;
+  }
+
+  .cc-desc {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 14px;
+    font-size: 12.5px;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+
+  .cc-can {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 18px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .cc-can li {
+    font-size: 12px;
+    color: var(--muted);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .cc-can li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--card-accent);
+    font-family: var(--font-mono);
+    font-size: 11px;
+  }
+
+  .cc-foot {
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px dashed var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .cc-meta {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--dim);
+  }
+
+  .cc-go {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--card-accent);
+  }
+
+  .learn-note {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 34px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+  }
+
+  .ln-item b {
+    display: block;
+    font-size: 12.5px;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+
+  .ln-item p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--dim);
+  }
+
+  @media (max-width: 860px) {
+    .learn-note {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

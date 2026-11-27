@@ -14,6 +14,15 @@ export type Topic = {
  */
 export const TOPICS: Topic[] = [
   {
+    id: 'starter',
+    index: '00',
+    name: '从零开始学技术',
+    en: 'START HERE',
+    desc: '完全不懂也没关系。先讲清“这东西到底在干什么”，再给一份照抄就能跑通的实验报告：环境、步骤、验证、排错，一步不落。',
+    icon: 'spark',
+    accent: '#7fd1b9',
+  },
+  {
     id: 'linux',
     index: '01',
     name: 'Linux 运维知识库',
