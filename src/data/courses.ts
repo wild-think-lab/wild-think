@@ -117,6 +117,20 @@ export const COURSES: Course[] = [
       '出了安全事件时知道前 60 分钟做什么',
     ],
   },
+  {
+    id: 'troubleshooting',
+    name: '故障排查实战：从现象到根因',
+    en: 'TROUBLESHOOTING',
+    tag: '排障',
+    desc: '不背命令清单，讲方法。从"先分层再缩小"的框架开始，一路练到系统层、网络层、应用与依赖层，最后落到"是什么变了"和"复盘怎么防再发"。',
+    icon: 'search',
+    accent: '#7aa2f7',
+    can: [
+      '看到一个故障先判断它在哪一层',
+      '用二分与抓包把范围缩到具体一段',
+      '把一次故障变成能复用的 runbook 与案例',
+    ],
+  },
 ];
 
 export const COURSE_MAP = new Map(COURSES.map((c) => [c.id, c]));
