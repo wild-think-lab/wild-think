@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { u } from '../lib/url';
+import { allPosts, postHref, postTopicId, shortDate } from '../lib/posts';
+import { topicById } from '../lib/site';
+
+type PathDef = {
+  id: string;
+  name: string;
+  en: string;
+  icon: string;
+  accent: string;
+  goal: string;
+  weeks: string;
+  topics: string[];
+};
+
+const posts = await allPosts();
+
+const paths: PathDef[] = [
+  {
+    id: 'zero-to-ops',
+    name: '零基础到能独立负责一台服务器',
+    en: 'ZERO → OPS',
+    icon: 'terminal',
+    accent: '#ff8a3d',
+    goal: '从看不懂命令行，到能在一台线上机器上部署服务、排查故障、做备份与回滚。',
+    weeks: '约 6 周',
+    topics: ['starter', 'linux', 'shell', 'network', 'service', 'monitor'],
+
+  },
+  {
+    id: 'cloud-native',
+    name: '云原生实践路径',
+    en: 'CLOUD NATIVE',
+    icon: 'box',
+    accent: '#7aa2f7',
+    goal: '从虚拟机与容器基础，走到 K8s 上做发布、观测、排障与容量规划。',
+    weeks: '约 8 周',
+    topics: ['virtual', 'devops', 'k8s', 'service', 'monitor', 'sre-cloud'],
+
+  },
+  {
+    id: 'security',
+    name: '安全入门到应急响应',
+    en: 'SECURITY',
+    icon: 'shield',
+    accent: '#f7768e',
+    goal: '先能把系统按基线加固，再能判断"是不是被入侵"，最后能按流程完成处置。',
+    weeks: '约 5 周',
+    topics: ['linux', 'network', 'security', 'tools', 'windows'],
+
+  },
+  {
+    id: 'data-perf',
+    name: '数据与性能深挖',
+    en: 'DATA & PERF',
+    icon: 'database',
+    accent: '#9ece6a',
+    goal: '把"慢"和"丢数据"这两类最贵的问题，变成可定位、可恢复的工程能力。',
+    weeks: '约 6 周',
+    topics: ['db', 'storage', 'linux', 'golang', 'monitor'],
+
+  },
+];
+
+const built = paths.map((p) => {
+  const list = posts
+    .filter((x) => p.topics.includes(postTopicId(x)))
+    .sort((a, b) => {
+      const ai = p.topics.indexOf(postTopicId(a));
+      const bi = p.topics.indexOf(postTopicId(b));
+      if (ai !== bi) return ai - bi;
+      return a.data.date.getTime() - b.data.date.getTime() || a.id.localeCompare(b.id, 'en', { numeric: true });
+    })
+    .slice(0, 24);
+  return { ...p, list };
+});
+---
+<BaseLayout
+  title="阅读路径"
+  description="把散落在各专题的文章串成由易到难的顺序：零基础运维、云原生、安全、数据与性能四条路径，照着读就不会中途放弃。"
+  active="paths"
+>
+  <section class="section">
+    <div class="container">
+      <div class="page-head">
+        <div class="kicker">PATHS · 阅读路径</div>
+        <h1>不知道从哪读？<br />按一条路走完</h1>
+        <p>
+          专题是按知识领域切的，路径是按"先学什么后学什么"切的。每条路径都是一条从基础到实战的线，读完一条，你就有一块完整的能力。
+        </p>
+      </div>
+
+      {built.map((p, pi) => (
+        <div class="path-block" style={`--acc:${p.accent}`}>
+          <div class="path-head">
+            <span class="ph-icon"><Icon name={p.icon} size={20} /></span>
+            <div class="ph-main">
+              <span class="ph-en">{String(pi + 1).padStart(2, '0')} · {p.en}</span>
+              <h2>{p.name}</h2>
+              <p>{p.goal}</p>
+            </div>
+            <span class="ph-meta">{p.weeks} · {p.list.length} 篇</span>
+          </div>
+
+          <ol class="path-steps">
+            {p.list.map((post, i) => {
+              const t = topicById(postTopicId(post));
+              return (
+                <li>
+                  <a href={postHref(post)}>
+                    <span class="ps-no">{String(i + 1).padStart(2, '0')}</span>
+                    <span class="ps-body">
+                      <span class="ps-title">{post.data.title}</span>
+                      <span class="ps-meta">{t?.name ?? postTopicId(post)} · {shortDate(post.data.date)}</span>
+                    </span>
+                    <Icon name="arrowRight" size={14} />
+                  </a>
+                </li>
+              );
+            })}
+          </ol>
+
+          <div class="path-foot">
+            {p.topics.map((tid) => {
+              const t = topicById(tid);
+              return t ? <a class="chip-static" href={u(`/topics/${tid}`)}>{t.name}</a> : null;
+            })}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
