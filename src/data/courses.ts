@@ -89,6 +89,20 @@ export const COURSES: Course[] = [
       '判断一个服务缺了哪些"能上生产"的条件',
     ],
   },
+  {
+    id: 'observability',
+    name: '可观测性从指标到复盘',
+    en: 'OBSERVABILITY',
+    tag: '监控与排障',
+    desc: '从"为谁监控"开始，讲清指标、日志、链路三件套怎么接起来，再讲告警设计与排障流程，最后落到一次故障的完整复盘。',
+    icon: 'pulse',
+    accent: '#f7768e',
+    can: [
+      '为一个服务设计出黄金信号与 SLO 阈值',
+      '用 traceId 把一次慢请求定位到具体一段',
+      '把告警噪音降到"每条都愿意处理"的程度',
+    ],
+  },
 ];
 
 export const COURSE_MAP = new Map(COURSES.map((c) => [c.id, c]));
