@@ -245,6 +245,16 @@ export const TOPICS: Topic[] = [
     accent: '#ffb3c1',
     category: 'practice',
   },
+  {
+    id: 'ai-infra',
+    index: '22',
+    name: 'AI 基础设施',
+    en: 'AI INFRASTRUCTURE',
+    desc: 'GPU 集群怎么进 K8s：驱动与 CUDA 版本链、device plugin、MIG 切分、RDMA/NCCL 互联验证，以及推理服务上线后的显存与并发。',
+    icon: 'chip',
+    accent: '#b4f8c8',
+    category: 'cloud',
+  },
 ];
 
 export const TOPIC_MAP = new Map(TOPICS.map((t) => [t.id, t]));

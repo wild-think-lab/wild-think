@@ -43,7 +43,14 @@ export async function topicsWithCounts() {
 
 export async function postsByTopic(topicId: string): Promise<Post[]> {
   const posts = await allPosts();
-  return posts.filter((p) => postTopicId(p) === topicId);
+  return posts
+    .filter((p) => postTopicId(p) === topicId)
+    .sort((a, b) => {
+      const d = b.data.date.getTime() - a.data.date.getTime();
+      if (d !== 0) return d;
+      // 同一天的文章按文件名序号升序，保证 01 → 02 → 03 的阅读顺序
+      return a.id.localeCompare(b.id, 'en', { numeric: true });
+    });
 }
 
 export async function allTags(): Promise<{ tag: string; count: number }[]> {

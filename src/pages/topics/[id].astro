@@ -13,7 +13,8 @@ const { topic } = Astro.props;
 const topicPosts = await postsByTopic(topic.id);
 const cat = CATEGORIES.find((c) => c.id === topic.category);
 const siblings = TOPICS.filter((t) => t.category === topic.category && t.id !== topic.id);
-const next = TOPICS[(TOPICS.findIndex((t) => t.id === topic.id) + 1) % TOPICS.length];
+const idx = TOPICS.findIndex((t) => t.id === topic.id);
+const next = idx + 1 < TOPICS.length ? TOPICS[idx + 1] : undefined;
 ---
 
 <BaseLayout
@@ -108,11 +109,17 @@ const next = TOPICS[(TOPICS.findIndex((t) => t.id === topic.id) + 1) % TOPICS.le
 
     <aside class="topic-aside">
       {
-        next && (
+        next ? (
           <a class="side-next" href={u(`/topics/${next.id}`)} style={`--acc:${next.accent}`}>
             <span class="sn-kicker">下一个专题</span>
             <strong>{next.name}</strong>
             <em>{next.en}</em>
+          </a>
+        ) : (
+          <a class="side-next" href={u('/topics')}>
+            <span class="sn-kicker">已到地图末尾</span>
+            <strong>回到知识地图</strong>
+            <em>KNOWLEDGE MAP</em>
           </a>
         )
       }
