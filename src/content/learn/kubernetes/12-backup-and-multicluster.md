@@ -1,6 +1,6 @@
 ---
 title: 第 12 章 · 备份、恢复与多集群
-module: 进阶篇
+module: 熟练篇
 summary: 要备份什么（etcd/资源/镜像/PV）、Velero 的用法、多集群的三种动机与代价。
 minutes: 50
 ---

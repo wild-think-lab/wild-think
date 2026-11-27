@@ -1,6 +1,6 @@
 ---
 title: 镜像瘦身与多架构构建
-module: 进阶篇
+module: 熟练篇
 summary: 多阶段构建、基础镜像选择、层缓存技巧、buildx 多架构，五个"镜像 2GB 但只跑 20MB 代码"的原因。
 minutes: 45
 ---
