@@ -75,6 +75,20 @@ export const COURSES: Course[] = [
     accent: '#ffd166',
     can: ['独立装好并安全地连上数据库', '会看 EXPLAIN，知道索引有没有生效', '能做备份、能恢复到某个时间点'],
   },
+  {
+    id: 'kubernetes',
+    name: 'Kubernetes 从看懂到能上线',
+    en: 'KUBERNETES PRACTICE',
+    tag: '容器编排',
+    desc: '从"为什么需要编排"开始，讲清 Pod/工作负载、Service 与 Ingress、配置与密钥、存储、排障五步法，最后落到生产可用：资源、HPA、PDB 与发布策略。',
+    icon: 'box',
+    accent: '#7aa2f7',
+    can: [
+      '把一个无状态服务完整部署到集群并对外访问',
+      'Pod 起不来时按五步法定位到具体原因',
+      '判断一个服务缺了哪些"能上生产"的条件',
+    ],
+  },
 ];
 
 export const COURSE_MAP = new Map(COURSES.map((c) => [c.id, c]));
