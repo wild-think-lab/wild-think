@@ -48,7 +48,9 @@ const totalItems = groups.reduce((n, g) => n + g.items.length, 0);
 const gid = (i: number) => `g-${i}`;
 
 // 分类名去掉 emoji，用于侧栏与搜索关键词
-const plain = (s: string) => s.replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}\uFE0F]/gu, '').trim();
+const plain = (s: string) => s.replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}\uFE0F\u200D]/gu, '').trim();
+
+const dataUrl = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/data/toolbox.json`;
 
 const withDesc = groups.reduce((n, g) => n + g.items.filter((i) => i.desc).length, 0);
 const hosts = new Set(
@@ -120,33 +122,15 @@ const hosts = new Set(
           </div>
         </aside>
 
-        <div class="tool-body" id="tool-body">
+        <div class="tool-body" id="tool-body" data-src={dataUrl}>
           {
             groups.map((g, i) => (
-              <section class="tool-group" id={gid(i)} data-group={plain(g.group)}>
+              <section class="tool-group" id={gid(i)} data-group={plain(g.group)} data-gi={i}>
                 <h2 class="tool-group-title">
                   {g.group}
-                  <em>{g.items.length}</em>
+                  <em data-n={g.items.length}>{g.items.length}</em>
                 </h2>
-                <div class="tool-grid">
-                  {g.items.map((it) => (
-                    <a
-                      class="titem"
-                      href={it.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      data-k={`${it.name} ${it.desc} ${plain(g.group)}`.toLowerCase()}
-                    >
-                      <span class="titem-name">
-                        {it.name}
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-                          <path d="M7 17L17 7M17 7H9M17 7v8" />
-                        </svg>
-                      </span>
-                      {it.desc && <span class="titem-desc">{it.desc}</span>}
-                    </a>
-                  ))}
-                </div>
+                <div class="tool-grid" />
               </section>
             ))
           }
@@ -170,40 +154,105 @@ const hosts = new Set(
     const countEl = document.getElementById('tool-count');
     const emptyEl = document.getElementById('tool-empty');
     const body = document.getElementById('tool-body');
-    const groups = Array.from(document.querySelectorAll('.tool-group')) as HTMLElement[];
-    const items = Array.from(document.querySelectorAll('.titem')) as HTMLElement[];
-    const total = items.length;
+    const shells = Array.from(document.querySelectorAll('.tool-group')) as HTMLElement[];
+    const total = shells.reduce((n, s) => n + Number(s.querySelector('.tool-group-title em')?.getAttribute('data-n') || 0), 0);
+
+    type Item = { name: string; url: string; desc: string };
+    type Group = { group: string; items: Item[] };
+    const plain = (s: string) => s.replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}\uFE0F\u200D]/gu, '').trim();
+
+    const rendered = new Set<HTMLElement>();
+    let index = new Map<string, Item[]>();
+
+    const itemNode = (it: Item, groupName: string) => {
+      const a = document.createElement('a');
+      a.className = 'titem';
+      a.href = it.url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.dataset.k = `${it.name} ${it.desc} ${groupName}`.toLowerCase();
+      const name = document.createElement('span');
+      name.className = 'titem-name';
+      name.textContent = it.name;
+      name.innerHTML += ' <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>';
+      a.appendChild(name);
+      if (it.desc) {
+        const d = document.createElement('span');
+        d.className = 'titem-desc';
+        d.textContent = it.desc;
+        a.appendChild(d);
+      }
+      return a;
+    };
+
+    const renderGroup = (shell: HTMLElement) => {
+      if (rendered.has(shell)) return;
+      rendered.add(shell);
+      const name = shell.dataset.group || '';
+      const items = index.get(name) || [];
+      const grid = shell.querySelector('.tool-grid');
+      if (!grid) return;
+      const frag = document.createDocumentFragment();
+      for (const it of items) frag.appendChild(itemNode(it, name));
+      grid.appendChild(frag);
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const en of entries) {
+          if (en.isIntersecting) {
+            renderGroup(en.target as HTMLElement);
+            io.unobserve(en.target);
+          }
+        }
+      },
+      { rootMargin: '600px 0px' }
+    );
+
+    const renderAll = () => {
+      for (const s of shells) renderGroup(s);
+      for (const s of shells) io.unobserve(s);
+    };
 
     const apply = (kw: string) => {
       const k = kw.trim().toLowerCase();
+      if (k) renderAll();
       let shown = 0;
-      for (const it of items) {
-        const hit = !k || (it.dataset.k || '').includes(k);
-        it.style.display = hit ? '' : 'none';
-        if (hit) shown++;
-      }
-      for (const g of groups) {
-        const visible = Array.from(g.querySelectorAll('.titem')).some(
-          (it) => (it as HTMLElement).style.display !== 'none'
-        );
-        g.style.display = visible ? '' : 'none';
-        const em = g.querySelector('.tool-group-title em');
-        if (em) {
-          const local = Array.from(g.querySelectorAll('.titem')).filter(
-            (it) => (it as HTMLElement).style.display !== 'none'
-          ).length;
-          em.textContent = k ? String(local) : (em.dataset.n || em.textContent);
+      for (const s of shells) {
+        const items = Array.from(s.querySelectorAll('.titem')) as HTMLElement[];
+        let local = 0;
+        for (const it of items) {
+          const hit = !k || (it.dataset.k || '').includes(k);
+          it.style.display = hit ? '' : 'none';
+          if (hit) { shown++; local++; }
         }
+        s.style.display = local > 0 ? '' : 'none';
+        const em = s.querySelector('.tool-group-title em');
+        if (em) em.textContent = k ? String(local) : (em.getAttribute('data-n') || '');
       }
       if (countEl) countEl.textContent = k ? `${shown} 条匹配` : `${total} 条`;
       if (emptyEl) emptyEl.hidden = shown !== 0;
     };
 
-    // 记录每组初始计数，搜索清空后还原
-    for (const g of groups) {
-      const em = g.querySelector('.tool-group-title em');
-      if (em) em.dataset.n = em.textContent || '';
-    }
+    const boot = async () => {
+      const src = body?.dataset.src;
+      if (!src) return;
+      try {
+        const res = await fetch(src, { cache: 'force-cache' });
+        const data = (await res.json()) as Group[];
+        index = new Map(data.map((g) => [plain(g.group), g.items]));
+      } catch (e) {
+        console.error('toolbox data load failed', e);
+        return;
+      }
+      // 数据到齐后再开始监听，避免"先渲染空组、后永不补"
+      for (const s of shells) {
+        const r = s.getBoundingClientRect();
+        if (r.top < window.innerHeight + 600) renderGroup(s);
+        else io.observe(s);
+      }
+    };
+    boot();
 
     let timer: number | undefined;
     q?.addEventListener('input', () => {
@@ -230,7 +279,7 @@ const hosts = new Set(
     // 侧栏滚动高亮
     const links = Array.from(document.querySelectorAll('.tool-side-link[data-target]')) as HTMLElement[];
     const map = new Map(links.map((l) => [l.dataset.target!, l]));
-    const io = new IntersectionObserver(
+    const ioSide = new IntersectionObserver(
       (entries) => {
         for (const en of entries) {
           if (!en.isIntersecting) continue;
@@ -242,6 +291,6 @@ const hosts = new Set(
       },
       { rootMargin: '-96px 0px -70% 0px', threshold: 0 }
     );
-    for (const g of groups) io.observe(g);
+    for (const s of shells) ioSide.observe(s);
   </script>
 </BaseLayout>

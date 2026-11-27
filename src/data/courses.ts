@@ -65,6 +65,16 @@ export const COURSES: Course[] = [
     accent: '#58a6ff',
     can: ['把一个应用打成镜像并在任意机器上跑起来', '用 Compose 管多容器服务', '看懂容器起不来的报错并修掉'],
   },
+  {
+    id: 'mysql',
+    name: 'MySQL 从建库到能运维',
+    en: 'MYSQL PRACTICE',
+    tag: '数据库',
+    desc: '从"装完连不上"开始，讲清库表设计、索引与执行计划、事务与锁、备份恢复和慢查询，最后能自己判断"这条 SQL 为什么慢"。',
+    icon: 'database',
+    accent: '#ffd166',
+    can: ['独立装好并安全地连上数据库', '会看 EXPLAIN，知道索引有没有生效', '能做备份、能恢复到某个时间点'],
+  },
 ];
 
 export const COURSE_MAP = new Map(COURSES.map((c) => [c.id, c]));

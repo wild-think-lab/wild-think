@@ -1,0 +1,4077 @@
+[
+  {
+    "group": "🛠️ 效率工具",
+    "items": [
+      {
+        "name": "极客视界",
+        "url": "https://bestgeek.org",
+        "desc": ""
+      },
+      {
+        "name": "IT-Tools",
+        "url": "https://tools.666666.dev/",
+        "desc": "为开发人员量身打造的一套便捷在线工具"
+      },
+      {
+        "name": "All in One Tools",
+        "url": "https://allinone.tools/",
+        "desc": "使用一个工具完成各种文件格式的转换，包括图片、PDF、视频、网页等。"
+      },
+      {
+        "name": "IP 工具箱",
+        "url": "https://ipinfo.ing/",
+        "desc": "一个更好用的 IP 工具箱"
+      },
+      {
+        "name": "IP 速查",
+        "url": "https://ip.ipinfo.ing",
+        "desc": "查看自己公网 IP"
+      },
+      {
+        "name": "代码图美化工具",
+        "url": "https://code.666666.dev/",
+        "desc": "超高颜值的代码图美化工具"
+      },
+      {
+        "name": "在线全功能粘贴板",
+        "url": "https://paste.666666.dev/",
+        "desc": "一款全功能的粘贴板程序，让代码共享更简单"
+      },
+      {
+        "name": "多功能 PDF 工具箱",
+        "url": "https://pdf.666666.dev/",
+        "desc": "多功能 PDF 工具箱"
+      },
+      {
+        "name": "微信文件传输助手",
+        "url": "https://filehelper.weixin.qq.com/",
+        "desc": ""
+      },
+      {
+        "name": "在线全功能转换器",
+        "url": "https://cn.onlineconvert.com/",
+        "desc": "使用这款免费且快速的在线转换器可以将 PDF、图像、视频、文档、音频等文件转换为其他格式。"
+      },
+      {
+        "name": "帮小忙",
+        "url": "https://tool.browser.qq.com/",
+        "desc": "腾讯 QQ 浏览器在线工具箱"
+      },
+      {
+        "name": "在线实用工具集",
+        "url": "https://tool.lu/",
+        "desc": ""
+      },
+      {
+        "name": "在线每日待办清单",
+        "url": "https://www.ricocc.com/todo/",
+        "desc": "一款由网页设计师 Rico 开发的优秀且设计简洁的 Todo List 网页版本应用。无需注册，数据存储在浏览器本地缓存。不用担心安全隐私问题，非常便利。"
+      },
+      {
+        "name": "个税计算器",
+        "url": "https://www.taxspirit.com/",
+        "desc": "在线个人所得说计算器"
+      },
+      {
+        "name": "快递查询",
+        "url": "https://www.kuaidi100.com/",
+        "desc": "中国领先的快递物流信息服务商"
+      },
+      {
+        "name": "火车票查询",
+        "url": "https://mobile.12306.cn/weixin/wxcore/init",
+        "desc": "全国高铁火车票时刻表、票价查询"
+      },
+      {
+        "name": "飞机票查询",
+        "url": "https://www.fliggy.com/",
+        "desc": "国内、国际飞机票时刻表、票价查询"
+      },
+      {
+        "name": "全国消协智慧 315",
+        "url": "https://315.cca.org.cn",
+        "desc": "全国消协组织统一的受理投诉渠道，为消费者反映日常生活中遇到的消费问题提供方便。"
+      },
+      {
+        "name": "黑猫投诉",
+        "url": "https://tousu.sina.com.cn",
+        "desc": "新浪旗下平台，以曝光商家不规范行为著称，提供企业信誉榜单供消费者参考，用户可通过平台快速发起投诉并追踪进度。"
+      },
+      {
+        "name": "人民网人民投诉",
+        "url": "https://weiquan.people.com.cn",
+        "desc": "人民网官方平台，投诉处理全程公开透明，借助官方资源推动问题解决，企业和行政机关重视度高。"
+      },
+      {
+        "name": "邮编查询",
+        "url": "https://www.youbianku.com/",
+        "desc": "主要提供国内任意地址的邮编查询、国际邮编查询、邮编反向查询、任意地址所属街道办事处和社区居委会查询等功能。"
+      },
+      {
+        "name": "汇率转换器",
+        "url": "https://www.xe.com/zh-CN/currencyconverter/",
+        "desc": "Xe.com 是总部位于安大略省纽马克特的加拿大在线外汇工具和服务公司。其在线货币转换器应用程序通过其网站、移动应用程序和其他在线渠道提供汇率信息、国际汇款和其他货币相关服务。"
+      },
+      {
+        "name": "全球各城市时间",
+        "url": "https://passer-by.com/datex/timezone.html",
+        "desc": "全球各城市时间"
+      },
+      {
+        "name": "万年历查询",
+        "url": "https://sinqi.tools/zh/calendar",
+        "desc": "轻松获取农历公历日期、星期、干支、生肖、节气、节日等信息"
+      },
+      {
+        "name": "中文简体繁体转换器",
+        "url": "https://passer-by.com/chinese-transverter/",
+        "desc": "简易的繁体中文和简体中文的转换工具，结合不同地区的日常生活中语言习惯用法不同。"
+      },
+      {
+        "name": "Keep Screen On",
+        "url": "https://www.keepscreenon.com/",
+        "desc": "打开这个网页，可以让电脑屏幕保持常亮，对 PC、Mac、Android、iOS 均有效。"
+      },
+      {
+        "name": "我要打赏",
+        "url": "https://mp.weixin.qq.com/s/A4IxfHtAfuIES0OogLffsA",
+        "desc": "『IT 人必备工具箱』一份属于你的数字宝藏，期待你的支持！"
+      },
+      {
+        "name": "外卖红包天天免费领",
+        "url": "https://mp.weixin.qq.com/s/qh8HeS0d5c4vrOy4Ao3wEQ",
+        "desc": "美团丨饿了么外卖红包天天免费领，吃饭省钱杠杠滴！"
+      },
+      {
+        "name": "我们又上新了",
+        "url": "https://pyq.666666.dev/",
+        "desc": "实时同步『IT 人必备工具箱』每日更新的好玩又有趣的内容。你也可以在这里向我们推荐你觉得还不错的软件或者网站！"
+      }
+    ]
+  },
+  {
+    "group": "🐧 奇妙的 Linux 世界",
+    "items": [
+      {
+        "name": "奇妙的 Linux 世界",
+        "url": "https://www.hi-linux.com/",
+        "desc": "一个高质量的 Linux 技术分享站"
+      },
+      {
+        "name": "Linux 技术交流群",
+        "url": "https://mp.weixin.qq.com/s/ZgoeD1FBp7eouyxBte4MWw",
+        "desc": "想认识 Linux 大神，就快快加入吧！"
+      },
+      {
+        "name": "Linux 命令大全",
+        "url": "https://linux.666666.dev/",
+        "desc": "Linux 命令大全搜索工具，内容包含 Linux 命令手册、详解、学习、搜集。"
+      },
+      {
+        "name": "Linux 发行版大全",
+        "url": "https://distrowatch.com/",
+        "desc": "DistroWatch 是一个包含了各种 Linux 发行版及其他自由 / 开放源代码的类 Unix操作系统的新闻、人气排名、以及其他一般信息等的网站，它包含了数百种发行版的信息。"
+      },
+      {
+        "name": "鸟哥的 Linux 私房菜",
+        "url": "https://linux.vbird.org/",
+        "desc": "Linux 畅销排行榜 Top1，最畅销的 Linux 中文书籍！您是有意学习 Linux 的小菜鸟，却不知如何下手？您是遨游 Linux 的老鸟，想要一本资料丰富的工具书？本书绝对是最佳选择！"
+      },
+      {
+        "name": "Linux 入门学习教程",
+        "url": "https://dunwu.github.io/linux-tutorial/",
+        "desc": "这是一个非常不错的 Linux 教程学习项目 「linux-tutorial」，它主要内容包括 Linux 命令、Linux 系统运维、软件运维、精选常用 Shell脚本、Docker 教程等。"
+      },
+      {
+        "name": "Linux 内核教学",
+        "url": "https://linux-kernel-labs-zh.xyz/",
+        "desc": "布加勒斯特理工大学的 Linux 内核教学课程。包含了一系列 Linux 内核主题的课程和实验，侧重于理论和内核探索以及设备驱动程序主题。"
+      },
+      {
+        "name": "Vim 实操教程",
+        "url": "https://dofy.gitbook.io/learn-vim/zh-CN",
+        "desc": "Vim 是从 VI 发展出来的一个文本编辑器。代码补全、编译及错误跳转等方便编程的功能特别丰富，在程序员中被广泛使用，这是一份非常实用 Vim 的操作教程。"
+      },
+      {
+        "name": "Vim 速查表",
+        "url": "https://michael.peopleofhonoronly.com/vim/",
+        "desc": "网站提供一份非常实用 Vim 编辑器使用速查表。它有四种版本，包括：屏幕版、打印版、单色打印版和色盲友好版。除此之外，还提供了一些与 Vim 相关的建议和批评。"
+      },
+      {
+        "name": "Linux 命令行入门教程",
+        "url": "https://www.kancloud.cn/thinkphp/linux-command-line/39431",
+        "desc": "Linux 命令行的最佳入门书籍。它不仅讲述 Shell 的基本概念、Linux 命令的用法，而且还包含如何编写 Shell 脚本等内容。"
+      },
+      {
+        "name": "命令行的艺术",
+        "url": "https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md",
+        "desc": "熟练使用命令行是一种常被认为难以掌握的技能。但实际上，它会提高你作为工程师的灵活性以及生产力。本文是一些命令行使用技巧,当你能够熟练掌握这里列出的所有技巧时，你就学会了很多关于命令行的东西了。"
+      },
+      {
+        "name": "终端摸鱼神器",
+        "url": "https://github.com/svenstaro/genact",
+        "desc": "一款终端摸鱼神器，它可以轻松让你瞬间变得专业又忙碌。"
+      },
+      {
+        "name": "终端摸鱼神器网页版",
+        "url": "https://act.666666.dev/",
+        "desc": "终端摸鱼神器网页版，无需安装。只需点击一下，就可以轻松让你瞬间变得专业又忙碌。"
+      },
+      {
+        "name": "Atuin",
+        "url": "https://atuin.sh/",
+        "desc": "Atuin 使用 SQLite 数据库取代了你现有的 Shell 历史，并为你的命令记录了额外的内容。此外，它还通过 Atuin 服务器，在机器之间提供可选的、完全加密的历史记录同步功能。"
+      },
+      {
+        "name": "SSHX",
+        "url": "https://sshx.io/",
+        "desc": "sshx 是一种安全、实时协作的基于 Web 的终端共享工具，它让你可以通过链接与任何人共享终端，在无限的画布上实时协作。它支持多平台安装、端到端加密等特性，sshx 可以用于教学、调试或云访问。"
+      },
+      {
+        "name": "MDServer-Web",
+        "url": "https://github.com/midoks/mdserver-web",
+        "desc": "MDServer-Web 是一款开源、免费、简单 Linux 服务器管理面板，它与著名的宝塔面板相似，但更安全且支持多种功能。它安装简单，作者承诺不卖数据、不监控用户、不注入病毒，可以放心使用。"
+      },
+      {
+        "name": "Packages for Linux",
+        "url": "https://pkgs.org/",
+        "desc": "列出了各种 Linux 和 Unix 发行版的软件包信息和下载链接。包括 AlmaLinux、Alpine、Arch、CentOS、Debian、FreeBSD、openSUSE、Ubuntu 等。"
+      },
+      {
+        "name": "SHELL 十三问",
+        "url": "https://github.com/wzb56/13_questions_of_shell",
+        "desc": "你应该知道的一些 Linux Shell 基础知识和高级使用技巧。"
+      },
+      {
+        "name": "在线 htpasswd 生成器",
+        "url": "https://tool.oschina.net/htpasswd",
+        "desc": "htpasswd 是开源 HTTP 服务器 Apache Httpd 的一个命令工具，主要用于生成 HTTP 基本认证的密码文件。"
+      },
+      {
+        "name": "Nginx 图形化配置",
+        "url": "https://nginx.666666.dev/",
+        "desc": "一款图形化 Nginx 配置管理工具"
+      },
+      {
+        "name": "Nginx SSL 配置生成器",
+        "url": "https://ssl-config.mozilla.org/",
+        "desc": ""
+      },
+      {
+        "name": "Httpsok",
+        "url": "https://github.com/httpsok/httpsok",
+        "desc": "httpsok 是一个便捷的 HTTPS 证书自动续签工具，专为 Nginx 服务器设计。一行命令，一分钟轻松搞定 SSL 证书自动续期，已服务众多中小企业，稳定、安全、可靠。"
+      },
+      {
+        "name": "Nginx 游乐场",
+        "url": "https://nginx-playground.wizardzines.com/",
+        "desc": "一款类似 Codepen 的线上 Nginx 游乐场。你可以在网页上填写 Nginx 配置文件，然后在线启动一个 Nginx 实例。接着你可以输入各种 Curl 或 HTTP 命令，与这个实例互动。"
+      },
+      {
+        "name": "在线生成自签名 IP 证书",
+        "url": "https://selfcertificationhub.github.io/selfcertificationhub/generate",
+        "desc": "一键在线生成自签名 IP 证书"
+      },
+      {
+        "name": "SSL 证书管理工具",
+        "url": "https://acme.sh/",
+        "desc": "acme.sh 是一个集成了 ACME 客户端协议的 Bash 脚本，支持申请 ZeroSSL、Letsencrypt 等免费证书。它可以帮助你自动管理和获取 SSL/TLS 证书。"
+      },
+      {
+        "name": "PostgreSQL 游乐场",
+        "url": "https://pg.datawan.id/",
+        "desc": "在浏览器运行 PostgreSQL。没有服务器，只有客户端和 PGLite（PostgreSQL WebAssembly）。如果你想快速跑一个 PostgreSQL，这是一个不错的选择。"
+      },
+      {
+        "name": "Pgtune",
+        "url": "https://pgtune.leopard.in.ua/",
+        "desc": "一款根据硬件情况自动生成 PostgreSQL 配置的可视化工具。"
+      },
+      {
+        "name": "SQLite 游乐场",
+        "url": "https://sqlime.org/",
+        "desc": "Sqlime 是一个在线 SQLite 游乐场，它提供 SQLite 数据库的操作界面。用户可以在界面中输入 SQL 查询语句，并查看执行结果。此外，还可以导入和导出数据库文件。"
+      },
+      {
+        "name": "MySQL 配置文件生成器",
+        "url": "https://imysql.com/my-cnf-wizard.html",
+        "desc": "一款非常实用的在线 MySQL 配置文件生成工具。"
+      },
+      {
+        "name": "MySQL 状态诊断工具",
+        "url": "https://imysql.com/my-state-diag.html",
+        "desc": "一款非常实用的在线 MySQL 状态诊断工具。"
+      },
+      {
+        "name": "Database of Database",
+        "url": "https://dbdb.io/",
+        "desc": "一个数据库分类网站，收集了世界上 971 款各种数据库的详细信息，可以按国家、类型等属性进行筛选。"
+      },
+      {
+        "name": "Nginx 极简中文教程",
+        "url": "https://dunwu.github.io/nginx-tutorial/",
+        "desc": "『nginx-tutorial』是一个 Nginx 极简教程，目的在于帮助新手快速入门 Nginx。教程包含了 Nginx 简介、入门、实战、运维、配置等，干货颇多，值得分享。"
+      },
+      {
+        "name": "Traefik 中文教程",
+        "url": "https://www.qikqiak.com/traefik-book/",
+        "desc": "Traefik 是一个可以使得服务发布变得轻松有趣的现代化 HTTP/HTTPS 反向代理、负载均衡开源工具。它支持多种后台，比如：Docker、Kubernetes、File 等。"
+      },
+      {
+        "name": "超实用的数据库教程",
+        "url": "https://dunwu.github.io/db-tutorial/",
+        "desc": "这是一个非常不错的数据库学习教程，它主要内容包括 MySQL、Redis、HBase、Elasticsearch、MongoDB 等教程。"
+      },
+      {
+        "name": "Arch Linux 维基",
+        "url": "https://wiki.archlinuxcn.org/wiki/首页",
+        "desc": "Arch Linux 中文维基是一个在线文档库，提供 Arch Linux 的安装指南、软件列表、常见问题解答、社区资讯等。"
+      }
+    ]
+  },
+  {
+    "group": "🔎 搜索引擎",
+    "items": [
+      {
+        "name": "Google 搜索",
+        "url": "https://www.google.com/",
+        "desc": "值得信任的搜索引擎"
+      },
+      {
+        "name": "Perplexity AI",
+        "url": "https://www.perplexity.ai/",
+        "desc": "Perplexity AI 是一款功能强大的人工智能搜索引擎。与其它搜索引擎不同的是，它融合了人工智能技术和深度搜索技术，可以根据用户的自然语言进行搜索，并以摘要的形式为用户提供最相关的答案。"
+      },
+      {
+        "name": "秘塔 AI 搜索",
+        "url": "https://metaso.cn",
+        "desc": "秘塔 AI 搜索是一个基于大模型的新一代智能搜索引擎。它通过理解用户意图，提供无广告、高质量的搜索结果，让用户快速直达所需信息。"
+      },
+      {
+        "name": "Phind",
+        "url": "https://phind.com/",
+        "desc": "Phind 是一款面向开发者的 AI 问答引擎，专注于帮助您解决棘手问题。它由大语言模型驱动，使用自然语言处理技术来理解用户的查询，并从大量的网页和代码中找到最相关的结果。"
+      },
+      {
+        "name": "Devv AI 搜索",
+        "url": "https://devv.ai/",
+        "desc": "最懂程序员的新一代 AI 搜索引擎"
+      },
+      {
+        "name": "Globe Explorer",
+        "url": "https://explorer.globe.engineer/",
+        "desc": "一款 AI 搜索引擎，通过 AI 将搜索结果结构化，为搜索关键词生成一套类似维基百科页面的知识图谱。"
+      },
+      {
+        "name": "You",
+        "url": "https://you.com/",
+        "desc": "You 是一款基于人工智能的搜索引擎，提供个性化搜索体验。You 无追踪和侵入性广告，保护用户数据 100% 私密。它的多维度界面和水平和垂直滚动功能可以帮助用户在更短的时间内发现更多内容。"
+      },
+      {
+        "name": "Bing 必应搜索",
+        "url": "https://www.bing.com/",
+        "desc": "微软必应搜索"
+      },
+      {
+        "name": "百度一下",
+        "url": "https://www.baidu.com/",
+        "desc": "百度一下，你就知道"
+      },
+      {
+        "name": "Startpage",
+        "url": "https://www.startpage.com/",
+        "desc": "一款以强调对使用者隐私的保护闻名的搜索引擎"
+      },
+      {
+        "name": "DuckDuckGo",
+        "url": "https://duckduckgo.com/",
+        "desc": "开启不受网络跟踪的搜索之旅"
+      },
+      {
+        "name": "搜狗微信搜索",
+        "url": "https://weixin.sogou.com/",
+        "desc": "微信公众号专用搜索引擎"
+      },
+      {
+        "name": "秒搜",
+        "url": "https://miaosou.fun/",
+        "desc": "坚持做最好用的网盘资源搜索引擎！"
+      },
+      {
+        "name": "阿里云盘搜索",
+        "url": "https://ssgo.app/",
+        "desc": "欢迎体验新一代阿里云盘搜索引擎，感受找寻资源的快乐..."
+      },
+      {
+        "name": "云盘 4K",
+        "url": "https://www.codelicence.cn/",
+        "desc": "一款好用的网盘资源搜索引擎，支持阿里云盘、夸克网盘、百度网盘等多种网盘资源。无需注册和登录，直接进行搜索即可。它提供了学习资料、视频、影视、电子书等多种类型的资源数据，搜索速度快。"
+      },
+      {
+        "name": "让我帮你谷歌一下",
+        "url": "https://lmstfy.net/",
+        "desc": "专治懒人神器"
+      },
+      {
+        "name": "SEO Tools Box",
+        "url": "https://seo.box/",
+        "desc": "SEO.box 是一个 SEO 工具箱，提供了各种工具和扩展来帮助网站优化其搜索引擎优化策略。"
+      },
+      {
+        "name": "SEO 初学者指南",
+        "url": "https://ahrefs.com/zh/seo",
+        "desc": "SEO 初学者指南旨在帮助初学者了解 SEO 的基础知识，包括了关于搜索引擎如何工作、SEO 的基础知识、关键词研究、搜索引擎优化内容、页面搜索引擎优化、链接建设和技术搜索引擎优化等方面的知识。"
+      }
+    ]
+  },
+  {
+    "group": "📰 新闻资讯",
+    "items": [
+      {
+        "name": "什么值得看",
+        "url": "https://smzdk.top/",
+        "desc": "每天半小时-发现当下正在发生的有趣事"
+      },
+      {
+        "name": "Readhub",
+        "url": "https://readhub.cn/",
+        "desc": "Readhub 作为一个资讯聚合网站，旨在为用户提供全球前沿科技、互联网、创业和创新方面的实时资讯。它还提供了各类有深度的文章和行业报告，帮助用户更好地了解技术行业的发展动向和洞察行业趋势。"
+      },
+      {
+        "name": "浑水阅读",
+        "url": "https://www.hsmy.fun/",
+        "desc": "一款在线热榜网站，支持微博、知乎、百度、今日头条、哔哩哔哩、抖音等。"
+      },
+      {
+        "name": "爱范儿",
+        "url": "https://www.ifanr.com/",
+        "desc": "爱范儿·让未来触手可及。聚焦新创和消费主题的科技媒体，致力于独立、前瞻、深入的原创报道和分析评论。"
+      },
+      {
+        "name": "少数派",
+        "url": "https://sspai.com",
+        "desc": "少数派致力于更好地运用数字产品或科学方法，帮助用户提升工作效率和生活品质。"
+      },
+      {
+        "name": "凤凰网",
+        "url": "https://www.ifeng.com/",
+        "desc": "凤凰网是全球领先的综合门户网站，提供含文图音视频的全方位综合新闻资讯、深度访谈、观点评论、财经产品、互动应用、分享社区等服务。"
+      },
+      {
+        "name": "联合早报",
+        "url": "https://www.zaobao.com/",
+        "desc": "新加坡、中国、亚洲和国际的即时、评论、商业、体育、生活、科技与多媒体新闻，尽在联合早报。"
+      },
+      {
+        "name": "三联生活周刊",
+        "url": "https://www.lifeweek.com.cn/",
+        "desc": "作为中国最受尊敬的周刊品牌之一，《三联生活周刊》一直致力于做新时代发展进程中的忠实记录者，以敏锐姿态反馈新时代、新观念、新潮流，以鲜明个性评论新热点、新人类、新生活。"
+      }
+    ]
+  },
+  {
+    "group": "📧 电子邮件",
+    "items": [
+      {
+        "name": "Gmail",
+        "url": "https://mail.google.com/",
+        "desc": "谷歌电子邮箱"
+      },
+      {
+        "name": "QQ 邮箱",
+        "url": "https://mail.qq.com/",
+        "desc": "腾讯电子邮箱"
+      },
+      {
+        "name": "网易邮箱",
+        "url": "https://mail.163.com/",
+        "desc": "网易电子邮箱"
+      },
+      {
+        "name": "Outlook 邮箱",
+        "url": "https://outlook.live.com/mail/",
+        "desc": "微软电子邮箱"
+      },
+      {
+        "name": "阿里云邮箱",
+        "url": "https://mail.aliyun.com/",
+        "desc": "阿里云电子邮箱"
+      },
+      {
+        "name": "极客速邮",
+        "url": "https://mail.100000.top/",
+        "desc": "一款基于 CloudFlare 的临时邮箱服务，可免费收发邮件。支持邮件附件、IMAP 和 SMTP 等。"
+      },
+      {
+        "name": "Gmail 地址生成器",
+        "url": "https://gmail.inputekno.com",
+        "desc": "Gmail dot Trick Generator 是一个在线工具，它能够基于一封 Gmail 邮件地址生成多封邮件地址。该工具利用 Gmail 在收到邮件时自动忽略点的特点来实现，它的应用场景广泛，"
+      },
+      {
+        "name": "Gmail 临时邮箱",
+        "url": "https://smailpro.com/",
+        "desc": "使用 Smailpro，您可以创建不同类型的临时电子邮件地址，例如一次性或临时 Gmail 地址、永久或 10 分钟电子邮件地址等。操作简单，适合所有年龄段的人，只需轻松点击即可。"
+      },
+      {
+        "name": "22.Do",
+        "url": "https://22.do/zh",
+        "desc": "又一款 Gmail 临时邮箱服务。有效期 24 小时，支持发邮件。"
+      },
+      {
+        "name": "TempMail+",
+        "url": "https://tempmail.plus/zh/#!",
+        "desc": "一次性临时电子邮件"
+      },
+      {
+        "name": "Vmail",
+        "url": "https://vmail.dev/",
+        "desc": "Vmail 是一个开源项目，可以生成有效期 1 天的临时邮箱地址。它隐私友好、无内置广告、界面漂亮、即开即用。"
+      },
+      {
+        "name": "Email Once",
+        "url": "https://email-once.com",
+        "desc": "一款基于 Cloudflare 实现的临时邮箱，风格极简、隐私友好、支持附件，100％ 在 Cloudflare 上运行。"
+      },
+      {
+        "name": "Email.ML",
+        "url": "https://email.ml/",
+        "desc": "Email.ML 是一个提供临时邮箱服务的网站。它注重隐私保护，邮箱有效期为 1 小时，并且完全在 Cloudflare 上运行。"
+      },
+      {
+        "name": "HTML 电子邮件生成器",
+        "url": "https://beefree.io/",
+        "desc": "使用 Beefree 用户友好的拖放式HTML编辑器，加快电子邮件制作速度。只需点击几下，即可轻松将邮件导出至任何发送平台。"
+      },
+      {
+        "name": "海量邮件发送",
+        "url": "https://www.sendcloud.net/",
+        "desc": "Aurora SendCloud 是国内专业的邮件、短信发送服务商。"
+      },
+      {
+        "name": "Fastmail",
+        "url": "https://www.fastmail.com/",
+        "desc": "Fastmail 是一家提供电子邮件服务的公司，专为您打造快速、私人电子邮件。它供了一种安全、可靠、并且高度可定制的电子邮件解决方案，可以满足各种用户的需求。"
+      },
+      {
+        "name": "Tabular",
+        "url": "https://tabular.email/",
+        "desc": "Tabular 是一款电子邮件生成器和编辑器，可以为任何目的创建响应式电子邮件。"
+      },
+      {
+        "name": "DMARCLY Tools",
+        "url": "https://dmarcly.com/tools/",
+        "desc": "DMARCLY 网站提供一系列免费的电子邮件认证工具，包括 SPF、DKIM、DMARC 等部署和检查工具。可以帮助用户快速创建和验证电子邮件认证记录，以及提供 DMARC 分析报告和监控服务。"
+      }
+    ]
+  },
+  {
+    "group": "🚖 出行服务",
+    "items": [
+      {
+        "name": "高德地图",
+        "url": "https://ditu.amap.com",
+        "desc": "高德地图是中国领先的数字地图内容、导航和位置服务解决方案提供商。是国内十大移动应用之一。"
+      },
+      {
+        "name": "百度地图",
+        "url": "https://map.baidu.com/",
+        "desc": ""
+      },
+      {
+        "name": "腾讯地图",
+        "url": "https://map.qq.com/",
+        "desc": "腾讯地图，前称 SOSO 地图。这是由腾讯公司推出的一种互联网地图服务。"
+      },
+      {
+        "name": "谷歌地图",
+        "url": "https://www.google.com/maps",
+        "desc": "Google 地图是 Google 公司向全球提供的电子地图服务，地图包含地标、形状等信息，提供矢量地图、卫星照片、地形图等三种视图。2020年时，Google 地图每月活跃用户超过 10 亿人。"
+      },
+      {
+        "name": "滴滴打车",
+        "url": "https://common.diditaxi.com.cn/general/webEntry?h=1",
+        "desc": "以快速的响应、实惠的价格，为大众提供更效率、更经济、更舒适的出行服务。"
+      }
+    ]
+  },
+  {
+    "group": "☁ 云服务",
+    "items": [
+      {
+        "name": "阿里云",
+        "url": "https://account.aliyun.com/login/login.htm",
+        "desc": "阿里云是全球领先的云计算及人工智能科技公司，在全球范围内提供可扩展，安全和可靠的云计算服务。提供免费试用，支持按量付费，助力企业数字化转型。"
+      },
+      {
+        "name": "阿里云健康看板",
+        "url": "https://status.aliyun.com/",
+        "desc": "阿里云服务的健康看板能够及时的展示阿里云服务在各个可用区的可用性状态，以及影响服务可用性的相关事件信息。"
+      },
+      {
+        "name": "腾讯云",
+        "url": "https://cloud.tencent.com/",
+        "desc": "腾讯云为数百万的企业和开发者提供安全稳定的云计算服务，涵盖云服务器、云数据库、云存储、视频与CDN、域名注册等全方位云服务和各行业解决方案。"
+      },
+      {
+        "name": "腾讯云健康看板",
+        "url": "https://status.cloud.tencent.com/",
+        "desc": ""
+      },
+      {
+        "name": "百度云",
+        "url": "https://cloud.baidu.com/",
+        "desc": "运用百度智能云AI技术，助推贵阳企业上云、生产上云、管理上云，打造制造业智能化转型服务生态圈，为贵阳市数字经济和工业互联网高质量发展贡献力量。"
+      },
+      {
+        "name": "火山引擎",
+        "url": "https://www.volcengine.com/",
+        "desc": "火山引擎主要推出了一系列 AI 大模型产品和云服务，强调 AI 技术在提升用户体验、优化企业运营中的应用，并提供了全面的生态合作和开发者支持。"
+      },
+      {
+        "name": "华为云",
+        "url": "https://www.huaweicloud.com/",
+        "desc": "华为云提供稳定可靠、安全可信、可持续发展的云服务，致力于让云无处不在，让智能无所不及，共建智能世界云底座。"
+      },
+      {
+        "name": "亚马逊云",
+        "url": "https://aws.amazon.com/cn/",
+        "desc": "亚马逊云科技--亚马逊公司旗下云计算服务平台，为全球客户提供整套基础设施和云解决方案。以弹性云服务器、云存储、数据库、机器学习为主的安全、可靠的云计算服务，帮助企业轻松上云。"
+      },
+      {
+        "name": "谷歌云",
+        "url": "https://cloud.google.com",
+        "desc": "Google 云端平台是一系列由 Google 提供的云计算服务，包括：云计算、数据存储、数据分析及机器学习等。"
+      },
+      {
+        "name": "Cloudflare",
+        "url": "https://www.cloudflare.com/zh-cn/",
+        "desc": "Cloudflare 是一家总部位于旧金山的美国跨国科技企业，以向客户提供基于反向代理的内容分发网络及分布式域名解析服务为主要业务。"
+      },
+      {
+        "name": "OpenAI Status",
+        "url": "https://status.openai.com/",
+        "desc": "OpenAI Status 提供了关于 OpenAI 服务状态的实时更新，包括 ChatGPT、API、Labs 和 Playground 的运行情况。"
+      },
+      {
+        "name": "Vercel",
+        "url": "https://vercel.com/",
+        "desc": "Vercel 为开发人员提供了框架、工作流程和基础设施，以构建更快、更个性化的 Web。"
+      },
+      {
+        "name": "Zeabur",
+        "url": "https://zeabur.com/zh-CN",
+        "desc": "Zeabur 是一个可以帮助你部署服务的平台，无论你使用什么编程语言或开发框架，你都只需要通过几个简单的按钮进行部署。"
+      },
+      {
+        "name": "Render",
+        "url": "https://render.com/",
+        "desc": "面向开发人员的云应用程序托管平台。Render 是一个云服务平台，可使用免费的 TLS 证书、全球 CDN、专用网络和 Git 自动部署来构建和运行所有应用程序和网站。"
+      },
+      {
+        "name": "Fly",
+        "url": "https://fly.io/",
+        "desc": "Fly 是一种将应用服务器部署到全球多个区域的工具，提供快速启动、全球克隆、自动安全网络等特性，支持多种编程语言和框架。"
+      },
+      {
+        "name": "Railway",
+        "url": "https://railway.app",
+        "desc": "Railway 是一个基础设施平台，您可以在其中配置基础设施、在本地使用该基础设施进行开发，然后部署到云。"
+      },
+      {
+        "name": "Netlify",
+        "url": "https://www.netlify.com/",
+        "desc": "Netlify 是一家远程优先的云计算公司，提供一个开发平台，其中包括针对 Web 应用程序和动态网站的构建、部署和无服务器后端服务。"
+      },
+      {
+        "name": "Koyeb",
+        "url": "https://www.koyeb.com/",
+        "desc": "Koyeb 是一个开发人员友好的无服务器平台，用于在全球范围内部署应用程序。 无操作、服务器和基础设施管理。"
+      },
+      {
+        "name": "iCloud",
+        "url": "https://www.icloud.com/",
+        "desc": "iCloud 是苹果公司所提供的在线同步存储服务和云端计算服务，用户能在 iCloud 中存储音乐、照片、应用资料、文件、联系人和日历等。"
+      },
+      {
+        "name": "GitHub",
+        "url": "https://github.com/",
+        "desc": "GitHub 是一个在线软件源代码托管服务平台，使用 Git 作为版本控制软件。从开源到商业，您可以托管和审查代码、管理项目，并与 1 亿以上开发人员一起构建软件。"
+      },
+      {
+        "name": "Product Hunt",
+        "url": "https://www.producthunt.com",
+        "desc": "Product Hunt 每天都在为您搜罗最好的新产品，是发布和发现新技术产品的好地方。"
+      },
+      {
+        "name": "DNSPod",
+        "url": "https://www.dnspod.cn/",
+        "desc": "DNSPod 提供域名一站式服务，包括域名注册、DNS 管理、SSL 证书、网站备案等，您都可以在这方便、快捷的管理这一切，而且大部分服务是免费的。"
+      },
+      {
+        "name": "Godaddy",
+        "url": "https://www.godaddy.com/",
+        "desc": "GoDaddy 是从事互联网域名注册及网站托管的上市公司。除了从事域名注册及托管业务，它也发售电子商务软件及服务，当中包括域名服务、域名拍卖、域名投资、网站托管及云端服务器、网站安全、专业电邮等。"
+      },
+      {
+        "name": "Namesilo",
+        "url": "https://www.namesilo.com/",
+        "desc": "NameSilo 拥有最便宜的域名注册价格。我们还提供主机托管、电子邮件、SSL 和高级 DNS 等服务，以完善您的在线体验。"
+      },
+      {
+        "name": "Dynadot",
+        "url": "https://www.dynadot.com/zh/",
+        "desc": "Dynadot 是一家经过 ICANN 认证的智能域名注册商，拥有完备的软件和智能工具，专注于为用户提供简洁、优惠、安全的域名管理和网络托管服务。"
+      },
+      {
+        "name": "Spaceship",
+        "url": "https://www.spaceship.com",
+        "desc": "又一个主机和域名服务商，在这里你可以轻松获取你的域名，并通过平台快速启动您的网站、想法和未来。"
+      },
+      {
+        "name": "Namecheap",
+        "url": "https://www.namecheap.com/",
+        "desc": "Namecheap 是一家提供域名注册、托管、安全等服务的网站，以低价、优质客户服务和信息安全著称。同时，Namecheap 还提供多种应用工具以及博客、专题资讯等，帮助用户提升网站的业务效益。"
+      },
+      {
+        "name": "TLD-LIST",
+        "url": "https://zh-hans.tld-list.com/",
+        "desc": "在线比较所有顶级域名的价格。检查域可用性，发现免费功能，并找到最佳域注册商。"
+      },
+      {
+        "name": "哪煮米",
+        "url": "https://www.nazhumi.com",
+        "desc": "哪煮米是一个域名比价网站，帮助您找到合适的域名后缀和域名注册商。目前本网站已经收录了来自 62 个注册商的 2953 个域名后缀，共计 97878 条价格数据。"
+      },
+      {
+        "name": "RackNerd",
+        "url": "https://www.racknerd.com/",
+        "desc": "RackNerd 是基础设施即服务解决方案的多元化全球供应商。无论您需要单处理器或双处理器服务器，还是有高带宽需求，我们都能满足您！"
+      },
+      {
+        "name": "狗云",
+        "url": "https://www.dogyun.com/",
+        "desc": "狗云是一家提供高性价比的云服务器提供商，提供多种服务器产品。包括弹性云服务器、经典云服务器和独立物理服务器。狗云提供的数据中心皆有强大的售后保障团队，保障接近 99.98% 的在线率。"
+      },
+      {
+        "name": "SimilarWeb",
+        "url": "https://www.similarweb.com/zh/",
+        "desc": "免费提供网站排名和竞争性数据分析的网络平台，其用户只需输入域名就可以评估相应网站的人气，并实时监控该网站的表现；进而掌握行业竞争对手的动态，以期提高用户自身的网络流量和市场占有率。"
+      },
+      {
+        "name": "Ahrefs",
+        "url": "https://ahrefs.com/",
+        "desc": "Ahrefs 是一个功能强大但易于学习的 SEO 工具集，您不必成为 SEO 专业人士即可排名更高并获得更多流量。"
+      },
+      {
+        "name": "Puter",
+        "url": "https://puter.com/",
+        "desc": "Puter 是一个隐私至上的个人云，它将你的所有文件、应用程序和游戏都集中在一个私密安全的地方，随时随地都可访问。"
+      },
+      {
+        "name": "Bio Link",
+        "url": "https://bio.link/",
+        "desc": "一个简单的个人链接网站，可以将自己作品地址放到上面，用于汇总展示。"
+      },
+      {
+        "name": "Linktree",
+        "url": "https://linktr.ee/",
+        "desc": "Linktree 是一款允许您在一个页面上集合所有重要链接的在线工具。无论您是个人博主、企业家还是企业，都可以通过它将自己的个人资料、文章、产品、项目等链接整合在一个页面上，方便粉丝和客户一键访问。"
+      },
+      {
+        "name": "Bento",
+        "url": "https://bento.me/",
+        "desc": "Bento 是一个免费服务，用于创建美观的个人主页。用于分享和展示多种类型的内容，例如：视频、播客、新闻通讯、照片和付费产品等。"
+      },
+      {
+        "name": "Jingle Bio",
+        "url": "https://jingle.bio/",
+        "desc": "Jingle Bio 是一个用于数字创作者的门户网站，旨在帮助数字创作者创建一个动态、个性化的网站。用来展示他们的兴趣、创作和独特的个性。"
+      },
+      {
+        "name": "Trello",
+        "url": "https://trello.com/zh-Hans",
+        "desc": "Trello 是一款可视化工具，可让您的团队管理任何类型的项目、工作流或任务跟踪。 添加文件、清单甚至自动化功能：自定义所有内容，确保团队以最佳方式运行。 只需注册，创建看板，就可以即刻启程！"
+      },
+      {
+        "name": "Nomad List",
+        "url": "https://nomadlist.com/",
+        "desc": "帮助你了解如何成为数字游民，并收集和展示了数千个城市的数字游民指数。包括成本、网络速度、生活质量等，你可以探索到一个最适合工作和生活的地方。"
+      },
+      {
+        "name": "Planka",
+        "url": "https://planka.app/",
+        "desc": "Planka 是一款类似 Trello 的开源应用程序，用于项目管理和团队协作。"
+      },
+      {
+        "name": "Discord",
+        "url": "https://discord.com/",
+        "desc": "Discord 是一款专为社群设计的免费网络实时通话软件与数字发行平台，主要针对游戏玩家、教育人士、朋友及商业人士，用户之间可以在软件的聊天频道通过讯息、图片、视频和音频进行交流。"
+      },
+      {
+        "name": "P3TERX ZONE",
+        "url": "https://p3terx.com/",
+        "desc": "网站提供了多家 VPS 服务商的信息，包括价格、位置、配置和优缺点等，并对这些选项进行了评估和比较，以帮助用户选择最适合自己需求的 VPS。"
+      },
+      {
+        "name": "NodeSeek",
+        "url": "https://www.nodeseek.com/",
+        "desc": "NodeSeek 旨在为主机爱好者打造高品质社区，传递行业新闻，分享技术心得。在这里，用户主要讨论的话题包括服务器行业新闻、优惠信息、开发经验与建站心得、开源项目与实用工具、域名等。"
+      },
+      {
+        "name": "WikiHow",
+        "url": "https://zh.wikihow.com/",
+        "desc": "wikiHow 是一个专家和社区共同创作的权威性万事指南平台，提供大量学术研究和实用指南，它拥有超过 9 万篇学术研究文章和 3 万多篇专家共同创作的文章。"
+      },
+      {
+        "name": "ICP 域名备案查询",
+        "url": "https://beian.miit.gov.cn/#/Integrated/index",
+        "desc": "ICP、IP地址、域名信息备案管理系统。"
+      },
+      {
+        "name": "短网址生成工具",
+        "url": "https://tinyurl.com/",
+        "desc": "TinyURL 是第一个专门提供短网址服务的网站，它提供一个短网址并转向指定的长网址。网站最初是由 Kevin Gilbertson 所开发，并于 2002 年 1 月开始提供服务。"
+      },
+      {
+        "name": "在线二维码生成器",
+        "url": "https://www.qrcode-monkey.com/",
+        "desc": "QRCode Monkey 是众多免费在线二维码生成器中最受欢迎的一个。它完全免费，可定制 LOGO、二维码形状等。"
+      },
+      {
+        "name": "全国公案备案查询",
+        "url": "https://beian.mps.gov.cn/",
+        "desc": "网站公案备案查询"
+      },
+      {
+        "name": "Notion",
+        "url": "https://www.notion.so/",
+        "desc": "Notion 是一个集成了 Wiki、文档和项目管理的工作空间，旨在帮助用户简化工具、降低成本，并提供强大的构建模块。Notion 支持各种团队协同工作，并拥有一个全球活跃的社区。"
+      },
+      {
+        "name": "Craft",
+        "url": "https://www.craft.do/",
+        "desc": "Craft 是一款文档工具，帮助用户在家庭、工作和团队协作中组织和分享思想。它提供了许多模板，例如日常待办事项、旅行行程、员工手册等，可以帮助用户更好地组织和分享思想。"
+      },
+      {
+        "name": "Vercount",
+        "url": "https://vercount.one/",
+        "desc": "一款简单、快速、可靠网站流量计数器，不蒜子计数器的完美替代方案。"
+      },
+      {
+        "name": "Yourware",
+        "url": "https://www.yourware.so/",
+        "desc": "网站提供了一个部署服务，允许用户通过拖放操作快速将 HTML 或 TSX 文件以及包含 HTML、CSS 和 JS 文件的目录部署到网络上，以便与世界分享他们的代码作品。"
+      }
+    ]
+  },
+  {
+    "group": "🤖 AI 新世界",
+    "items": [
+      {
+        "name": "ChatGPT",
+        "url": "https://openai.com/chatgpt",
+        "desc": "OpenAI 旗下 AI 对话工具"
+      },
+      {
+        "name": "ShareGPT",
+        "url": "https://sharegpt.com/",
+        "desc": "ShareGPT 是一款 Chrome 扩展程序，只需单击一下即可进行最疯狂的 ChatGPT 对话，也可以轻松与您的朋友分享 ChatGPT 对话的永久链接。"
+      },
+      {
+        "name": "GPTs Hunter",
+        "url": "https://www.gptshunter.com/",
+        "desc": "GPTs Hunter 是一个专为 ChatGPT 定制版本 GPTs 提供的分享平台，目前已经收录了超过 672K 个 GPTs。你可以在这里找到各种类别的最佳 GPTs，如生产力、教育、编程等。"
+      },
+      {
+        "name": "Google Gemini",
+        "url": "https://gemini.google.com/",
+        "desc": "Google 推出的 AI 聊天对话机器人 Bard"
+      },
+      {
+        "name": "Gemini Pro Chat",
+        "url": "https://gemini-pro.chat/",
+        "desc": "Gemini Pro Chat 是一个简单的 WebUI，用于与 Gemini Pro 聊天。该项目使用 TypeScript 编写，并提供了丰富的配置选项，支持多种语言。"
+      },
+      {
+        "name": "Google Gemma",
+        "url": "https://ai.google.dev/gemma",
+        "desc": "Gemma 是 Google 基于 Gemini 技术推出的轻量级大型语言模型（LLM），提供了 2B 和 7B 两种不同规模的版本，每种都包含了预训练基础版本和经过指令优化的版本。所有版本均可在各类"
+      },
+      {
+        "name": "Google AI Studio",
+        "url": "https://aistudio.google.com",
+        "desc": "Google AI Studio 是 Google 提供的 AI 开发平台，允许用户快速尝试和集成生成式 AI 模型，如 Gemini 系列。它支持多模态输入，提供灵活的提示设计和模型微调功能。"
+      },
+      {
+        "name": "NotebookLM",
+        "url": "https://notebooklm.google.com",
+        "desc": "Google 推出的一款 AI 智能在线笔记助手。NotebookLM 内置 Gemini,能理解和分析各种文档内容。它可以根据用户上传的内容帮你快速生成摘要、注解和用户想要的答案。"
+      },
+      {
+        "name": "Grok",
+        "url": "https://x.ai/",
+        "desc": "Grok 是 xAI 公司推出的最新人工智能模型，提供了更快、更准确的性能以及多语言支持。"
+      },
+      {
+        "name": "Cloudflare AI Chat",
+        "url": "https://playground.ai.cloudflare.com/",
+        "desc": "Cloudflare 提供的 AI 游乐场，它允许用户探索不同 AI 模型。"
+      },
+      {
+        "name": "DuckDuckGo Chat",
+        "url": "https://duckduckgo.com/?q=DuckDuckGo&amp;ia=chat",
+        "desc": "DuckDuckGo 推出的一种私密人工智能驱动型聊天服务，目前支持 OpenAI 的 GPT-3.5 和 Anthropic 的 Claude 聊天模型。"
+      },
+      {
+        "name": "Meta AI Chat",
+        "url": "https://llama3.dev/",
+        "desc": "Meta 公司发布的 AI 聊天服务，基于 Llama 3 模型。你可以用它进行编程、写作、翻译、解释等多种任务，支持多种语言交流。"
+      },
+      {
+        "name": "Microsoft Copilot",
+        "url": "https://copilot.microsoft.com/",
+        "desc": "微软推出的网页版 Copilot 助手"
+      },
+      {
+        "name": "Claude",
+        "url": "https://claude.ai/",
+        "desc": "ChatGPT 的最为有力的竞争对手之一"
+      },
+      {
+        "name": "Groq",
+        "url": "https://groq.com/",
+        "desc": "Groq 是一家专注于提高人工智能计算速度的创新公司，其开发的大模型和独特的硬件(LPU)专门用来处理语言相关的任务。在速度上超过了市场上的许多竞争对手，与 GPT-4 相比速度快了 18 倍。"
+      },
+      {
+        "name": "Cohere",
+        "url": "https://cohere.com/",
+        "desc": "Cohere 是一家专注于企业生成式 AI 的公司，旨在帮助企业实现智能化和竞争力。Cohere 提供 Command-r、Embed 等多种模型和解决方案 以满足企业的不同需求。"
+      },
+      {
+        "name": "Poe",
+        "url": "https://poe.com/",
+        "desc": "问答社区 Quora 推出的问答机器人工具，该平台内置了 ChatGPT、Claude、Sage、Dragonfly 4 个不同的聊天机器人。"
+      },
+      {
+        "name": "Coze",
+        "url": "https://www.coze.com/",
+        "desc": "Coze 是构建人工智能聊天机器人的下一代平台。无需编码即可快速创建机器人，并将其发布到各种平台上。"
+      },
+      {
+        "name": "Dify",
+        "url": "https://dify.ai/",
+        "desc": "下一代开发平台,轻松构建和运营生成式 AI 应用。创建基于任何 LLMs 的助手 API 和 GPTs。"
+      },
+      {
+        "name": "文心一言",
+        "url": "https://yiyan.baidu.com/",
+        "desc": "百度推出的产业级知识增强大模型"
+      },
+      {
+        "name": "通义千问",
+        "url": "https://tongyi.aliyun.com/qianwen/",
+        "desc": "阿里巴巴推出的类 ChatGPT 响应人类指令的大模型，已免费开放"
+      },
+      {
+        "name": "讯飞星火",
+        "url": "https://xinghuo.xfyun.cn/",
+        "desc": "讯飞星火认知大模型是由科大讯飞推出的新一代认知智能大模型，拥有跨领域的知识和语言理解能力，能够基于自然对话方式理解与执行任务，提供语言理解、知识问答、逻辑推理、数学题解答、代码理解与编写等多种能力。"
+      },
+      {
+        "name": "MarsCode",
+        "url": "https://www.marscode.com/",
+        "desc": "MarsCode 是一个基于云的编程集成开发环境(IDE)，通过内置的 AI 编程助手，提供代码补全、代码生成、代码解释、智能优化建议等功能，大幅提高开发效率。"
+      },
+      {
+        "name": "Lepton AI",
+        "url": "https://www.lepton.ai/",
+        "desc": "Lepton AI 是一个提供云端 AI 应用构建平台，它可以帮助用户高效、大规模且快速地运行 AI 应用。"
+      },
+      {
+        "name": "Ollama",
+        "url": "https://ollama.com/",
+        "desc": "Ollama 是一个运行大语言模型的开源平台，用户可以运行 Llama 2、Code Llama 以及自定义和创建其他模型。Ollama 支持 macOS、Linux 和 Windows。"
+      },
+      {
+        "name": "Jan",
+        "url": "https://jan.ai/",
+        "desc": "Jan 是一款开源、自托管的聊天 GPT 替代品，可以 100% 离线在您的计算机上运行。它支持在本地或通过远程 API 运行 AI 模型，并获得了用户的好评。"
+      },
+      {
+        "name": "LM Studio",
+        "url": "https://lmstudio.ai/",
+        "desc": "LM Studio 是一款允许用户在本地设备上发现、下载和运行大型语言模型（LLMs）的桌面应用程序，如 Llama3、Phi3 等，支持苹果 M 系列芯片、Windows 和 Linux 系统。"
+      },
+      {
+        "name": "LLaMa.Cpp",
+        "url": "https://github.com/ggerganov/llama.cpp",
+        "desc": "llama.cpp 是一个用于 LLM（Large Language Model）推理的 C/C++ 库，提供了一个用于处理大型语言模型的高性能工具。"
+      },
+      {
+        "name": "Meta Llama",
+        "url": "https://llama.meta.com/llama3/",
+        "desc": "Meta Llama 3 的官方 GitHub 站点，提供了 Llama 3 语言模型的预训练和指令微调模型权重，包括 8B 到 70B 参数的模型。用户可以通过注册并接受许可协议来下载模型权重和令牌"
+      },
+      {
+        "name": "Mistral AI",
+        "url": "https://mistral.ai/",
+        "desc": "Mistral AI 是一家专门为开发者和企业提供开源和便携式生成式 AI 技术的公司。其开源模型包括 Mistral 7B、Mistral 8x7B 和 Mistral 8x22B 等。"
+      },
+      {
+        "name": "Fireworks AI",
+        "url": "https://fireworks.ai/",
+        "desc": "Fireworks AI 是一个为开发者提供的生成式人工智能平台，与世界领先的生成式 AI 研究人员合作，提供优化过的高性能模型。"
+      },
+      {
+        "name": "Stable Diffusion",
+        "url": "https://stability.ai/",
+        "desc": "StabilityAI 推出的文本到图像生成 AI"
+      },
+      {
+        "name": "Sdxlturbo",
+        "url": "https://sdxlturbo.ai/",
+        "desc": "一款在线免费 AI 绘图工具。出图速度很快，几乎敲下单词的同时，绘图就出现了。"
+      },
+      {
+        "name": "GifShift",
+        "url": "https://gifshift.xyz/",
+        "desc": "一个免费将 GIF 图片转成动漫风格的网站。可本地上传或者搜索 GIF，支持提示词自定义动漫风格和人物特征。"
+      },
+      {
+        "name": "StickerBaker",
+        "url": "https://stickerbaker.com/",
+        "desc": "这是一个由 AI 生成贴纸的工具，输入文本描述就可以获得一张非常好看的贴纸图片，无需登录可以免费使用。"
+      },
+      {
+        "name": "AI Short",
+        "url": "https://www.aishort.top/",
+        "desc": "AiShort 提供一份简洁易用的 AI 指令列表。即使不了解提示词知识，也可以轻松地通过筛选和查询找到适合各种场景的提示词，从而提升你的生产力。"
+      },
+      {
+        "name": "ClickPrompt",
+        "url": "https://www.clickprompt.org/zh-CN/",
+        "desc": "专为 Prompt 编写者设计的工具"
+      },
+      {
+        "name": "ArtHub",
+        "url": "https://arthub.ai/",
+        "desc": "探索由顶级社区艺术家和设计师人工智能生成的设计、图像、艺术和提示。"
+      },
+      {
+        "name": "Lexica",
+        "url": "https://lexica.art/",
+        "desc": "基于 Stable Diffusion 的在线插画生成"
+      },
+      {
+        "name": "Civitai",
+        "url": "https://civitai.com/",
+        "desc": "免费的 AI 图像绘画作品和模型分享平台和社区"
+      },
+      {
+        "name": "PixVerse",
+        "url": "https://app.pixverse.ai/",
+        "desc": "一个高质量的 AI 视频生成工具，用户只需通过简洁的文字描述，即可轻松创作出高清、逼真的视频作品。"
+      },
+      {
+        "name": "Gamma",
+        "url": "https://gamma.app",
+        "desc": "Gamma 平台提供了一个创新的解决方案，使得用户能够通过 AI 的帮助制作出既美观又专业的演示文稿、文档和网站。"
+      },
+      {
+        "name": "AI 图片生成与搜索",
+        "url": "https://www.ai-img-gen.com/",
+        "desc": "一个专门提供 AI 图片生成与搜索服务的平台，可以快速免费地生成和搜索 AI 图片。"
+      },
+      {
+        "name": "在线免费文字转语音",
+        "url": "https://ttsmaker.com/zh-cn",
+        "desc": "TTSMaker 是一款免费的文本转语音工具，提供语音合成服务，支持多种语言，包括英语、法语、德语等，以及多种语音风格。您可以用它大声朗读文本和电子书，或下载音频文件用于商业用途（完全免费）。"
+      },
+      {
+        "name": "Suno",
+        "url": "https://app.suno.ai/",
+        "desc": "Suno AI 是一款通过人工智能创作音乐和语音的产品。它利用先进的算法和数据模型生成高质量的音乐和语音作品。你只需输入歌词就可以生成带有配乐和演唱的歌曲，登录后每天可以免费生成 10 首歌曲。"
+      },
+      {
+        "name": "Suno AI Download",
+        "url": "https://sunoaidownload.com/",
+        "desc": "Suno AI Download 是一个免费下载 Suno AI 生成音乐的在线工具。"
+      },
+      {
+        "name": "ElevenLabs",
+        "url": "https://elevenlabs.io/",
+        "desc": "ElevenLabs 是人工智能语音技术的先驱，致力于创造最自然、最富表现力的 AI 语音解决方案。"
+      },
+      {
+        "name": "Udio",
+        "url": "https://www.udio.com/",
+        "desc": "Udio 是一个通过 AI 自动生成歌曲在线音乐创作平台。它提供了多种流派供用户选择，包括流行、摇滚、爵士、电子等。用户可以通过选择流派、定制歌曲元素等方式来创作自己喜欢的歌曲。"
+      },
+      {
+        "name": "Memo AI",
+        "url": "https://memo.ac/",
+        "desc": "YouTube、播客、本地音频视频轻松转文本、字幕并翻译、合成新的语音，还可以由多种 AI 模型提炼内容精华。"
+      },
+      {
+        "name": "Luma AI",
+        "url": "https://lumalabs.ai/",
+        "desc": "Luma 的 Dream Machine 是一个基于 AI 的视频生成模型，能够快速从文本和图像创建高质量、逼真的视频。"
+      },
+      {
+        "name": "Raphael AI",
+        "url": "https://raphael.app",
+        "desc": "世界首个免费无限制 AI 图像生成器，几秒钟内创建令人惊叹的 AI 生成图像。"
+      },
+      {
+        "name": "海螺 AI",
+        "url": "https://hailuoai.com/",
+        "desc": "MiniMax 基于自研的多模态大语言模型为用户打造的 AI 伙伴，可以帮你智能搜索问答、精准识图解析、沉浸语音通话、专业/创意写作、文档速读总结等。"
+      },
+      {
+        "name": "豆包",
+        "url": "https://www.doubao.com/",
+        "desc": "豆包，抖音旗下的 AI 智能助手，它可以免费使用。无论是帮你解答各种问题的 AI 搜索，还是全能高效的 AI 写作助手，亦或是 1 秒生成精美图片的 AI 生图等 AI 工具，这里都有。"
+      },
+      {
+        "name": "Kimi",
+        "url": "https://kimi.moonshot.cn/",
+        "desc": "Kimi 是一个有着超大「内存」的智能助手，可以一口气读完二十万字的小说，还会上网冲浪，快来跟他聊聊吧。"
+      },
+      {
+        "name": "DeepSeek",
+        "url": "https://www.deepseek.com/",
+        "desc": "DeepSeek 是深度求索自主研发的大语言模型开发的智能助手，该 AI 聊天助手可以进行自然语言处理、问答系统、智能对话、智能推荐、智能写作和智能客服等多种任务。"
+      },
+      {
+        "name": "智谱清言",
+        "url": "https://chatglm.cn/",
+        "desc": "智谱清言平台提供了多种功能，包括 “沉思” 模式的上线、AutoGLM 沉思进阶玩法、创意写作、代码速写、快速翻译等，旨在通过 AI 技术帮助用户搞定各种任务。"
+      },
+      {
+        "name": "Monica 国内版",
+        "url": "https://monica.cn",
+        "desc": "一站式 AI 助手，Monica 利用尖端人工智能模型 OpenAI o3、DeepSeek R1、Claude 3.5、Gemini 2.0 等来提升您的聊天、搜索、写作和编程体验。"
+      },
+      {
+        "name": "Monica 国际版",
+        "url": "https://monica.im",
+        "desc": "一站式 AI 助手，Monica 利用尖端人工智能模型 OpenAI o3、DeepSeek R1、Claude 3.5、Gemini 2.0 等来提升您的聊天、搜索、写作和编程体验。"
+      },
+      {
+        "name": "Manus",
+        "url": "https://manus.im/",
+        "desc": "一款通用型 AI 助手，能够将想法转化为行动，擅长处理工作与生活中的各类任务，并提供个性化服务。"
+      },
+      {
+        "name": "腾讯元器",
+        "url": "https://yuanqi.tencent.com",
+        "desc": "腾讯元器是腾讯混元大模型团队推出的智能体开放平台，开发者可以通过插件、知识库、工作流等方式快速、低门槛打造高质量的智能体，支持发布到QQ、微信等平台,同时也支持 API 调用。"
+      },
+      {
+        "name": "腾讯元宝",
+        "url": "https://yuanbao.tencent.com/",
+        "desc": "腾讯元宝是基于腾讯混元大模型的 AI 应用，可以帮你写作绘画文案翻译编程搜索阅读总结的全能助手。"
+      },
+      {
+        "name": "朱雀 AI 大模型检测",
+        "url": "https://matrix.tencent.com/ai-detect/",
+        "desc": "一个免费的在线 AI 检测工具，能够利用先进的人工智能模型识别出人类和 AI 的书写模式，适用于各种场景，尤其在处理中文数据方面表现出色。"
+      },
+      {
+        "name": "OpenRouter",
+        "url": "https://openrouter.ai/",
+        "desc": "OpenRouter 是一个提供多种优秀大模型 API 的网站，它支持 GPT、Claude、LLama 等 80 多个模型。你可以使用它对各种模型进行测试和比价，选择最适合自己的。"
+      },
+      {
+        "name": "Restore Photos",
+        "url": "https://restorephotos.one/",
+        "desc": "利用 AI 技术让老照片焕发活力。我们专注于 AI 增强老照片修复、AI 高清人脸修图、AI 黑白照片调色，全部免费且简单易用。以最美的形式保存您珍贵的记忆，重温历史的辉煌。"
+      },
+      {
+        "name": "DeepSwapper",
+        "url": "https://www.deepswapper.com/",
+        "desc": "无水印、无限制、高质量、无广告，上传图片后即可实现一键换脸。拖动中间的分割线，可以查看换脸前后的对比。"
+      },
+      {
+        "name": "FreeAskInternet",
+        "url": "https://github.com/nashsu/FreeAskInternet",
+        "desc": "一款完全免费且本地运行的搜索聚合器和答案生成器。它无需 GPU，用户可以提出问题，系统进行多引擎搜索并将搜索结果与 ChatGPT 3.5 相结合后生成答案。"
+      },
+      {
+        "name": "heyAIworld",
+        "url": "https://heyaiworld.com/",
+        "desc": "人工智能驱动的领先工具精选集，带你探索世界顶级人工智能工具。"
+      },
+      {
+        "name": "免费 AI 服务列表",
+        "url": "https://igdux.com/ai3",
+        "desc": "在互联网上有很多支持开源和公益项目的大佬，他们提供免费使用的人工智能服务列表。包括免费 ChatGPT 4 、ChatGPT 3.5、Gemini Pro、New Bing、Copilot 等服务。"
+      },
+      {
+        "name": "Change Face",
+        "url": "https://www.changeface.online/",
+        "desc": "这是一个由 AI 驱动的人脸替换工具，可以将一张图像中的人脸移植到另外一张图像上，无需登录免费使用。"
+      },
+      {
+        "name": "零基础入门大语言模型",
+        "url": "https://s3tlxskbq3.feishu.cn/docx/NyPqdCKraoXz9gxNVCfcIFdnnAc",
+        "desc": "这是一篇用于零基础入门大语言模型底层技术原理的飞书文档，面向想要了解 AI 技术原理的爱好者们。这篇文档从浅到深，覆盖非常非常多的 LLM 相关内容细节，并且持续更新迭代最新的技术进展。"
+      },
+      {
+        "name": "ChatGPT 中文指南",
+        "url": "https://github.com/yzfly/awesome-chatgpt-zh",
+        "desc": "ChatGPT 中文指南项目旨在帮助中文用户了解和使用 ChatGPT。我们收集了各种免费和付费的 ChatGPT 资源，以及如何更有效地使用中文与 ChatGPT 进行交流的方法。"
+      },
+      {
+        "name": "AI 提示词生成器",
+        "url": "https://prompt-generator.ilovecoke.cc/",
+        "desc": "一个免费的 AI 提示词生成器，用户可以在这里快速生成适合自己需求的提示词。生成的提示词可以用于创作、写作、游戏等多种场景，并且可以一键复制。"
+      },
+      {
+        "name": "ChatGPT 指令大全",
+        "url": "https://www.explainthis.io/zh-hans/chatgpt",
+        "desc": "本站提供数百个精炼过的指令语句 (提示词)，让你充分发挥 ChatGPT 的强大功能。"
+      },
+      {
+        "name": "ChatGPT 提示词大全",
+        "url": "https://prompts.chat/",
+        "desc": "超级实用的 ChatGPT Prompts 合集，搜集了各种各样包罗万象的 Prompt 关键词列表"
+      },
+      {
+        "name": "ChatGPT 中文调教指南",
+        "url": "https://github.com/PlexPt/awesome-chatgpt-prompts-zh",
+        "desc": "超级实用的 ChatGPT 中文提示词合集，搜集了各种各样的中文提示关键词"
+      },
+      {
+        "name": "Claude 提示词库",
+        "url": "https://docs.anthropic.com/zh-CN/prompt-library/library",
+        "desc": "Anthropic Claude 的提示词库提供了多种针对不同任务和需求优化的 AI 提示词，包括个人和商业领域的应用，以及用户提交的自定义提示词。"
+      },
+      {
+        "name": "DeepSeek 提示词库",
+        "url": "https://api-docs.deepseek.com/zh-cn/prompt-library",
+        "desc": "探索 DeepSeek 官方提示词样例，挖掘更多可能。"
+      },
+      {
+        "name": "提示工程指南",
+        "url": "https://www.promptingguide.ai/zh",
+        "desc": "免费开源的提示工程指南，GitHub星标超 4 万"
+      },
+      {
+        "name": "ChatGPTS 提示词列表",
+        "url": "https://github.com/ai-boost/awesome-prompts",
+        "desc": "发现顶尖 GPT 的秘密提示 (来自官方 GPT 商店) ！分享并探索著名 GPT 的最迷人提示。"
+      },
+      {
+        "name": "提示工程课程",
+        "url": "https://learnprompting.org/zh-Hans/docs/intro",
+        "desc": "提示工程是指与 AI 进行有效沟通并实现预期结果的过程。它是提高日常和创新活动的效率工具，本课程为初学者量身打造，涵盖 AI 简介到高级 PE 技术。"
+      },
+      {
+        "name": "Promptup",
+        "url": "https://promptup.net/",
+        "desc": "PromptUp 是一个用于创建、存储和分享人工智能提示词的平台。它提供了一个丰富的数据库，用于帮助用户生成、管理和 AI 交流的相关内容。"
+      },
+      {
+        "name": "AI 提示词中文教程",
+        "url": "https://github.com/PandaBearLab/prompt-tutorial",
+        "desc": "一个关于如何编写大语言模型的提示词的教程，包括原理、技巧、经验和一些公开的提示模板。"
+      },
+      {
+        "name": "Prompt Show",
+        "url": "https://show.langgpt.ai/",
+        "desc": "一款专门针对分享 Prompt 提示词的图片美化工具。"
+      },
+      {
+        "name": "从零学习 AI 绘画",
+        "url": "https://uxbaike.com/page/3526",
+        "desc": "一份非常实用的 AI 绘画入门教程。"
+      },
+      {
+        "name": "通往 AGI 之路",
+        "url": "https://www.waytoagi.com",
+        "desc": "WaytoAGI 是一个 AI 知识库和工具站，提供各种 AI 相关的工具和资源，以及每日更新的 AI 新闻和知识。"
+      },
+      {
+        "name": "Datawhale",
+        "url": "https://linklearner.com/",
+        "desc": "Datawhale 是一个专注于 AI 领域的开源组织，致力于构建一个纯粹的学习圈子，帮助学习者更好地成长。人工智能的未来应由每一个愿意学习和探索的人共同塑造和掌握，希望这里是你实现AI梦想的起点。"
+      },
+      {
+        "name": "HuggingFace",
+        "url": "https://huggingface.co/",
+        "desc": "AI 模型开发社区"
+      },
+      {
+        "name": "魔搭社区",
+        "url": "https://modelscope.cn",
+        "desc": "ModelScope 是一个 “模型即服务”(MaaS) 平台，旨在汇集来自 AI 社区的最先进的机器学习模型，并简化在实际应用中使用 AI 模型的流程。"
+      },
+      {
+        "name": "Dark Visitors",
+        "url": "https://darkvisitors.com",
+        "desc": "Dark Visitors: 收录了各大 AI 公司爬虫使用的 User Agent 标识，可以通过 Robots.txt 配置来屏蔽这些爬虫的访问。"
+      },
+      {
+        "name": "HuggingChat",
+        "url": "https://huggingface.co/chat/",
+        "desc": "HuggingChat 是 Hugging Face 公司推出的一个开源 AI 聊天工具，可以生成各种文本，如摘要、论文、信件等。它是 ChatGPT 的开源替代品，提供了其所不具备的定制选项。"
+      },
+      {
+        "name": "AI 聊天机器人排行榜",
+        "url": "https://chat.lmsys.org/?leaderboard",
+        "desc": "Chatbot Arena 是一个开源项目，由 LMSYS 和 UC Berkeley SkyLab 的成员开发。它的目的是建立一个开放平台，用于通过人类偏好投票来评估大语言模型。"
+      },
+      {
+        "name": "LLM API 比价工具",
+        "url": "https://llmpricecheck.com/",
+        "desc": "一个大语言模型 LLM API 比价工具，提供了多家顶尖供应商的最新价格，包括：OpenAI、Google、Mistral、Cohere、AWS 和 Groq 等。可以更直观地为你挑选最合适的模型。"
+      },
+      {
+        "name": "LLM 国产大模型比价工具",
+        "url": "https://aigcrank.cn/llmprice/",
+        "desc": "LLMPrice 展示了国内不同公司的不同模型的价格和上下文长度。其中包括月之暗面、智普 AI、讯飞星火、文心一言、通义千问等。"
+      },
+      {
+        "name": "ChatGPT 成本计算器",
+        "url": "https://ccc.openkey.cloud/",
+        "desc": "一款专门为团队和开发者设计的工具，可以帮助用户准确预算和规划他们在项目中使用 ChatGPT API 的成本。"
+      },
+      {
+        "name": "LobeChat",
+        "url": "https://lobehub.com/zh",
+        "desc": "LobeChat 是一个集成了多种 AI 模型和插件的个人 AI 助手工具。用户可以根据自己的需求定制助手功能，提高工作效率和探索未来工作模式。"
+      },
+      {
+        "name": "NextChat",
+        "url": "https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web",
+        "desc": "一键免费部署你的私人 ChatGPT 网页应用，支持 GPT3, GPT4 & Gemini Pro 模型。"
+      },
+      {
+        "name": "Cherry Studio",
+        "url": "https://cherry-ai.com/",
+        "desc": "一款集多模型对话、知识库管理、AI 绘画、翻译等功能于一体的全能助手平台。 Cherry Studio 的高度自定义设计、强大扩展能力和友好的用户体验，使其成为专业用户和 AI 爱好者的理想选择。"
+      },
+      {
+        "name": "LibreChat",
+        "url": "https://librechat.ai",
+        "desc": "LibreChat 是一个免费的开源人工智能聊天平台。它提供大量自定义功能，支持众多 AI 提供商、服务和集成。通过熟悉的界面、创新的增强功能，在一个地方为所有人工智能对话提供服务，用户数量不限。"
+      },
+      {
+        "name": "FreeGPT35",
+        "url": "https://github.com/missuo/FreeGPT35",
+        "desc": "FreeGPT35 是一个允许用户无需登录就可以免费使用 GPT-3.5-Turbo API 服务的开源项目。"
+      },
+      {
+        "name": "AURORA",
+        "url": "https://github.com/aurora-develop/aurora",
+        "desc": "一款使用无需登录 ChatGPT 网页提供的无限免费 GPT-3.5-Turbo API 服务。"
+      },
+      {
+        "name": "野卡",
+        "url": "https://yeka.ai/",
+        "desc": "野卡是一个帮助用户轻松订阅海外软件服务的平台，提供一键注册和支付的便捷服务。"
+      }
+    ]
+  },
+  {
+    "group": "📕 AI 翻译利器",
+    "items": [
+      {
+        "name": "DeepL 翻译",
+        "url": "https://www.deepl.com/translator",
+        "desc": "全世界最准确的人工智能翻译工具"
+      },
+      {
+        "name": "Google 翻译",
+        "url": "https://translate.google.com/",
+        "desc": "Google 免费提供的上百种语言智能翻译工具"
+      },
+      {
+        "name": "必应翻译",
+        "url": "https://cn.bing.com/translator/",
+        "desc": "微软必应推出的翻译工具"
+      },
+      {
+        "name": "百度翻译",
+        "url": "https://fanyi.baidu.com/",
+        "desc": "200 种语言互译、沟通全世界！"
+      },
+      {
+        "name": "有道翻译",
+        "url": "https://fanyi.youdao.com/index.html",
+        "desc": "网易推出的在线翻译平台"
+      },
+      {
+        "name": "腾讯翻译君",
+        "url": "https://fanyi.qq.com/",
+        "desc": "全新人工智能翻译， 句子、文章、论文、资料翻译首选"
+      },
+      {
+        "name": "腾讯交互翻译",
+        "url": "https://transmart.qq.com/zh-CN/index",
+        "desc": "腾讯 AI Lab 推出的一款 AI 辅助翻译产品"
+      },
+      {
+        "name": "阿里翻译",
+        "url": "https://translate.alibaba.com/",
+        "desc": "多语言多场景覆盖的智能翻译解决方案"
+      },
+      {
+        "name": "搜狗翻译",
+        "url": "https://fanyi.sogou.com/text",
+        "desc": "你的贴身智能翻译专家"
+      },
+      {
+        "name": "讯飞智能翻译",
+        "url": "https://fanyi.xfyun.cn/console/trans/text",
+        "desc": "科大讯飞推出的人工智能翻译平台"
+      },
+      {
+        "name": "火山翻译",
+        "url": "https://translate.volcengine.com/",
+        "desc": "字节跳动推出的智能翻译工具"
+      },
+      {
+        "name": "金山快译",
+        "url": "https://www.iciba.com/translate?type=text",
+        "desc": "金山 WPS 推出的在线翻译平台"
+      },
+      {
+        "name": "彩云小译",
+        "url": "https://fanyi.caiyunapp.com",
+        "desc": "兼具中日英同声传译、文档翻译和网页翻译的智能翻译工具"
+      },
+      {
+        "name": "沉浸式翻译",
+        "url": "https://immersivetranslate.com/",
+        "desc": "一款双语对照网页翻译插件，可以使用它来进行网页翻译、PDF 翻译、EPUB 电子书翻译、视频双语字幕翻译等。你还可以自由选择调用 OpenAI、DeepL、Gemini 等人工智能引擎来进行翻译。"
+      }
+    ]
+  },
+  {
+    "group": "👨‍💻 AI 编程",
+    "items": [
+      {
+        "name": "GitHub Copilot",
+        "url": "https://github.com/features/copilot",
+        "desc": "GitHub Copilot 是由 GitHub 与 OpenAI 合作开发的一款革命性智能代码补全和生成工具，旨在帮助开发人员更高效、更准确、更快地编写代码。"
+      },
+      {
+        "name": "Augment Code",
+        "url": "https://www.augmentcode.com/",
+        "desc": "一款专为专业软件工程师和大型代码库打造的 AI 驱动的编码助手。由最先进的上下文引擎驱动，能理解整个代码库，使用 Agent、Completions、Chat 和 Next Edit 来加速编码。"
+      },
+      {
+        "name": "Cursor",
+        "url": "https://www.cursor.com",
+        "desc": "旨在让你获得超凡的生产力，Cursor 是使用 AI 编写代码的最佳方式。支持智能代码生成与补全，支持多文件上下文理解，适合处理大型代码库。"
+      },
+      {
+        "name": "Windsurf",
+        "url": "https://codeium.com/windsurf",
+        "desc": ""
+      },
+      {
+        "name": "Windsurf Directory",
+        "url": "https://codeium.com/windsurf/directory",
+        "desc": "Windsurf Rules Directory 提供了一系列精选的编码规则，旨在帮助开发者优化代码质量和项目结构，提升前后端开发的效率和一致性。"
+      },
+      {
+        "name": "Bolt.new",
+        "url": "https://bolt.new/",
+        "desc": "Bolt․new 是一个 AI 全栈 Web 编程工具，自动编写代码、运行、编辑和部署应用程序。它的出现降低了编程的门槛，即使是没有技术背景的用户也能轻松开发产品。"
+      },
+      {
+        "name": "v0.dev",
+        "url": "https://v0.dev",
+        "desc": "Vercel 推出的 AI 前端组件生成工具，通过自然语言描述自动生成 React/UI 代码，支持实时预览与迭代优化。"
+      },
+      {
+        "name": "Replit Agent",
+        "url": "https://replit.com",
+        "desc": "Replit Agent 是 AI 初创公司 Replit 推出的 AI 编程工具。通过自然语言处理技术，让用户用简单的描述来构建软件项目，官方称仅需 2 分钟就能在手机上创建一个 APP。"
+      },
+      {
+        "name": "Lovable",
+        "url": "https://lovable.dev",
+        "desc": "Lovable 可以生成全栈应用程序，基于自然语言处理技术，让用户能用对话快速构建网站和 Web 应用程序。Lovable 简化了软件开发流程，让非技术团队成员快速获得构建高质量软件的能力。"
+      },
+      {
+        "name": "Cody",
+        "url": "https://sourcegraph.com/cody",
+        "desc": "Cody 是由 Sourcegraph 推出的一个 AI 代码助手，通过阅读整个代码库和代码图，帮助开发人员写代码并回答问题。"
+      },
+      {
+        "name": "CodeWhispere",
+        "url": "https://aws.amazon.com/codewhisperer",
+        "desc": "CodeWhisperer 是亚马逊最新发布的 AI 编程软件。支持 Java/Python 等 15 种语言，可以根据开发人员的注释和现有代码实时生成从片段到完整函数的代码建议。"
+      },
+      {
+        "name": "Trae",
+        "url": "https://www.trae.com.cn",
+        "desc": "Trae 是字节跳动推出的免费 AI IDE，通过 AI 技术提升开发效率。它成了 Claude 3.7 和 GPT-4o 等主流 AI 模型（国内版为豆包大模型和 DeepSeek 模型）。"
+      },
+      {
+        "name": "MarsCode",
+        "url": "https://www.marscode.cn",
+        "desc": "MarsCode 是字节跳动旗下的公司推出的免费 AI 编程工具，MarsCode 既提供一个 AI 驱动的云端集成开发环境 IDE，也支持作为 VS Code 和 JetBrains 的智能编程扩展"
+      },
+      {
+        "name": "通义灵码",
+        "url": "https://lingma.aliyun.com",
+        "desc": "通义灵码是阿里推出的免费 AI 编程工具，基于通义大模型，作为 GitHub Copilot 国内的平替产品。提供行级/函数级实时续写、自然语言生成代码等能力，为开发者带来高效、流畅的编码体验。"
+      },
+      {
+        "name": "腾讯云 AI 代码助手",
+        "url": "https://cloud.tencent.com/product/acc",
+        "desc": "腾讯云 AI 代码助手，是一款辅助编码工具，基于混元代码大模型，提供技术对话、代码补全、代码诊断和优化等能力。为你生成优质代码，帮你解决技术难题，提升编码效率。"
+      },
+      {
+        "name": "文心快码",
+        "url": "https://comate.baidu.com/",
+        "desc": "文心快码是百度推出的 AI 编程工具，基于文心大模型，提供实时代码续写、自然语言描述生成代码、代码优化建议等功能。"
+      },
+      {
+        "name": "CodeGeeX",
+        "url": "https://codegeex.cn",
+        "desc": "CodeGeeX 是国内人工智能公司智谱开发的免费 AI 编程工具，该工具基于其 CodeGeeX2 多语言代码生成模型。支持多种编程语言，可以实现代码的生成、代码翻译以及智能问答等功能。"
+      },
+      {
+        "name": "代码小浣熊",
+        "url": "https://www.xiaohuanxiong.com/code",
+        "desc": "代码小浣熊是商汤科技最新推出的一个智能 AI 编程助手和工具，由商汤自研的大模型驱动，支持多种编程语言和多项任务能力，可为开发人员带来全新的编程体验。"
+      },
+      {
+        "name": "DevChat",
+        "url": "https://devchat.ai",
+        "desc": "DevChat 是一个开源的 AI 编程助手，可以帮助开发人员高效地利用 AI 进行代码生成。其核心理念是让开发者以工作流为中心进行软件开发，即通过编写提示而非直接编写代码来指导 AI 生成代码。"
+      },
+      {
+        "name": "Cline",
+        "url": "https://cline.bot",
+        "desc": "Cline 是一款 AI 辅助编程工具，在 Open Router 排行榜中长期排名第一。Cline 支持多种免费模型，能够显著提高编程效率。"
+      },
+      {
+        "name": "Roo-Code",
+        "url": "https://github.com/RooVetGit/Roo-Code",
+        "desc": "Roo-Code 是一个基于 Cline 的增强版自主编程助手，Roo-Code 在保持原版 Cline 所有核心功能上增加了更多功能和模型支持及多项实验性功能，包括图片拖放、消息管理等创新特性。"
+      },
+      {
+        "name": "Tabby",
+        "url": "https://www.tabbyml.com",
+        "desc": "Tabby 是一款自主托管的人工智能编码助手，是 GitHub Copilot 的开源和内部部署替代方案。它的设计目标是帮助开发者通过提供代码建议、自动完成和其他编程相关的辅助功能来提高编程效率。"
+      },
+      {
+        "name": "iFlyCode",
+        "url": "https://iflycode.xfyun.cn/",
+        "desc": "iFlyCode 是科大讯飞最新推出的智能编程助手，基于讯飞星火大模型，可以帮助开发人员编程更轻松，创意更自由。该AI编程工具拥有代码生成、代码补齐、代码纠错、代码解释、生成单元测试等功能。"
+      },
+      {
+        "name": "MCP 官方网站",
+        "url": "https://modelcontextprotocol.io/",
+        "desc": "Anthropic 官方网站，上面详细介绍了 MCP 的相关知识点。"
+      },
+      {
+        "name": "Smithery",
+        "url": "https://smithery.ai",
+        "desc": "Smithery 是一个 Model Context Protocol 的收录平台，允许用户通过连接各种服务器来扩展语言模型的功能，从而更好地完成各种任务。"
+      },
+      {
+        "name": "MCP.so",
+        "url": "https://mcp.so",
+        "desc": "著名独立开发者 idoubi 开发的 MCP 导航站，收录了 2K 多个 MCP Server。"
+      },
+      {
+        "name": "Composio MCP",
+        "url": "https://mcp.composio.dev",
+        "desc": "一站式 MCP Server 平台，每个 MCP 都可以生成一个 SSE URL，开发者可在自己应用中集成这个 MCP 的能力，无需从 0 开发。"
+      },
+      {
+        "name": "Pulse MCP",
+        "url": "https://www.pulsemcp.com",
+        "desc": "浏览并发现 MCP 用例、服务器、客户端和新闻。收录了 1700 多个 MCP Server。网站提供了很多使用案例，帮助用户更直观了解 MCP 生态系统。"
+      },
+      {
+        "name": "Glama MCP",
+        "url": "https://glama.ai/mcp/",
+        "desc": "又一个 MCP Server 导航站。"
+      },
+      {
+        "name": "Cursor MCP",
+        "url": "https://cursor.directory/mcp",
+        "desc": "Cursor 官方建立的 MCP Server 聚合站。"
+      },
+      {
+        "name": "Awesome MCP Servers",
+        "url": "https://mcpservers.org",
+        "desc": "又一个 MCP 服务器的精选列表。"
+      },
+      {
+        "name": "Awesome MCP Servers",
+        "url": "https://github.com/appcypher/awesome-mcp-servers",
+        "desc": "又一个 MCP 服务器的精选列表，该列表侧重于可投入生产和试验的 MCP 服务器，可通过文件访问、数据库连接、API 集成和其他上下文服务扩展人工智能功能。"
+      },
+      {
+        "name": "Awesome MCP 中文版",
+        "url": "https://github.com/yzfly/Awesome-MCP-ZH",
+        "desc": "一个专为中文用户打造的 MCP（模型上下文协议）资源合集！ 这里有 MCP 的基础介绍、玩法、客户端、服务器和社区资源，帮你快速上手这个 AI 界的“万能插头”。"
+      },
+      {
+        "name": "MCP 搜索",
+        "url": "https://mcps.live",
+        "desc": "发现和探索优质的 MCP 服务器。"
+      },
+      {
+        "name": "Portkey MCP",
+        "url": "https://portkey.ai/mcp-servers",
+        "desc": "网站提供了一个全面的 MCP 服务器列表，包括数据存储、云服务、开发工具、内容搜索、人工智能、生产力工具和系统工具等多个领域的参考实现和社区贡献。"
+      }
+    ]
+  },
+  {
+    "group": "🖼 AI 绘图",
+    "items": [
+      {
+        "name": "Sora",
+        "url": "https://sora.chatgpt.com/",
+        "desc": "OpenAI 发布的人工智能文生视频大模型。"
+      },
+      {
+        "name": "Midjourney",
+        "url": "https://www.midjourney.com/",
+        "desc": "AI图像和插画生成工具"
+      },
+      {
+        "name": "Leonardo",
+        "url": "https://leonardo.ai/",
+        "desc": "Leonardo 是一个专门为创造性项目提供 AI 生成高质量、多样化的图像和视觉资产的工具的平台。它提供了各种预训练的 AI 模型供用户选择，也支持用户训练自己的模型。"
+      },
+      {
+        "name": "Recraft",
+        "url": "https://www.recraft.ai/",
+        "desc": "一个提供多种 AI 艺术创作工具的平台，专为专业设计师打造。功能包括 AI 图像生成器、矢量化工具、图像编辑器、模板生成器、图像放大器、背景移除器和 AI 橡皮擦等。"
+      },
+      {
+        "name": "Ideogram",
+        "url": "https://ideogram.ai/",
+        "desc": "Ideogram 是一款新的 AI 绘画工具，它能根据文本生成各种风格的图像，帮助人们将创意轻松变为现实。Ideogram 每天有免费 25 次使用，一次可生成 4 张图。"
+      },
+      {
+        "name": "即梦 AI",
+        "url": "https://jimeng.jianying.com/",
+        "desc": "一站式 AI 创作平台，它提供多种 AI 功能。如: 图片、视频、故事和音乐的生成，同时还有个性化的用户服务和社区活动。"
+      },
+      {
+        "name": "可灵 AI",
+        "url": "https://klingai.kuaishou.com/",
+        "desc": "快手推出的新一代 AI 创意生产力平台，基于快手自研大模型可灵和可图，提供高质量视频及图像生成能力。"
+      },
+      {
+        "name": "ImageFX",
+        "url": "https://labs.google/fx/zh/tools/image-fx",
+        "desc": "一个由 Google 所创建的实验性工具，它允许用户通过 Google 账号实现图像创作。"
+      },
+      {
+        "name": "Reve",
+        "url": "https://preview.reve.art",
+        "desc": "一个全新的图像生成模型，专注于提升图像质量、美学效果和排版效果。"
+      },
+      {
+        "name": "通义万相",
+        "url": "https://tongyi.aliyun.com/wanxiang",
+        "desc": "平台提供了 AI 绘画和视频生成等功能，支持用户通过 AI 技术进行创意作画、视频制作等，并提供了应用广场、API 调用等服务，以及交流群等社交互动功能。"
+      },
+      {
+        "name": "星流",
+        "url": "https://www.xingliu.art/",
+        "desc": "星流网站提供了一个新型的 AI 图像生成平台，允许用户通过 AI 工具创造性地进行图像生成和编辑。"
+      },
+      {
+        "name": "LibLib",
+        "url": "https://www.liblib.art/",
+        "desc": "一个专注于人工智能创作的平台，提供多种艺术风格和设计服务，包括但不限于动漫、游戏、写实摄影、插画设计、电商设计、建筑及空间设计等。"
+      },
+      {
+        "name": "Pollo AI",
+        "url": "https://pollo.ai/",
+        "desc": "一个全方位的 AI 视频和图像生成器，提供多种创作工具，包括 AI 视频生成器、AI 图像生成器等，支持文本到视频、图像到视频等多种创作方式，并且提供多种 AI 视频和图像模型选择。"
+      },
+      {
+        "name": "Lovart",
+        "url": "https://www.lovart.ai",
+        "desc": "世界上首个设计代理，通过人工智能与人类设计师的协作，提供个性化的设计创意和服务。"
+      },
+      {
+        "name": "即梦提示词生成器",
+        "url": "https://edui123.com/jm/",
+        "desc": "一个快速帮助用户通过 AI 制作封面图的小工具。"
+      }
+    ]
+  },
+  {
+    "group": "🧑‍💻 编程开发",
+    "items": [
+      {
+        "name": "给程序员的一些建议",
+        "url": "https://icodeit.org/2017/07/tips-for-newbies/",
+        "desc": "一篇 2017 年的博客文章「给新人程序员的一些建议」。来自 I Code lt，写得很好。保持健康、编程之外的爱好、持续学习、正确应对犯错、不要囿于角色、展示你的创意、刻意练习手速，值得一读。"
+      },
+      {
+        "name": "程序开发常用工具",
+        "url": "https://ctool.dev/",
+        "desc": ""
+      },
+      {
+        "name": "开发者武器库",
+        "url": "https://devtool.tech/",
+        "desc": "做开发者最专业最好用的专业工具箱。"
+      },
+      {
+        "name": "SmallDev",
+        "url": "https://smalldev.tools/",
+        "desc": "为开发者提供的免费工具，如：编码器/解码器、HTML/CSS/JavaScript 格式化工具、假数据或测试数据生成器等。"
+      },
+      {
+        "name": "Free for Developers",
+        "url": "https://free-for.dev/",
+        "desc": "网站收录了一系列免费的工具和服务列表，涉及云计算、机器学习、协作、CI/CD、应用开发及数据治理等。简直是独立开发者的福音，帮你实现零成本试错，快速启动你的创新之旅。"
+      },
+      {
+        "name": "Web 开发工具合集",
+        "url": "https://sinqi.tools/zh",
+        "desc": "面向 Web 开发人员和设计人员的精致工具集合，您可以在这里找到对您日常工作有帮助的工具。"
+      },
+      {
+        "name": "Devbox",
+        "url": "https://www.jetpack.io/devbox/",
+        "desc": "Devbox 是一个命令行工具，可以轻松创建独立的 SHELL 环境进行开发。你可以在本地快速构建一个完整且隔离的开发环境，并使用各种工具和技术来开发和测试应用程序。"
+      },
+      {
+        "name": "在线代码美化工具",
+        "url": "https://sinqi.tools/zh/code_beautifier",
+        "desc": "你只需复制粘贴源代码，美化程序会对代码或配置进行美化和语法高亮显示，支持 PHP、Java、Python、YAML、Nginx 等多种语法格式。"
+      },
+      {
+        "name": "YAML 可视化工具",
+        "url": "https://jsonformatter.org/yaml-viewer",
+        "desc": "YAML 可视化工具"
+      },
+      {
+        "name": "正则表达式中文教程",
+        "url": "https://www.runoob.com/regexp/regexp-tutorial.html",
+        "desc": "正则表达式是一种用于模式匹配和搜索文本的工具，可以应用于各种编程语言和文本处理工具中，如 JavaScript、Python、Java、Perl 等，这是一份很好的中文学习教程。"
+      },
+      {
+        "name": "AI 正则表达式生成器",
+        "url": "https://regex.ai/",
+        "desc": "让 AI 帮你写正则表达式"
+      },
+      {
+        "name": "正则表达式可视化",
+        "url": "https://devtoolcafe.com/tools/regex#!flags=img&amp;re=",
+        "desc": "一款免费的在线正则表达式测试和可视化工具"
+      },
+      {
+        "name": "可视化正则表达式编辑器",
+        "url": "https://regex-vis.com/",
+        "desc": "又一款可视化正则表达式编辑器"
+      },
+      {
+        "name": "Regex 101",
+        "url": "https://regex101.com/",
+        "desc": "Regex101 是一个在线正则表达式构建、测试和调试工具，支持多种编程语言的正则表达式语法和功能。用户可以在这里创建和保存自己的正则表达式，也可以将其分享到社区。"
+      },
+      {
+        "name": "轻松学习正则表达式",
+        "url": "https://github.com/ziishaned/learn-regex/blob/master/translations/README-cn.md",
+        "desc": "一个中文版的正则表达式教程，涵盖了基本匹配、元字符、重复次数、简写字符集、零宽度断言和模式修正符等内容，并且提供在线练习。"
+      },
+      {
+        "name": "JSON Hero",
+        "url": "https://jsonhero.io/",
+        "desc": "JSON Hero 是一个现代的、功能丰富的在线工具，用于将 JSON 数据可视化和编辑。它提供了一个漂亮且直观的界面，用户可以在其中轻松导航和理解复杂的 JSON 数据结构。"
+      },
+      {
+        "name": "JSON Crack",
+        "url": "https://jsoncrack.com/editor",
+        "desc": "JSON Crack 是一款非常实用的在线工具，它能够将 JSON 数据结构以直观的、树形图的方式进行展示，使得用户可以更容易地理解和分析 JSON 数据。"
+      },
+      {
+        "name": "JSONGrid",
+        "url": "https://jsongrid.com/",
+        "desc": "JSONGrid 是一个在线的 JSON 数据可视化工具，旨在帮助用户以网格或表格形式浏览和编辑 JSON 数据。它将 JSON 数据结构简化为行和列的形式，使数据分析和操作更加直观和容易。"
+      },
+      {
+        "name": "Json 在线解析",
+        "url": "https://www.json.cn/",
+        "desc": "JSON.cn 提供了一系列在线工具，专注于 JSON 数据格式化、解析、转换等功能，同时还提供了图片、网络、文本处理工具，以及生活工具等多项服务，旨在帮助开发者更高效地处理数据和其他相关任务。"
+      },
+      {
+        "name": "JSON Formatter",
+        "url": "https://jsonformatter.org/",
+        "desc": "JSON Formatter 是一种流行的 JSON 可视化和编辑工具，它的主要目标是为用户提供一个简单方便的方式来查看，编辑和格式化 JSON 数据。"
+      },
+      {
+        "name": "可视化 JSON 结构关系",
+        "url": "https://apvarun.github.io/graphize/",
+        "desc": "在浏览器中可视化并下载 JSON / YAML / XML 内容，非常适合查看数据之间的结构关系。"
+      },
+      {
+        "name": "JSONT",
+        "url": "https://www.jsont.run/",
+        "desc": "一款简洁的在线 JSON 解析器，支持 JSON 解析/美化/压缩/验证/编辑功能。"
+      },
+      {
+        "name": "MDNice 编辑器",
+        "url": "https://mdnice.com/",
+        "desc": "MDNice 编辑器是一款 Markdown 微信编辑器，拥有良好的兼容性、海量主题样式、免费的图床。"
+      },
+      {
+        "name": "微信 Markdown 编辑器",
+        "url": "https://md.bestgeek.org",
+        "desc": "一款高度简洁的微信 Markdown 编辑器：支持 Markdown 语法、色盘取色、多图上传、一键下载文档、自定义 CSS 样式、一键重置等特性。"
+      },
+      {
+        "name": "MDX 编辑器",
+        "url": "https://editor.runjs.cool/",
+        "desc": "又一款好用微信排版编辑器，支持自定义组件、样式、生成二维码、代码 Diff 高亮，可导出 Markdown 和 PDF。"
+      },
+      {
+        "name": "MD2Card",
+        "url": "https://md2card.com",
+        "desc": "MD2Card 是一个 Markdown 转知识卡片工具，可以让你用 Markdown 制作优雅的图文海报，支持多种风格。"
+      },
+      {
+        "name": "HTML 转换 Markdown 工具",
+        "url": "https://devtool.tech/html-md",
+        "desc": "一款在线的网页转换成 Markdown 格式工具。只需输入对应页面的地址，就可以解析成 Markdown 格式复制使用，同时也支持用 HTML 方式直接转换。"
+      },
+      {
+        "name": "纯文本流程图绘制",
+        "url": "https://asciiflow.cn/",
+        "desc": "在线纯文本流程图绘制工具"
+      },
+      {
+        "name": "在线密码生成器",
+        "url": "https://sinqi.tools/zh/pwd",
+        "desc": "一款非常实用的在线密码生成器，界面设计非常简单便捷。支持生成 32 位以内符合各种加密规则的密码。"
+      },
+      {
+        "name": "Console Newsletter",
+        "url": "https://console.dev/",
+        "desc": "每周为开发人员提供最佳工具的免费电子邮件摘要。"
+      },
+      {
+        "name": "SQLiteviz",
+        "url": "https://lana-k.github.io/sqliteviz/#/",
+        "desc": "SQLite 在线工具"
+      },
+      {
+        "name": "Greasy Fork",
+        "url": "https://greasyfork.org/zh-CN",
+        "desc": "欢迎来到 Greasy Fork，这里是一个分享用户 JavaScript 脚本的网站。通过这些脚本可以优化和改善你在浏览器中的操作体验。"
+      },
+      {
+        "name": "BugMeNot",
+        "url": "https://bugmenot.com/",
+        "desc": "查找各大互联网服务共享帐号"
+      },
+      {
+        "name": "在线多语言转换器",
+        "url": "https://transform.tools/",
+        "desc": "你想将 SVG 转换为 React 吗？或者将 JSON 转换为 TypeScript ？又或者将 XML 转换为 JSON？无论你需要哪种转换，在这里你都可以做到。"
+      },
+      {
+        "name": "在线代码运行",
+        "url": "https://tool.lu/coderunner/",
+        "desc": "各种编程语言运行环境，可在线运行 Java、PHP、Python、Go、C 等代码。"
+      },
+      {
+        "name": "Crontab 生成器",
+        "url": "https://crontab-generator.org/",
+        "desc": ""
+      },
+      {
+        "name": "API 接口管理工具",
+        "url": "https://hoppscotch.io/",
+        "desc": "帮助您更快地创建请求，节省宝贵的开发时间。"
+      },
+      {
+        "name": "Bruno",
+        "url": "https://usebruno.com",
+        "desc": "Bruno 是一款全新且创新的 API 客户端，旨在颠覆 Postman 和其他类似工具。它仅限离线使用，你可以使用 Git 对 API 信息进行版本控制和协作，备份只需要拷贝一个文件夹。"
+      },
+      {
+        "name": "Hurl",
+        "url": "https://hurl.dev/",
+        "desc": "一个更适合新手的 Curl 替代工具，可运行以简单纯文本格式定义的 HTTP 请求。"
+      },
+      {
+        "name": "在线 Webhook 测试工具",
+        "url": "https://webhook.site/",
+        "desc": ""
+      },
+      {
+        "name": "Codepen",
+        "url": "https://codepen.io/",
+        "desc": "CodePen 是一个面向前端设计师和开发者的社交开发环境。在这里，你可以构建和部署网站，展示你的作品。创建测试案例来学习和调试，并寻找灵感。"
+      },
+      {
+        "name": "Chrome 开发者平台",
+        "url": "https://chrome.google.com/webstore/devconsole/",
+        "desc": "开发者信息中心是一个提供 Chrome Web Store 开发者相关信息和工具的平台。"
+      },
+      {
+        "name": "CSS 加载动画合集",
+        "url": "https://css-loaders.com/",
+        "desc": "一个非常实用的工具网站，提供超多纯 CSS 加载动画效果，直接点击动画复制 CSS 代码，方便开发者快速集成到自己的项目中。"
+      },
+      {
+        "name": "最佳浏览器指纹检测工具",
+        "url": "https://www.browserscan.net/",
+        "desc": "BrowserScan 是一款最佳在线浏览器指纹检测工具。除了检测浏览器指纹信息、IP 地址，它还可以检测 WebRTC 泄露、DNS 泄露等。"
+      },
+      {
+        "name": "在线浏览器检测工具",
+        "url": "https://passer-by.com/browser/",
+        "desc": "在线浏览器检测工具，支持 Useragent 分析/浏览器识别/浏览器判断/UA 解析/用户代理信息等"
+      },
+      {
+        "name": "中国行政区划数据",
+        "url": "https://passer-by.com/data_location/",
+        "desc": "中华人民共和国行政区划数据，包含省市区镇三级四级联动地址数据（GB/T 2260）"
+      },
+      {
+        "name": "Theme Toggles",
+        "url": "https://toggles.dev/",
+        "desc": "这里收录了各种切换网站明亮、暗黑样式按钮的示例与代码。"
+      },
+      {
+        "name": "开发人员备忘清单",
+        "url": "https://cheat.666666.dev/",
+        "desc": "Reference 以漂亮的布局为开发人员分享一份各种技术栈的备忘清单和快速参考，其中参考资料是由开源天使贡献的备忘单集合。"
+      },
+      {
+        "name": "HTML 中文教程",
+        "url": "https://www.w3school.com.cn/h.asp",
+        "desc": "一本非常好的 HTML/CSS 中文入门教程。"
+      },
+      {
+        "name": "JavaScript 中文教程",
+        "url": "https://www.w3school.com.cn/js/index.asp",
+        "desc": "一本非常好的 JavaScript 中文入门教程。"
+      },
+      {
+        "name": "Markdown 入门教程",
+        "url": "https://www.markdowncando.com/zh/",
+        "desc": "一个很有用的 Markdown 科普网站，直接用一个演练场把 Markdown 能做的所有事情给展示出来了，还提供了 Markdown 教程。"
+      },
+      {
+        "name": "Markdown 官方教程",
+        "url": "https://markdown.com.cn/",
+        "desc": "现在就开始参考入门指南学习 Markdown 吧，即便你已经不是新手，看看也有一些新的发现。"
+      },
+      {
+        "name": "Hello 算法",
+        "url": "https://www.hello-algo.com/",
+        "desc": "本项目旨在打造一本开源免费、新手友好的数据结构与算法入门教程。全书采用动画图解，内容清晰易懂、学习曲线平滑，引导初学者探索数据结构与算法的知识地图。制作精良，持续更新！"
+      },
+      {
+        "name": "Rust 语言圣经",
+        "url": "https://course.rs/",
+        "desc": "Rust 语言被广泛认为是一门优秀的编程语言，具有高性能、高安全性和可靠的内存管理等特性。很多人认为 Rust 学习难度高，本开源教程旨在解决这一问题，并为读者提供配套的练习题。"
+      },
+      {
+        "name": "程序员最容易发音错误单词大全",
+        "url": "https://cpwp.netlify.app/",
+        "desc": ""
+      },
+      {
+        "name": "程序员学习路线图",
+        "url": "https://roadmap.sh/",
+        "desc": "开发者路线图是一个社区项目，旨在创建路线图、指南和其他教育内容，以帮助开发者选择路径并指导他们的学习。"
+      },
+      {
+        "name": "专为程序员设计的音乐网站",
+        "url": "https://musicforprogramming.net/latest/",
+        "desc": "『MusicForProgramming』 是一个收集适合编程时听的音乐网站，作者精挑细选了不少音乐，有助于让你减少分心，帮助你更加专注编程。"
+      }
+    ]
+  },
+  {
+    "group": "🧰 网络调试",
+    "items": [
+      {
+        "name": "IP 测试工具",
+        "url": "https://ping.sx/",
+        "desc": "在线测试服务器延迟和丢包的工具"
+      },
+      {
+        "name": "IP-Skk-Moe",
+        "url": "https://ip.skk.moe/",
+        "desc": "在线 IP 地址查询工具"
+      },
+      {
+        "name": "IP 质量评分",
+        "url": "https://www.ip-lookup.org/score",
+        "desc": "一个在线 IP 地址质量评分网站"
+      },
+      {
+        "name": "IP 风险检查",
+        "url": "https://scamalytics.com/",
+        "desc": "Scamalytics 是一家提供安全产品的公司，提供防范网络欺诈的产品和服务，专注于帮助企业识别和预防欺诈行为，保护用户和收入。它提供的在线 IP 质量检查器可以实时检查 IP 风险。"
+      },
+      {
+        "name": "IP 质量检查",
+        "url": "https://www.ipqualityscore.com/ip-reputation-check",
+        "desc": "IPQS 是一家提供反欺诈和网络安全解决方案的公司，专注于为企业和个人用户提供实时保护。IPQS 提供的IP 质量检查工具可以概括 IP 地址在互联网上展示出的行为质量。"
+      },
+      {
+        "name": "高精度 IP 地址查询",
+        "url": "https://chaipip.com/",
+        "desc": "一款在线高精度 IP 地址查询工具"
+      },
+      {
+        "name": "全球 VPS 监控平台",
+        "url": "https://ping0.cc/vpsmon/",
+        "desc": "PING0 提供 IP 归属地查询、VPS 监控、PING 检测、TRACE 跟踪等服务，它可以查看过去 24小时、5天、一个月和一年内各大 VPS 厂商在世界各地机房的国内三网表现。"
+      },
+      {
+        "name": "Web Check",
+        "url": "https://web-check.xyz/",
+        "desc": "网站一体化分析工具"
+      },
+      {
+        "name": "阿里云网站运维检测平台",
+        "url": "https://boce.aliyun.com/detect/http",
+        "desc": "全球200+网络拨测节点，模拟用户访问域名/IP，帮助发现网络、站点可用性问题。"
+      },
+      {
+        "name": "DNS Checker",
+        "url": "https://dnschecker.org/",
+        "desc": "全球多节点 DNS 解析工具"
+      },
+      {
+        "name": "DNS.Surf",
+        "url": "https://dns.surf/",
+        "desc": "DNS.Surf 是一个检测域名在全球 DNS 解析结果的在线工具。它支持从全球 18 个数据中心查询域名的 DNS 解析结果，可以选择 100+ 不同的 DNS 服务器。"
+      },
+      {
+        "name": "网易 DNS 检测工具",
+        "url": "https://nstool.netease.com/",
+        "desc": "以浏览器为访问源，识别浏览器应用在当前网络下调用的最近 DNS 解析服务器"
+      },
+      {
+        "name": "DNS Over Https",
+        "url": "https://dnscrypt.info/public-servers",
+        "desc": "各种免费的 DNS 加密服务器"
+      },
+      {
+        "name": "国内外公共 DNS 列表",
+        "url": "https://www.hi-linux.com/posts/19661.html",
+        "desc": "国内外公共/加密 DNS 服务器列表"
+      },
+      {
+        "name": "全国运营商 DNS 服务器 IP 列表",
+        "url": "https://dns.ip.cn/",
+        "desc": "全国运营商 DNS 服务器 IP 列表"
+      },
+      {
+        "name": "轻量级终端录屏工具",
+        "url": "https://asciinema.org/",
+        "desc": "轻量级的终端录屏工具"
+      },
+      {
+        "name": "在线 TCPing",
+        "url": "https://www.itdog.cn/tcping/",
+        "desc": "一款集在线测速、在线 Ping 等多功能工具箱"
+      },
+      {
+        "name": "在线网速测试",
+        "url": "https://www.speedtest.net/",
+        "desc": "一个在线网速测试站点"
+      },
+      {
+        "name": "网页性能测试工具",
+        "url": "https://pagespeed.web.dev/",
+        "desc": "PageSpeed Insights 是一个性能评估报告，提供了一个网站的性能分析和建议。报告中包含了多个性能指标，例如: 首次内容绘制、最大内容绘制、总阻塞时间、累计布局偏移等。"
+      },
+      {
+        "name": "在线文件共享-Piping",
+        "url": "https://piping-ui.org/",
+        "desc": ""
+      },
+      {
+        "name": "在线文件共享-Transfer.sh",
+        "url": "https://transfer.sh/",
+        "desc": "在线文件共享传输服务"
+      },
+      {
+        "name": "PairDrop",
+        "url": "https://pairdrop.net/",
+        "desc": "PairDrop 是一款开源的跨设备文件传输工具，非常适合在陌生设备之间使用浏览器传输文件。无需安装任何应用，即开即用。"
+      },
+      {
+        "name": "SnapDrop",
+        "url": "https://snapdrop.net/",
+        "desc": "在浏览器中共享本地文件，灵感来自 Apple 的 Airdrop。 无需设置，无需注册。"
+      },
+      {
+        "name": "LocalSend",
+        "url": "https://localsend.org/#/",
+        "desc": "LocalSend 是一款免费、开源、跨平台的 AirDrop 开源替代品，它可以将文件共享到附近的设备。"
+      },
+      {
+        "name": "多系统启动 U 盘工具",
+        "url": "https://www.ventoy.net/cn/index.html",
+        "desc": "Ventoy 是新一代多系统启动 U 盘解决方案。你无需反复地格式化 U 盘，你只需要把 ISO/WIM/IMG/VHD(x)/EFI 等类型的文件直接拷贝到 U 盘就可以启动了，无需其他操作。"
+      },
+      {
+        "name": "XBin",
+        "url": "https://xbin.io/",
+        "desc": "一款无需服务器的命令行工具包"
+      },
+      {
+        "name": "Headscale",
+        "url": "https://headscale.net/",
+        "desc": "一款开源的 Tailscale 服务端"
+      },
+      {
+        "name": "SmartDNS",
+        "url": "https://pymumu.github.io/smartdns/",
+        "desc": ""
+      },
+      {
+        "name": "Lux",
+        "url": "https://github.com/iawia002/lux",
+        "desc": "lux 是一款简单、快速的视频下载工具。它安装简单、使用方便，一条命令即可下载视频。它支持国内外主流的视频网站，比如：抖音、哔哩哔哩、优酷、YouTube、爱奇艺、腾讯视频、网易云音乐等。"
+      }
+    ]
+  },
+  {
+    "group": "🖼 绘图设计",
+    "items": [
+      {
+        "name": "Diagrams",
+        "url": "https://app.diagrams.net/",
+        "desc": "一款免费、开源的画图工具"
+      },
+      {
+        "name": "Excalidraw",
+        "url": "https://excalidraw.com/",
+        "desc": "手绘风格绘图软件"
+      },
+      {
+        "name": "HANDRAW",
+        "url": "https://handraw.top/",
+        "desc": "手绘风格绘图软件"
+      },
+      {
+        "name": "Revezone",
+        "url": "https://revezone.com/",
+        "desc": "一款以图形为中心、轻量级、本地优先的用于构建第二大脑的效率工具。支持 Excalidraw、Tldraw 白板和类 Notion 笔记。"
+      },
+      {
+        "name": "Markmap",
+        "url": "https://markmap.js.org/repl",
+        "desc": "Markdown 绘制思维导图软件"
+      },
+      {
+        "name": "OKSO",
+        "url": "https://okso.app/",
+        "desc": "极简画图软件"
+      },
+      {
+        "name": "Tldraw",
+        "url": "https://www.tldraw.com/",
+        "desc": "一款人人都会用的开源在线白板"
+      },
+      {
+        "name": "AutoDraw",
+        "url": "https://www.autodraw.com/",
+        "desc": "AutoDraw 是一种新型绘图工具。它将 AI 与才华横溢的艺术家的绘画作品相结合，帮助每个人快速创建任何可视化作品。无需下载，无需付费。"
+      },
+      {
+        "name": "Mermaid",
+        "url": "https://mermaid-js.github.io/mermaid-live-editor/",
+        "desc": "Mermaid 是一个基于 Javascript 的图表绘制工具，通过解析类 Markdown 的文本语法来实现图表的创建和动态修改。"
+      },
+      {
+        "name": "在线搜索 Emoji",
+        "url": "https://searchemoji.app/zh-hans",
+        "desc": "一个在线 Emoji 搜索网站"
+      },
+      {
+        "name": "OpenMoji",
+        "url": "https://openmoji.org/",
+        "desc": "面向设计师、开发人员和其他人的开源表情符号。"
+      },
+      {
+        "name": "EMOJI 中文网",
+        "url": "https://www.emojiall.com/zh-hans",
+        "desc": "这是一本全面的 Emoji 字典，它提供了每个 Emoji 表情符号含义。有一个方便的 Emoji 复制和粘贴工具，有流行的 Emoji 主题信息，还有更多 Emoji 休闲益智游戏。"
+      },
+      {
+        "name": "Emoji 表情组合器",
+        "url": "https://www.emojitell.com/",
+        "desc": "EmojiTell 是一个提供表情符号组合翻译的在线服务，可以将文本翻译成表情符号组合，使沟通更加有趣和富有表现力。"
+      },
+      {
+        "name": "ASCII 艺术收藏",
+        "url": "https://asciiart.website/",
+        "desc": "收集了大量的有趣的互联网创建的 ASCII 艺术图形，假如你想在你的代码里面加入，可以在这里找找看。"
+      },
+      {
+        "name": "在线生成 ASCII 文本",
+        "url": "https://manytools.org/hacker-tools/ascii-banner/",
+        "desc": "ASCII 文本横幅生成工具"
+      },
+      {
+        "name": "SYMBL",
+        "url": "https://symbl.cc/cn/",
+        "desc": "在 SYMBL 上探索符号、字符、象形文字、脚本和字母表。完整的 Unicode 表，有趣的事实和技术信息。"
+      },
+      {
+        "name": "特殊字符大全",
+        "url": "https://tw.piliapp.com/symbol/",
+        "desc": "一个收集了大量常用的特殊符号的网站。这些符号是真实的文字，你可以复制并粘贴到任何地方，比如：像微软的 Word、微博、HTML 或博客。"
+      },
+      {
+        "name": "Whimsical",
+        "url": "https://whimsical.com/",
+        "desc": "一款类似 Notion 的画图软件"
+      },
+      {
+        "name": "Inpaint-Web",
+        "url": "https://inpaintweb.lxfater.com",
+        "desc": "Inpaint-Web 是一个开源免费的在线 AI 图片处理工具，主要用于图像增加和水印擦除。"
+      },
+      {
+        "name": "BgSub",
+        "url": "https://bgsub.cn/webapp/",
+        "desc": "在 5 秒内消除或者替换图像背景，智能调整颜色。所有操作都在浏览器完成，无需上传图像。"
+      },
+      {
+        "name": "在线 AI 抠图工具",
+        "url": "https://removebg.one/",
+        "desc": "一款无需登录且 100% 免费的在线 AI 背景移除工具，支持移除人物、产品、动物、汽车和徽标等图片的背景。"
+      },
+      {
+        "name": "在线透明背景制作器",
+        "url": "https://www.photoroom.com/zh/",
+        "desc": "利用 AI 的强大功能，轻松去除照片背景并将背景变成透明。"
+      },
+      {
+        "name": "免费图片背景移除工具",
+        "url": "https://www.ifoto.ai/free-background-remover",
+        "desc": "iFoto 的背景移除器适用于所有产品摄影。免费移除背景，3 秒内获得高质量剪切效果。iFoto 依然保持免费开放，每个用户每月 10000 张限额。"
+      },
+      {
+        "name": "PicProse",
+        "url": "https://www.picprose.net/",
+        "desc": "PicProse 是一个为 Medium、YouTube、Bilibili、博客等提供更好封面的在线图片生成工具。"
+      },
+      {
+        "name": "IMaker",
+        "url": "https://img-maker.vercel.app/",
+        "desc": "IMaker 是一款用来设计封面的工具，比如你可以为你的博客、视频、公众号等设计你自己喜欢的封面。"
+      },
+      {
+        "name": "封面图生成器",
+        "url": "https://spacexcode.com/coverview/",
+        "desc": "又一款在线封面图生成器，用于创建各种样式的封面图。"
+      },
+      {
+        "name": "Creative Fabrica",
+        "url": "https://www.creativefabrica.com/studio/features/",
+        "desc": "一个专门为创意人士设计的平台，提供无限制的设计资源和模板以及 Spark AI 技术。它提供了许多创造性的特性，包括：删除图像背景、裁剪图像、以及图片转换、调整大小、旋转等功能。"
+      },
+      {
+        "name": "文字转壁纸生成工具",
+        "url": "https://texttowallpaper.com/",
+        "desc": "Text to Wallpaper 是一个在线工具，它可以用文字来的定制壁纸。使用此工具，用户可以选择一个模板作为起点，并根据自己的喜好调整字体大小、颜色和样式。"
+      },
+      {
+        "name": "GeekCard",
+        "url": "https://geekcard.app/",
+        "desc": "GeekCard 是一个旨在让分享的内容更加美观和吸引人的工具，它提供了多种个性化选项来美化文本和图片，包括添加水印、调整颜色、字体、背景和卡片大小等功能。"
+      },
+      {
+        "name": "美叶",
+        "url": "https://www.meiye.art/",
+        "desc": "优质设计内容推荐平台"
+      },
+      {
+        "name": "谷歌图片压缩工具",
+        "url": "https://squoosh.app/",
+        "desc": "谷歌开源的在线图片压缩工具，Squoosh 是终极图像优化器，可让您在浏览器中使用不同的编解码器压缩和比较图像。"
+      },
+      {
+        "name": "Images Tool",
+        "url": "https://imagestool.com/zh_CN/",
+        "desc": "一个无需上传文件也可在线图片处理服务，包括图片格式转换、拼接、加水印、尺寸调整、裁剪、压缩等功能，以及 Gif 工具和视频工具，均为免费无限制服务。"
+      },
+      {
+        "name": "批量图片压缩工具",
+        "url": "https://imgsmall.com/",
+        "desc": "一款免费，安全，高效的在线图片压缩神器。只压缩图片的体积，对图片的尺寸、分辨率和文件格式不进行任何破坏。"
+      },
+      {
+        "name": "ShotEasy",
+        "url": "https://shoteasy.fun",
+        "desc": "ShotEasy 是一个轻量级的屏幕截图工具，支持截图编辑、resize、添加滤 foteria 等功能，无需注册，便于一键式操作。"
+      },
+      {
+        "name": "Color Hunt",
+        "url": "https://colorhunt.co/",
+        "desc": "一个不错的色彩搭配网站"
+      },
+      {
+        "name": "Happy Hues",
+        "url": "https://www.happyhues.co/",
+        "desc": "Happy Hues 是一个调色板灵感网站，它提供了一个真实的例子，告诉你如何在设计项目中使用这些颜色。"
+      },
+      {
+        "name": "WebGradients",
+        "url": "https://webgradients.com/",
+        "desc": "免费获取 180 个由顶级设计师策划的精美的 CSS3、Photoshop 和 Sketch 线性渐变。"
+      },
+      {
+        "name": "CoolHue 调色板",
+        "url": "https://webkul.github.io/coolhue/",
+        "desc": "60 种精选的最酷渐变色和色板，你还可以根据自己的口味个性化 CoolHue 调色板。"
+      },
+      {
+        "name": "Ai Colors",
+        "url": "https://aicolors.co",
+        "desc": "又一个 Web 配色工具，提供了很多内置模板。它还支持以 AI 描述的方式定制创建，适合开发或设计师快速创建协调的配色方案。支持新建、保存、编辑自己的方案，并提供代码展示以及分享方案的功能。"
+      },
+      {
+        "name": "Goodpalette",
+        "url": "https://goodpalette.io",
+        "desc": "为 UI 和 UX 设计生成漂亮的配色方案，并通过动态模型预览它们在您的应用程序或网站上的外观。"
+      },
+      {
+        "name": "中国传统颜色手册",
+        "url": "https://colors.ichuantong.cn/",
+        "desc": "该站整理了中国传统颜色的多种配色方案，并提供了相关 Hex 颜色代码，对于需要做配色参考的同学是非常有参考价值的。"
+      },
+      {
+        "name": "Dribbble",
+        "url": "https://dribbble.com/",
+        "desc": "在 Dribbble 上寻找顶级设计师和创意专业人士，我们是设计师获得灵感、反馈、社区和工作的地方。"
+      },
+      {
+        "name": "在线屏幕取色器",
+        "url": "https://sinqi.tools/zh/extract_color",
+        "desc": "一款在线屏幕取色器，颜色范围取自当前屏幕，不仅仅在当前网页。一切都在浏览器中完成，不会将内容上传到服务器。"
+      },
+      {
+        "name": "Mockups Design",
+        "url": "https://mockups-design.com/",
+        "desc": "一个免费的高质量真实世界的模版素材下载的网站，比如手 3D 物体、画册、名片等素材样张 PSD 文件。"
+      },
+      {
+        "name": "LogoAI",
+        "url": "https://logoai.com",
+        "desc": "LogoAI 是一款由人工智能驱动的标志生成器，为您生成标志设计供您选择。它还会根据您创建的标志自动为您制作品牌指南。"
+      },
+      {
+        "name": "PornHub Logo",
+        "url": "https://www.logoly.pro/",
+        "desc": "一款免费开源的 Logo 生成工具，你可以用它生成 Pornhub 风格的 Logo。"
+      },
+      {
+        "name": "Icon Maker",
+        "url": "https://icon.ray.so/",
+        "desc": "利用大量 ICON 来轻松制作一个全新的 LOGO，非常适合用于制作各种应用程序的 LOGO。"
+      },
+      {
+        "name": "在线视频编辑工具",
+        "url": "https://123apps.com/cn/",
+        "desc": "网站提供了各种在线工具，分为视频、音频、PDF、其他等。可以帮助您在视频、音频、PDF和图像等不同格式之间进行编辑、转换和创建内容。最重要的是无需登陆无需注册即可使用！"
+      },
+      {
+        "name": "稿定在线 PS",
+        "url": "https://ps.gaoding.com",
+        "desc": "一款好用的在线 PS 工具"
+      },
+      {
+        "name": "Shots",
+        "url": "https://shots.so/",
+        "desc": "一款超级好用在线截图美化工具，可以生成漂亮的各种风格截图背景。"
+      },
+      {
+        "name": "Vividshare",
+        "url": "https://vividshare.io/",
+        "desc": "Vividshare 是一款在线的图片美化工具，它可以将图片、文字、代码做一张非常漂亮的卡片，样式全部支持自定义。你也可以贴一个推特地址直接生成卡片。"
+      },
+      {
+        "name": "PostSpark",
+        "url": "https://postspark.app",
+        "desc": "一个功能强大且易于使用的在线编辑，用于创建营销素材，如美丽的屏幕截图和模拟图。"
+      },
+      {
+        "name": "Screenshot Rocks",
+        "url": "https://screenshot.rocks",
+        "desc": "Screenshot.Rocks 是一个能够快速创建出色的移动端和浏览器截图的网站。它还提供了浏览器扩展程序，用户可以在任何标签页上以一键创建移动或浏览器截图。"
+      },
+      {
+        "name": "壁纸样机生成器",
+        "url": "https://mjcn.club/",
+        "desc": "一个在线工具，图片自动套 iPhone、iPad、Mac 的模板，生成样机图片。"
+      },
+      {
+        "name": "Deviceshots",
+        "url": "https://deviceshots.com/",
+        "desc": "轻松设计用于演示或在社交平台上分享的设备模型。支持手机、平板电脑、计算机、手表、显示器和家用设备多种类型。"
+      },
+      {
+        "name": "AI Icon",
+        "url": "https://ai-icon.top/",
+        "desc": "这是一个基于 AI 的图标生成器，无需登录就可以免费使用。"
+      },
+      {
+        "name": "开源矢量图标库",
+        "url": "https://icon-sets.iconify.design/",
+        "desc": "Iconify 是一个开源项目，收集了超过 200000 流行的开源矢量图标。"
+      },
+      {
+        "name": "Iconbuddy",
+        "url": "https://iconbuddy.app",
+        "desc": "开源免费图标网站，你可以免费搜索、下载、自定义和编辑超过 200,000 个开源 SVG 图标。"
+      },
+      {
+        "name": "Iconscout",
+        "url": "https://iconscout.com/",
+        "desc": "Iconscout 提供了 840 多万个免费或高级矢量图标、插图、三维插图和 Lottie 动画，支持 PNG、SVG、GIF 等多种格式。"
+      },
+      {
+        "name": "Iconfinder",
+        "url": "https://www.iconfinder.com/",
+        "desc": "Iconfinder 是全球最大的图标、插图和 3D 插图市场，提供 SVG、AI 和 PNG 格式，数百万张免费图形供您下载。"
+      },
+      {
+        "name": "Boxicons",
+        "url": "https://boxicons.com/",
+        "desc": "专为设计师和开发者精心打造的简易开源图标。"
+      },
+      {
+        "name": "Yesicon",
+        "url": "https://yesicon.app/",
+        "desc": "168 组开源、免费的图标库。支持多语言搜索、丰富的按类型和风格筛选功能，非常适合开发者和设计师直接复制使用。"
+      },
+      {
+        "name": "IconKitchen",
+        "url": "https://icon.kitchen",
+        "desc": "一个专注于图标生成的工具，提供多种图标类型，包括 Android 图标、iOS 图标、Web 图标等，并允许用户自定义颜色、效果、背景、形状等。"
+      },
+      {
+        "name": "Streamline",
+        "url": "https://www.streamlinehq.com",
+        "desc": "网站提供了近 10 万个免费的 PNG 和 SVG 图标库，包括不同风格和主题的图标集。"
+      },
+      {
+        "name": "Lucide",
+        "url": "https://lucide.dev",
+        "desc": "网站提供了 1500+ 轻量级且可扩展的矢量图标库，适用于 Web 和移动应用程序。"
+      },
+      {
+        "name": "ZSFT",
+        "url": "https://fonts.zeoseven.com/",
+        "desc": "网站提供了 700+ 免费商用字体和 WebFonts 字体 CDN。"
+      },
+      {
+        "name": "网站图标查找器",
+        "url": "https://besticon-demo.herokuapp.com/",
+        "desc": "用于获取指定网站的 Favicon 图标的服务。它特别适用于导航类网站，因为它可以很方便地从源站点上获取图标。"
+      },
+      {
+        "name": "高清自托管应用图标库",
+        "url": "https://pipuwong.com/en/free-icons-for-self-hosted",
+        "desc": "整理并重绘了大量自托管应用的高清图标，使其保持一致的设计风格。"
+      },
+      {
+        "name": "NAS 应用图标库",
+        "url": "https://siriling.github.io/my-icons/dist/",
+        "desc": "提供大量在线应用图标链接，用于个人 NAS 设备显示使用。"
+      },
+      {
+        "name": "SVGL",
+        "url": "https://svgl.app/",
+        "desc": "一个 Logo SVG 收集网站，基本上市面上国内外的一些软件图标都有收集，很适合在你写文档、演示的时候使用。"
+      },
+      {
+        "name": "Flaticon",
+        "url": "https://www.flaticon.com/",
+        "desc": "免费下载 1470 万+ 设计师制作的矢量图标和贴纸，支持 PNG、SVG、EPS、PSD 和 CSS 等格式。"
+      },
+      {
+        "name": "SVGcode",
+        "url": "https://svgco.de/",
+        "desc": "SVGcode 是一个在线工具，可以将 JPEG、PNG 等图片格式转换为 SVG，它使用机器学习算法进行转换。SVGcode 还提供了调试工具，用于帮助用户优化转换结果。"
+      },
+      {
+        "name": "SVG Viewer",
+        "url": "https://www.svgviewer.dev/",
+        "desc": "SVG Viewer 是一个在线工具，用于查看、编辑和优化 SVG 文件。网站提供了一些基本的编辑功能，例如旋转、翻转和更改尺寸等。"
+      },
+      {
+        "name": "在线 SVG 文件转换器",
+        "url": "https://www.creativefabrica.com/studio/features/vectorize-image/",
+        "desc": "Vectorizer Image 是一款 SVG 文件在线转换器，可以将 PNG、JPG 等转换为 SVG 矢量图。它简单易用，只需三步：上传图片、转换图片、下载图片。"
+      },
+      {
+        "name": "汉字矢量图形",
+        "url": "https://kanjivg.tagaini.net/",
+        "desc": "这个项目提供汉字的 SVG 文件下载，可以显示笔划动画。"
+      },
+      {
+        "name": "Worldvectorlogo",
+        "url": "https://worldvectorlogo.com/zh",
+        "desc": "Worldvectorlogo 拥有最大的 SVG 徽标矢量集合。所有徽标均可使用 EPS、AI、PSD 和 Adobe PDF。无需账户，无限次免费下载。"
+      },
+      {
+        "name": "App Store 图标下载",
+        "url": "https://pushkeen.ai/appstore-icons",
+        "desc": "用户通过这一项服务，可以快速下载 App Store 的应用图标。这个服务旨在帮助开发者、市场营销人员或者任何需要使用应用图标的人快速获取这些资源。"
+      },
+      {
+        "name": "图片水印打码工具",
+        "url": "https://watermark.aicompasspro.com/",
+        "desc": "一款开源免费的本地图片添加水印工具。适用于敏感证件，如：身份证、驾照、护照等隐私保护。无需网络连接，可以通过 Vercel 自助部署。"
+      },
+      {
+        "name": "在线水印去除工具",
+        "url": "https://www.watermarkremover.io/zh",
+        "desc": "借助人工智能技术轻松高效地从您的图像中去除水印，速度与精度并存。"
+      },
+      {
+        "name": "谷歌字体库",
+        "url": "https://fonts.google.com/",
+        "desc": "谷歌字体库是一个免费提供各种字体的在线平台。它提供了 1610 种字体供用户选择，用户可以在此查找和获取适合自己项目的字体。"
+      },
+      {
+        "name": "谷歌字体中文版",
+        "url": "https://googlefonts.cn/",
+        "desc": "谷歌字体中文版是一个提供各种谷歌字体的网站，一共收集了 878 种字体可供选择。它还提供了丰富的字体和方便快捷的使用方式，并在国内提供了镜像地址以解决使用上的难题。"
+      },
+      {
+        "name": "Nerd Fonts",
+        "url": "https://www.nerdfonts.com/",
+        "desc": "Nerd Fonts 是一套为开发人员量身打造的字体，集成了众多图标字体，如 Font Awesome、Devicons 等。它还提供了一个字体补丁工具，用户可以使用该工具自定义字体。"
+      },
+      {
+        "name": "中国大学矢量校徽合集",
+        "url": "https://www.urongda.com/",
+        "desc": "网站提供了 125 所中国大学矢量校徽的收集，按照教育部公布的高等学校名单学校识别码从小到大排序。除了提供校徽外，还提供了每所大学的简要信息等。"
+      },
+      {
+        "name": "Pika",
+        "url": "https://superhighfives.com/pika",
+        "desc": "一款适用于 macOS 的原生颜色选择器，它免费、快速、易用，让你能够在屏幕上快速找到色值。"
+      },
+      {
+        "name": "流光卡片",
+        "url": "https://fireflycard.shushiai.com",
+        "desc": "一款让分享更优雅、更好看、最具创意的文字卡片工具。"
+      },
+      {
+        "name": "Memo Card",
+        "url": "https://memocard.net/",
+        "desc": "🌈 将您的文字变成精美的分享卡！"
+      },
+      {
+        "name": "物言",
+        "url": "https://mono.cards",
+        "desc": "帮助你轻松制作各种物品明信片"
+      },
+      {
+        "name": "3MinTop",
+        "url": "https://card.3min.top",
+        "desc": "AI 快速生成精美卡片，展示你的创意和想法。"
+      },
+      {
+        "name": "insCard",
+        "url": "https://inscard.net/",
+        "desc": "insCard 是一个专注于 “INSPIRE & CREATE” 的平台，利用 AI 技术帮助用户创造和分享可视化内容。"
+      },
+      {
+        "name": "Cardify 卡片工坊",
+        "url": "https://cardify.godsbee.com/",
+        "desc": "一个帮助用户创建美观知识卡片的平台。用户可以通过智能化的 Markdown 编辑器来创作视觉美观的知识卡片，并选择 30 多种主题样式进行切换。"
+      }
+    ]
+  },
+  {
+    "group": "🐳 云原生容器化",
+    "items": [
+      {
+        "name": "selfh",
+        "url": "https://selfh.st/",
+        "desc": "selfh.st 是一个由 Ethan Sholly 创建和策划的独立出版物。致力于所有自托管（以及可能的开源）内容，包含最新的自托管软件新闻、更新、发布、活动等。"
+      },
+      {
+        "name": "Kubernetes YAML 生成器",
+        "url": "https://k8syaml.com",
+        "desc": ""
+      },
+      {
+        "name": "Slim",
+        "url": "https://slimtoolkit.org/",
+        "desc": "Slim 是一款不需要改变容器镜像中任何内容，并将其体积最小化 30 倍的容器镜像瘦身利器。它简化并改善了开发人员构建、定制和使用容器的体验。"
+      },
+      {
+        "name": "如何编写 Dockerfile",
+        "url": "https://deepzz.com/post/dockerfile-reference.html",
+        "desc": "一份非常实用的 Dockerfile 中文参考文档。"
+      },
+      {
+        "name": "如何编写 Docker-Compose",
+        "url": "https://deepzz.com/post/docker-compose-file.html",
+        "desc": "一份非常实用的 Docker-Compose 文件参考文档。"
+      },
+      {
+        "name": "Docker 容器镜像加速",
+        "url": "https://dockerproxy.com/",
+        "desc": "多平台容器镜像代理服务，支持 Docker Hub、GitHub、Google、K8s、Quay 等镜像仓库。"
+      },
+      {
+        "name": "渡渡鸟容器镜像同步站",
+        "url": "https://docker.aityp.com/",
+        "desc": "本站容器镜像 100% 同步自官方镜像，请大家放心使用。目前支持 Docker Hub、GitHub、Google、K8s、Quay等镜像仓库。"
+      },
+      {
+        "name": "Docker Compose 文件生成器",
+        "url": "https://www.composerize.com/",
+        "desc": "一键将 Docker Run 命令转换为 Docker Compose 文件"
+      },
+      {
+        "name": "Docker Compose 示例合集",
+        "url": "https://github.com/Haxxnet/Compose-Examples",
+        "desc": "收集了大量自托管 FOSS 和专有项目的各种 Docker Compose 示例，非常值得参考。"
+      },
+      {
+        "name": "Registry Explorer",
+        "url": "https://explore.ggcr.dev/",
+        "desc": "Registry Explorer 是一个漂亮的工具，可以交互式地探索 Docker 镜像仓库和镜像的文件系统。"
+      },
+      {
+        "name": "Artifacthub",
+        "url": "https://artifacthub.io/",
+        "desc": "查找 Kubernetes 应用安装包的网站"
+      },
+      {
+        "name": "OperatorHub",
+        "url": "https://operatorhub.io/",
+        "desc": "查找 Kubernetes 各种应用的 Operator"
+      },
+      {
+        "name": "K9s",
+        "url": "https://k9scli.io/",
+        "desc": "一款超级好用的 Kubernetes 命令行客户端"
+      },
+      {
+        "name": "Kubernetes API 手册",
+        "url": "https://k8s.mybatis.io/",
+        "desc": ""
+      },
+      {
+        "name": "K3s",
+        "url": "https://docs.k3s.io/zh/",
+        "desc": "K3s 是轻量级的 Kubernetes，它易于安装，仅需要 K8s 内存的一半，所有组件都在一个小于 100 MB 的二进制文件中，你不用去学习那么多的 K8s 高深知识也能上手使用。"
+      },
+      {
+        "name": "Kubernetes 实践指南",
+        "url": "https://imroc.cc/kubernetes/",
+        "desc": "本书将介绍 Kubernetes 相关实战经验与总结，助你成为一名云原生老司机 。"
+      },
+      {
+        "name": "Kind",
+        "url": "https://kind.sigs.k8s.io/",
+        "desc": "Kind 是一套开箱即用的 Kubernetes 环境搭建方案。它将 Kubernetes 所需要的所有组件，全部部署在一个 Docker 容器中，可以很方便的搭建 Kubernetes 集群。"
+      },
+      {
+        "name": "Docker 安装 Windows",
+        "url": "https://github.com/dockur/windows",
+        "desc": "在 Docker 容器里运行 Windows 系统，可选择 Windows7、Windows10、Windows11 等，支持自动激活，还支持远程桌面连接。"
+      },
+      {
+        "name": "Docker 安装安卓",
+        "url": "https://github.com/budtmo/docker-android",
+        "desc": "Docker-Android 是一个 Docker 镜像，可用于与安卓有关的一切。它可用于应用程序开发和测试（本地、网络和混合应用程序）。"
+      },
+      {
+        "name": "Docker 安装 macOS",
+        "url": "https://github.com/sickcodes/Docker-OSX",
+        "desc": "在 Docker 中运行 macOS X，性能接近原生。支持 X11 转发、iMessage、iPhone USB 等。"
+      }
+    ]
+  },
+  {
+    "group": "🪞 镜像加速",
+    "items": [
+      {
+        "name": "阿里云镜像加速站",
+        "url": "https://developer.aliyun.com/mirror/",
+        "desc": ""
+      },
+      {
+        "name": "网易开源镜像站",
+        "url": "https://mirrors.163.com/",
+        "desc": ""
+      },
+      {
+        "name": "腾讯开源镜像站",
+        "url": "https://mirrors.tencent.com/",
+        "desc": ""
+      },
+      {
+        "name": "MirrorZ",
+        "url": "https://mirrors.cernet.edu.cn/",
+        "desc": ""
+      },
+      {
+        "name": "中国科学技术大学镜像站",
+        "url": "https://mirrors.ustc.edu.cn/",
+        "desc": ""
+      },
+      {
+        "name": "清华大学镜像站",
+        "url": "https://mirrors.tuna.tsinghua.edu.cn/",
+        "desc": ""
+      },
+      {
+        "name": "上海交通大学镜像站",
+        "url": "https://mirror.sjtu.edu.cn/",
+        "desc": ""
+      },
+      {
+        "name": "北京外国语大学镜像站",
+        "url": "https://mirrors.bfsu.edu.cn/",
+        "desc": ""
+      },
+      {
+        "name": "南京大学镜像站",
+        "url": "https://mirror.nju.edu.cn",
+        "desc": ""
+      },
+      {
+        "name": "中国科学院软件研究所镜像站",
+        "url": "https://mirror.iscas.ac.cn",
+        "desc": ""
+      },
+      {
+        "name": "JAVA JDK 镜像站",
+        "url": "https://www.injdk.cn/",
+        "desc": "各种 JAVA JDK 镜像分发"
+      },
+      {
+        "name": "OpenJDK 镜像站",
+        "url": "https://adoptium.net/zh-CN/",
+        "desc": "Adoptium Eclipse Temurin 是由基于 OpenJDK 开源 Java SE 产生的构建版本，Temurin 适用于广泛平台以及诸多 Java SE 版本。"
+      },
+      {
+        "name": "Maven 中央仓库",
+        "url": "https://mvnrepository.com/",
+        "desc": "Maven 中央仓库，用来查询 Maven 依赖的网站，它提供了 Pom 依赖信息和下载 Jar 的功能。"
+      },
+      {
+        "name": "Maven 阿里云镜像仓库",
+        "url": "https://developer.aliyun.com/mvn/guide",
+        "desc": "阿里云 Maven 中央仓库为阿里云云效提供的公共代理仓库，帮助研发人员提高研发生产效率，使用阿里云 Maven 中央仓库作为下载源，速度更快更稳定。"
+      },
+      {
+        "name": "Windows 镜像下载",
+        "url": "https://tb.rg-adguard.net/public.php",
+        "desc": ""
+      },
+      {
+        "name": "Windows 精简镜像下载",
+        "url": "https://hellowindows.cn/",
+        "desc": ""
+      },
+      {
+        "name": "淘宝 NPM 镜像源",
+        "url": "https://npmmirror.com/",
+        "desc": "这是一个淘宝开源的完整 npmjs.com 镜像，你可以用此代替官方版本，我们将尽量与官方服务实时同步。"
+      },
+      {
+        "name": "Verdaccio",
+        "url": "https://verdaccio.org/",
+        "desc": "Verdaccio 是一个简单、无需配置的轻量级本地私有 NPM 注册表。Verdaccio 开箱即用，自带一个小型数据库，并能够代理其他注册表（例如: npmjs.org）。"
+      },
+      {
+        "name": "Huggingface 镜像站",
+        "url": "https://hf-mirror.com/",
+        "desc": "Huggingface 官方镜像，致力于帮助国内 AI 开发者快速、稳定的下载模型、数据集。"
+      }
+    ]
+  },
+  {
+    "group": "🌠 探索 GitHub",
+    "items": [
+      {
+        "name": "Awesome 大合集",
+        "url": "https://github.com/sindresorhus/awesome",
+        "desc": "专门收集各种有趣话题的精彩清单"
+      },
+      {
+        "name": "GitHub 中文排行榜",
+        "url": "https://github.com/GrowingGit/GitHub-Chinese-Top-Charts",
+        "desc": "GitHub 中文排行榜，帮助你发现优秀中文项目。各语言分设「软件|资料」榜单，精准定位中文好项目，可以无语言障碍地、更高效地吸收优秀经验成果。"
+      },
+      {
+        "name": "超赞自托管服务合集",
+        "url": "https://awesome-selfhosted.net/",
+        "desc": "专门收集可在自己服务器上托管的自由软件网络服务和网络应用程序列表。"
+      },
+      {
+        "name": "超赞命令行工具清单",
+        "url": "https://git.herrbischoff.com/awesome-command-line-apps/about/",
+        "desc": "为庆祝 TUI 诞生，我们精心挑选了一系列实用的命令行应用程序。"
+      },
+      {
+        "name": "超赞运维工具列表",
+        "url": "https://github.com/eryajf/awesome-ops",
+        "desc": "记录每一个与运维相关的优秀项目。"
+      },
+      {
+        "name": "超赞 Linux 软件合集",
+        "url": "https://github.com/luong-komorebi/Awesome-Linux-Software",
+        "desc": "专门为所有用户/开发者收集了大量令人赞叹的 Linux 应用程序和工具。"
+      },
+      {
+        "name": "超赞命令行合集",
+        "url": "https://github.com/alebcay/awesome-shell",
+        "desc": "本列表是一个专注于收集各种命令行框架、工具包、指南和小工具的精选列表，灵感来自 awesome-php。"
+      },
+      {
+        "name": "超赞命令行应用合集",
+        "url": "https://github.com/agarrharr/awesome-cli-apps",
+        "desc": "精心挑选的命令行应用程序列表。"
+      },
+      {
+        "name": "秘密知识之书",
+        "url": "https://github.com/trimstray/the-book-of-secret-knowledge",
+        "desc": "一个专为系统网络管理员、DevOps、渗透测试员和安全研究员收集的各类有用信息的仓库，包括 CLI、文本编辑器、数据库、DNS、浏览器、网络工具、日志分析器等。"
+      },
+      {
+        "name": "超赞隧道软件合集",
+        "url": "https://github.com/anderspitman/awesome-tunneling",
+        "desc": "本列表旨在跟踪和比较各种隧道解决方案。其主要目标用户是自助主机托管商和开发人员，他们希望通过公有域名公开本地网站服务器，即使在 NAT 或其他受限网络后也能自动使用 HTTPS。"
+      },
+      {
+        "name": "超赞 Kubernetes 应用合集",
+        "url": "https://github.com/tomhuang12/awesome-k8s-resources",
+        "desc": "专门收集 Kubernetes 资源和项目精选列表。"
+      },
+      {
+        "name": "超赞 Docker 应用合集",
+        "url": "https://github.com/veggiemonk/awesome-docker",
+        "desc": "专门收集 Docker 资源和项目精选列表。"
+      },
+      {
+        "name": "超赞 Docker Compose 示例",
+        "url": "https://github.com/docker/awesome-compose",
+        "desc": "本仓库收集了大量出色的 Docker Compose 示例，这些示例为如何使用 Compose 文件集成不同的服务并用 Docker Compose 管理其部署提供了一个起点。"
+      },
+      {
+        "name": "超赞编程和开发工具小抄合集",
+        "url": "https://lecoupa.github.io/awesome-cheatsheets/",
+        "desc": "『awesome-cheatsheets』是一份流行编程语言、框架和开发工具的超棒小抄合集，它们在一个文件中包含了你应该知道的一切。"
+      },
+      {
+        "name": "超赞黑客技术合集",
+        "url": "https://github.com/Hack-with-Github/Awesome-Hacking",
+        "desc": "Awesome Hacking 是一个为黑客、和安全研究人员收集的各种超赞技术清单，里边索引了数十个不同方向的技能图谱。"
+      },
+      {
+        "name": "超赞 ChatGPT 榜单",
+        "url": "https://github.com/sindresorhus/awesome-chatgpt",
+        "desc": "OpenAI 开发的人工智能聊天机器人 ChatGPT 的超赞资源聚合列表，旨在汇总使用 ChatGPT 的应用、Web 应用、浏览器扩展、CLI 工具、机器人、集成、软件包、文章等。"
+      },
+      {
+        "name": "超赞免费 ChatGPT 镜像列表",
+        "url": "https://github.com/LiLittleCat/awesome-free-chatgpt",
+        "desc": "免费的 ChatGPT 镜像网站列表以及更多免费资源，持续更新。"
+      },
+      {
+        "name": "超赞 AI 绘画合集",
+        "url": "https://github.com/hua1995116/awesome-ai-painting",
+        "desc": "AI 绘画资料合集，包含国内外可使用平台、使用教程、参数教程、部署教程、业界新闻等等。"
+      },
+      {
+        "name": "超赞的 AI 工具合集",
+        "url": "https://github.com/ikaijua/Awesome-AITools/blob/main/README-CN.md",
+        "desc": "整理了各种 AI 相关工具和资源并分类整理，方便用户查找和使用。该仓库包含了各种 AI 新闻动态、评测、精选文章、闭源大语言模型和开源大语言模型等。"
+      },
+      {
+        "name": "GitHub 有趣项目合集",
+        "url": "https://github.com/Wechat-ggGitHub/Awesome-GitHub-Repo",
+        "desc": "专门收集整理 GitHub 上高质量、有趣的开源项目，并进行归类。值得注意的是，不是简单的按照编程语言来分类，而是按照更有趣的分类方式，比如：有趣项目、沙雕项目、实战项目、学习项目、实用工具等。"
+      },
+      {
+        "name": "超赞的 Rust 应用合集",
+        "url": "https://github.com/rust-unofficial/awesome-rust",
+        "desc": "一份精心挑选的 Rust 应用和资源列表。"
+      },
+      {
+        "name": "超赞的 AWS",
+        "url": "https://github.com/donnemartin/awesome-aws",
+        "desc": "专门收集亚马逊网络服务的开源软件仓库、指南、博客和其他资源的精选列表。"
+      },
+      {
+        "name": "超赞 Cloudflare 工具合集",
+        "url": "https://github.com/zhuima/awesome-cloudflare",
+        "desc": "精选的 Cloudflare 工具、开源项目、指南、博客和其他资源列表。"
+      },
+      {
+        "name": "超赞的 AI 代理合集",
+        "url": "https://github.com/e2b-dev/awesome-ai-agents",
+        "desc": "这是一个精心收集和分类的 AI 代理清单，涵盖了与人工智能代理相关的开源库、框架、工具和教程。无论你是 AI 新手还是经验丰富的开发者，这里都能找到你需要的东西。"
+      },
+      {
+        "name": "超赞中文大语言模型合集",
+        "url": "https://github.com/HqWu-HITCS/Awesome-Chinese-LLM",
+        "desc": "整理开源的中文大语言模型，以规模较小、可私有化部署、训练成本较低的模型为主，包括底座模型，垂直领域微调及应用，数据集与教程等。"
+      },
+      {
+        "name": "追踪 Github 超赞合集每日更新",
+        "url": "https://www.trackawesomelist.com/",
+        "desc": "自动追踪超过 500 个 Github 精彩列表每日的更新，您也可以通过 RSS 订阅每日或每周的更新。"
+      },
+      {
+        "name": "OSS Gallery",
+        "url": "https://oss.gallery/",
+        "desc": "OSS Gallery 是互联网上最佳开源项目的合集列表。"
+      },
+      {
+        "name": "Product Trend",
+        "url": "https://www.trendproduct.top/",
+        "desc": "这是一个收录了每日最新 Github 和 Product Hunt 前十榜单的网站。支持查看项目当前数据和简介，想找市场上最热门、最活跃的应用或项目，看这个网站就够了。"
+      },
+      {
+        "name": "程序员技术知识集锦",
+        "url": "https://github.com/mtdvio/every-programmer-should-know",
+        "desc": "每个软件开发人员都应该知道的技术知识集锦，包括计算机科学、算法数据结构、分布式、正则、安全、可用性、代码设计、工程哲学等。"
+      },
+      {
+        "name": "GitHub 使用秘籍",
+        "url": "https://github.com/tiimgreen/github-cheat-sheet",
+        "desc": "「github-cheat-sheet」是一份关于 GitHub 和 Git 的使用秘籍，它主要提供了一个关于 GitHub 使用技巧、窍门和常用命令的全面集合。"
+      },
+      {
+        "name": "Git 在线学习",
+        "url": "https://learngitbranching.js.org/?locale=zh_CN",
+        "desc": "在线 Git 沙盒学习网站"
+      },
+      {
+        "name": "OSS Insight",
+        "url": "https://ossinsight.io/",
+        "desc": "全面的开源软件洞察工具，通过分析来自 GitHub 的大量事件深入了解 GitHub 上的开发人员和存储库。"
+      },
+      {
+        "name": "Git Explorer",
+        "url": "https://gitexplorer.com/",
+        "desc": "在线 Git 命令查询工具"
+      },
+      {
+        "name": "GitHub 仓库星标统计工具",
+        "url": "https://stars.yangerxiao.com/",
+        "desc": "一款在线可视化 Github 仓库日增星标数量统计生成器，你只需输入正确的 Github 仓库地址，就可以轻松生成不同时间段、多种类型的统计图表。"
+      },
+      {
+        "name": "emgithub",
+        "url": "https://emgithub.com/",
+        "desc": "打开 GitHub 仓库某个文件的页面，将地址栏的 github.com 改成 emgithub.com，就可以获得当前文件的嵌入代码，像嵌入 GitHub Gist 代码一样嵌入到页面中。"
+      },
+      {
+        "name": ".gitignore 文件生成器",
+        "url": "https://gitignore.io/",
+        "desc": "为你的项目创建必要的 .gitignore 文件"
+      },
+      {
+        "name": "GitHub 个人主页生成器",
+        "url": "https://githubprofile.com/zh",
+        "desc": "一款用来生成 Github 个人介绍页的在线工具。使用它能轻松创建精彩的 GitHub 个人主页，轻松展示您的技能和项目。"
+      },
+      {
+        "name": "可视化 Readme 文件生成器",
+        "url": "https://readme.so/cn",
+        "desc": "一个可视化的编辑器，允许你快速添加和定制你的项目的 Readme 所需的所有部分。"
+      },
+      {
+        "name": "grep.app",
+        "url": "https://grep.app",
+        "desc": "一款针对开发者的在线代码搜索工具，支持正则表达式、全词匹配搜索。"
+      },
+      {
+        "name": "Fork",
+        "url": "https://git-fork.com/",
+        "desc": "Fork 是一款功能强大的 Git 客户端，支持 Windows 和 Mac 操作系统。它提供了直观的用户界面和丰富的功能，使得开发者能够轻松地进行 Git 仓库的管理和版本控制。"
+      },
+      {
+        "name": "GitButler",
+        "url": "https://gitbutler.com/",
+        "desc": "GitButler 是一款能让你同时在多个分支上工作的 Git 客户端。它能让你快速将文件改动整理到不同的分支中，同时还能将它们应用到你的工作目录中。"
+      },
+      {
+        "name": "GitUp",
+        "url": "https://gitup.co",
+        "desc": "GitUp 发明了一种新的 Git 交互模式，让所有级别的工程师都能快速、安全、轻松地工作，它从构建方式到工作方式都与其他任何 Git 客户端不同。"
+      },
+      {
+        "name": "Gitify",
+        "url": "https://www.gitify.io/",
+        "desc": "一款跨平台的 Github 通知软件。可以在不打开 Github 的情况下，对各种 Github 的事件通知进行提示。对于需要掌握最新的软件发布，跟踪仓库通知的同学是非常有用的。"
+      }
+    ]
+  },
+  {
+    "group": "🔐 安全相关",
+    "items": [
+      {
+        "name": "Have I Been Pwd",
+        "url": "https://haveibeenpwned.com/",
+        "desc": "密码泄露检查站"
+      },
+      {
+        "name": "Firefox Monitor",
+        "url": "https://monitor.mozilla.org/",
+        "desc": "又一个密码泄露检查站"
+      },
+      {
+        "name": "个人数据泄露检查",
+        "url": "https://cybernews.com/personal-data-leak-check/",
+        "desc": "一个超大数据泄漏集，共计 12TB、260亿条个人信息记录，可以帮助你查询自有的账户密码是否被泄露。"
+      },
+      {
+        "name": "密码学工具箱",
+        "url": "https://crypto-online.cn/playground/hash",
+        "desc": "各种加密方式生成器"
+      },
+      {
+        "name": "在线子域名搜索工具",
+        "url": "https://www.subdomain.center/",
+        "desc": "一键探索指定域名的所有子域名"
+      },
+      {
+        "name": "链接隐私泄露检测",
+        "url": "https://uid.ejfkdev.com/",
+        "desc": "网站能帮助你检查分享的链接是否会泄露自己隐私。除了能检查自己，也可以反着来查看别人分享。"
+      },
+      {
+        "name": "在线软件病毒检测",
+        "url": "https://www.virustotal.com/gui/",
+        "desc": "一款在线软件病毒检测引擎。可以上传文件进行扫描，也可以指定需要扫描的文件或网址。以检测恶意软件和其他漏洞，并自动与安全社区共享。"
+      }
+    ]
+  },
+  {
+    "group": "🍎 苹果实验室",
+    "items": [
+      {
+        "name": "iTerm2",
+        "url": "https://iterm2.com/",
+        "desc": "iTerm2 是一款适用于 macOS 的免费开源终端模拟器， 它支持窗口透明度、全屏模式、分割窗格、Expose 选项卡、Growl 通知和标准键盘快捷键等功能。"
+      },
+      {
+        "name": "Raycast",
+        "url": "https://www.raycast.com/",
+        "desc": "Raycast 是一款速度极快、完全可扩展的启动器。它能让你快速完成任务、进行计算、共享常用链接等。"
+      },
+      {
+        "name": "OrbStack",
+        "url": "https://orbstack.dev/",
+        "desc": "OrbStack 是一个可以在 macOS 上快速运行 Docker 容器 和 Linux 虚拟机的工具。它资源占用率低，高带宽，速度快，可以做为 Docker Desktop 替代方案。"
+      },
+      {
+        "name": "超赞开源 iOS 应用合集",
+        "url": "https://github.com/dkhamsing/open-source-ios-apps",
+        "desc": "本列表收集各种开源好用的 iOS、iPadOS、watchOS、tvOS 和 visionOS 应用。"
+      },
+      {
+        "name": "macOS 终极配置教程",
+        "url": "https://44maker.github.io/wiki/Mac/index.html",
+        "desc": "一个非常适合新买了 Mac 从 0 开始配置的文档，包含：上手设置、软件推荐以及一些使用技巧。"
+      },
+      {
+        "name": "macOS defaults",
+        "url": "https://macos-defaults.com",
+        "desc": "macOS 系统的常用 defaults 命令使用方法收集站。"
+      },
+      {
+        "name": "最受欢迎 macOS 开源应用",
+        "url": "https://indiegoodies.com/awesome-open-source-mac-apps",
+        "desc": "发现流行的开源 macOS 应用程序。"
+      },
+      {
+        "name": "超赞 macOS 软件合集",
+        "url": "https://github.com/jaywcjlove/awesome-mac",
+        "desc": "本列表收集各种类别非常好用的 macOS 应用程序、软件以及工具。"
+      },
+      {
+        "name": "超赞 macOS 开源应用合集",
+        "url": "https://github.com/serhii-londar/open-source-mac-os-apps",
+        "desc": "适用于 macOS 的超赞开源应用程序列表，该列表包含大量原生和跨平台应用程序。本资源库的主要目标是找到免费的开源应用程序并开始贡献，欢迎向列表提供任何建议！"
+      },
+      {
+        "name": "超赞 macOS 命令行工具合集",
+        "url": "https://git.herrbischoff.com/awesome-macos-command-line/about/",
+        "desc": "专门收集 macOS  Shell 命令和工具的精选列表。"
+      },
+      {
+        "name": "强迫症的 macOS 设置指南",
+        "url": "https://github.com/macdao/ocds-guide-to-setting-up-mac",
+        "desc": "该指南包括了 macOS 一些实用的系统设置优化技巧和 macOS 常用软件工具的使用教程。"
+      },
+      {
+        "name": "macOS icons",
+        "url": "https://macosicons.com/",
+        "desc": "超过 5000 个适用于 macOS 和 iOS 的免费图标，常用于替换 Mac 上面软件不好看的图标保证统一风格。"
+      },
+      {
+        "name": "在线生成 macOS 文件夹图标",
+        "url": "https://folderart.christianvm.dev/",
+        "desc": "一个为 macOS 创建自定义文件夹图标的网站。"
+      },
+      {
+        "name": "Screen Sizes",
+        "url": "https://www.screensizes.app/",
+        "desc": "一个可以查看苹果各种设备尺寸和分辨率的网站，对开发人员非常实用。"
+      },
+      {
+        "name": "超赞 macOS 屏保合集",
+        "url": "https://github.com/agarrharr/awesome-macos-screensavers",
+        "desc": "本列表收集各种类别精选的 macOS 屏保。"
+      },
+      {
+        "name": "macOS 鼠标指针",
+        "url": "https://mac-cursors.netlify.app/",
+        "desc": "macOS 上的鼠标指针设计很不错，这个网站将 macOS 的鼠标指针做成了图标包，你可以下载在你的网站或者操作系统里使用。"
+      },
+      {
+        "name": "Dockhunt",
+        "url": "https://www.dockhunt.com",
+        "desc": "分享自己的 Dock，发现每个人都在关注的应用程序。"
+      },
+      {
+        "name": "Win Disk Writer",
+        "url": "https://github.com/TechUnRestricted/WinDiskWriter",
+        "desc": "一款适用于 macOS 的 Windows 启动 U 盘制作工具，支持 UEFI 和 Legacy。你可以用这个 U 盘在个人电脑、Intel Mac 或虚拟机上安装并享受 Windows系统。"
+      },
+      {
+        "name": "RapidEFI",
+        "url": "https://github.com/JeoJay127/RapidEFI-Tool",
+        "desc": "一款黑苹果 OpenCore 一键配置工具，利用该工具即可制作基于 OpenCore 最新版本的黑苹果 EFI，作者称最快只需 10 秒即可完成。"
+      },
+      {
+        "name": "OpenCore",
+        "url": "https://github.com/acidanthera/OpenCorePkg",
+        "desc": "OpenCore 是一个安全且轻量化的黑苹果开放原始码引导方式。最初诞生于 HermitCrabs 实验室，现由 Acidanthera 运营。 相比于 Clover，OpenCore 的配置文件更为"
+      },
+      {
+        "name": "OpenCore 中文教程",
+        "url": "https://oc.skk.moe/",
+        "desc": "一份非常实用的 OpenCore 中文版参考手册。"
+      },
+      {
+        "name": "OpenCore Patcher",
+        "url": "https://dortania.github.io/OpenCore-Legacy-Patcher/",
+        "desc": "OpenCore Legacy Patcher 是一款强大的 OpenCore 综合补丁工具，用于在受官方支持和不受官方支持的 Mac 上运行和解锁 macOS 中的功能。"
+      },
+      {
+        "name": "国光黑苹果安装教程",
+        "url": "https://apple.sqlsec.com/",
+        "desc": "可能是国内最系统最适合小白的黑苹果教程。"
+      },
+      {
+        "name": "黑果小兵的部落阁",
+        "url": "https://blog.daliansky.net/",
+        "desc": "Hackintosh 安装镜像、教程及经验分享。"
+      }
+    ]
+  },
+  {
+    "group": "🎁 玩转 NixOS",
+    "items": [
+      {
+        "name": "NixOS 新手指南",
+        "url": "https://nixos-and-flakes.thiscute.world/zh/",
+        "desc": "NixOS 与 Flakes 新手友好教程"
+      },
+      {
+        "name": "NixOS 官网",
+        "url": "https://nixos.org/",
+        "desc": ""
+      },
+      {
+        "name": "NixOS Wiki",
+        "url": "https://nixos.wiki/",
+        "desc": ""
+      },
+      {
+        "name": "Nix Package",
+        "url": "https://lazamar.co.uk/nix-versions/",
+        "desc": "查找 Nix 频道中可用软件包的所有版本"
+      },
+      {
+        "name": "Nix Flakes",
+        "url": "https://nixos.wiki/wiki/Flakes",
+        "desc": "Nix Flakes 官方文档"
+      },
+      {
+        "name": "Nix Home Manager",
+        "url": "https://nix-community.github.io/home-manager/",
+        "desc": ""
+      },
+      {
+        "name": "Nix HM Option",
+        "url": "https://mipmip.github.io/home-manager-option-search/",
+        "desc": ""
+      }
+    ]
+  },
+  {
+    "group": "📔 博客网摘",
+    "items": [
+      {
+        "name": "xLog",
+        "url": "https://xlog.app/",
+        "desc": "xLog 是在 Crossbell 区块链上运行的博客平台。它开源、去中心化、免费。它是一个互相分享思想和观点的博主社区。在这里，您可以找到 Web2、Web3 和现实世界的最新新闻和趋势。"
+      },
+      {
+        "name": "V2EX",
+        "url": "https://www.v2ex.com/",
+        "desc": "创意工作者的社区。讨论编程、设计、硬件、游戏等令人激动的话题。"
+      },
+      {
+        "name": "Linux DO",
+        "url": "https://linux.do/",
+        "desc": "新的理想型社区，LINUX DO 是一个以人工智能为主题的中文社区，用户可以分享自己的经验、问题、教程和资源。"
+      },
+      {
+        "name": "阮一峰的网络日志",
+        "url": "https://www.ruanyifeng.com/blog/",
+        "desc": ""
+      },
+      {
+        "name": "HelloGitHub 月刊",
+        "url": "https://hellogithub.com/periodical",
+        "desc": "「HelloGitHub 月刊」分享 GitHub 上有趣、入门级的开源项目，每月 28 号发布最新一期。内容包括开发利器、开源书籍、教程、企业级项目等， 让你发现编程的乐趣、爱上开源！"
+      },
+      {
+        "name": "二丫讲梵学习周刊",
+        "url": "https://wiki.eryajf.net/learning-weekly/",
+        "desc": "记录每周工作学习过程中遇到学到的优秀开源项目，优秀文章，以及优秀博客。周刊的内容会以运维技术和 Golang 为主，以及 GitHub 上优秀项目或经验。"
+      },
+      {
+        "name": "月维设计素材周刊",
+        "url": "https://moonvy.com/blog/subjects/%E6%9C%88%E7%BB%B4%E7%B4%A0%E6%9D%90%E5%91%A8%E5%88%8A/",
+        "desc": "来自「Moonvy 月维」分享的最新设计素材与资源。"
+      },
+      {
+        "name": "潮流周刊",
+        "url": "https://weekly.tw93.fun/",
+        "desc": "记录工程师 Tw93 的不枯燥生活，期待你玩得开心。"
+      },
+      {
+        "name": "DecoHack 周刊",
+        "url": "https://decohack.zhubai.love/",
+        "desc": "为独立创造者提供独立见解，帮助你发现新产品方向，启动和完善你的项目。内容包含：新闻洞察、行业分析、文章推荐、工具分享、下饭视频。内容涉及：产品运营、市场分析、软件设计、技术开发、生活方式。"
+      },
+      {
+        "name": "冷板凳周刊",
+        "url": "https://weekly.lenband.com/",
+        "desc": "分享有意思的生活、知识及其他。"
+      },
+      {
+        "name": "偷懒爱好者周刊",
+        "url": "https://toolight.zhubai.love/",
+        "desc": "分享产品、工具、新鲜事，每周三发布"
+      },
+      {
+        "name": "体验碎周报",
+        "url": "https://www.ftium4.com/",
+        "desc": "一个帮助交互设计师成长的互联网传说。"
+      },
+      {
+        "name": "BLUE·周刊",
+        "url": "https://huazi.zhubai.love/",
+        "desc": "在信息爆炸的互联网总能发现许多碎片化信息，本刊记录我每周发现的有趣设计、实用资源、文章资讯等有关设计的一切。希望每周我眼中的设计也可以帮助到你。"
+      },
+      {
+        "name": "设计周刊",
+        "url": "https://blog.jiandan.link/category/%E8%AE%BE%E8%AE%A1%E5%91%A8%E5%88%8A",
+        "desc": "来自「简单设计」的博客，分享设计相关素材与资源。"
+      },
+      {
+        "name": "老胡的周刊",
+        "url": "https://weekly.howie6879.com/",
+        "desc": "记录老胡每周看到的优质资源，主要针对计算机领域。内容主题极大程度被个人喜好主导。"
+      },
+      {
+        "name": "机器文摘",
+        "url": "https://niupitools.zhubai.love/",
+        "desc": "定期分享看到的有趣的内容，因为大部分都与机器有关，所以先叫它机器文摘吧。"
+      },
+      {
+        "name": "猫鱼周刊",
+        "url": "https://ameow.xyz/categories/weekly",
+        "desc": "收集每周看到的优秀文章、项目、网站等资源。"
+      },
+      {
+        "name": "独立开发变现周刊",
+        "url": "https://www.ezindie.com/weekly",
+        "desc": "关于独立开发变现相关的技术、工具、交流等。彼此促进成长，快速落地各自的产品，实现持续盈利。"
+      },
+      {
+        "name": "产品鸭",
+        "url": "https://produck.zhubai.love/",
+        "desc": "每周读一篇新产品与设计思路介绍，创业者产品创业的精神武装。"
+      },
+      {
+        "name": "互联网时代的搜商",
+        "url": "https://search.zhubai.love/",
+        "desc": "关于搜索技巧的种种，做一个互联网淘金者、生活黑客。"
+      },
+      {
+        "name": "Python 潮流周刊",
+        "url": "https://pythoncat.top/tags/weekly",
+        "desc": "这里每周分享优质的 Python、AI 及通用技术内容，本周刊开源。"
+      },
+      {
+        "name": "Go 语言爱好者周刊",
+        "url": "https://studygolang.com/go/weekly",
+        "desc": "这里记录每周值得分享的 Go 语言相关内容，周日发布。"
+      },
+      {
+        "name": "视野修炼技术周刊",
+        "url": "https://sugarat.top/weekly/",
+        "desc": "旨在帮助读者拓展技术视野，每天都会产生成千上万的新的内容，周刊每周会精选出一些优质、有趣的内容做推送（大前端为主）。包含但不限于优质文章、开源库、工具网站、有意思的知识等。"
+      },
+      {
+        "name": "云原生周刊",
+        "url": "https://www.cnblogs.com/kubesphere",
+        "desc": "每周云原生开源项目、文章和资讯推荐"
+      },
+      {
+        "name": "TechWeekly",
+        "url": "https://textdata.cn/tags/techweekly/",
+        "desc": "每周有趣有用的技术分享。"
+      },
+      {
+        "name": "前端食堂技术周刊",
+        "url": "https://hungryturbo.zhubai.love/",
+        "desc": "周周尝鲜，人工筛选前端圈每周最新资讯。"
+      },
+      {
+        "name": "前端精读周刊",
+        "url": "https://github.com/ascoders/weekly",
+        "desc": "帮你理解最前沿、实用的技术。"
+      },
+      {
+        "name": "TO-D 杂志",
+        "url": "https://2d2d.io/",
+        "desc": "专注于探讨全球 To-D 领域相关产品、创业公司、融资等资讯的专栏杂志。"
+      },
+      {
+        "name": "不死鸟月刊",
+        "url": "https://iui.su/fx/",
+        "desc": "分享一些不错的资源。"
+      },
+      {
+        "name": "MDH Weekly",
+        "url": "https://mdhweekly.com/weekly",
+        "desc": "MDH 前端周刊内容包括每周社区的一周新闻、深度好文、招聘/求职等。"
+      },
+      {
+        "name": "奇趣周刊",
+        "url": "https://zishu.me/categories/weekly/",
+        "desc": "每周四发布，分享有趣的软件，程序，动态新闻等。"
+      },
+      {
+        "name": "随易周刊",
+        "url": "https://chensuiyi.me/5-%E9%9A%8F%E6%98%93%E5%91%A8%E5%88%8A/1-%E9%9A%8F%E6%98%93%E5%91%A8%E5%88%8A/1-%E7%AC%AC001%E6%9C%9F%20-%20%E5%A4%AA%E6%9E%81",
+        "desc": "这是一个由前端之虎陈随易维护的周刊，将会分享作者一周内的所见所闻及一些优秀作品、开源软件、干货文章推荐。"
+      },
+      {
+        "name": "AIGC 周刊",
+        "url": "https://quail.ink/op7418",
+        "desc": "主要介绍 AIGC 领域最新发布的一些产品以及值得关注的研究成果。"
+      },
+      {
+        "name": "小棉袄的百味人生",
+        "url": "https://haikuoshijie.cn/",
+        "desc": "每月定期分享一些不错的资源和软件。"
+      },
+      {
+        "name": "1Link 科技周刊",
+        "url": "https://1link.fun/",
+        "desc": "1Link.Fun 是一个科技周刊，每周更新有趣的链接，包括科技新闻、网站推荐和工具推荐。"
+      },
+      {
+        "name": "Hacker News Weekly",
+        "url": "https://github.com/headllines/hackernews-weekly/issues",
+        "desc": "黑客新闻的每周十大热门文章。"
+      },
+      {
+        "name": "HackerNews 每日摘要",
+        "url": "https://www.supertechfans.com/cn/",
+        "desc": "SuperTechFans 网站通过自动化技术每天为用户摘要 HackerNews 上的热门文章和评论，以便用户快速了解重点内容而不必花费太多时间浏览。"
+      },
+      {
+        "name": "云原生实验室",
+        "url": "https://icloudnative.io/",
+        "desc": "作者是一名云原生技术爱好者，专注于云原生技术研究、开源思想传播，目前就职于 Sealos 团队。"
+      },
+      {
+        "name": "阳明的博客",
+        "url": "https://www.qikqiak.com/",
+        "desc": "阳明的博客是一个关注 ChatGPT、容器、Kubernetes、Istio、Devops、Prometheus、Python、Django、Golang、云原生、微服务等技术的个人博客。"
+      },
+      {
+        "name": "Geek",
+        "url": "https://igeekbb.com/",
+        "desc": "在家居士、素食者，就是爱瞎折腾。"
+      }
+    ]
+  },
+  {
+    "group": "🏢 职来职往",
+    "items": [
+      {
+        "name": "MBTI 职业人格测试",
+        "url": "https://www.16personalities.com/ch/",
+        "desc": "免费 MBTI 性格测试，只需 10 分钟 就能「惊人般准确」的描述出你是谁，以及你为何以这样的方式行事。了解你性格类型及在你生活的各个领域中产生的影响。"
+      },
+      {
+        "name": "在线简历生成器",
+        "url": "https://rxresu.me/",
+        "desc": "一款很精致的免费开源简历生成器，可简化创建、更新和共享简历的过程。"
+      },
+      {
+        "name": "人体系统调优指南",
+        "url": "https://github.com/zijie0/HumanSystemOptimization",
+        "desc": "本指南着重于生活方式的改变、饮食调整、适量运动以及心理健康的保养，为追求长寿和高质量生活的人们提供了一个全面的行动框架。"
+      },
+      {
+        "name": "Look Scanned",
+        "url": "https://zh.lookscanned.io/",
+        "desc": "Look Scanned 是一个能够让 PDF 看起来就像是扫描件一样的纯前端网站。你再也不需要麻烦地打印之后扫描了，你所需要的就是鼠标点几下。"
+      },
+      {
+        "name": "天眼查",
+        "url": "https://www.tianyancha.com/",
+        "desc": "专注服务于个人与企业信息查询。"
+      },
+      {
+        "name": "爱企查",
+        "url": "https://www.aiqicha.com/",
+        "desc": "爱企查是百度推出的企业信用查询工具,提供最全最新的企业信息实时查询。"
+      },
+      {
+        "name": "企查查",
+        "url": "https://www.qcc.com/",
+        "desc": "企查查是官方备案的企业征信机构，为您提供全国企业信息查询，包括企业工商信息查询，信用信息查询，经营状况查询等相关信息。查企业，查老板，查风险就上企查查!"
+      },
+      {
+        "name": "启信宝",
+        "url": "https://www.qixin.com/",
+        "desc": "启信宝是一款快速精准的企业信息查询工具。涵盖工商信息、司法诉讼、知识产权、股权结构等多维度信息。"
+      },
+      {
+        "name": "中国法律快查手册",
+        "url": "https://lawrefbook.github.io/",
+        "desc": "中国法律快查手册是一个开源项目，内容来源于国家法律法规数据库。排版简洁，使用起来简单方便，非常适合平时查询和学习。劳动争议，主要关注《中华人民共和国劳动法》《中华人民共和国劳动合同法》这两个法规。"
+      },
+      {
+        "name": "打工人维权指南",
+        "url": "https://www.hi-linux.com/posts/59972.html",
+        "desc": "一份非常有用的职场维权实战经验"
+      },
+      {
+        "name": "美团骑手转职指南",
+        "url": "https://digua.moe/posts/20240311-meituan-rider.html",
+        "desc": "一份实用的美团骑手工作指南。"
+      },
+      {
+        "name": "国家企业信用信息公示系统",
+        "url": "https://www.gsxt.gov.cn/index.html",
+        "desc": "国家企业信用信息公示系统是一个政务信息网站，主要提供企业的信用信息、经营异常名录、严重违法失信名单等数据。"
+      },
+      {
+        "name": "中华人民共和国劳动法",
+        "url": "http://www.mohrss.gov.cn/SYrlzyhshbzb/zcfg/flfg/201601/t20160119_232110.html",
+        "desc": ""
+      },
+      {
+        "name": "中华人民共和国劳动争议调解仲裁法",
+        "url": "https://www.gov.cn/flfg/2007-12/29/content_847310.htm",
+        "desc": ""
+      },
+      {
+        "name": "中华人民共和国社会保险法",
+        "url": "http://www.mohrss.gov.cn/xxgk2020/fdzdgknr/zcfg/fl/202011/t20201102_394629.html",
+        "desc": ""
+      },
+      {
+        "name": "社会保险经办条例",
+        "url": "http://www.mohrss.gov.cn/xxgk2020/fdzdgknr/zcfg/fg/202312/t20231201_509829.html",
+        "desc": ""
+      },
+      {
+        "name": "住房公积金管理条例",
+        "url": "https://www.gov.cn/gongbao/content/2019/content_5468861.htm",
+        "desc": ""
+      },
+      {
+        "name": "中国裁判文书网",
+        "url": "https://wenshu.court.gov.cn/",
+        "desc": "中国裁判文书网（简称「裁判文书网」）是由最高人民法院主办的官方网站，主要目的是公开全国各级法院生效裁判文书，以促进司法公正和透明度。"
+      },
+      {
+        "name": "中华人民共和国消费者权益保护法",
+        "url": "https://www.gov.cn/jrzg/2013-10/25/content_2515601.htm",
+        "desc": ""
+      },
+      {
+        "name": "中华人民共和国消费者权益保护法实施条例",
+        "url": "https://www.gov.cn/zhengce/content/202403/content_6940158.htm",
+        "desc": ""
+      },
+      {
+        "name": "中国法律服务网",
+        "url": "http://www.12348.gov.cn/",
+        "desc": "该网站由司法部建设，网站整合并收录了全国范围内的「法律服务机构」和「法律人员数据」。我们可以在里面选择律所或律师，也可以通过网站查询从其他渠道了解到的某家律所或某位律师（可查询律师执业证号）。"
+      },
+      {
+        "name": "权利卫士",
+        "url": "https://www.tsa.cn/quanliweishi.html",
+        "desc": "这是一款由国家知识产权局推出，具有法律效率的电子取证工具，被法律工作者广泛使用。可生成不可篡改的带有时间戳的电子证据。取证范围包含：拍照、录像、录音、录屏、网页。在 App 中实名认证就可正常使用。"
+      }
+    ]
+  },
+  {
+    "group": "📷 光影时刻",
+    "items": [
+      {
+        "name": "必应壁纸",
+        "url": "https://www.todaybing.com/",
+        "desc": "必应壁纸包含必应主页上特别推荐的一批来自世界各地的精美图片，你可以查看、下载这些超高质量的必应壁纸与必应美图。"
+      },
+      {
+        "name": "免费高清壁纸",
+        "url": "https://wallhaven.cc/",
+        "desc": "您在网络上最好的高品质壁纸的来源！"
+      },
+      {
+        "name": "免费壁纸社区",
+        "url": "https://wall.alphacoders.com/",
+        "desc": "Wallpaper Abyss 是一个壁纸社区，你可以在这里查看、下载、评论高清壁纸、桌面背景图像和手机壁纸。"
+      },
+      {
+        "name": "Basic Apple Guy",
+        "url": "https://basicappleguy.com/basicappleblog/category/Wallpaper",
+        "desc": "一套适用于 iPhone、iPad 和 Mac 的新壁纸。"
+      },
+      {
+        "name": "Unsplash",
+        "url": "https://unsplash.com/",
+        "desc": "Unsplash 是一个免费的照片共享网站。摄影师可以将照片上传到 Unsplash，Unsplash 成为了互联网上最大的摄影照片供应商之一，其网站上的照片经常在文章配图中出现。"
+      },
+      {
+        "name": "Pexels",
+        "url": "https://www.pexels.com/zh-cn/",
+        "desc": "免费的图片和视频素材的网站"
+      },
+      {
+        "name": "Pixabay",
+        "url": "https://pixabay.com/",
+        "desc": "Pixabay 是一个照片、插图、矢量图形、电影片段和音乐分享网站。"
+      },
+      {
+        "name": "Stocksnap",
+        "url": "https://stocksnap.io/",
+        "desc": "又一款免费的图片素材网站，上面收集的照片全部采用 CC0 授权。你可以自由使用在商业、非商业用途，并且可以修改素材，不需要标示作者来源。"
+      },
+      {
+        "name": "探索美国的自然奇观",
+        "url": "https://www.park.photos/",
+        "desc": "从雄伟的国家公园、宁静的州立保护区到风景优美的海岸线，每张照片都吸引着您去探索。"
+      },
+      {
+        "name": "StockCake",
+        "url": "https://stockcake.com/",
+        "desc": "AI 生成的免费图像素材网站，无限的无版权图片免费下载。"
+      },
+      {
+        "name": "天空之城",
+        "url": "https://www.skypixel.com/",
+        "desc": "无人机拍摄的全球精彩的航拍图片、航拍攻略、航拍视频、全景图汇集在此，让你尽情领略全球航拍美景。"
+      }
+    ]
+  },
+  {
+    "group": "🎸 音乐之声",
+    "items": [
+      {
+        "name": "极客音乐",
+        "url": "https://bestgeek.org/music",
+        "desc": "一款支持免费播放网易云音乐所有付费资源的在线播放器。"
+      },
+      {
+        "name": "网易云音乐",
+        "url": "https://music.163.com/",
+        "desc": "网易云音乐是一款专注于发现与分享的音乐产品，依托专业音乐人、DJ、好友推荐及社交功能，为用户打造全新的音乐生活。"
+      },
+      {
+        "name": "QQ音乐",
+        "url": "https://y.qq.com/",
+        "desc": "QQ 音乐是腾讯公司推出的一款网络音乐服务产品，海量音乐在线试听、新歌热歌在线首发、歌词翻译、手机铃声下载、高品质无损音乐试听、海量无损曲库、正版音乐下载等。"
+      },
+      {
+        "name": "酷狗音乐",
+        "url": "https://www.kugou.com/",
+        "desc": "酷狗音乐和音乐在一起，最新最全的在线正版音乐网站。为您免费提供最全的在线音乐试听下载，以及全球海量电台和 MV 播放服务等。"
+      },
+      {
+        "name": "豆瓣音乐",
+        "url": "https://music.douban.com/",
+        "desc": "音乐新碟榜，同步华语、欧美、日韩最流行。丰富的唱片分类，满足你最刁钻的音乐喜好。更有爱好者们的权威评分、评论。"
+      },
+      {
+        "name": "DevTunes FM",
+        "url": "https://radio.madza.dev/",
+        "desc": "一款简洁、免费的背景音乐网站，包含不少各种类型的声音场景。如: 环境音、轻音乐、爵士、学习专注类，习惯听着声音干活的小伙伴可以试试看。"
+      },
+      {
+        "name": "FreeMind",
+        "url": "https://freemind.fit/",
+        "desc": "FreeMind 以大自然的声音为灵感，轻松创建专注或放松的音乐氛围，助你保持专注、放松思绪。"
+      },
+      {
+        "name": "Rainyscope",
+        "url": "https://rainyscope.com/",
+        "desc": "这是个很有特色的网站，有五种白噪音可供选择，用中文诗意的概括一下就是春雨、夏鸣，秋雨，冬雪，春雷。每一个对应着一张透过玻璃窗户的风景，雨水怕打在窗户上，莫名有一种岁月静好的感觉。"
+      },
+      {
+        "name": "Rainy Mood",
+        "url": "https://www.rainymood.com",
+        "desc": "是一个偏爱雨声的白噪声网站，内容很简单。进入几秒之后就会开始自动播放雨声，每 30 分钟一个循环，有兴趣的可以体验一下。"
+      },
+      {
+        "name": "Virtocean",
+        "url": "https://virtocean.com/",
+        "desc": "这个网站是视觉和听觉的享受，虽然不能带你去海边，却可以给你听听海浪翻滚的声音、海豚可爱的叫声、海星神秘的声音、海豹呆萌的声音。无聊时，你可以控制海浪的波涛汹涌或者沉到水底听听这些可爱的小动物的声音。"
+      },
+      {
+        "name": "Suno AI Music",
+        "url": "https://sunoai-music.com/",
+        "desc": "一个免费的在线 Suno AI 音乐搜索和下载网站。在这里你可以倾听热门的 AI 音乐，支持按照关键词进行搜索、下载音乐等。"
+      },
+      {
+        "name": "StockTune",
+        "url": "https://stocktune.com/",
+        "desc": "StockTune 是一个无版权的 AI 音乐搜索引擎，涵盖多种情感、流派、风格和乐器。"
+      },
+      {
+        "name": "FMHY",
+        "url": "https://fmhy.net/",
+        "desc": "Free Media Heck Yeah 是互联网上免费内容收集最多的一个平台。它提供了各类电影、电视节目、动画等视频内容的下载和点播。此外，也为漫画读者提供了广泛的文学作品。"
+      },
+      {
+        "name": "Spotify",
+        "url": "https://open.spotify.com/",
+        "desc": "Spotify 是一家瑞典音频流媒体和媒体服务提供商，于 2006 年 4 月 23 日创立。它是最大的音乐流媒体服务提供商之一，每月活跃用户超过 6.4 亿，其中付费用户为 2.52 亿。"
+      }
+    ]
+  },
+  {
+    "group": "🕹 头号玩家",
+    "items": [
+      {
+        "name": "在线小游戏",
+        "url": "https://poki.com/zh",
+        "desc": "Poki 拥有最好的免费在线游戏，并提供最有趣的游戏体验。即刻玩耍，无需下载，享受与所有设备兼容的游戏。"
+      },
+      {
+        "name": "在线喂金鱼",
+        "url": "https://goldfishies.com/",
+        "desc": "GoldFishies 是一个在线互动网站，它允许用户在网页上模拟喂养金鱼。你可以通过点击鼠标来投喂金鱼，观察它们争抢食物的有趣场景。旨在模拟真实的喂鱼体验，为用户提供一种轻松的休闲活动。"
+      },
+      {
+        "name": "24 点计算",
+        "url": "https://passer-by.com/calc24/",
+        "desc": "儿时智力问答常见挑战"
+      },
+      {
+        "name": "在线数独游戏",
+        "url": "https://sinqi.tools/zh/sudoku",
+        "desc": "数独游戏是有史以来最受欢迎的益智游戏之一。数独游戏的目标是用数字填充 9x9 的宫格，让每一行、每一列和每个 3x3 小九宫部分都包含 1 到 9 之间的所有数字。"
+      },
+      {
+        "name": "吃豆人游戏",
+        "url": "https://passer-by.com/pacman/",
+        "desc": "吃豆人游戏，儿时经典街机游戏"
+      },
+      {
+        "name": "技术图标连连看",
+        "url": "https://works.yangerxiao.com/tech-logo-memo-game",
+        "desc": "一款专为 IT 人准备的连连看游戏。"
+      },
+      {
+        "name": "在线 Window 98 复古扫雷",
+        "url": "https://ohminesweeper.online/",
+        "desc": "Windows 98 经典扫雷游戏，快进来玩一玩！"
+      },
+      {
+        "name": "在线玩乐高",
+        "url": "https://www.mecabricks.com/en/workshop",
+        "desc": "Mecabricks 是一个在线 3D 乐高网站。无需插件或安装，一切都在浏览器中进行。操作类似于 Blender，只需稍微了解一下快捷键，就可以轻松上手。"
+      },
+      {
+        "name": "在线迷宫游戏",
+        "url": "https://maze.toys/mazes/mini/daily/",
+        "desc": "通过这个在线迷你迷宫，让你的日常连胜纪录更上一层楼。从最简单的开始，完成后难度逐步增加。"
+      },
+      {
+        "name": "红白机游戏盒",
+        "url": "https://nes.heheda.top/",
+        "desc": "这个网站提供了非常多的免费在线小游戏，包含赛车、动作、益智等各种游戏种类。"
+      },
+      {
+        "name": "3D 版超级马里奥",
+        "url": "https://probablykam.github.io/Mario64webgl/",
+        "desc": "超级马里奥的 Web 复刻版，可以在浏览器里面玩 3D 版本的超级马里奥。"
+      },
+      {
+        "name": "在线中文 DOS 游戏",
+        "url": "https://dos.lol/",
+        "desc": "一款在线复古中文 DOS 游戏。80、90 回忆杀，目前可畅玩 1898 款！"
+      },
+      {
+        "name": "在线 NES 游戏机",
+        "url": "http://fc.liflag.cn/",
+        "desc": "网页版 FC 模拟器、NES 模拟器，随时随地体验儿时的乐趣。"
+      },
+      {
+        "name": "Flash 保存计划",
+        "url": "https://flash.zczc.cz/",
+        "desc": "保存闪客时代的历史，纪念带给我们无限欢乐的 Flash 作品。"
+      }
+    ]
+  },
+  {
+    "group": "🤹‍♂️ 趣站酷软",
+    "items": [
+      {
+        "name": "超长链接生成器",
+        "url": "https://ooooooooooooooooooooooo.ooo/",
+        "desc": "个性化网址生成器"
+      },
+      {
+        "name": "零宽度网址生成器",
+        "url": "https://zws.im/",
+        "desc": "使用宽度为零的空格产生短网址，因此产生后的短网址看起来不含任何字符，只要复制、再粘贴依然可以正常跳转到目标页面。"
+      },
+      {
+        "name": "全功能在线截图生成器",
+        "url": "https://screen.666666.dev/",
+        "desc": "在线一键制作各种截图，包含功能：微信对话、微信领取红包、微信付款、微信收款、微信转账、微信零钱、微信对话和红包、微信朋友圈转发详情、支付宝转账、支付宝账户余额、淘宝订单、QQ聊天、手机短信聊天！"
+      },
+      {
+        "name": "朋友圈转发截图生成器",
+        "url": "https://akarin.dev/WechatMomentScreenshot/",
+        "desc": "快速解决各类强制要求转发朋友圈的问题"
+      },
+      {
+        "name": "中国亲戚关系计算器",
+        "url": "https://passer-by.com/relationship/",
+        "desc": "只需简单输入，即可算出正确的称谓。"
+      },
+      {
+        "name": "在线动画生成工具",
+        "url": "https://sketch.metademolab.com/canvas",
+        "desc": ""
+      },
+      {
+        "name": "PIXEL ART",
+        "url": "https://gustinlau.github.io/pixel-art/",
+        "desc": "一款在线图片转换成像素画工具"
+      },
+      {
+        "name": "故宫博物院藏品总目",
+        "url": "https://zm-digicol.dpm.org.cn/",
+        "desc": "在这里可以线上浏览所有故宫博物院的藏品。"
+      },
+      {
+        "name": "现代化中国诗词学习站",
+        "url": "https://aspoem.com/",
+        "desc": "一款开源的界面清爽干净、现代化中国诗词学习站"
+      },
+      {
+        "name": "网易云段子",
+        "url": "https://www.yduanzi.com/",
+        "desc": "在云段子，随时发现搞笑热评段子。收集各种搞笑段子、热门神评论、幽默笑话等，段子不断更新中。摸鱼时刻，来云段子找欢乐！"
+      },
+      {
+        "name": "在线 Emoji 加密文字",
+        "url": "https://txtmoji.com/",
+        "desc": "一款在线将文本转为颜文字的工具"
+      },
+      {
+        "name": "Notion 风格头像制作",
+        "url": "https://notion-avatar.vercel.app/zh",
+        "desc": "一款 Notion 风格头像制作器"
+      },
+      {
+        "name": "丑头像生成器",
+        "url": "https://txstc55.github.io/ugly-avatar/",
+        "desc": "随机生成一个很丑的手绘头像，不要怀疑真的很丑、很抽象，仅供娱乐。"
+      },
+      {
+        "name": "AvaMaker",
+        "url": "https://avamake.com",
+        "desc": "一个免费的在线头像制作工具。时尚头像风格，海量元素任你使用，只需点击「随机」按钮即可生成数千张不同的卡通头像。"
+      },
+      {
+        "name": "免费头像生成器",
+        "url": "https://multiavatar.com/",
+        "desc": "Multiavatar 头像生成工具，可产生 120 亿个独特的头像化身。你可以免费使用任何生成的头像作为你的头像，游戏标志或者你设计项目中的一部分等等。"
+      },
+      {
+        "name": "个人信息生成器",
+        "url": "https://www.myfakeinfo.com/",
+        "desc": "一个可以生成虚拟随机用户身份信息的网站，轻松生成全套虚构身份 ID，可以用来注册各种美区 ID 。生成的信息包括名字、住址、邮箱等，保护你的真实身份安全。"
+      },
+      {
+        "name": "在线各国地址/电话生成器",
+        "url": "https://www.addresscopy.com/",
+        "desc": "注册一些国外服务必备神器"
+      },
+      {
+        "name": "答案之书",
+        "url": "https://toolwa.com/book-of-answers/",
+        "desc": "当你遇事不决时，答案之书在线将会给你答案。快速帮您作出决策、正答，解决烦恼，友情提示仅供娱乐！"
+      },
+      {
+        "name": "Monkeytype",
+        "url": "https://monkeytype.com/",
+        "desc": "Monkeytype 是一个非常赞的打字测试网站，超极简的风格、多项功能自定义，使用起来相当丝滑。它允许用户在多种模式下进行测试，追踪自己的进步，从而提升打字速度。"
+      },
+      {
+        "name": "Earthworm",
+        "url": "https://earthworm.cuixueshe.com/",
+        "desc": "一个开源的 Web 程序，通过连词构句的方式让你更好的学习英语。"
+      },
+      {
+        "name": "英语单词记忆软件",
+        "url": "https://kaiyiwing.gitee.io/qwerty-learner/",
+        "desc": "为键盘工作者设计的单词记忆与英语肌肉记忆锻炼软件"
+      },
+      {
+        "name": "Custom Cursor",
+        "url": "https://custom-cursor.com/",
+        "desc": "自定义光标是一款浏览器扩展工具，可让您将鼠标指针更改为自定义样式。您也可以从这里大量光标中找到你喜欢的在网站中进行使用。"
+      },
+      {
+        "name": "摸鱼人日历",
+        "url": "https://udp.qqsuu.cn/apis/moyu.php",
+        "desc": ""
+      },
+      {
+        "name": "极简番茄",
+        "url": "https://t.kuaitu.cc/",
+        "desc": "一款非常实用且高颜值的网页版极简番茄时钟。无论是电脑、手机还是平板，只要有浏览器随时随地可以使用。无需下载安装、连登录都没有，非常便捷。"
+      },
+      {
+        "name": "识典古籍",
+        "url": "https://www.shidianguji.com/",
+        "desc": "识典古籍是抖音公益与北大合作共建的古籍阅读平台。致力于为用户提供免费公开、稳定、快速、方便的搜索和阅读古籍的服务。"
+      },
+      {
+        "name": "中国家谱检索",
+        "url": "https://jiapu.library.sh.cn/",
+        "desc": "由上海图书馆提供的全国家谱数据检索平台，可以查询任何一个姓氏在某个地区的族谱。"
+      },
+      {
+        "name": "在线装 X 制图神器",
+        "url": "https://c.tianhezulin.com/",
+        "desc": "在线生成各种红包、转账、证件、提车订单图"
+      },
+      {
+        "name": "The Matrix",
+        "url": "https://wangyasai.github.io/TheMatrix/",
+        "desc": "这是一个用来生成黑客帝国同款文字雨的工具，无需登录免费使用。"
+      },
+      {
+        "name": "网购平替词查询",
+        "url": "https://tool.mingdawoo.com/sse/shopping_alias/",
+        "desc": ""
+      },
+      {
+        "name": "微博账号估值工具",
+        "url": "https://weibo.hehehai.cn/",
+        "desc": "在线评估你的微博账号值多少钱？"
+      },
+      {
+        "name": "生命计算器",
+        "url": "https://works.yangerxiao.com/life-progress/",
+        "desc": "生命计算器是一款十分优秀的人类寿命评估计算器，操作简单，界面简洁。"
+      },
+      {
+        "name": "音乐解析器",
+        "url": "https://musicjx.com/",
+        "desc": "多站合一音乐搜索解决方案"
+      },
+      {
+        "name": "智能人声分离",
+        "url": "https://vocalremover.org/zh/",
+        "desc": "用强大的人工智能算法将声音从音乐中分离出来"
+      },
+      {
+        "name": "抖音视频下载器",
+        "url": "https://godownloader.com/",
+        "desc": "最简单的 Facebook、Instagram、TikTok 和 Twitter 视频下载器"
+      },
+      {
+        "name": "在线字帖生成器",
+        "url": "https://paper.z2h.cn/",
+        "desc": "一个在线字帖生成网站，支持中文和英文。用正确的方法刻意练习，每个人都能写出一手漂亮的字。"
+      },
+      {
+        "name": "在线学习摩斯密码",
+        "url": "https://www.perry.qa/morse",
+        "desc": "这款网络应用让学习摩尔斯电码变得既有趣又简单，而且它完全免费，没有广告。"
+      },
+      {
+        "name": "在线摩斯密码生成器",
+        "url": "https://sinqi.tools/zh/morse",
+        "desc": "摩斯密码是一种时通时断的信号代码，通过不同的排列顺序来表达不同的英文字母、数字和标点符号。由美国发明家萨缪尔·摩尔斯及其助手艾尔菲德·维尔在 1836 年发明。"
+      },
+      {
+        "name": "在线体质指数计算器",
+        "url": "https://sinqi.tools/zh/bmi",
+        "desc": "BMI 指数（身体质量指数）是用体重公斤数除以身高米数平方得出的数字，是国际上常用的衡量人体胖瘦程度以及是否健康的一个标准。"
+      },
+      {
+        "name": "在线营养元素计算器",
+        "url": "https://sinqi.tools/zh/macros",
+        "desc": "一款在线的营养元素计算器。遵循科学公式，使你不需营养专家也能够为自己打造饮食计划，为健身成功做好准备。"
+      },
+      {
+        "name": "假装系统升级",
+        "url": "https://fakeupdate.net/",
+        "desc": "假装系统升级是一个有趣的网站，你可以在里面模拟从 Windows 98/XP/Vista/10/11 的系统升级界面，另外它还支持 macOS、Android、iOS、以及 SteamOS 等。"
+      },
+      {
+        "name": "X 视频下载器",
+        "url": "https://x2twitter.com/zh-cn",
+        "desc": "下载高质量的 Twitter 视频，支持 Full HD，1080p，2k，4k"
+      },
+      {
+        "name": "YouTube 视频下载器",
+        "url": "https://y2meta.app/zh-cn",
+        "desc": "Y2meta 允许将视频从 Youtube、Facebook、Dailymotion、优酷等转换为 MP3、MP4 高清，您可以轻松地从 Youtube 和其他网站免费下载成千上万的视频。"
+      },
+      {
+        "name": "BT 下载追踪器",
+        "url": "https://iknowwhatyoudownload.com/",
+        "desc": "I Know What You Download 是一个监控工具，它通过检索 BT 网络的 IP 信息，来追踪下载内容。除了知道你下载过什么，还能统计种子的资源情况等信息。"
+      },
+      {
+        "name": "Device Info",
+        "url": "https://www.deviceinfo.me/",
+        "desc": "一款网页工具，在浏览器显示可以收集的用户所有设备的信息，比如电池、麦克风、蓝牙等。"
+      },
+      {
+        "name": "全球各地高质量广播",
+        "url": "https://radio.garden/",
+        "desc": "通过全球地球 3D 可视化的方式浏览不同国家城市的高质量广播，甚至还可以发现众多各种风格的小众国外音乐。"
+      },
+      {
+        "name": "中国国家博物馆数字展厅",
+        "url": "https://www.chnmuseum.cn/Portals/0/web/vr/",
+        "desc": "中国国家博物馆数字展厅为过往的专题展览提供了实景观展体验，可以像身处博物馆内一样边走边看。专题展览既有甘肃彩陶艺术、大唐风华等中华文明的瑰宝，也有伦勃朗和他的时代等国外主题的展览。"
+      },
+      {
+        "name": "全球各地时间和假期",
+        "url": "https://time.is/",
+        "desc": "一个很不错的查看当前详细时间的工具，数据来自准确官方原子钟时间。也可以用它来看世界各个地方对应的时间和各国日历对应的节假日，甚至还可以用来学习一些地理时区知识，网页本身做得也非常实用和简洁。"
+      },
+      {
+        "name": "元素周期表 PRO",
+        "url": "https://pt.ziziyi.com/",
+        "desc": "高颜值化学必备工具，很适合喜欢化学的小伙伴，通过可视化的方式来展示元素周期表。"
+      },
+      {
+        "name": "字幕工具箱",
+        "url": "https://zm.i8k.tv/",
+        "desc": "字幕工具箱是一个提供免费在线字幕处理工具集合的网站，旨在帮助用户进行字幕的编辑、转换、校对等操作。"
+      },
+      {
+        "name": "全球高清摄像头实时分享",
+        "url": "https://www.skylinewebcams.com/",
+        "desc": "一个全球高清摄像头实时分享，通过他你可以看到耶路撒冷的西墙、埃特纳的火山爆发、南非头水坑的大象，甚至苏梅岛夜店门口的路景。"
+      },
+      {
+        "name": "实时观看世界各地风景",
+        "url": "https://www.earthcam.com/",
+        "desc": "可以看到世界各地的城市风景、建筑、甚至动物园、海洋馆里面的实时直播，甚至还可以看到有人分享的鸡蛋孵化小鸡的过程。"
+      },
+      {
+        "name": "实时全球城市漫步街景",
+        "url": "https://www.citywalks.live/",
+        "desc": "实时观看来自全球各地的城市街景，以一种独特的方式来了解不同城市的文化和生活方式。"
+      },
+      {
+        "name": "三维太空可视化探索工具",
+        "url": "https://eyes.nasa.gov/",
+        "desc": "一个很牛逼的三维太空可视化探索工具，可以实时体会到从太空可地球、行星、卫星运行状态、位置，对于星文爱好者甚至可以用这个来探索下太阳系和宇宙中好玩的东西。"
+      },
+      {
+        "name": "手写体文稿生成器",
+        "url": "https://vtool.pro/handwriting/",
+        "desc": "一款非常实用的手写体文稿生成器"
+      },
+      {
+        "name": "日语短文排版小工具",
+        "url": "https://miusuncle.github.io/japen/",
+        "desc": "一个在线工具，用来生成漂亮的日文排版。它支持横竖版式、自动假名标注、深浅两种主题、字体配置、高亮、下划线、字体等。"
+      },
+      {
+        "name": "进口原研药目录",
+        "url": "https://medicine.lvwzhen.com/",
+        "desc": "一份实时更新的进口原研药数据库，共收集了约 400 种药品。"
+      },
+      {
+        "name": "拼字幕",
+        "url": "https://www.pinzimu.com/",
+        "desc": "一键免费生成名人语录字幕拼图。"
+      },
+      {
+        "name": "Y-TOC",
+        "url": "https://toc.struy.cn/",
+        "desc": "一款内容目录海报美化生成工具。"
+      },
+      {
+        "name": "付费软件的免费替代品大全",
+        "url": "https://alternativeto.net/",
+        "desc": "帮助您找到更好的免费应用程序和服务"
+      },
+      {
+        "name": "寻找付费软件的免费替代品",
+        "url": "https://www.opensourcealternative.to/",
+        "desc": "寻找流行的付费 SaaS 产品的免费开源替代品"
+      },
+      {
+        "name": "OpenAlternative",
+        "url": "https://openalternative.co/",
+        "desc": "OpenAlternative 是一个由社区驱动的替代专有软件和应用程序的列表，它将帮助您找到您已在使用产品的开源替代品和评论。"
+      }
+    ]
+  }
+]
