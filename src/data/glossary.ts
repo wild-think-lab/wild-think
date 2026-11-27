@@ -317,6 +317,29 @@ export const GLOSSARY: GlossaryGroup[] = [
       { term: 'SLO', en: 'Service Level Objective', def: '对内承诺的服务目标（如 99.9% 可用、P99 ≤ 200ms）。它是"错误预算"的来源，不是口号。' },
     ],
   },
+  {
+    id: 'protocol',
+    name: '协议与标准',
+    en: 'PROTOCOLS & STANDARDS',
+    terms: [
+      { term: 'HTTP/2', en: 'HTTP/2', def: '多路复用（一个连接跑多个请求）、头部压缩、服务端推送。解决 HTTP/1.1 的队头阻塞与连接数问题。' },
+      { term: 'HTTP/3', en: 'HTTP/3', def: '跑在 QUIC（UDP）上的 HTTP/2 语义。避免 TCP 握手与丢包重传的队头阻塞，弱网收益最大。' },
+      { term: 'QUIC', en: 'QUIC', def: '基于 UDP 的传输协议，把握手、加密、拥塞控制都内置。连接迁移（换网不断）是它的特色。' },
+      { term: 'TLS 握手', en: 'TLS Handshake', def: '协商加密套件、验证证书、交换密钥。TLS 1.3 把它压到一次往返，是延迟优化的关键点。' },
+      { term: 'SNI', en: 'Server Name Indication', def: 'TLS 握手时客户端声明的域名，让一台 IP 承载多个证书。没有 SNI 时只能给默认证书。' },
+      { term: 'ALPN', en: 'ALPN', def: 'TLS 握手时协商"应用层协议"（如 h2、http/1.1）。gRPC 与 HTTP/3 都靠它。' },
+      { term: 'OAuth 2.0', en: 'OAuth 2.0', def: '授权框架（发 access token），不是认证协议。它解决"第三方有限访问"，不解决"你是谁"。' },
+      { term: 'OIDC', en: 'OpenID Connect', def: '在 OAuth 2.0 上加一层身份（id_token）。SSO 场景用它，别只拿 access token 当身份。' },
+      { term: 'SAML', en: 'SAML', def: '基于 XML 的企业级 SSO 标准。老系统/内网应用常见，配置繁琐但生态稳。' },
+      { term: 'mTLS', en: 'Mutual TLS', def: '双向证书认证。服务网格（Istio）与零信任里用来做"服务身份"，比 token 更难伪造。' },
+      { term: 'gRPC', en: 'gRPC', def: '基于 HTTP/2 + protobuf 的 RPC。强类型、流式、低开销；调试不如 REST 直观。' },
+      { term: 'SSE', en: 'Server-Sent Events', def: '服务端单向推送（HTTP 长连接）。比 WebSocket 简单，适合"只推不收"的场景。' },
+      { term: 'WebSocket', en: 'WebSocket', def: '全双工长连接（先 HTTP 升级）。适合实时交互；要注意心跳、重连与代理兼容。' },
+      { term: 'MQTT', en: 'MQTT', def: '轻量发布订阅协议，IoT 常用。QoS 0/1/2 对应"最多一次/至少一次/恰好一次"。' },
+      { term: 'gRPC 错误码', en: 'gRPC Status Code', def: 'Unavailable/DeadlineExceeded 可重试，InvalidArgument 不可。用错码会让客户端无脑重试。' },
+      { term: '幂等键', en: 'Idempotency Key', def: '客户端生成的唯一键，服务端据此去重。是所有"可安全重试"的前提。' },
+    ],
+  },
 ];
 
 export const TERM_TOTAL = GLOSSARY.reduce((n, g) => n + g.terms.length, 0);
