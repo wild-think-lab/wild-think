@@ -1,7 +1,7 @@
 ---
 title: Windows Server：企业里躲不开的那一半
 description: 为什么公司内网总有几台 Windows Server、版本怎么选、装完先做哪五件事，一次说清。
-date: 2026-11-25
+date: 2021-12-20
 tags: [Windows, 系统, 入门, 域控]
 ---
 

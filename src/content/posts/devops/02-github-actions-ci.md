@@ -1,7 +1,7 @@
 ---
 title: GitHub Actions 实战：一条能用的 CI 流水线
 description: 从零写一份工作流：缓存依赖、跑测试、构建镜像、推仓库，以及私有仓与自托管的取舍。
-date: 2026-11-21
+date: 2022-01-06
 tags: [DevOps, CI, GitHub Actions, 流水线, 部署]
 ---
 

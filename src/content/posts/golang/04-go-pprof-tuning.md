@@ -1,7 +1,7 @@
 ---
 title: Go 的性能分析：pprof 三件套与 benchmark 怎么跑
 description: CPU/内存/阻塞三种 profile 分别看什么、benchmark 的正确写法与常见误用、pprof 火焰图怎么读、以及线上服务怎么安全地开 profile。
-date: 2026-11-27
+date: 2022-07-22
 tags: [Go, pprof, 性能, benchmark]
 ---
 

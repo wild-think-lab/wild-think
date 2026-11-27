@@ -1,7 +1,7 @@
 ---
 title: TypeScript 工程化：类型不是装饰，是约束
 description: tsconfig 的关键项、类型收窄与泛型的实用写法、以及五个"用了 TS 还是满屏 any"的原因。
-date: 2026-11-27
+date: 2025-01-03
 tags: [前端, TypeScript, 工程化]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: NFS 高可用与调优：企业文件共享的实战细节
 description: DRBD+Keepalived 双机 NFS、NFSv4 与 v3 的选择、mount 参数怎么调、性能瓶颈在哪、以及"卡死"的排查。
-date: 2026-11-27
+date: 2023-12-27
 tags: [NFS, 存储, 高可用]
 ---
 

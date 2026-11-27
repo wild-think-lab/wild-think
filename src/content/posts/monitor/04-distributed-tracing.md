@@ -1,7 +1,7 @@
 ---
 title: 链路追踪：一次慢请求到底慢在哪个服务
 description: traceId 怎么串起全链路、OpenTelemetry 的最小落地、采样怎么定、以及"接了追踪但还是定位不到"的四个原因。
-date: 2026-11-27
+date: 2022-08-13
 tags: [链路追踪, OpenTelemetry, Tempo, 可观测性, 排障]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Istio mTLS 与服务间认证：从"网格内互信"到"零信任"
 description: PERMISSIVE/STRICT 两种模式、证书怎么签发、三种身份（SPIFFE/DNS/自定义），以及多集群的信任域。
-date: 2026-11-27
+date: 2025-12-12
 tags: [Istio, mTLS, 安全, 服务网格]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 微前端：什么时候真的需要拆
 description: 三种主流方案（iframe/Web Component/模块联邦）、隔离的三个维度、五个"拆完更难维护"的原因。
-date: 2026-11-27
+date: 2025-07-28
 tags: [前端, 架构, 微前端]
 ---
 

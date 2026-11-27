@@ -1,7 +1,7 @@
 ---
 title: TLS 1.3 与 HTTP/2、HTTP/3：线上到底该开哪些
 description: 三个协议各自解决什么、TLS 1.3 的握手变化与兼容问题、HTTP/2 的实际收益、HTTP/3 的部署前提，以及"开了但没变快"的原因。
-date: 2026-11-27
+date: 2023-02-22
 tags: [TLS, HTTP2, HTTP3, Nginx, 性能]
 ---
 

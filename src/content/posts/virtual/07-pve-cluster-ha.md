@@ -1,7 +1,7 @@
 ---
 title: Proxmox VE 集群与 HA：把"虚拟机挂了自动重启"做出来
 description: 集群通信与 quorum 的作用、HA 组的资源编排、迁移与共享存储的关系、以及"HA 不生效"的五个真实原因。
-date: 2026-11-27
+date: 2023-07-05
 tags: [Proxmox, 虚拟化, HA, 高可用]
 ---
 

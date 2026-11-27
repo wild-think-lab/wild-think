@@ -1,7 +1,7 @@
 ---
 title: 日志采集：Fluent Bit / Vector 怎么配才不丢不乱
 description: 采集链路四段、解析与路由的写法、背压与磁盘缓冲，以及五个"日志丢了找不到原因"的问题。
-date: 2026-11-27
+date: 2025-10-17
 tags: [可观测, 日志, Fluent Bit]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 虚拟化选型：VMware、Proxmox VE、KVM 到底怎么选
 description: 三种主流方案的定位、授权成本、适用规模，以及"小公司自建私有云"的现实建议。
-date: 2026-11-22
+date: 2021-12-16
 tags: [虚拟化, VMware, PVE, KVM, 选型]
 ---
 

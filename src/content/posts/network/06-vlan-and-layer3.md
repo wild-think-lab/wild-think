@@ -1,7 +1,7 @@
 ---
 title: VLAN 与三层交换：企业网络最基础的那一层
 description: 广播域为什么必须切开、Access 与 Trunk 的差别、交换机间怎么走、VLAN 间怎么通信，以及"跨 VLAN 不通"的五步排查。
-date: 2026-11-27
+date: 2021-11-07
 tags: [VLAN, 三层交换, 网络, 交换机, 排障]
 ---
 

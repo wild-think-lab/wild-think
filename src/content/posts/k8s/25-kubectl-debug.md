@@ -1,7 +1,7 @@
 ---
 title: kubectl debug：Pod 起不来时怎么进去看
 description: 临时容器、节点级调试、网络命名空间共享，以及五个"debug 也进不去"的原因。
-date: 2026-11-27
+date: 2026-08-05
 tags: [Kubernetes, 排障, kubectl]
 ---
 

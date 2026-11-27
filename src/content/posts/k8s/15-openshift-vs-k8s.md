@@ -1,7 +1,7 @@
 ---
 title: OpenShift 和原生 K8s 到底差在哪
 description: 多出来的东西（Route/SCC/OperatorHub/ImageStream）、企业为什么买它、以及运维者需要额外掌握的四件事。
-date: 2026-11-27
+date: 2025-03-21
 tags: [OpenShift, Kubernetes, 企业]
 ---
 

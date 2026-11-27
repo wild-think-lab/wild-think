@@ -1,7 +1,7 @@
 ---
 title: systemctl start 失败之后：服务起不来的四层排查法
 description: 服务启动失败时，systemctl status 只给一行红字。真正要查的是 unit 解析、依赖顺序、权限与资源四层，按层往下走，比反复重启快。
-date: 2026-11-26
+date: 2026-05-03
 tags: [Linux, systemd, 排障, 服务管理]
 ---
 

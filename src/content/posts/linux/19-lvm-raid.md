@@ -1,7 +1,7 @@
 ---
 title: LVM 与 RAID：盘坏了、满了、要扩的时候怎么办
 description: 扩容三步法、软 RAID 三种级别的取舍、盘故障替换流程，以及五个"扩容失败"的原因。
-date: 2026-11-27
+date: 2025-03-30
 tags: [Linux, 存储, LVM]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: MySQL 在线 DDL：加个索引为什么把库锁住了
 description: 三种算法（COPY/INPLACE/INSTANT）的差别、哪些操作会锁表，以及五个"以为不锁其实锁"的操作。
-date: 2026-11-27
+date: 2026-07-02
 tags: [数据库, MySQL, DDL]
 ---
 

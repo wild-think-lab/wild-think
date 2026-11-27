@@ -1,7 +1,7 @@
 ---
 title: NetworkPolicy 与 CNI：K8s 网络隔离到底怎么落地
 description: 默认全通的风险、NetworkPolicy 的四类规则写法、常见"写了不生效"的原因、CNI 的支持差异，以及分阶段落地的顺序。
-date: 2026-11-27
+date: 2024-05-08
 tags: [Kubernetes, NetworkPolicy, CNI, 安全]
 ---
 

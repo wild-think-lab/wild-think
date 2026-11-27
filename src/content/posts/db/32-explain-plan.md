@@ -1,7 +1,7 @@
 ---
 title: 执行计划怎么读：EXPLAIN 里那几行到底在说什么
 description: MySQL EXPLAIN 与 Postgres EXPLAIN ANALYZE 的读法、关键字段判据、五类"看着慢但其实不慢"的情形。
-date: 2026-11-27
+date: 2026-09-30
 tags: [数据库, 性能, SQL]
 ---
 

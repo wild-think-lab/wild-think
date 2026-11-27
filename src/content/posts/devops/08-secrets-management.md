@@ -1,7 +1,7 @@
 ---
 title: 密钥管理：别再把密码写进配置文件和环境变量
 description: 四种存放方式的真实安全等级、Vault 的核心用法、Sealed Secrets 与 SOPS 的适用场景、轮换与最小权限怎么落地。
-date: 2026-11-27
+date: 2023-07-26
 tags: [安全, 密钥管理, Vault, Kubernetes]
 ---
 

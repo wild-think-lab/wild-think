@@ -1,7 +1,7 @@
 ---
 title: sysctl 与内核参数：哪些该调，哪些别碰
 description: 网络、文件句柄、内存、TIME_WAIT 的实际影响与推荐值，配一个能直接落地的 sysctl.d 文件，以及"调了反而更慢"的四个坑。
-date: 2026-11-27
+date: 2022-05-06
 tags: [Linux, 内核参数, 性能, 运维]
 ---
 

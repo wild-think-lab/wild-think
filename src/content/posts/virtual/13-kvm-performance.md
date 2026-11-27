@@ -1,7 +1,7 @@
 ---
 title: KVM 性能调优：虚拟机为什么"比物理机慢一截"
 description: CPU 绑核、内存大页、磁盘缓存模式、网络 virtio 与 SR-IOV，以及五个"调了没效果"的原因。
-date: 2026-11-27
+date: 2024-12-13
 tags: [虚拟化, KVM, 性能]
 ---
 

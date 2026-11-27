@@ -1,7 +1,7 @@
 ---
 title: Linux 权限模型：rwx、特殊位、ACL 与 capability 各自解决什么问题
 description: 权限问题几乎从不是"chmod 777 就能解决"，而是你没分清 DAC、特殊权限位、ACL 与 capability 这四层机制各管什么。
-date: 2026-11-18
+date: 2026-03-21
 tags: [Linux, 权限, ACL, capability, 安全]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 自建 DNS 与 DHCP：内网里最不该出错的两个服务
 description: 企业内网域名解析和地址分配怎么搭：dnsmasq 快速起步、BIND 主从、DHCP 与域环境的交互，以及故障时最先查什么。
-date: 2026-11-27
+date: 2021-11-20
 tags: [DNS, DHCP, 内网服务, dnsmasq, BIND]
 ---
 

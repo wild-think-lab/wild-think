@@ -1,7 +1,7 @@
 ---
 title: Windows 服务器卡顿与蓝屏：从现象到定位
 description: 蓝屏 dump 分析、性能计数器、常见卡顿的六个来源、五个"重启就好了"的假象。
-date: 2026-11-27
+date: 2025-11-16
 tags: [Windows, 运维, 故障]
 ---
 

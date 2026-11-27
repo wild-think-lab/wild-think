@@ -1,7 +1,7 @@
 ---
 title: Go 并发：六个模式与四个必踩的坑
 description: worker pool、fan-out/fan-in、errgroup、限流、超时控制、优雅退出，以及 data race 与 goroutine 泄漏。
-date: 2026-11-27
+date: 2024-02-04
 tags: [Go, 并发, 编程]
 ---
 

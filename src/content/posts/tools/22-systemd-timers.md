@@ -1,7 +1,7 @@
 ---
 title: systemd timer 还是 cron：定时任务该怎么选
 description: 两者的差异、timer 的写法与校验、五个"任务没跑"的排查点。
-date: 2026-11-27
+date: 2026-01-15
 tags: [Linux, 运维, 定时任务]
 ---
 

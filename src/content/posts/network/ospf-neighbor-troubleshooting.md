@@ -1,7 +1,7 @@
 ---
 title: OSPF 邻居建立不起来的排查清单：从 Down 到 Full 卡在哪一步
 description: OSPF 邻居卡在 Init、Exstart、或者是永远 Down，对应的是完全不同的七类原因。按状态定位，比逐个参数撞运气快得多。
-date: 2026-11-14
+date: 2026-05-11
 tags: [网络, OSPF, 路由交换, 排障]
 ---
 

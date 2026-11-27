@@ -1,7 +1,7 @@
 ---
 title: 实验报告：ELK 日志平台搭建与检索实战
 description: 目的/环境/步骤/验证：Elasticsearch 单节点、Logstash 收 Nginx 日志、Kibana 检索面板，配索引模板、ILM 生命周期与三个真实检索场景。
-date: 2026-11-27
+date: 2022-08-04
 tags: [ELK, Elasticsearch, Logstash, 日志, 实验报告]
 ---
 

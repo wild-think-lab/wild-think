@@ -1,7 +1,7 @@
 ---
 title: 用 Helm 管发布：从手写 YAML 到可回滚的版本
 description: Helm 解决什么问题、chart 的最小结构、values 分环境覆盖、release 回滚与 CI 里的用法。
-date: 2026-11-27
+date: 2022-04-28
 tags: [Kubernetes, Helm, CI/CD, 发布]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: WireGuard 组网：把办公室、云主机和家里连成一张网
 description: WireGuard 与 IPSec/OpenVPN 的差别、密钥生成、三节点全互联配置、按需路由与 AllowedIPs、NAT 后面的机器怎么被访问、以及"能 ping 通但服务不通"的排查。
-date: 2026-11-27
+date: 2022-12-02
 tags: [WireGuard, VPN, 组网, 网络]
 ---
 

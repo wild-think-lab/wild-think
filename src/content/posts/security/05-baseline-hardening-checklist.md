@@ -1,7 +1,7 @@
 ---
 title: 安全基线加固：从"能跑"到"能过检查"
 description: Linux 与 Windows 主机的 20 项基线检查：账号、SSH、防火墙、SELinux、日志审计、补丁与文件权限，附一键自查脚本思路。
-date: 2026-11-27
+date: 2021-11-16
 tags: [安全, 加固, 基线, 等保, SSH]
 ---
 

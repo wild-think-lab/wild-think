@@ -1,7 +1,7 @@
 ---
 title: Ceph 出问题时先看什么（PG 不干净、OSD down）
 description: 四个最常见故障的排查顺序、为什么"先等 ISR 收敛"比"立刻删 OSD"重要、以及限流避免业务被拖死。
-date: 2026-11-27
+date: 2024-03-26
 tags: [Ceph, 存储, 排错, 分布式]
 ---
 

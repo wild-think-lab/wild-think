@@ -1,7 +1,7 @@
 ---
 title: K8s 里的 GPU：调度、共享与利用率幻觉
 description: 为什么 GPU 利用率常年只有 20%、三种共享方案（MIG/时间片/vGPU）、调度约束与显存不足的排查。
-date: 2026-11-27
+date: 2025-05-29
 tags: [Kubernetes, GPU, AI, 调度]
 ---
 

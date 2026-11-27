@@ -1,7 +1,7 @@
 ---
 title: K8s 自动扩缩容：HPA、VPA 与"扩容了但没用"
 description: 指标怎么选、扩容为什么会滞后、VPA 与 HPA 的冲突、以及五个"扩了还是慢"的真实原因。
-date: 2026-11-27
+date: 2025-10-09
 tags: [Kubernetes, HPA, 容量]
 ---
 

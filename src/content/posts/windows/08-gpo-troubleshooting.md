@@ -1,7 +1,7 @@
 ---
 title: 组策略排障：策略不生效、生效太慢、生效错了对象
 description: GPO 的应用顺序（LSDOU）、gpresult 与 rsop 的用法、三种"不生效"的根因、以及刷新间隔与安全过滤的常见误配。
-date: 2026-11-27
+date: 2023-10-11
 tags: [Windows, 组策略, GPO, AD]
 ---
 

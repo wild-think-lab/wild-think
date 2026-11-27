@@ -1,7 +1,7 @@
 ---
 title: 存储选型：NAS、SAN、分布式，到底各自适合什么
 description: 三种架构的本质差别、iSCSI 与 FC 的取舍、NAS 的性能陷阱，以及五个"选错就要重来"的判断点。
-date: 2026-11-27
+date: 2024-09-14
 tags: [存储, SAN, NAS, 架构]
 ---
 

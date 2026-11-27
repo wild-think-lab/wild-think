@@ -1,7 +1,7 @@
 ---
 title: Nginx 配置调优：从默认参数到"能扛住一次秒杀"
 description: worker 数、连接数、buffer、超时、静态缓存、gzip/brotli、以及六个必须改的默认值。
-date: 2026-11-27
+date: 2026-01-07
 tags: [Nginx, 性能, 调优]
 ---
 

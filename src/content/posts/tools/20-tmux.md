@@ -1,7 +1,7 @@
 ---
 title: tmux 与 screen：把"网络断了任务就死"变成历史
 description: 五个必会操作、断线恢复、多人共享会话，以及五个"用了 tmux 还是丢任务"的原因。
-date: 2026-11-27
+date: 2025-09-09
 tags: [工具, tmux, Linux]
 ---
 

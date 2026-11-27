@@ -1,7 +1,7 @@
 ---
 title: RDMA 与 NCCL：多机训练到底快在哪
 description: InfiniBand 与 RoCEv2 的差别、PFC 与 ECN 为什么必须配、rdma-shared-device-plugin 怎么把 HCA 给 Pod，以及用 nccl-tests 证明带宽达标。
-date: 2026-11-27
+date: 2021-12-24
 tags: [RDMA, InfiniBand, RoCE, NCCL, GPU集群]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: TiDB 值不值得上：和 MySQL 分库分表的正面比较
 description: TiDB 的架构、什么时候真的需要它、五个成本项、迁移路径，以及"上了 TiDB 反而更慢"的三个原因。
-date: 2026-11-27
+date: 2024-10-05
 tags: [TiDB, MySQL, 数据库选型]
 ---
 

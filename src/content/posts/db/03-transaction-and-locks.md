@@ -1,7 +1,7 @@
 ---
 title: MySQL 事务与锁：为什么你的更新会超时
 description: 从一次 "Lock wait timeout" 讲清 InnoDB 的行锁、间隙锁、隔离级别与死锁检测，给出可复现的实验和规避写法。
-date: 2026-11-27
+date: 2021-09-30
 tags: [MySQL, 事务, 锁, 死锁, 数据库]
 ---
 

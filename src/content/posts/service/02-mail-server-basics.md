@@ -1,7 +1,7 @@
 ---
 title: 自建邮件服务器为什么难：SPF、DKIM、DMARC 与 IP 信誉
 description: 收邮件容易，发邮件能进收件箱才是难关。讲清邮件系统的组成、三条认证记录、25 端口限制与自建/托管的选择。
-date: 2026-11-27
+date: 2022-02-22
 tags: [邮件, Postfix, SPF, DKIM, DMARC]
 ---
 

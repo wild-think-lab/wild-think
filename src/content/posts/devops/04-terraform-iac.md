@@ -1,7 +1,7 @@
 ---
 title: Terraform 与 IaC：从"手点控制台"到可复现的基础设施
 description: state 到底是什么、plan/apply 的流程与安全边界、目录与模块怎么拆、remote backend 与锁、和 Ansible 的分工，以及几个真实踩过的坑。
-date: 2026-11-27
+date: 2022-07-14
 tags: [Terraform, IaC, 云原生, DevOps, 自动化]
 ---
 

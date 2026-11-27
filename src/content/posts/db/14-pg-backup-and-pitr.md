@@ -1,7 +1,7 @@
 ---
 title: PostgreSQL 备份与 PITR：能回到"删库前一秒"吗
 description: 逻辑备份与物理备份的差别、WAL 归档怎么配、PITR 完整步骤与验证、以及备份策略的成本与恢复目标。
-date: 2026-11-27
+date: 2024-01-22
 tags: [PostgreSQL, 备份, PITR, 数据库]
 ---
 

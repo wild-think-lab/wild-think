@@ -1,7 +1,7 @@
 ---
 title: Python 环境与依赖：从"我这能跑"到"谁都能跑"
 description: 三个 venv、两个 Python 版本、一份没锁版本的 requirements.txt，是 Python 项目最常见的现场。把解释器、环境、依赖锁三层分开管，问题会少一半。
-date: 2026-11-20
+date: 2026-01-28
 tags: [Python, 工程化, 依赖管理, 全栈]
 ---
 

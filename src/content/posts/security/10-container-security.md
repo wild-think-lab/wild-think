@@ -1,7 +1,7 @@
 ---
 title: 容器安全：从镜像到运行时的六道关
 description: 镜像来源与最小化、非 root 与只读根文件系统、capabilities 收口、seccomp 与网络策略、密钥注入、以及逃逸风险怎么评估。
-date: 2026-11-27
+date: 2023-03-02
 tags: [安全, 容器, Docker, Kubernetes]
 ---
 

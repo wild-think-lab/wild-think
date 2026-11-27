@@ -1,7 +1,7 @@
 ---
 title: 文件系统与 IO 调度：ext4、XFS、Btrfs 怎么选
 description: 四种文件系统的差异、IO 调度器的适配、挂载参数的性能与安全取舍、以及"删了文件空间不释放"的 FS 侧原因。
-date: 2026-11-27
+date: 2023-02-13
 tags: [Linux, 文件系统, IO, 存储]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: RHCE 备考笔记：那些"考试要考、工作常用"的操作
 description: ansible 常用模块、playbook 结构、变量与模板、以及五个考试/实战都容易踩的坑。
-date: 2026-11-27
+date: 2023-10-20
 tags: [Linux, RHCE, Ansible, 认证]
 ---
 

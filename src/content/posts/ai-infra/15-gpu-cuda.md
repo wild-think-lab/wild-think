@@ -1,7 +1,7 @@
 ---
 title: GPU 驱动与 CUDA 基础：nvidia-smi 之外的八个命令
 description: 驱动与 CUDA 的关系、版本矩阵怎么对、五个常见"显卡在但用不了"的原因。
-date: 2026-11-27
+date: 2025-02-28
 tags: [AI, GPU, CUDA]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 实验报告：用 kubeadm 搭一个能用的 Istio 实验环境
 description: 从零到"两条服务互相调用 + 灰度 + 熔断"的完整实验，含节点规划、安装步骤、验证方法与五个必踩的坑。
-date: 2026-11-27
+date: 2023-11-19
 tags: [实验, Istio, Kubernetes, 服务网格]
 ---
 

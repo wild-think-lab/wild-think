@@ -1,7 +1,7 @@
 ---
 title: CI/CD 流水线：从"能跑通"到"敢上线"
 description: 一条流水线的七个阶段、GitLab CI 与 Jenkins 的结构差异、缓存与并发怎么配、制品与回滚、以及"流水线慢"的五个常见原因。
-date: 2026-11-27
+date: 2022-10-16
 tags: [CI/CD, GitLab, Jenkins, DevOps, 自动化]
 ---
 

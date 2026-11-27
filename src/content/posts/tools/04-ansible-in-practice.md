@@ -1,7 +1,7 @@
 ---
 title: Ansible 实战：从 inventory 到可复用的 role
 description: 谁该用 Ansible、目录怎么排、幂等三条纪律、模板与变量优先级、批量执行的并发控制，以及"跑一半失败"怎么收场。
-date: 2026-11-27
+date: 2022-03-16
 tags: [Ansible, 自动化, 配置管理, 运维]
 ---
 

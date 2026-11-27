@@ -1,7 +1,7 @@
 ---
 title: Redis 高可用：主从、哨兵、Cluster 到底选哪个
 description: 三种模式的故障切换机制与盲点、哨兵部署要点、Cluster 的分片与限制、以及"切了主但客户端没切"的常见事故。
-date: 2026-11-27
+date: 2022-10-12
 tags: [Redis, 高可用, 哨兵, Cluster, 缓存]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: DevOps 岗面试：从 CI/CD 到"线上出事了怎么办"
 description: 高频题的真实考点、容易答错的边界问题、可加分的具体数字、以及反问环节该问什么。
-date: 2026-11-27
+date: 2023-05-06
 tags: [面试, DevOps, CI/CD, Kubernetes]
 ---
 

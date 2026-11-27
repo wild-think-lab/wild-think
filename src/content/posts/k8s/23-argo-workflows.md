@@ -1,7 +1,7 @@
 ---
 title: Argo Workflows：把"一堆脚本"变成可重跑的流水线
 description: DAG 与步骤式两种模板、artifacts 传递、与 CI 的分工，以及五个把工作流用成"定时脚本"的误区。
-date: 2026-11-27
+date: 2026-06-10
 tags: [Kubernetes, 工作流, Argo]
 ---
 

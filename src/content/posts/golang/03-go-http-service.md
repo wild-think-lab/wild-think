@@ -1,7 +1,7 @@
 ---
 title: 用 Go 写一个能上线的 HTTP 服务（不含框架）
 description: 从 net/http 起步：路由与中间件、配置与日志、超时与优雅关闭、健康检查、单测与 Dockerfile，全篇只用标准库，讲清楚每一步为什么这么做。
-date: 2026-11-27
+date: 2022-04-19
 tags: [Go, HTTP, 后端, 工程化, 部署]
 ---
 

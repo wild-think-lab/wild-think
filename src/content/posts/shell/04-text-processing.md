@@ -1,7 +1,7 @@
 ---
 title: 文本处理三剑客：grep / sed / awk 的实战用法
 description: 三个工具各自的定位、高频参数、日志统计的十个真实例子、性能差别，以及什么时候该换 Python。
-date: 2026-11-27
+date: 2022-09-03
 tags: [Shell, awk, sed, grep, 文本处理]
 ---
 

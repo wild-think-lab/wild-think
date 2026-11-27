@@ -1,7 +1,7 @@
 ---
 title: Go 并发：四种真正会在生产里用到的模式
 description: 限并发 worker pool、context 取消传播、errgroup 与信号量、超时与背压，以及 goroutine 泄漏怎么查。
-date: 2026-11-27
+date: 2022-10-25
 tags: [Go, 并发, context, 性能]
 ---
 

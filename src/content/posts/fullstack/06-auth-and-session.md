@@ -1,7 +1,7 @@
 ---
 title: 认证与会话：Session、JWT、OAuth2 到底该选哪个
 description: 三种主流方案的原理与代价、JWT 的五个常见误用、单点登录怎么串起来、Token 泄露与撤销怎么做，以及前后端分工的边界。
-date: 2026-11-27
+date: 2022-04-15
 tags: [认证, JWT, OAuth2, 安全, 后端]
 ---
 

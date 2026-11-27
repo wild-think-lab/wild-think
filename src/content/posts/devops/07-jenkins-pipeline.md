@@ -1,7 +1,7 @@
 ---
 title: Jenkins 流水线：把 Jenkinsfile 写成别人能接手的样子
 description: 声明式流水线的结构、并行与超时的正确用法、凭据管理、共享库该抽什么，以及"流水线越来越慢"的四个真实原因。
-date: 2026-11-27
+date: 2023-04-23
 tags: [Jenkins, CI, 流水线, DevOps]
 ---
 

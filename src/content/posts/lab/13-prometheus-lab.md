@@ -1,7 +1,7 @@
 ---
 title: 实验报告：用 Prometheus + Grafana 搭一套"能从 0 看懂"的监控
 description: 从零部署、抓取配置、告警规则、Grafana 面板，到一个"故意打挂服务"的验证实验。
-date: 2026-11-27
+date: 2024-02-17
 tags: [实验, Prometheus, Grafana, 监控]
 ---
 

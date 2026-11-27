@@ -1,7 +1,7 @@
 ---
 title: 用 eBPF 看清系统：不重启、不埋点也能观测
 description: bpftrace 十行脚本解决常见问题、bcc 工具速查、以及五个"eBPF 也不是万能"的边界。
-date: 2026-11-27
+date: 2025-01-20
 tags: [Linux, 可观测, eBPF]
 ---
 

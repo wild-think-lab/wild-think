@@ -1,7 +1,7 @@
 ---
 title: 用 Makefile 把一套操作收成一条命令
 description: 为什么用 Make 而不是一堆 shell 脚本、PHONY 与依赖、多环境参数、Tab 的坑、以及"Make 不适合做什么"。
-date: 2026-11-27
+date: 2024-03-31
 tags: [Makefile, 自动化, 工具]
 ---
 

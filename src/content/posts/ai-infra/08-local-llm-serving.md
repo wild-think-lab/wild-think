@@ -1,7 +1,7 @@
 ---
 title: 本地跑大模型：Ollama 与 vLLM 的分工
 description: 两者的定位差异、显存怎么估、量化格式的选择、并发与吞吐的真实数据，以及"为什么我的 4090 跑不动 70B"。
-date: 2026-11-27
+date: 2023-07-13
 tags: [AI, 推理, Ollama, vLLM, GPU]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 供应链安全：从依赖投毒到镜像签名
 description: 依赖混淆、typosquatting、构建环境被控、SBOM 与签名验证，以及五个能立刻做的检查。
-date: 2026-11-27
+date: 2025-08-27
 tags: [安全, 供应链, 依赖]
 ---
 

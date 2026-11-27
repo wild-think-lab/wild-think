@@ -1,7 +1,7 @@
 ---
 title: HPA 与 VPA：弹性伸缩为什么经常"不灵"
 description: HPA 的指标与算法、VPA 的三种模式、五个"扩了没效果"的原因、KEDA 事件驱动扩缩。
-date: 2026-11-27
+date: 2026-10-21
 tags: [Kubernetes, 弹性, 容量]
 ---
 

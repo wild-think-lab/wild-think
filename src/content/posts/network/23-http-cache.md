@@ -1,7 +1,7 @@
 ---
 title: HTTP 缓存与 CDN：为什么改了页面用户还是看到旧的
 description: 强缓存/协商缓存、ETag 与 Vary、CDN 刷新与预热，以及五个"缓存不生效"的原因。
-date: 2026-11-27
+date: 2025-10-22
 tags: [网络, HTTP, CDN]
 ---
 

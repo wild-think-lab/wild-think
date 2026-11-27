@@ -1,7 +1,7 @@
 ---
 title: 容器镜像瘦身：从 1.2GB 到 90MB 的六个动作
 description: 多阶段构建、基础镜像选择、层合并、.dockerignore、清理缓存、以及"为什么小了却更慢了"。
-date: 2026-11-27
+date: 2025-03-08
 tags: [Docker, 镜像, 优化]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 链路追踪：有了 trace_id，排障从两小时变成十分钟
 description: 三种采样策略、span 的划分粒度、跨服务传递、以及"接了链路还是定位不到"的五个原因。
-date: 2026-11-27
+date: 2025-08-14
 tags: [可观测, 链路追踪, OpenTelemetry]
 ---
 

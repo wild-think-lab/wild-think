@@ -1,7 +1,7 @@
 ---
 title: 从零写一个 Prometheus Exporter（Go，120 行）
 description: 用 Go 写一个真正能用的 exporter：指标设计、自采集逻辑、/metrics 端点、超时与错误处理，以及怎么本地验证。
-date: 2026-11-27
+date: 2024-11-08
 tags: [Go, Prometheus, 监控, Exporter]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Operator 与 CRD：把人的运维知识写成控制器
 description: CRD 与控制器的最小实现、Reconcile 的"期望 vs 实际"循环、finalizer 与状态机、以及"该不该自己写 Operator"的判断。
-date: 2026-11-27
+date: 2023-10-28
 tags: [Kubernetes, Operator, CRD, 扩展]
 ---
 

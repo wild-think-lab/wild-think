@@ -1,7 +1,7 @@
 ---
 title: gRPC 还是 REST：微服务之间到底用什么
 description: 两者的真实差别、性能数据背后的前提、gRPC 的六个运维难点、以及"内网 gRPC + 对外 REST"的混合方案。
-date: 2026-11-27
+date: 2025-06-28
 tags: [gRPC, REST, 微服务, 选型]
 ---
 

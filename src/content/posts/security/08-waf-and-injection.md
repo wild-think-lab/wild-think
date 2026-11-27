@@ -1,7 +1,7 @@
 ---
 title: WAF 与注入防御：把 OWASP Top 10 落到具体配置
 description: WAF 三种形态怎么选、规则集怎么调避免误杀、SQL 注入与 XSS 的真实防线在哪一层、四个常见绕过的思路，以及上线后要盯的指标。
-date: 2026-11-27
+date: 2022-08-26
 tags: [WAF, 安全, SQL注入, XSS, 防护]
 ---
 

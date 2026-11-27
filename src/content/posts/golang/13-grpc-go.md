@@ -1,7 +1,7 @@
 ---
 title: Go 写 gRPC 服务：从 proto 到能上线
 description: proto 设计、代码生成、拦截器、超时与重试、五个"本地通线上不通"的原因。
-date: 2026-11-27
+date: 2024-10-18
 tags: [Go, gRPC, 服务]
 ---
 

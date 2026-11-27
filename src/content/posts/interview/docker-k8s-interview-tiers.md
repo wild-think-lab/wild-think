@@ -1,7 +1,7 @@
 ---
 title: Docker 与 K8s 面试：三个层次答法，别一上来就背组件
 description: 面试里"讲讲 Docker 原理"这类问题的失分点不在知识量，而在层次。按结论—原理—追问三层组织答案，20 个高频题的实际考法。
-date: 2026-11-19
+date: 2025-08-01
 tags: [面试, Docker, Kubernetes, 云原生]
 ---
 

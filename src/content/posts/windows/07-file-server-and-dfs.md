@@ -1,7 +1,7 @@
 ---
 title: Windows 文件服务器与 DFS：共享目录怎么规划才算能用
 description: 共享权限与 NTFS 权限的叠加关系、DFS 命名空间的用途、配额与文件筛选、备份与"被勒索"后的恢复前提。
-date: 2026-11-27
+date: 2023-07-09
 tags: [Windows, 文件服务器, DFS, 权限, 备份]
 ---
 

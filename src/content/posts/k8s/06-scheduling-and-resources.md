@@ -1,7 +1,7 @@
 ---
 title: K8s 调度与资源：requests、limits 与 QoS 的真实行为
 description: 调度器到底看哪些字段、requests/limits 各自作用于什么、QoS 三档与驱逐顺序、亲和与污点怎么用、HPA 为什么"不扩容"。
-date: 2026-11-27
+date: 2023-02-05
 tags: [Kubernetes, 调度, 资源管理, QoS, 排障]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: CCNA 笔记：路由交换里"考试与工作都考"的部分
 description: 子网划分心算、OSPF 与 VLAN 的关键配置、ACL 顺序陷阱，以及五个"配了不生效"的原因。
-date: 2026-11-27
+date: 2024-01-18
 tags: [网络, CCNA, 认证]
 ---
 

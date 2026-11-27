@@ -1,7 +1,7 @@
 ---
 title: Windows 故障转移集群：SQL Server 与文件共享的高可用
 description: 集群的三个层次、仲裁（Quorum）为什么最容易配错、共享存储的硬要求、故障切换的验证方式，以及"裂脑"的预防。
-date: 2026-11-27
+date: 2024-04-08
 tags: [Windows, 集群, 高可用, SQLServer]
 ---
 

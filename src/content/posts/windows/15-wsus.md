@@ -1,7 +1,7 @@
 ---
 title: WSUS 补丁管理：为什么总有机器打不上补丁
 description: WSUS 的分层结构与组策略配置、常见"补丁不下发/装失败"的五类原因，以及替代方案。
-date: 2026-11-27
+date: 2025-05-03
 tags: [Windows, 补丁, WSUS]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 消息队列选型：Kafka、RocketMQ、RabbitMQ 到底怎么选
 description: 三种模型的本质差异（日志/队列/路由）、吞吐与延迟对比、可靠性与顺序性，以及五个选型问题。
-date: 2026-11-27
+date: 2026-02-23
 tags: [消息队列, Kafka, RocketMQ, RabbitMQ]
 ---
 

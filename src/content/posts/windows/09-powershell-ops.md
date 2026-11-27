@@ -1,7 +1,7 @@
 ---
 title: PowerShell 运维：比 Bash 更适合 Windows 的那一半
 description: 对象管道与 Bash 文本流的差异、批量管理服务与日志、远程执行、错误处理的坑，以及五个常用运维脚本。
-date: 2026-11-27
+date: 2024-01-09
 tags: [Windows, PowerShell, 自动化, 运维]
 ---
 

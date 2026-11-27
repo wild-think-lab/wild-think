@@ -1,7 +1,7 @@
 ---
 title: OpenTelemetry Collector：把"三种信号"收进一条管道
 description: 三条 pipeline（traces/metrics/logs）、processor 顺序、部署形态与五个"接了 OTel 还是查不到"的原因。
-date: 2026-11-27
+date: 2026-06-14
 tags: [监控, 可观测, OpenTelemetry]
 ---
 

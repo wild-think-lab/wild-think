@@ -1,7 +1,7 @@
 ---
 title: K8s 存储：PV、PVC 与 StatefulSet 到底怎么用
 description: 三种访问模式、绑定与回收策略、StatefulSet 的卷模板、以及五个"数据消失"的真实原因。
-date: 2026-11-27
+date: 2026-02-02
 tags: [Kubernetes, 存储, 有状态]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: perf 与 eBPF：定位"看不出原因"的性能问题
 description: 采样火焰图怎么读、perf 的四个常用子命令、eBPF 能回答哪些 strace 回答不了的问题，附一次真实的 CPU 飙高排查。
-date: 2026-11-27
+date: 2022-08-08
 tags: [Linux, 性能, perf, eBPF, 火焰图]
 ---
 

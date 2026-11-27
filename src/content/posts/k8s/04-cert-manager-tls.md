@@ -1,7 +1,7 @@
 ---
 title: cert-manager：让证书不再过期
 description: Ingress 的 TLS 证书怎么自动签发与续期、内部 CA 怎么给内网服务发证、HTTP-01 与 DNS-01 怎么选，以及三个最常见的失败原因。
-date: 2026-11-27
+date: 2022-07-31
 tags: [cert-manager, TLS, 证书, Kubernetes, 安全]
 ---
 

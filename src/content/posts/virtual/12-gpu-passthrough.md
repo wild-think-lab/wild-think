@@ -1,7 +1,7 @@
 ---
 title: GPU 直通与虚拟化：vfio 到底在做什么
 description: 直通、SR-IOV、vGPU 三种方式的差别、最小可跑配置、以及五个"直通之后虚拟机起不来"的原因。
-date: 2026-11-27
+date: 2024-09-22
 tags: [虚拟化, GPU, vfio]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 准入策略：用 Kyverno 把"规范"变成"强制"
 description: Kyverno 与 OPA 的分工、四条最该上线的策略、以及五个让策略"上线就崩"的坑。
-date: 2026-11-27
+date: 2026-04-28
 tags: [Kubernetes, 安全, 策略]
 ---
 

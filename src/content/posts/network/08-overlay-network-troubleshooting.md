@@ -1,7 +1,7 @@
 ---
 title: Overlay 网络排障：VXLAN 场景下"跨节点不通"的四种原因
 description: VXLAN 的封装原理与 MTU 代价、跨节点不通的排查顺序、tcpdump 在哪一侧抓包、flannel/calico 的路由模式差异。
-date: 2026-11-27
+date: 2022-05-15
 tags: [网络, VXLAN, Overlay, Kubernetes, 排障]
 ---
 

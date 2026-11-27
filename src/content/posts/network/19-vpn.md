@@ -1,7 +1,7 @@
 ---
 title: VPN 选型：IPsec、WireGuard、OpenVPN 到底怎么选
 description: 三种 VPN 的适用场景与性能差异、WireGuard 的十分钟搭建、以及五个"通了但很慢/很不稳"的原因。
-date: 2026-11-27
+date: 2025-01-29
 tags: [网络, VPN, 安全]
 ---
 

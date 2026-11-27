@@ -1,7 +1,7 @@
 ---
 title: 第一个能上线的 Shell 脚本：从 shebang 到 set -euo pipefail
 description: 大部分“运维脚本”死在错误处理和变量引用上。这篇给你一个安全骨架，以后所有脚本从它开始。
-date: 2026-11-24
+date: 2021-11-24
 tags: [Shell, 脚本, 自动化, 入门]
 ---
 

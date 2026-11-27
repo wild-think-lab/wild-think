@@ -1,7 +1,7 @@
 ---
 title: OOM Killer：谁杀了我的进程
 description: 为什么会被杀、怎么找出"谁吃了内存"、cgroup 与内核两套机制，以及五个"内存看着够却 OOM"的原因。
-date: 2026-11-27
+date: 2025-08-10
 tags: [Linux, 内存, 排障]
 ---
 

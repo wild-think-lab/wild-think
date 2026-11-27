@@ -1,7 +1,7 @@
 ---
 title: Prometheus + Grafana 最小可用栈（含抓取与告警配置）
 description: 从零搭一套能用的监控：node_exporter 采集、PromQL 查询、Grafana 面板、Alertmanager 发通知。
-date: 2026-11-23
+date: 2022-02-05
 tags: [监控, Prometheus, Grafana, PromQL, 实验]
 ---
 

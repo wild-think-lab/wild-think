@@ -1,7 +1,7 @@
 ---
 title: CNI 到底怎么让 Pod 通：从 veth 到 overlay
 description: 三种 CNI 模式（overlay/underlay/云原生）、MTU 与路由、NetworkPolicy 生效条件,以及五个"Pod 不通"的排查顺序。
-date: 2026-11-27
+date: 2026-09-17
 tags: [Kubernetes, 网络, CNI]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: curl 排障手册：把"接口不通"拆成五步
 description: 十五个真正有用的 curl 参数、从 DNS 到 TLS 的验证顺序，以及五个"curl 通了但应用不通"的原因。
-date: 2026-11-27
+date: 2025-04-29
 tags: [工具, curl, 排障]
 ---
 

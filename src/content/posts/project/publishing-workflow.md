@@ -1,7 +1,7 @@
 ---
 title: 项目：本站的发布流程与内容工作流
 description: 从写好一篇 Markdown 到线上可访问，中间有几步是必须的：schema 校验、base 前缀、索引重建、发布验证。这份记录可当作模板复用。
-date: 2026-11-27
+date: 2025-12-29
 tags: [项目, GitHub Pages, 发布流程, 工作流, Astro]
 ---
 
@@ -17,7 +17,7 @@ Frontmatter 必填项：
 ---
 title: 标题（不超过 30 字，会出现在列表与 SEO 标题）
 description: 一句话摘要（列表页与搜索结果都用它）
-date: 2026-11-27
+date: 2025-12-29
 tags: [Linux, 排障, 日志]
 featured: false       # 可选
 draft: false          # 可选，true 不参与构建

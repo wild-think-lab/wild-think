@@ -1,7 +1,7 @@
 ---
 title: CKA 备考：考什么、怎么练、哪些坑最容易丢分
 description: CKA 的题型与时间分配、必练的十二个场景、kubectl 速度技巧、文档怎么用、以及"能操作但拿不到分"的四个原因。
-date: 2026-11-27
+date: 2022-07-05
 tags: [CKA, Kubernetes, 认证, 备考]
 ---
 

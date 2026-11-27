@@ -1,7 +1,7 @@
 ---
 title: LDAP 与 SSO：一套账号打通所有系统
 description: LDAP 的模型、SSO 三种协议（OAuth2/OIDC/SAML）的取舍、对接内网系统的步骤，以及"用户能登录但没权限"的排查。
-date: 2026-11-27
+date: 2024-11-26
 tags: [身份认证, LDAP, SSO, 运维]
 ---
 

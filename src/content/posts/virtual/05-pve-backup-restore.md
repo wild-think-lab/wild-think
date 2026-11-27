@@ -1,7 +1,7 @@
 ---
 title: Proxmox VE 的备份与恢复： vzdump、PBS 与"真的能还原吗"
 description: 三种备份方式（ vzdump 快照/停止/挂起）、备份保留策略、Proxmox Backup Server 的增量去重、恢复单文件与整机的差别，以及恢复演练清单。
-date: 2026-11-27
+date: 2022-12-28
 tags: [Proxmox, 备份, 虚拟化, 恢复]
 ---
 

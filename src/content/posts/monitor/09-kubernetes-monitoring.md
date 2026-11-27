@@ -1,7 +1,7 @@
 ---
 title: 集群监控：kube-state-metrics 之外你还缺什么
 description: 集群监控的四类数据、kube-state-metrics 能给你什么、节点与容器的指标怎么采、三类必配告警，以及"节点 NotReady"的排查顺序。
-date: 2026-11-27
+date: 2023-11-27
 tags: [Kubernetes, 监控, Prometheus, 指标]
 ---
 

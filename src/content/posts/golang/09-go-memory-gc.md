@@ -1,7 +1,7 @@
 ---
 title: Go 的内存与 GC：为什么"内存一直涨"不一定是泄漏
 description: GOGC 与 GOMEMLIMIT、堆与栈、逃逸分析、常见"看起来泄漏"的四种情况，以及怎么真正确认泄漏。
-date: 2026-11-27
+date: 2023-11-06
 tags: [Go, GC, 内存, 性能]
 ---
 

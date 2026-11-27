@@ -1,7 +1,7 @@
 ---
 title: Kubernetes 集群升级：版本顺序、风险点与回退边界
 description: 版本偏斜规则与升级顺序、kubeadm 升级的实际步骤、API 变更导致的兼容问题、以及"升了之后不能降"的现实约束。
-date: 2026-11-27
+date: 2023-11-14
 tags: [Kubernetes, 升级, kubeadm, 运维]
 ---
 

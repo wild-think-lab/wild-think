@@ -1,7 +1,7 @@
 ---
 title: ClickHouse 入门：什么时候该用它，什么时候别用
 description: 与 MySQL 的本质差别、建表与分区设计、常见查询写法、写入与合并机制，以及"查得慢"的四个原因。
-date: 2026-11-27
+date: 2024-04-17
 tags: [ClickHouse, OLAP, 数据库, 大数据]
 ---
 

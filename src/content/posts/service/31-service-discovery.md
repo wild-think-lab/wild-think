@@ -1,7 +1,7 @@
 ---
 title: 服务发现：注册中心该选谁、为什么常常不需要
 description: DNS、Consul、Nacos、K8s Service 的适用边界，以及五个"上了注册中心反而更乱"的原因。
-date: 2026-11-27
+date: 2026-09-25
 tags: [架构, 微服务, 服务发现]
 ---
 

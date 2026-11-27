@@ -1,7 +1,7 @@
 ---
 title: Python 服务的生产化：从 "python app.py" 到能扛流量的服务
 description: Gunicorn/Uvicorn 的选择、worker 数、优雅重启、依赖锁定、日志与健康检查，以及五个必改项。
-date: 2026-11-27
+date: 2024-04-25
 tags: [Python, 部署, 后端]
 ---
 

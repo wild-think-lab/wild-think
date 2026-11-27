@@ -1,7 +1,7 @@
 ---
 title: Windows 安全基线：服务器装完先做这十二项
 description: 账号、审计、远程、补丁、服务、共享与 PowerShell 的安全配置，每项配可执行的命令。
-date: 2026-11-27
+date: 2025-07-11
 tags: [Windows, 安全, 基线]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: GPU 怎么进 Kubernetes：一条版本链上的五个环节
 description: 裸机上的 GPU 到 Pod 里的 GPU，中间隔着驱动、运行时、device plugin、Operator 四层。任何一层版本错位，都会表现成"nvidia-smi 不存在"。
-date: 2026-11-27
+date: 2021-09-21
 tags: [GPU, Kubernetes, CUDA, device-plugin, AI基础设施]
 featured: true
 ---

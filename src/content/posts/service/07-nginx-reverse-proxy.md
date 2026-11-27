@@ -1,7 +1,7 @@
 ---
 title: Nginx 反向代理：配置骨架、缓冲调优与 502/504 排查
 description: 一个能直接上线的 proxy 配置骨架、upstream 健康检查与重试、buffer 与超时参数怎么定、TLS 参数基线，以及 502/504/499 各自该往哪儿查。
-date: 2026-11-27
+date: 2022-05-28
 tags: [Nginx, 反向代理, TLS, 排障, 运维]
 ---
 

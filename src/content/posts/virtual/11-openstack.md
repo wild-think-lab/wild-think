@@ -1,7 +1,7 @@
 ---
 title: OpenStack 入门：它和"云"的关系，以及为什么难用
 description: 六个核心组件、最小部署形态、与 K8s/vSphere 的定位差别，以及五个让运维头疼的现实问题。
-date: 2026-11-27
+date: 2024-06-29
 tags: [OpenStack, 私有云, 虚拟化]
 ---
 

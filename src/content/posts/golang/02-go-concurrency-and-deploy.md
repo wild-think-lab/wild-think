@@ -1,7 +1,7 @@
 ---
 title: Go 并发怎么写才不出事：goroutine、context 与限流
 description: 并发不是开得越多越快。讲清 goroutine 的生命周期、context 取消传播、WaitGroup 与信号量限流，附一个并发采集器的正确写法。
-date: 2026-11-27
+date: 2022-01-15
 tags: [Go, 并发, context, 工程实践]
 ---
 

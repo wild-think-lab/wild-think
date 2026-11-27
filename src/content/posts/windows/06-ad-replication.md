@@ -1,7 +1,7 @@
 ---
 title: AD 域复制排障：dcdiag、repadmin 与"为什么用户登不进来"
 description: 复制的三个通道、站点与桥头堡、dcdiag 输出怎么读、repadmin 五条命令、USN 回滚与墓碑时间，以及客户端登录失败的排查顺序。
-date: 2026-11-27
+date: 2023-04-06
 tags: [AD, 域控, 复制, Windows, 排障]
 ---
 

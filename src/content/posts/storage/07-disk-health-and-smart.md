@@ -1,7 +1,7 @@
 ---
 title: 磁盘故障预警：SMART 告诉你硬盘还剩几天
 description: SMART 里哪几个属性真正有用、RAID 卡与 SSD 的特殊情况、怎么批量巡检、以及"Pending Sector"出现后该做什么。
-date: 2026-11-27
+date: 2023-06-26
 tags: [存储, 磁盘, SMART, 运维]
 ---
 

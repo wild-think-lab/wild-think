@@ -1,7 +1,7 @@
 ---
 title: Elasticsearch 运维：分片、堆内存与"集群变红"
 description: 分片数怎么定、堆内存为什么不能超过 31G、red/yellow 的处置顺序，以及五个把集群搞崩的查询。
-date: 2026-11-27
+date: 2025-05-12
 tags: [Elasticsearch, 搜索, 运维]
 ---
 

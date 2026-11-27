@@ -1,7 +1,7 @@
 ---
 title: PostgreSQL 的 vacuum 与膨胀：为什么表越用越大
 description: MVCC 与死元组、autovacuum 调参、膨胀检测 SQL，以及五个"vacuum full 把库锁死"的原因。
-date: 2026-11-27
+date: 2026-07-27
 tags: [数据库, PostgreSQL, 运维]
 ---
 

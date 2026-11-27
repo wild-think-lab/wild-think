@@ -1,7 +1,7 @@
 ---
 title: 从 Pod 到集群：Kubernetes 的六个核心对象
 description: 不背概念，按"我要跑一个服务"的顺序走一遍：Pod、Deployment、Service、Ingress、ConfigMap/Secret、Namespace 各自解决什么问题。
-date: 2026-11-27
+date: 2021-10-21
 tags: [Kubernetes, 容器, 编排, 云原生]
 featured: true
 ---

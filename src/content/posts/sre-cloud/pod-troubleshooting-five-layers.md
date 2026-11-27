@@ -1,7 +1,7 @@
 ---
 title: Pod 起不来的五层排查法：从 Pending 到 CrashLoopBackOff
 description: K8s 里"Pod 不健康"是一句无效描述。按调度—网络—存储—镜像—进程五层拆解，每一层都有对应的 describe/events/logs 判据。
-date: 2026-11-16
+date: 2026-04-11
 tags: [Kubernetes, Pod, 排障, 云原生, SRE]
 ---
 

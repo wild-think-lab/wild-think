@@ -1,7 +1,7 @@
 ---
 title: Istio 流量治理：重试、超时、熔断与限流怎么配才不互相打架
 description: VirtualService 的四类治理能力、超时链怎么对齐、重试的爆炸风险、熔断阈值与连接池的关系，以及"配了但没生效"的排查。
-date: 2026-11-27
+date: 2024-02-12
 tags: [Istio, Service Mesh, 流量治理, Kubernetes]
 ---
 

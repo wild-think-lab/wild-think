@@ -1,7 +1,7 @@
 ---
 title: OpenResty：用 Lua 把 Nginx 变成一台可编程的边缘网关
 description: 为什么用 OpenResty 而不是写 Nginx 模块、11 个阶段模型、四个能立刻用上的场景（鉴权、限流、灰度、聚合）、共享字典与坑。
-date: 2026-11-27
+date: 2023-03-07
 tags: [OpenResty, Nginx, Lua, 网关, 限流]
 ---
 

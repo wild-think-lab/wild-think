@@ -1,7 +1,7 @@
 ---
 title: 一次真实的 K8s 故障排查：Pod 一直在重启
 description: 从告警到定位的完整路径：CrashLoop、OOMKilled、探针误杀、节点资源不足四类问题怎么区分，以及该留哪些现场。
-date: 2026-11-27
+date: 2022-01-23
 tags: [Kubernetes, 排障, 运维, OOM]
 ---
 

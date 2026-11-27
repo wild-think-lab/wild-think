@@ -1,7 +1,7 @@
 ---
 title: Ansible 之外的自动化：什么时候该从 playbook 换到"配置管理平台"
 description: Ansible 的边界在哪、SaltStack 与 Puppet 的定位、幂等与收敛的区别、以及"该不该上平台"的判断表。
-date: 2026-11-27
+date: 2023-03-28
 tags: [自动化, Ansible, SaltStack, 配置管理]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 代码质量门禁：SonarQube 该怎么配才不招人恨
 description: 三类规则的理解、质量门的阈值设定、新代码与全量的差别，以及五个"上线就全员抵触"的做法。
-date: 2026-11-27
+date: 2025-04-12
 tags: [DevOps, 代码质量, SonarQube]
 ---
 

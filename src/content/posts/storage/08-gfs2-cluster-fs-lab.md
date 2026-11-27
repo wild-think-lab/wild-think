@@ -1,7 +1,7 @@
 ---
 title: 实验报告：GFS2 集群文件系统，两台机器同时写一个卷
 description: 用 iSCSI 共享 LUN + GFS2 + Pacemaker 做"多节点同时读写"，讲清为什么 NFS 之外的方案也需要、锁与 fencing 的作用。
-date: 2026-11-27
+date: 2023-09-28
 tags: [实验, 存储, GFS2, 集群]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Terraform 实战：把基础设施写成能 review 的代码
 description: state 管理、模块划分、provider 与 workspace、plan/apply 的规矩，以及五个"一上生产就出事"的习惯。
-date: 2026-11-27
+date: 2024-09-18
 tags: [Terraform, IaC, DevOps]
 ---
 

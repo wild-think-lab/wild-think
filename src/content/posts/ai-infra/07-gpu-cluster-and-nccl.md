@@ -1,7 +1,7 @@
 ---
 title: GPU 集群与 NCCL：多卡训练为什么卡在通信上
 description: 三种并行（数据/张量/流水）的通信模式、NCCL 的 Ring 与 Tree 算法、IB 与 RoCE 的差别、拓扑亲和与"GPU 利用率上不去"的定位。
-date: 2026-11-27
+date: 2023-04-10
 tags: [AI基础设施, GPU, NCCL, RDMA, 训练集群]
 ---
 

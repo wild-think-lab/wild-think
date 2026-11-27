@@ -1,7 +1,7 @@
 ---
 title: MySQL 在线 DDL：几亿行的表怎么改字段不锁死业务
 description: 三种 DDL 算法、INPLACE 与 COPY 的差别、gh-ost/pt-osc 的取舍、加索引与改类型的实际代价、以及变更窗口怎么定。
-date: 2026-11-27
+date: 2023-04-18
 tags: [MySQL, DDL, 运维, 大表]
 ---
 

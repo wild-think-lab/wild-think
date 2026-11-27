@@ -1,7 +1,7 @@
 ---
 title: 节点 NotReady 与资源压力：K8s 侧的五层排查
 description: 从 node status 到 kubelet、容器运行时、内核，一条自下而上的排查路径。
-date: 2026-11-27
+date: 2026-07-10
 tags: [Kubernetes, 排障]
 ---
 

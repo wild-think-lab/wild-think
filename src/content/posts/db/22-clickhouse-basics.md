@@ -1,7 +1,7 @@
 ---
 title: ClickHouse 上手：把 10 亿行日志查成 1 秒
 description: 表引擎怎么选、分区与排序键设计、六个让查询慢十倍的反模式，以及和 MySQL 的分工。
-date: 2026-11-27
+date: 2025-09-22
 tags: [ClickHouse, 数据库, 大数据]
 ---
 

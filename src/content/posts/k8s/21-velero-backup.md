@@ -1,7 +1,7 @@
 ---
 title: K8s 备份与迁移：Velero 能救什么、救不了什么
 description: Velero 的备份对象、恢复顺序、跨集群迁移的做法，以及五个"以为备份了其实没备"的坑。
-date: 2026-11-27
+date: 2026-03-16
 tags: [Kubernetes, 备份, Velero]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: GitOps 落地：ArgoCD 从装到用，以及五个会咬人的细节
 description: 声明式部署的完整链路、Application/AppProject 的区别、同步策略、多环境管理，以及镜像更新的正确做法。
-date: 2026-11-27
+date: 2025-05-16
 tags: [GitOps, ArgoCD, DevOps, Kubernetes]
 ---
 

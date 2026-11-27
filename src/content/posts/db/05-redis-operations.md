@@ -1,7 +1,7 @@
 ---
 title: Redis 运维治理：内存、淘汰策略与热 Key
 description: 线上 Redis 最常见的四类问题：内存涨到打满、大 Key 拖慢全库、热 Key 打爆单核、持久化影响延迟。逐个给出定位命令与治理手段。
-date: 2026-11-27
+date: 2022-04-06
 tags: [Redis, 缓存, 内存, 大Key, 运维]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: WSUS 补丁管理：从审批环到"补丁打不上"的排查
 description: WSUS 角色部署、组策略下发、审批环与维护窗口怎么定、磁盘与清理、PowerShell 报表，以及常见失败码对应的处理办法。
-date: 2026-11-27
+date: 2023-01-01
 tags: [WSUS, Windows, 补丁管理, 域控, GPO]
 ---
 

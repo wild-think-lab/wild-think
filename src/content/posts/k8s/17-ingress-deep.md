@@ -1,7 +1,7 @@
 ---
 title: Kubernetes Ingress 深入：从"能用"到"能撑住"
 description: Ingress、IngressClass、Gateway API 的区别，注解与 TLS、五种必须掌握的场景配置，以及 ingress-nginx 的调优。
-date: 2026-11-27
+date: 2025-08-05
 tags: [Kubernetes, Ingress, 网络]
 ---
 

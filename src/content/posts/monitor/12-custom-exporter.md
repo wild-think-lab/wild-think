@@ -1,7 +1,7 @@
 ---
 title: 自己写一个 exporter：把业务指标接进 Prometheus
 description: 四种指标暴露方式、Go/Python 两种实现、指标命名的规范、以及"自定义指标接不上"的排查。
-date: 2026-11-27
+date: 2024-08-15
 tags: [监控, Prometheus, exporter, 指标]
 ---
 

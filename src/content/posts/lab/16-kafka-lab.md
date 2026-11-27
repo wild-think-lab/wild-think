@@ -1,7 +1,7 @@
 ---
 title: Kafka 三节点实验：从零跑通生产消费与故障演练
 description: 完整实验报告——单机三 broker、topic 分区与副本、消费者组再平衡、杀掉一个 broker 观察。
-date: 2026-11-27
+date: 2024-10-31
 tags: [实验, Kafka, 消息队列]
 ---
 

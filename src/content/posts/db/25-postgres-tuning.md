@@ -1,7 +1,7 @@
 ---
 title: PostgreSQL 调优：从默认配置到"能撑住业务"
 description: shared_buffers、work_mem、连接数、autovacuum、WAL 与检查点，五个必改项与五个误配。
-date: 2026-11-27
+date: 2026-03-08
 tags: [PostgreSQL, 数据库, 调优]
 ---
 

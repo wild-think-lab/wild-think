@@ -1,7 +1,7 @@
 ---
 title: Helm 深入：chart 写得好不好，看这五件事
 description: values 的分层、模板里的 helper、依赖与 hooks，以及五个"chart 谁都不敢改"的原因。
-date: 2026-11-27
+date: 2026-03-12
 tags: [DevOps, Kubernetes, Helm]
 ---
 

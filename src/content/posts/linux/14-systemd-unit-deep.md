@@ -1,7 +1,7 @@
 ---
 title: systemd unit 写对了能省很多事
 description: 从"能起来"到"生产级"：依赖顺序、重启策略、资源限制、日志、安全加固、以及五个常见写错的配置。
-date: 2026-11-27
+date: 2024-02-21
 tags: [Linux, systemd, 运维]
 ---
 

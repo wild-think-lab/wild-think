@@ -1,7 +1,7 @@
 ---
 title: Windows Server 的 DNS 与 DHCP 角色：域环境里的隐形地基
 description: 域控自带 DNS 怎么用、DHCP 授权机制、作用域与保留、以及"域内机器加不进域"的七成原因在这里。
-date: 2026-11-27
+date: 2022-09-29
 tags: [Windows, DNS, DHCP, 域控, 网络服务]
 ---
 

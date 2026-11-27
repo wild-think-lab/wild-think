@@ -1,7 +1,7 @@
 ---
 title: 实验：Keepalived + Nginx 双机热备（含脑裂处理）
 description: 用 VIP 实现秒级切换：keepalived 配置、健康检查脚本、脑裂的成因与防护，附可复现的验证步骤。
-date: 2026-11-27
+date: 2022-01-28
 tags: [实验, Keepalived, 高可用, Nginx, VIP]
 ---
 

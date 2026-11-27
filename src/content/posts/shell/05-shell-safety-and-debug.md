@@ -1,7 +1,7 @@
 ---
 title: Shell 脚本的"安全阀"：set -euo pipefail 到底做了什么
 description: 三个选项各自的真实行为、哪些情况它救不了你、trap 清理的正确写法、以及调试脚本的四种手段。
-date: 2026-11-27
+date: 2022-12-06
 tags: [Shell, 脚本, 调试, 健壮性]
 ---
 

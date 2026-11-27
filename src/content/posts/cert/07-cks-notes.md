@@ -1,7 +1,7 @@
 ---
 title: CKS 备考笔记：Kubernetes 安全该会的那些事
 description: CKS 考什么、六个必考方向的实操命令、集群加固清单、以及从 CKA 到 CKS 的心态变化。
-date: 2026-11-27
+date: 2023-04-14
 tags: [认证, CKS, Kubernetes, 安全]
 ---
 

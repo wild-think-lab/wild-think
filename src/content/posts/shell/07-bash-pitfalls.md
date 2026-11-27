@@ -1,7 +1,7 @@
 ---
 title: Bash 脚本里那些"看着对却会炸"的写法
 description: set -euo pipefail 的边界、管道与子 shell、数组与空格、退出码陷阱，以及十个高频错误。
-date: 2026-11-27
+date: 2023-06-13
 tags: [Shell, Bash, 脚本]
 ---
 

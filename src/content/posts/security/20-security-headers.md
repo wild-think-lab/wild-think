@@ -1,7 +1,7 @@
 ---
 title: 安全响应头：五个 header 挡住一大半低级攻击
 description: CSP、HSTS、X-Frame-Options、Referrer-Policy、Permissions-Policy 的配置、验证与踩坑。
-date: 2026-11-27
+date: 2025-06-24
 tags: [安全, Web安全, HTTP]
 ---
 

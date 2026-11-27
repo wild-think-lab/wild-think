@@ -1,7 +1,7 @@
 ---
 title: Windows 侧的效率工具箱：包管理、终端与脚本
 description: 别再用"下载安装包 → 下一步 → 下一步"。winget/scoop 管软件、Windows Terminal + PowerShell 7 管终端、计划任务与 profile 管自动化。
-date: 2026-11-27
+date: 2021-12-11
 tags: [Windows, 工具, winget, PowerShell, 效率]
 ---
 

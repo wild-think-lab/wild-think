@@ -1,7 +1,7 @@
 ---
 title: MTU 与分片：VPN 通了但网页打不开
 description: MTU 是怎么把"能 ping 通"和"能打开网页"分开的、MSS 钳制的原理、四种检测方法，以及云环境里的常见值。
-date: 2026-11-27
+date: 2023-08-29
 tags: [网络, MTU, VPN, 排障]
 ---
 

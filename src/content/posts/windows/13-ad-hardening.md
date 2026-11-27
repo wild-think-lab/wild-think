@@ -1,7 +1,7 @@
 ---
 title: AD 域加固：十个最容易被审计开单的地方
 description: 从 kerberoasting 到 SMB 签名，十个具体的域内风险点、检测命令与加固动作。
-date: 2026-11-27
+date: 2024-12-17
 tags: [Windows, AD, 安全, 加固]
 ---
 

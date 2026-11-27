@@ -1,7 +1,7 @@
 ---
 title: MySQL 主从延迟：为什么从库总是慢半拍
 description: 延迟的四个来源（大事务、单线程回放、锁等待、网络）、Seconds_Behind_Master 会骗人、并行复制怎么开、以及"读从库读到旧数据"的应对。
-date: 2026-11-27
+date: 2023-07-22
 tags: [MySQL, 主从复制, 延迟, 数据库]
 ---
 

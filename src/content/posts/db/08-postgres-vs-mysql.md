@@ -1,7 +1,7 @@
 ---
 title: PostgreSQL 与 MySQL 怎么选：不看热度看场景
 description: 两者在事务、索引、复制、JSON、扩展性上的真实差别，八个场景对号入座，迁移时要付的代价，以及"两个都上"的常见架构。
-date: 2026-11-27
+date: 2022-07-09
 tags: [PostgreSQL, MySQL, 数据库, 选型]
 ---
 

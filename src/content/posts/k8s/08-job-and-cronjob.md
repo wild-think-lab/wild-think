@@ -1,7 +1,7 @@
 ---
 title: Job 与 CronJob：批处理任务在 K8s 上的正确写法
 description: Job 的四种完成语义、并行度与索引、失败重试与 backoff、CronJob 的时区与并发策略、以及"任务跑了两次"的常见原因。
-date: 2026-11-27
+date: 2023-08-12
 tags: [Kubernetes, Job, CronJob, 批处理]
 ---
 

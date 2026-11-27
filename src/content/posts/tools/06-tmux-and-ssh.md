@@ -1,7 +1,7 @@
 ---
 title: tmux 与 SSH 效率清单：把"一天敲 300 次"的活省掉
 description: tmux 的会话分离与窗口布局、SSH 的 config 与跳板复用、免密与 agent 转发、以及几条能立刻提速的操作习惯。
-date: 2026-11-27
+date: 2022-09-20
 tags: [效率, tmux, SSH, 命令行]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Hyper-V 实战：Windows 上的虚拟化怎么配才不踩坑
 description: 启用条件、虚拟交换机三种模式、与 VMware 的冲突、动态内存与检查点、以及"虚拟机网络不通"的排查顺序。
-date: 2026-11-27
+date: 2023-10-07
 tags: [Windows, Hyper-V, 虚拟化, 网络]
 ---
 

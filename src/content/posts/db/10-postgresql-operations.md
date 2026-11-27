@@ -1,7 +1,7 @@
 ---
 title: PostgreSQL 运维要点：和 MySQL 不一样的那些地方
 description: 连接与内存模型、vacuum 与表膨胀、WAL 与归档、复制与逻辑订阅、以及 PG 上最容易误判的三个指标。
-date: 2026-11-27
+date: 2023-01-14
 tags: [PostgreSQL, 数据库, 运维, 调优]
 ---
 

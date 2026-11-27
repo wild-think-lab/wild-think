@@ -1,7 +1,7 @@
 ---
 title: 用 Go 写一个生产可用的 HTTP 服务（不是 demo）
 description: 从 demo 到生产要补的东西：优雅关闭、超时链、中间件、结构化日志、panic 恢复、健康检查与限流。
-date: 2026-11-27
+date: 2023-08-04
 tags: [Go, HTTP, 生产实践]
 ---
 

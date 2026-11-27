@@ -1,7 +1,7 @@
 ---
 title: Web 攻击原理与防御：四类漏洞的"能防到什么程度"
 description: SQL 注入、XSS、CSRF、SSRF 的成因、正确防御方式，以及"为什么过滤关键字没用"。
-date: 2026-11-27
+date: 2025-10-30
 tags: [安全, Web安全, 漏洞]
 ---
 

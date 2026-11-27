@@ -1,7 +1,7 @@
 ---
 title: 实验报告：Prometheus + Grafana + node_exporter 全家桶
 description: 目的/环境/步骤/验证完整走一遍：装 node_exporter、配 Prometheus 抓取、加告警规则、接 Grafana 出图、接 Alertmanager 发通知，最后附排障清单。
-date: 2026-11-27
+date: 2022-05-02
 tags: [监控, Prometheus, Grafana, 实验报告]
 ---
 

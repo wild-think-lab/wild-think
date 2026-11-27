@@ -1,7 +1,7 @@
 ---
 title: NAS、Samba 与 iSCSI：把存储接进内网
 description: 从一台 NAS 到企业共享盘：NFS/SMB/iSCSI 三种协议怎么分工，Linux 与 Windows 权限为什么总对不上，以及带宽和延迟的真实瓶颈。
-date: 2026-11-27
+date: 2022-03-11
 tags: [存储, NAS, Samba, iSCSI, NFS]
 ---
 

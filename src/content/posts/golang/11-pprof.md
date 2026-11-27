@@ -1,7 +1,7 @@
 ---
 title: Go 性能剖析：pprof 三种 profile 怎么用
 description: CPU/内存/阻塞三种 profile 的采集方式、火焰图怎么看，以及五个"profile 看不出来"的原因。
-date: 2026-11-27
+date: 2024-04-30
 tags: [Go, 性能, pprof]
 ---
 

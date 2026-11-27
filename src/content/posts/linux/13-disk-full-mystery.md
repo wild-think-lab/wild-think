@@ -1,7 +1,7 @@
 ---
 title: 一次"Linux 磁盘看起来没满却写不进"的排查
 description: 明明 df 还有空间，应用却报 No space left on device：inode、已删除但被占用的文件、挂载点被覆盖，三种根因的完整排查。
-date: 2026-11-27
+date: 2023-11-23
 tags: [Linux, 磁盘, 排错, inode]
 ---
 

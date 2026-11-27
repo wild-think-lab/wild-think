@@ -1,7 +1,7 @@
 ---
 title: 实验报告：把 LAMP 老应用搬进 Docker
 description: 从"一台机器装 PHP+MySQL+Apache"迁到"Compose 三容器"，讲清数据迁移、配置外置、切流与回滚的完整步骤。
-date: 2026-11-27
+date: 2023-08-16
 tags: [实验, Docker, 迁移, LAMP]
 ---
 

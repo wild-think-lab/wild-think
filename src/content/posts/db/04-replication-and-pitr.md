@@ -1,7 +1,7 @@
 ---
 title: MySQL 主从复制与备份恢复：能回滚才算有数据库
 description: binlog 三种格式、主从搭建的六个关键参数、延迟与不一致排查，以及一次完整的 xtrabackup + binlog 时间点恢复。
-date: 2026-11-27
+date: 2022-01-02
 tags: [MySQL, 主从复制, 备份, binlog, 恢复]
 ---
 

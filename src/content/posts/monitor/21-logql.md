@@ -1,7 +1,7 @@
 ---
 title: LogQL：在 Loki 里把日志当数据库查
 description: 六个高频查询模式、标签与过滤的区别、性能陷阱，以及五个"查了半天没结果"的原因。
-date: 2026-11-27
+date: 2026-03-25
 tags: [可观测, Loki, LogQL]
 ---
 

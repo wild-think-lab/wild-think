@@ -1,7 +1,7 @@
 ---
 title: IPv6 入门与双栈：不是"地址变长了"那么简单
 description: 地址结构与前缀分配、SLAAC 与 DHCPv6 的分工、双栈下的 DNS 与优先级、防火墙与 NAT 的消失，以及四个上线必查项。
-date: 2026-11-27
+date: 2022-08-17
 tags: [IPv6, 网络, 双栈, DNS]
 ---
 

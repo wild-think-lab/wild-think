@@ -1,7 +1,7 @@
 ---
 title: PromQL 实用手册：告警表达式写错，比不监控更危险
 description: rate 用错窗口、increase 当成计数器、label 匹配写成全等——PromQL 的坑几乎都集中在"区间选择器"和"标签匹配"两处。给出一套能直接抄的告警表达式。
-date: 2026-11-23
+date: 2026-05-24
 tags: [Prometheus, PromQL, 监控, SRE]
 ---
 

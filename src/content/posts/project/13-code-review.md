@@ -1,7 +1,7 @@
 ---
 title: Code Review 怎么做才不浪费时间
 description: review 的三个层次、六类必须挡住的问题、怎么给"不伤人"的意见、以及"review 太慢"的四个解法。
-date: 2026-11-27
+date: 2024-08-23
 tags: [代码评审, 团队, 工程实践]
 ---
 

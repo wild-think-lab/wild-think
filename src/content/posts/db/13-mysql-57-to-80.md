@@ -1,7 +1,7 @@
 ---
 title: MySQL 5.7 升 8.0：哪些东西会坏
 description: 排序规则、认证插件、保留字、GROUP BY 隐式排序、JSON 行为变化，以及可灰度的升级步骤与回滚方案。
-date: 2026-11-27
+date: 2023-10-24
 tags: [MySQL, 升级, 兼容性, 数据库]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Linux 日志体系：journald 与 rsyslog 到底谁在写日志
 description: 搞清楚 journald、rsyslog 的分工与数据流，才能在两套日志之间快速定位故障，而不是把 /var/log 翻一遍碰运气。
-date: 2026-11-24
+date: 2026-02-06
 tags: [Linux, journald, rsyslog, 日志, 排障]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 值班与 Runbook：凌晨三点被叫醒时该做什么
 description: oncall 的三条纪律、告警分级与"要不要起来"的判断、runbook 该写什么、上手排查的固定顺序、以及事后如何降低同类告警。
-date: 2026-11-27
+date: 2022-11-24
 tags: [OnCall, 值班, Runbook, SRE, 故障处理]
 ---
 

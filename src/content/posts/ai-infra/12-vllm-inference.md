@@ -1,7 +1,7 @@
 ---
 title: vLLM 推理服务：显存、吞吐与"为什么批量大了反而慢"
 description: PagedAttention 的原理、关键参数怎么调、显存怎么算、以及五个上线后必然遇到的性能问题。
-date: 2026-11-27
+date: 2024-07-07
 tags: [AI基础设施, vLLM, 推理, GPU]
 ---
 

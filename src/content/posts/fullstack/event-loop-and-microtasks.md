@@ -1,7 +1,7 @@
 ---
 title: 事件循环、微任务与渲染时机：为什么 Promise 比 setTimeout 先跑
 description: 把任务队列、微任务检查点、渲染与 requestAnimationFrame 串成一条时间线，才能解释"明明写在前面却后执行"的现象。
-date: 2026-11-10
+date: 2025-09-30
 tags: [JavaScript, 事件循环, 异步, 前端]
 ---
 

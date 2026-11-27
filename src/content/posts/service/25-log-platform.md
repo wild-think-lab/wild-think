@@ -1,7 +1,7 @@
 ---
 title: 日志平台：ELK、Loki、ClickHouse 三条路怎么选
 description: 采集、存储、查询三段拆分，成本对比，以及"日志很多但查不到"的五个原因。
-date: 2026-11-27
+date: 2026-04-07
 tags: [日志, ELK, Loki, 可观测]
 ---
 

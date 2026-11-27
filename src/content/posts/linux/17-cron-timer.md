@@ -1,7 +1,7 @@
 ---
 title: 定时任务：cron 与 systemd timer 怎么选
 description: cron 的五个坑、systemd timer 的优势、随机延迟与错峰、以及"任务没跑"的排查顺序。
-date: 2026-11-27
+date: 2024-11-04
 tags: [Linux, cron, systemd]
 ---
 

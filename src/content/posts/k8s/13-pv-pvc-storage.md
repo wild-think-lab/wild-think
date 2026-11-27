@@ -1,7 +1,7 @@
 ---
 title: PV、PVC 与 StorageClass：K8s 存储到底怎么配
 description: 三者的关系、三种供给模式、访问模式的实际含义、扩容与回收策略，以及"PVC 一直 Pending"的六种原因。
-date: 2026-11-27
+date: 2024-10-27
 tags: [Kubernetes, 存储, PV, PVC]
 ---
 

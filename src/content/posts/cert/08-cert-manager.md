@@ -1,7 +1,7 @@
 ---
 title: cert-manager：K8s 里证书全自动续期的正确姿势
 description: 从安装到 Issuer/ClusterIssuer、三种校验方式的选择、证书轮换与"续期失败"的排查，附一份能直接用的配置。
-date: 2026-11-27
+date: 2023-07-17
 tags: [Kubernetes, cert-manager, TLS, 证书]
 ---
 

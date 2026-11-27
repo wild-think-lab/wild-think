@@ -1,7 +1,7 @@
 ---
 title: Proxmox VE 上手：装系统、建虚拟机、桥接网络
 description: 一台旧电脑就能搭私有云。完整步骤含 ISO 上传、virtio 驱动、vmbr0 桥接与远程访问。
-date: 2026-11-22
+date: 2022-03-20
 tags: [虚拟化, PVE, Proxmox, 实验, 私有云]
 ---
 

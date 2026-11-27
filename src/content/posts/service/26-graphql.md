@@ -1,7 +1,7 @@
 ---
 title: GraphQL 实践：什么时候值得上，什么时候是自找麻烦
 description: 与 REST 的真实差别、N+1 问题的解法、null 与错误处理、鉴权与限流，以及五个"上了就后悔"的场景。
-date: 2026-11-27
+date: 2026-05-20
 tags: [GraphQL, API, 后端]
 ---
 

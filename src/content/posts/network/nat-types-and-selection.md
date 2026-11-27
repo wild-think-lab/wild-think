@@ -1,7 +1,7 @@
 ---
 title: NAT 不止一种：六类 NAT 的行为差异与选型
 description: 静态 NAT、动态 NAT、NAPT、NAT Server、双向 NAT、CGNAT/NAT444 的行为、适用场景与验证方式各不相同，混用概念会导致"配置看着对但不通"。
-date: 2026-11-07
+date: 2026-03-29
 tags: [网络, NAT, 路由交换, 华为, 思科]
 ---
 

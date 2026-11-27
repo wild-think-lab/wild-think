@@ -1,7 +1,7 @@
 ---
 title: LVM 与 ZFS：两块盘的容量魔术与数据保险
 description: LVM 的 PV/VG/LV 三层与在线扩容、快照的正确用法、ZFS 的 pool/dataset 与校验、raidz 级别选择、scrub 与替换盘流程，附选型建议。
-date: 2026-11-27
+date: 2022-09-16
 tags: [LVM, ZFS, 存储, 运维]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: GitLab CI 从零到可用：一份能直接抄的流水线
 description: 从 .gitlab-ci.yml 的最小可用版本，到缓存、并行、制品、环境与手动审批，附十个常见报错。
-date: 2026-11-27
+date: 2024-12-30
 tags: [GitLab CI, CI/CD, 流水线]
 ---
 

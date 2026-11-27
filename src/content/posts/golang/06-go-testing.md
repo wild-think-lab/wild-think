@@ -1,7 +1,7 @@
 ---
 title: Go 测试：单测、表驱动、基准与集成测试的分层
 description: 测试怎么写才不"为了覆盖率而写"、表驱动与并行、mock 的边界、benchmark 与 pprof 结合、以及 CI 里怎么分层跑。
-date: 2026-11-27
+date: 2023-01-27
 tags: [Go, 测试, 基准测试, CI]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 写一个 Operator：CRD 到 reconcile 的最小闭环
 description: 声明式控制循环、CRD 设计要点、状态与事件，以及五个"operator 上线就疯狂重建"的原因。
-date: 2026-11-27
+date: 2026-08-26
 tags: [Kubernetes, Operator, Go]
 ---
 

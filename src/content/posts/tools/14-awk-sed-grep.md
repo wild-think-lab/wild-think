@@ -1,7 +1,7 @@
 ---
 title: awk / sed / grep：日志分析的三件套
 description: 三个工具的分工、十二条能直接用的组合、以及"为什么 awk 比写 Python 快"的实际场景。
-date: 2026-11-27
+date: 2024-06-24
 tags: [Shell, awk, sed, grep, 日志]
 ---
 

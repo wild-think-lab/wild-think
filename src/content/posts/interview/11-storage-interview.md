@@ -1,7 +1,7 @@
 ---
 title: 存储岗面试：从 RAID 到分布式存储的常见追问
 description: 高频题的分层答法、RAID 级别的真实取舍、SSD 寿命与写放大、Ceph 的 CRUSH 与 PG、以及"数据丢了怎么办"这类场景题。
-date: 2026-11-27
+date: 2023-08-08
 tags: [面试, 存储, RAID, Ceph]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: IO 诊断：iostat 里那几列到底说明什么
 description: r/s、await、util、aqu-sz 的读法，四个"IO 慢"的真实原因，以及五个"换了 SSD 还是慢"的误区。
-date: 2026-11-27
+date: 2025-06-06
 tags: [Linux, 性能, IO]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Jenkins 流水线：从"能跑"到"跑得快、跑得稳"
 description: Declarative vs Scripted、共享库、并行与缓存、失败重试，以及五个让流水线越来越慢的原因。
-date: 2026-11-27
+date: 2025-07-24
 tags: [Jenkins, CI/CD, DevOps]
 ---
 

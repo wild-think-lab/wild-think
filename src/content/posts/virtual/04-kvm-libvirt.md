@@ -1,7 +1,7 @@
 ---
 title: KVM 与 libvirt：不用面板管理虚拟机
 description: 网桥与 NAT 网络怎么选、virt-install 一条命令起机、virsh 日常操作、快照与克隆的差别、控制台进不去怎么救。
-date: 2026-11-27
+date: 2022-09-25
 tags: [KVM, libvirt, 虚拟化, Linux]
 ---
 

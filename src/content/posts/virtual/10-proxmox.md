@@ -1,7 +1,7 @@
 ---
 title: Proxmox VE：把一台机器变成一个小型私有云
 description: 装完必做的八项设置、集群与 Ceph 集成、备份与快照、以及五个"生产用不起来"的原因。
-date: 2026-11-27
+date: 2024-04-04
 tags: [虚拟化, Proxmox, 私有云]
 ---
 

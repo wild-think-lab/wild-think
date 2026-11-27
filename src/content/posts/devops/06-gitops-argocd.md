@@ -1,7 +1,7 @@
 ---
 title: GitOps 与 ArgoCD：把"谁改了集群"变成一次 commit
 description: GitOps 的四条原则、ArgoCD 的 Application 与同步机制、Kustomize 与 Helm 怎么选、多环境目录怎么排、以及它解决不了的三件事。
-date: 2026-11-27
+date: 2023-01-18
 tags: [GitOps, ArgoCD, Kubernetes, 交付, DevOps]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: BGP 入门：机房多线、Anycast 与"为什么我的 IP 突然不通了"
 description: BGP 的四类消息、AS 与邻居、多线与 Anycast 的用法、五个"配完不通"的原因。
-date: 2026-11-27
+date: 2025-12-25
 tags: [网络, BGP, 路由]
 ---
 

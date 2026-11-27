@@ -1,7 +1,7 @@
 ---
 title: 制品仓库：Nexus / Artifactory 该管什么、怎么管
 description: 代理与私服的差别、清理策略、依赖投毒防护、以及五个让仓库"越用越慢"的原因。
-date: 2026-11-27
+date: 2025-09-26
 tags: [DevOps, 制品管理, Nexus]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Ingress 控制器与 TLS：把"域名 → 服务"这一层做扎实
 description: 控制器怎么选、TLS 证书怎么自动签、超时与上传大小怎么配、以及 502/503/504 各自的真实原因。
-date: 2026-11-27
+date: 2023-05-10
 tags: [Kubernetes, Ingress, TLS, Nginx, 排障]
 ---
 

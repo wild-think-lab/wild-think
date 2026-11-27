@@ -1,7 +1,7 @@
 ---
 title: cgroup v2 与资源限制：容器被 OOM 杀掉的真正原因
 description: cgroup v1/v2 的差异、memory/cpu/io 三个控制器的关键文件、requests 与 limits 的实际映射，以及"内存没超也 OOM"的解释。
-date: 2026-11-27
+date: 2023-05-18
 tags: [Linux, cgroup, 容器, 资源限制]
 ---
 

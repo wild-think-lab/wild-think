@@ -1,7 +1,7 @@
 ---
 title: API 网关选型：Kong、APISIX、Higress 怎么选
 description: 网关该承担什么、三家的架构差异、插件生态与性能量级、迁移成本，以及"要不要自建"的判断。
-date: 2026-11-27
+date: 2024-03-13
 tags: [网关, Kong, APISIX, Higress, 架构]
 ---
 

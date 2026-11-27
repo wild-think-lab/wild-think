@@ -1,7 +1,7 @@
 ---
 title: RAID 不是备份：一套真正能救命的存储策略
 description: RAID 只能抗硬件故障，救不了误删、勒索和机房消失。讲清 RAID 级别的实际含义、3-2-1 原则与可验证的备份方案。
-date: 2026-11-27
+date: 2021-12-07
 tags: [存储, 备份, RAID, 容灾]
 featured: true
 ---

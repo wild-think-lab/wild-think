@@ -1,7 +1,7 @@
 ---
 title: 搭一个 AD 域：从装角色到把电脑加进来
 description: 域控不是"装个角色就完事"，DNS 指向、SRV 记录、加入域失败的五种原因，全在这一篇。
-date: 2026-11-25
+date: 2022-03-24
 tags: [Windows, AD域, DNS, 域控, 实验]
 ---
 

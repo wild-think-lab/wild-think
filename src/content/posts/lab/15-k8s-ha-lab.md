@@ -1,7 +1,7 @@
 ---
 title: 实验报告：三节点 K8s 高可用集群从零搭建
 description: 目的/环境/原理/步骤/验证/注意/总结/附录，含 etcd 三副本与 apiserver 负载均衡。
-date: 2026-11-27
+date: 2024-08-06
 tags: [实验, Kubernetes, 高可用]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: jq 与 yq：把 JSON/YAML 当数据库查
 description: 十个真正高频的 jq 表达式、yq 的对应写法，以及五个"写了很长却查不出结果"的原因。
-date: 2026-11-27
+date: 2025-02-19
 tags: [工具, jq, yq]
 ---
 

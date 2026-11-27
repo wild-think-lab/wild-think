@@ -1,7 +1,7 @@
 ---
 title: API 契约：OpenAPI 不是文档，是"承诺"
 description: 契约先行的三个收益、spec 的六个必写部分、以及五个"文档和实现两张皮"的原因。
-date: 2026-11-27
+date: 2026-09-04
 tags: [后端, API, OpenAPI]
 ---
 

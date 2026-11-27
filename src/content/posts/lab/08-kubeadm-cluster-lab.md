@@ -1,7 +1,7 @@
 ---
 title: 实验报告：用 kubeadm 从零搭一套三节点 Kubernetes
 description: 目的、环境、原理、步骤、验证、注意事项、总结与附录脚本，一次做完能留下的完整记录。
-date: 2026-11-27
+date: 2022-11-06
 tags: [实验, Kubernetes, kubeadm, 集群搭建]
 ---
 

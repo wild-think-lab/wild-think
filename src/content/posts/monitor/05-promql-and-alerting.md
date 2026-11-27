@@ -1,7 +1,7 @@
 ---
 title: PromQL 与告警规则：从"能看"到"能叫"
 description: 四种指标类型、selector 与区间向量、rate 与 irate 的差别、聚合与分组、SLO 类告警的写法，以及告警噪音怎么降。
-date: 2026-11-27
+date: 2022-11-15
 tags: [Prometheus, PromQL, 监控, 告警]
 ---
 

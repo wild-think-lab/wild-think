@@ -1,7 +1,7 @@
 ---
 title: MySQL 参数调优：八个参数决定一半性能
 description: buffer pool、连接数、redo/undo、临时表与慢查询，以及五个"调了参数更慢"的原因。
-date: 2026-11-27
+date: 2026-09-08
 tags: [数据库, MySQL, 调优]
 ---
 

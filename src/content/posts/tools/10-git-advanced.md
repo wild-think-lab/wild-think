@@ -1,7 +1,7 @@
 ---
 title: Git 进阶四个命令：rebase、cherry-pick、reflog、bisect
 description: 每个命令解决什么真实问题、搞错了怎么救回来、以及团队协作时哪些用法会害人。
-date: 2026-11-27
+date: 2023-10-03
 tags: [Git, rebase, 版本控制, 协作]
 ---
 

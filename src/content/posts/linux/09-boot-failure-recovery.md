@@ -1,7 +1,7 @@
 ---
 title: Linux 启动故障：从"开不了机"到"能进系统"
 description: GRUB 与 initramfs 的作用、四种启动失败的定位、救援模式实操、以及"改配置把自己锁死"的恢复路径。
-date: 2026-11-27
+date: 2022-11-11
 tags: [Linux, 启动, GRUB, 救援, 排障]
 ---
 

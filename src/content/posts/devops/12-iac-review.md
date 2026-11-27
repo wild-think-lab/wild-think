@@ -1,7 +1,7 @@
 ---
 title: IaC 也要 code review：基础设施代码的评审清单
 description: 为什么 IaC 的评审与业务代码不同、六类必须看的问题、plan 输出怎么读，以及"改了 Terraform 结果删了生产库"的复盘。
-date: 2026-11-27
+date: 2024-07-16
 tags: [IaC, Terraform, 代码评审, DevOps]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 分支策略：GitFlow 为什么在很多团队"玩不动"
 description: 三种策略的适用条件、trunk-based 的前提、发布分支与热修，以及五个"分支越管越乱"的原因。
-date: 2026-11-27
+date: 2026-07-06
 tags: [DevOps, Git, 协作]
 ---
 

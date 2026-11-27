@@ -1,7 +1,7 @@
 ---
 title: 负载均衡选型：LVS、HAProxy、Nginx 各自适合哪一层
 description: 四层与七层的分工、三种实现的性能与功能边界、健康检查的四种方式、以及"后端全挂但用户还能访问"的诡异现象。
-date: 2026-11-27
+date: 2023-12-14
 tags: [负载均衡, LVS, HAProxy, Nginx]
 ---
 

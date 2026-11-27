@@ -1,7 +1,7 @@
 ---
 title: 消息队列选型：Kafka、RabbitMQ、Redis 各自能干什么
 description: 三者的语义差异（日志 vs 队列 vs 缓存）、投递保证与顺序、消费位点与重放、什么时候该选谁，以及三个最常见的误用。
-date: 2026-11-27
+date: 2023-06-09
 tags: [消息队列, Kafka, RabbitMQ, Redis, 架构]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 实验报告：Keepalived 双机热备从零到切换成功
 description: 用两台机器 + VIP 做高可用，讲清 VRRP 原理、配置写法、健康检查脚本、脑裂与真实切换测试的完整过程。
-date: 2026-11-27
+date: 2023-05-14
 tags: [实验, 高可用, Keepalived, VRRP]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Istio 的 ServiceEntry：把集群外的服务纳进网格
 description: 为什么需要把外部依赖注册进网格、ServiceEntry 的三种解析模式、mTLS 与出口流量治理，以及"注册了但连不上"的排查路径。
-date: 2026-11-27
+date: 2022-11-02
 tags: [Istio, ServiceEntry, 服务网格, 流量治理, Kubernetes]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 实验报告式教程：从零源码部署一套 LAMP
 description: 按实验报告的格式走一遍——目的、环境、原理、步骤、验证、注意事项、附录脚本。做完你会真正理解"网站是由几层东西拼起来的"。
-date: 2026-11-27
+date: 2023-12-23
 tags: [入门, LAMP, 实验报告, 零基础, Linux]
 minutes: 45
 featured: true

@@ -1,7 +1,7 @@
 ---
 title: MPLS 与专线：企业组网从"拉光纤"到"SD-WAN"
 description: L2VPN/L3VPN 的区别、BGP 在 MPLS 上的角色、与 SD-WAN 的取舍，以及五个组网方案的成本对比。
-date: 2026-11-27
+date: 2024-08-19
 tags: [网络, MPLS, 组网]
 ---
 

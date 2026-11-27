@@ -1,7 +1,7 @@
 ---
 title: logrotate 与 systemd timer：定时任务的两件正事
 description: 日志不切割迟早撑爆磁盘，cron 不可靠时会静默失败。讲清 logrotate 的配置陷阱、systemd timer 的优势，以及两者的组合方案。
-date: 2026-11-27
+date: 2022-02-01
 tags: [Linux, logrotate, systemd, 定时任务, 日志]
 ---
 

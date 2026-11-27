@@ -1,7 +1,7 @@
 ---
 title: Nginx 反向代理的十个坑（都是上线后才发现的）
 description: 真实代理问题的十个高频坑：Host 头、真实 IP、缓冲、超时、gzip、连接复用、大文件、WebSocket、错误页与日志。
-date: 2026-11-27
+date: 2025-04-20
 tags: [Nginx, 反向代理, 排错]
 ---
 

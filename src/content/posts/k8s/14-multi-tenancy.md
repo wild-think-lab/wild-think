@@ -1,7 +1,7 @@
 ---
 title: 多租户 K8s：怎么让两个团队共用一个集群还不互相踩
 description: 三种隔离级别、命名空间隔离的四个必配、ResourceQuota 与 LimitRange 的实际效果，以及"多租户"做不到的三件事。
-date: 2026-11-27
+date: 2025-01-12
 tags: [Kubernetes, 多租户, 隔离, 配额]
 ---
 

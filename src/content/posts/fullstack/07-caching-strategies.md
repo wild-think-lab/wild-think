@@ -1,7 +1,7 @@
 ---
 title: 缓存设计：什么时候该缓存，什么时候缓存是毒药
 description: 浏览器/CDN/应用/数据库四层缓存怎么分工、Cache-Control 的六个关键指令、缓存三大经典问题与解法、一致性怎么保证。
-date: 2026-11-27
+date: 2022-07-18
 tags: [缓存, CDN, Redis, 性能, HTTP]
 ---
 

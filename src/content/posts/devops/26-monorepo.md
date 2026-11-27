@@ -1,7 +1,7 @@
 ---
 title: Monorepo 还是多仓库：一次选型的取舍
 description: 两种模式的成本对比、工具链（Nx/Bazel/pnpm workspace/Turborepo）、迁移路径与五个"用了 monorepo 更慢"的原因。
-date: 2026-11-27
+date: 2026-08-22
 tags: [工程, 协作, 构建]
 ---
 

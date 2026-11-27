@@ -1,7 +1,7 @@
 ---
 title: 实验：Zabbix 502 / 前端空白 / 数据库连不上的分层排错
 description: Zabbix 的故障几乎都能归到"PHP-FPM → Web 服务器 → MariaDB → zabbix-server"四层之一。按层给出日志位置、判据命令与常见根因。
-date: 2026-10-26
+date: 2025-06-02
 tags: [Zabbix, PHP-FPM, MariaDB, CentOS7, 排错, 实验]
 ---
 

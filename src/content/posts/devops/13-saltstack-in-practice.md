@@ -1,7 +1,7 @@
 ---
 title: SaltStack 还值得学吗：和 Ansible 的真实差别
 description: master-minion 架构、state 与 pillar、事件总线与 mine，以及"什么时候该用 Salt 而不是 Ansible"的四个判断。
-date: 2026-11-27
+date: 2024-10-09
 tags: [SaltStack, 配置管理, 自动化]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 日志平台选型：ELK、Loki、ClickHouse 各自适合谁
 description: 采集→传输→存储→查询四段的分工、索引与标签两种模型的差别、成本怎么算、以及"日志平台建成后没人查"的根因。
-date: 2026-11-27
+date: 2023-08-25
 tags: [日志, ELK, Loki, ClickHouse, 可观测性]
 ---
 

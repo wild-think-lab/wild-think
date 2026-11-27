@@ -1,7 +1,7 @@
 ---
 title: Python Web 服务上生产：从 demo 到能扛住
 description: 开发服务器为什么不能上生产、WSGI/ASGI 与 worker 数的算法、Nginx 前置的必要性、以及"改了代码不生效"的四种原因。
-date: 2026-11-27
+date: 2023-11-02
 tags: [Python, Web, 部署, Gunicorn]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Linux 性能排查四件套：负载高到底是 CPU、内存还是 IO
 description: 用 uptime/vmstat/iostat/pidstat 在 5 分钟内分清瓶颈类型，附真实输出解读与常见误判。
-date: 2026-11-27
+date: 2021-10-30
 tags: [Linux, 性能, 排障, 负载, IO]
 ---
 

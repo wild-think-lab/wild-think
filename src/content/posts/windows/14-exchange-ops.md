@@ -1,7 +1,7 @@
 ---
 title: Exchange 运维：邮件不通的七个断点与三条常用命令
 description: 从 DNS 到队列、从证书到反垃圾，把"发不出/收不到"拆成可检查的七段。
-date: 2026-11-27
+date: 2025-02-24
 tags: [Windows, Exchange, 邮件]
 ---
 

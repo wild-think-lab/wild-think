@@ -1,7 +1,7 @@
 ---
 title: 多环境与配置管理：让 dev/staging/prod 只差"变量"
 description: 三种环境隔离方式、配置分层（代码/环境/密钥）、12-Factor 的配置原则、以及"配置漂移"怎么发现。
-date: 2026-11-27
+date: 2023-05-31
 tags: [配置管理, 环境, DevOps, 12-factor]
 ---
 
