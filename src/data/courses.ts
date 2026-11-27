@@ -103,6 +103,20 @@ export const COURSES: Course[] = [
       '把告警噪音降到"每条都愿意处理"的程度',
     ],
   },
+  {
+    id: 'security-basics',
+    name: '安全运维入门：从盘资产到能应急',
+    en: 'SECURITY OPERATIONS',
+    tag: '安全',
+    desc: '不假设你有安全背景。从资产盘点与威胁建模讲起，讲清账号权限、暴露面收敛、日志检测，最后落到一次应急响应的前 60 分钟。',
+    icon: 'shield',
+    accent: '#c792ea',
+    can: [
+      '列出一份能用的资产与威胁清单',
+      '把公网暴露面收敛到"只剩必要端口"',
+      '出了安全事件时知道前 60 分钟做什么',
+    ],
+  },
 ];
 
 export const COURSE_MAP = new Map(COURSES.map((c) => [c.id, c]));
