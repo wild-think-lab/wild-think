@@ -18,7 +18,7 @@ const grouped = CATEGORIES.map((c) => {
 
 <BaseLayout
   title="知识地图"
-  description="野生思考知识地图：从零基础到系统、网络、运维自动化、云原生、虚拟化、交付、数据库、安全、开发与实战，16 个专题按类归属。"
+  description="野生思考知识地图：从零基础到系统、网络、自动化、云原生、K8s、虚拟化、数据库、存储备份、安全、Go 与实战，全部专题按大类归位。"
   active="topics"
 >
   <section class="section map-page">
@@ -27,7 +27,7 @@ const grouped = CATEGORIES.map((c) => {
         <div class="kicker">KNOWLEDGE MAP</div>
         <h1>一张能走完的技术地图</h1>
         <p>
-          16 个专题、8 个大类。不按时间堆文章，按“你在哪个阶段、要解决什么问题”来分：
+          {TOPICS.length} 个专题、{CATEGORIES.length} 个大类。不按时间堆文章，按“你在哪个阶段、要解决什么问题”来分：
           先看懂机器和网络，再学会自动化和交付，最后才谈安全、性能与架构。
         </p>
       </div>
