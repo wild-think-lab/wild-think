@@ -45,6 +45,26 @@ export const COURSES: Course[] = [
     accent: '#5eb0ff',
     can: ['说清"网站打不开"落在哪一层', '会读一次完整的 HTTP 请求', '能用抓包证明"包到底到没到"'],
   },
+  {
+    id: 'shell',
+    name: 'Shell 脚本从看懂到能上线',
+    en: 'SHELL SCRIPTING',
+    tag: '自动化',
+    desc: '不假设你写过脚本。从第一行 shebang 讲到参数处理、错误处理、日志、定时执行，最后写出一个敢放到生产上的备份脚本。',
+    icon: 'terminal',
+    accent: '#c3e88d',
+    can: ['把一串手敲命令变成可复用的脚本', '脚本出错时能自己定位，不会静默失败', '让脚本定时跑，并知道它有没有真的跑成功'],
+  },
+  {
+    id: 'docker',
+    name: 'Docker 从装到能上生产',
+    en: 'DOCKER PRACTICE',
+    tag: '容器',
+    desc: '容器不是虚拟机。先把镜像、容器、卷、网络四个概念讲清，再写 Dockerfile、用 Compose 起一套服务，最后把镜像瘦下来。',
+    icon: 'container',
+    accent: '#58a6ff',
+    can: ['把一个应用打成镜像并在任意机器上跑起来', '用 Compose 管多容器服务', '看懂容器起不来的报错并修掉'],
+  },
 ];
 
 export const COURSE_MAP = new Map(COURSES.map((c) => [c.id, c]));
