@@ -159,6 +159,20 @@ export const COURSES: Course[] = [
       '能独立规划一个小机房或办公网',
     ],
   },
+  {
+    id: 'k8s-ops',
+    name: 'K8s 运维进阶：把它当生产系统来养',
+    en: 'KUBERNETES IN PRODUCTION',
+    tag: 'K8s 运维',
+    desc: '集群跑起来只是开始。这门课讲调度与探针怎么配、升级怎么不翻车、网络与存储怎么排、节点挂了怎么救、安全边界怎么划，全部按"生产"而非"演示"来写。',
+    icon: 'container',
+    accent: '#8b7cf6',
+    can: [
+      '能把 Deployment 的探针、调度与资源配到"发布不掉容量"',
+      '能独立完成一次不跨版本、可回退的集群升级',
+      '面对节点/网络/存储故障有一套自己的排查顺序',
+    ],
+  },
 ];
 
 export const COURSE_MAP = new Map(COURSES.map((c) => [c.id, c]));
