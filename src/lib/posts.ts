@@ -9,7 +9,8 @@ export function postTopicId(post: Post): string {
 }
 
 export function postSlug(post: Post): string {
-  return post.id.split('/').slice(1).join('/');
+  // Content Layer 的 id 带文件扩展名，URL 里必须去掉
+  return post.id.split('/').slice(1).join('/').replace(/\.mdx?$/i, '');
 }
 
 export function postHref(post: Post): string {

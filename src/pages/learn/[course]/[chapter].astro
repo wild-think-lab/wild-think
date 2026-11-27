@@ -1,0 +1,332 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Icon from '../../../components/Icon.astro';
+import CourseTree from '../../../components/CourseTree.astro';
+import { u } from '../../../lib/url';
+import { getCollection, render } from 'astro:content';
+import { COURSES } from '../../../data/courses';
+
+export async function getStaticPaths() {
+  const courseIds = COURSES.map((c) => c.id);
+  const all = await getCollection('learn');
+  const grouped = new Map<string, typeof all>();
+
+  for (const e of all) {
+    const course = e.id.split('/')[0];
+    if (!courseIds.includes(course)) continue;
+    if (!grouped.has(course)) grouped.set(course, []);
+    grouped.get(course)!.push(e);
+  }
+
+  const paths = [];
+  for (const [course, list] of grouped) {
+    const sorted = [...list].sort((a, b) => a.id.localeCompare(b.id));
+    const courseMeta = COURSES.find((c) => c.id === course)!;
+
+    const items = sorted.map((e) => {
+      const file = e.id.split('/').pop() ?? '';
+      const no = file.slice(0, 2);
+      const slug = file.replace(/\.mdx?$/i, '');
+      return {
+        key: no,
+        no,
+        title: e.data.title,
+        slug,
+        module: e.data.module,
+        href: u(`/learn/${course}/${slug}`),
+      };
+    });
+
+    const modules: { name: string; items: typeof items }[] = [];
+    for (const it of items) {
+      let g = modules.find((x) => x.name === it.module);
+      if (!g) {
+        g = { name: it.module, items: [] };
+        modules.push(g);
+      }
+      g.items.push(it);
+    }
+
+    for (let i = 0; i < sorted.length; i++) {
+      paths.push({
+        params: { course, chapter: items[i].slug },
+        props: {
+          course: courseMeta,
+          entry: sorted[i],
+          modules,
+          total: items.length,
+          activeKey: items[i].key,
+          prev: i > 0 ? { ...items[i - 1], href: u(`/learn/${course}/${items[i - 1].slug}`) } : null,
+          next:
+            i < items.length - 1
+              ? { ...items[i + 1], href: u(`/learn/${course}/${items[i + 1].slug}`) }
+              : null,
+        },
+      });
+    }
+  }
+  return paths;
+}
+
+const { course, entry, modules, total, activeKey, prev, next } = Astro.props as any;
+const { Content, headings } = await render(entry);
+const toc = headings.filter((h: any) => h.depth === 2 || h.depth === 3);
+const no = activeKey;
+---
+
+<BaseLayout title={`${entry.data.title} · ${course.name}`} description={entry.data.summary} active="learn">
+  <div class="course-wrap container">
+    <CourseTree course={course} modules={modules} total={total} activeKey={activeKey} />
+
+    <main class="chapter-main">
+      <nav class="ch-crumb">
+        <a href={u('/learn')}>学习中心</a>
+        <span>/</span>
+        <a href={u(`/learn/${course.id}`)}>{course.name}</a>
+        <span>/</span>
+        <em>{no}</em>
+      </nav>
+
+      <div class="ch-head">
+        <span class="ch-no">{no}</span>
+        <div class="ch-head-text">
+          <h1>{entry.data.title}</h1>
+          {entry.data.summary && <p>{entry.data.summary}</p>}
+        </div>
+      </div>
+
+      <div class="ch-meta">
+        <span>{entry.data.module}</span>
+        {entry.data.minutes && <span>{entry.data.minutes} 分钟</span>}
+        <button class="ch-done" type="button" data-ch={no} aria-label="标记本章已学">
+          <span class="ch-done-box" aria-hidden="true">✓</span>
+          标记已学
+        </button>
+      </div>
+
+      <div class="prose">
+        <Content />
+      </div>
+
+      <nav class="ch-pager" aria-label="章节翻页">
+        {
+          prev ? (
+            <a class="pg pg-prev" href={prev.href}>
+              <span class="pg-label">上一章 · {prev.no}</span>
+              <span class="pg-title">{prev.title}</span>
+            </a>
+          ) : (
+            <span class="pg pg-empty" />
+          )
+        }
+        {
+          next ? (
+            <a class="pg pg-next" href={next.href}>
+              <span class="pg-label">下一章 · {next.no}</span>
+              <span class="pg-title">{next.title}</span>
+            </a>
+          ) : (
+            <a class="pg pg-next" href={u('/learn')}>
+              <span class="pg-label">这门课读完了</span>
+              <span class="pg-title">换一门继续 →</span>
+            </a>
+          )
+        }
+      </nav>
+    </main>
+  </div>
+
+  <script is:inline define:vars={{ courseId: course.id, chapterNo: no }}>
+    (function () {
+      const key = 'wt-learn-' + courseId;
+      const btn = document.querySelector('.ch-done');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        let done = [];
+        try {
+          done = JSON.parse(localStorage.getItem(key) || '[]');
+        } catch (e) {}
+        const set = new Set(done);
+        if (set.has(chapterNo)) set.delete(chapterNo);
+        else set.add(chapterNo);
+        try {
+          localStorage.setItem(key, JSON.stringify([...set]));
+        } catch (e) {}
+        document.dispatchEvent(new Event('wt-learn-update'));
+      });
+    })();
+  </script>
+</BaseLayout>
+
+<style>
+  .course-wrap {
+    display: grid;
+    grid-template-columns: 216px minmax(0, 1fr);
+    gap: 40px;
+    align-items: start;
+    padding-top: 34px;
+    padding-bottom: 90px;
+  }
+
+  .chapter-main {
+    min-width: 0;
+  }
+
+  .ch-crumb {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    color: var(--dim);
+    margin-bottom: 22px;
+  }
+
+  .ch-crumb a:hover {
+    color: var(--accent);
+  }
+
+  .ch-crumb em {
+    font-family: var(--font-mono);
+    font-style: normal;
+    color: var(--muted);
+  }
+
+  .ch-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  .ch-no {
+    flex: 0 0 auto;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    border: 1px solid var(--accent-line);
+    border-radius: 6px;
+    padding: 3px 8px;
+    margin-top: 4px;
+  }
+
+  .ch-head-text h1 {
+    margin: 0 0 8px;
+    font-size: 26px;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+  }
+
+  .ch-head-text p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--dim);
+    line-height: 1.7;
+    max-width: 62ch;
+  }
+
+  .ch-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 14px 0 26px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--dim);
+    letter-spacing: 0.04em;
+  }
+
+  .ch-done {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--dim);
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+  }
+
+  .ch-done:hover {
+    color: var(--text);
+    border-color: var(--line-strong);
+  }
+
+  .ch-done.on {
+    color: var(--ok);
+    border-color: color-mix(in srgb, var(--ok) 40%, transparent);
+    background: color-mix(in srgb, var(--ok) 10%, transparent);
+  }
+
+  .ch-done-box {
+    font-size: 10px;
+    line-height: 1;
+  }
+
+  .ch-pager {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 46px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+  }
+
+  .pg {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 13px 16px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .pg:hover {
+    border-color: var(--accent-line);
+    background: var(--panel);
+  }
+
+  .pg-empty {
+    border: 0;
+  }
+
+  .pg-next {
+    text-align: right;
+  }
+
+  .pg-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--dim);
+  }
+
+  .pg-title {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .pg:hover .pg-title {
+    color: var(--accent);
+  }
+
+  @media (max-width: 980px) {
+    .course-wrap {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+    }
+    .ch-head-text h1 {
+      font-size: 21px;
+    }
+    .ch-pager {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

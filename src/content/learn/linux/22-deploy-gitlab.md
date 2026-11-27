@@ -5,6 +5,65 @@ summary: 资源要求、外部地址配置、Runner 注册、备份与恢复、�
 minutes: 50
 ---
 
+## 一、先弄懂它是什么
+
+**GitLab 不是"一个 Git 服务器"，它是一整套研发协作平台。**
+
+| 层次 | 能力 | 依赖什么 |
+| --- | --- | --- |
+| 代码托管 | Git 仓库、SSH/HTTPS 克隆、保护分支 | Gitaly（Git 的 RPC 服务） |
+| 协作 | Merge Request、Issue、Wiki、里程碑 | PostgreSQL |
+| CI/CD | `.gitlab-ci.yml`、Runner、制品、环境 | Runner + 对象存储（制品） |
+| 交付 | 容器镜像仓库、Pages、发布 | Registry、对象存储 |
+| 治理 | 用户/组/项目权限、审计、合规 | 内部账号体系或 LDAP |
+
+**它解决的核心问题**：把"代码—评审—构建—部署"的链路收敛到一处，并且**权限和审计有单一事实来源**。这正是它比"Git 裸仓库 + 自己写脚本"值钱的地方。
+
+### 组件关系（看懂这个才能排障）
+
+```
+浏览器 → nginx（GitLab 内置）→ puma（Rails 应用）
+                                    ├→ PostgreSQL（数据）
+                                    ├→ Redis（缓存/队列）
+                                    ├→ Gitaly（Git 读写）
+                                    └→ Sidekiq（异步任务：流水线调度、邮件、备份）
+```
+
+**判据**：502 常见于 puma 未起或数据库不可用；push 卡住常见于 Gitaly;流水线不跑常见于 Sidekiq 挂了。
+
+### 为什么它"吃资源"
+
+```
+Rails 单体应用 + 后台常驻进程（puma 多进程、Sidekiq 多线程）
+再加 PostgreSQL、Redis、Gitaly
+→ 4C8G 是"能启动"，8C16G 才是"能用"
+```
+
+这不是配置没优化，是架构决定的。小团队想省资源，要么用 Gitea，要么把 GitLab 拆到独立机器。
+
+### 三个容易误解的点
+
+```
+① GitLab 的"备份"不等于"复制数据目录"：必须用 gitlab-backup（含数据库、仓库、制品的一致性快照）
+② gitlab.rb 与 gitlab-secrets.json 是两套东西：前者是配置，后者是加密密钥，丢了 CI 变量/2FA 全废
+③ external_url 是"身份"：它决定 clone 地址、OAuth 回调、邮件链接，改它等于搬家
+```
+
+### 什么情况适合自建
+
+```
+适合：需要内网代码托管、要自建 CI/CD、合规要求代码不出内网
+不适合：三五个人只要 Git 仓库（Gitea 更轻）、只需要镜像仓库（Harbor 就够）
+```
+
+### 选型对照
+
+| 方案 | 资源 | 能力 | 适合 |
+| --- | --- | --- | --- |
+| Gitea | 1C2G 可跑 | 仓库 + 轻量 Actions | 小团队、内网 |
+| GitLab CE | 8C16G 起 | 全流程 DevOps | 中大型团队 |
+| Jenkins + 裸 Git | 中等 | 只解决构建 | 已有体系，补 CI |
+
 ### 先看清资源
 
 ```

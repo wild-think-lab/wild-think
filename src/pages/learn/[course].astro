@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
+import CourseTree from '../../components/CourseTree.astro';
 import { u } from '../../lib/url';
-import { getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 import { COURSES } from '../../data/courses';
 
 export async function getStaticPaths() {
@@ -15,77 +16,37 @@ const entries = (await getCollection('learn'))
   .filter((e) => e.id.startsWith(course.id + '/'))
   .sort((a, b) => a.id.localeCompare(b.id));
 
-const rendered = await Promise.all(
-  entries.map(async (entry) => {
-    const { Content } = await render(entry);
-    return { entry, Content };
-  })
-);
-
-// 章节号取自文件名前缀 01- / 02-
 const noOf = (id: string) => id.split('/').pop()?.slice(0, 2) ?? '';
-const slugOf = (id: string) => id.split('/').pop() ?? '';
+const slugOf = (id: string) => (id.split('/').pop() ?? '').replace(/\.mdx?$/i, '');
 
-// 按 module 分组，保持出现顺序
-const modules: { name: string; items: typeof rendered }[] = [];
-for (const r of rendered) {
-  const m = r.entry.data.module;
-  let g = modules.find((x) => x.name === m);
+const items = entries.map((entry) => ({
+  key: noOf(entry.id),
+  no: noOf(entry.id),
+  title: entry.data.title,
+  summary: entry.data.summary,
+  minutes: entry.data.minutes,
+  module: entry.data.module,
+  slug: slugOf(entry.id),
+  href: u(`/learn/${course.id}/${slugOf(entry.id)}`),
+}));
+
+const modules: { name: string; items: typeof items }[] = [];
+for (const it of items) {
+  let g = modules.find((x) => x.name === it.module);
   if (!g) {
-    g = { name: m, items: [] };
+    g = { name: it.module, items: [] };
     modules.push(g);
   }
-  g.items.push(r);
+  g.items.push(it);
 }
 
-const total = rendered.length;
+const total = items.length;
+const first = items[0];
 ---
 
-<BaseLayout
-  title={course.name}
-  description={`${course.name}：${course.desc}`}
-  active="learn"
->
+<BaseLayout title={course.name} description={`${course.name}：${course.desc}`} active="learn">
   <div class="course-wrap container">
-    <aside class="coursetree" aria-label="课程目录">
-      <div class="ct-head">
-        <a class="ct-back" href={u('/learn')}>
-          <Icon name="chevron" size={12} />
-          学习中心
-        </a>
-        <div class="ct-name">{course.name}</div>
-        <div class="ct-progress">
-          <div class="ct-bar"><i id="ct-bar"></i></div>
-          <span id="ct-pct">0 / {total} 已学</span>
-        </div>
-      </div>
-
-      <div class="ct-tree">
-        {
-          modules.map((m, mi) => (
-            <div class="ct-group">
-              <div class="ct-group-title">
-                <span>{String(mi + 1).padStart(2, '0')}</span>
-                {m.name}
-              </div>
-              {m.items.map((r) => (
-                <a
-                  class="ct-item"
-                  href={`#ch-${noOf(r.entry.id)}`}
-                  data-ch={noOf(r.entry.id)}
-                >
-                  <i class="ct-dot" aria-hidden="true"></i>
-                  <span class="ct-item-name">
-                    <em>{noOf(r.entry.id)}</em>
-                    {r.entry.data.title}
-                  </span>
-                </a>
-              ))}
-            </div>
-          ))
-        }
-      </div>
-    </aside>
+    <CourseTree course={course} modules={modules} total={total} />
 
     <main class="course-main">
       <div class="page-head" style="border-bottom:0;padding-bottom:10px">
@@ -107,109 +68,45 @@ const total = rendered.length;
       </div>
 
       {
+        first && (
+          <a class="cm-start" href={first.href}>
+            从第 {first.no} 章开始 · {first.title}
+            <Icon name="arrowRight" size={14} />
+          </a>
+        )
+      }
+
+      <div class="cm-list-note">
+        一章一页，读完一章再进下一章。左边目录可以随时跳到任意一章。
+      </div>
+
+      {
         modules.map((m, mi) => (
-          <div class="cm-module">
+          <section class="cm-module">
             <div class="cm-module-head">
               <span class="cm-module-index">{String(mi + 1).padStart(2, '0')}</span>
               <h2>{m.name}</h2>
+              <span class="cm-module-count">{m.items.length} 章</span>
             </div>
 
-            {m.items.map(({ entry, Content }, ci) => (
-              <section class="chapter" id={`ch-${noOf(entry.id)}`}>
-                <div class="ch-head">
-                  <span class="ch-no">{noOf(entry.id)}</span>
-                  <h3>{entry.data.title}</h3>
-                  <button
-                    class="ch-done"
-                    type="button"
-                    data-ch={noOf(entry.id)}
-                    aria-label="标记本章已学"
-                  >
-                    <span class="ch-done-box" aria-hidden="true">✓</span>
-                    标记已学
-                  </button>
-                </div>
-                {entry.data.summary && <p class="ch-summary">{entry.data.summary}</p>}
-                <div class="prose">
-                  <Content />
-                </div>
-                <div class="ch-nav">
-                  {ci < m.items.length - 1 ? (
-                    <a href={`#ch-${noOf(m.items[ci + 1].entry.id)}`}>
-                      下一章：{m.items[ci + 1].entry.data.title}
-                      <Icon name="arrowRight" size={13} />
-                    </a>
-                  ) : mi < modules.length - 1 ? (
-                    <a href={`#ch-${noOf(modules[mi + 1].items[0].entry.id)}`}>
-                      下一模块：{modules[mi + 1].name}
-                      <Icon name="arrowRight" size={13} />
-                    </a>
-                  ) : (
-                    <a href={u('/learn')}>这门课读完了，换一门继续 →</a>
-                  )}
-                </div>
-              </section>
-            ))}
-          </div>
+            <div class="cm-chapters">
+              {m.items.map((it) => (
+                <a class="cm-ch" href={it.href}>
+                  <span class="cm-ch-no">{it.no}</span>
+                  <span class="cm-ch-body">
+                    <span class="cm-ch-title">{it.title}</span>
+                    {it.summary && <span class="cm-ch-sum">{it.summary}</span>}
+                  </span>
+                  {it.minutes && <span class="cm-ch-min">{it.minutes} 分钟</span>}
+                  <Icon name="arrowRight" size={13} />
+                </a>
+              ))}
+            </div>
+          </section>
         ))
       }
     </main>
   </div>
-
-  <script is:inline define:vars={{ courseId: course.id, total }}>
-    (function () {
-      const key = 'wt-learn-' + courseId;
-      let done = new Set();
-      try {
-        done = new Set(JSON.parse(localStorage.getItem(key) || '[]'));
-      } catch (e) {}
-
-      const bar = document.getElementById('ct-bar');
-      const pct = document.getElementById('ct-pct');
-      const items = document.querySelectorAll('.ct-item');
-      const btns = document.querySelectorAll('.ch-done');
-
-      const sync = () => {
-        items.forEach((a) => a.classList.toggle('done', done.has(a.dataset.ch)));
-        btns.forEach((b) => b.classList.toggle('on', done.has(b.dataset.ch)));
-        document.querySelectorAll('.chapter').forEach((s) => {
-          s.classList.toggle('done', done.has(s.id.replace('ch-', '')));
-        });
-        if (bar) bar.style.width = (done.size / total) * 100 + '%';
-        if (pct) pct.textContent = done.size + ' / ' + total + ' 已学';
-      };
-
-      btns.forEach((b) => {
-        b.addEventListener('click', () => {
-          const ch = b.dataset.ch;
-          if (done.has(ch)) done.delete(ch);
-          else done.add(ch);
-          try {
-            localStorage.setItem(key, JSON.stringify([...done]));
-          } catch (e) {}
-          sync();
-        });
-      });
-
-      sync();
-
-      // 目录高亮
-      const links = new Map();
-      items.forEach((a) => links.set('ch-' + a.dataset.ch, a));
-      const io = new IntersectionObserver(
-        (es) => {
-          es.forEach((e) => {
-            if (!e.isIntersecting) return;
-            items.forEach((a) => a.classList.remove('active'));
-            const a = links.get(e.target.id);
-            if (a) a.classList.add('active');
-          });
-        },
-        { rootMargin: '-90px 0px -70% 0px', threshold: 0 }
-      );
-      document.querySelectorAll('.chapter').forEach((s) => io.observe(s));
-    })();
-  </script>
 </BaseLayout>
 
 <style>
@@ -222,146 +119,6 @@ const total = rendered.length;
     padding-bottom: 90px;
   }
 
-  /* ---------- 左侧树 ---------- */
-  .coursetree {
-    position: sticky;
-    top: 84px;
-    max-height: calc(100vh - 110px);
-    overflow-y: auto;
-    scrollbar-width: thin;
-    border-right: 1px solid var(--line);
-    padding-right: 14px;
-  }
-
-  .ct-head {
-    padding: 0 0 14px 2px;
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 14px;
-  }
-
-  .ct-back {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 11px;
-    color: var(--dim);
-    margin-bottom: 10px;
-  }
-
-  .ct-back:hover {
-    color: var(--accent);
-  }
-
-  .ct-back svg {
-    transform: rotate(180deg);
-  }
-
-  .ct-name {
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 1.5;
-    margin-bottom: 10px;
-  }
-
-  .ct-progress {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .ct-bar {
-    height: 3px;
-    border-radius: 3px;
-    background: var(--line);
-    overflow: hidden;
-  }
-
-  .ct-bar i {
-    display: block;
-    height: 100%;
-    width: 0;
-    background: var(--accent);
-    transition: width 0.3s;
-  }
-
-  .ct-progress span {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    color: var(--dim);
-  }
-
-  .ct-group {
-    margin-bottom: 16px;
-  }
-
-  .ct-group-title {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 10.5px;
-    letter-spacing: 0.06em;
-    color: var(--dim);
-    margin-bottom: 6px;
-    padding-left: 2px;
-  }
-
-  .ct-group-title span {
-    font-family: var(--font-mono);
-    color: var(--accent);
-  }
-
-  .ct-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    padding: 6px 6px 6px 2px;
-    border-radius: 6px;
-    font-size: 12px;
-    line-height: 1.5;
-    color: var(--muted);
-    transition: background 0.15s, color 0.15s;
-  }
-
-  .ct-item:hover {
-    background: var(--panel);
-    color: var(--text);
-  }
-
-  .ct-item.active {
-    color: var(--accent);
-    background: var(--accent-soft);
-  }
-
-  .ct-item.done {
-    color: var(--dim);
-  }
-
-  .ct-dot {
-    flex: 0 0 auto;
-    width: 5px;
-    height: 5px;
-    margin-top: 8px;
-    border-radius: 50%;
-    background: var(--line-strong);
-  }
-
-  .ct-item.done .ct-dot {
-    background: var(--ok);
-  }
-
-  .ct-item.active .ct-dot {
-    background: var(--accent);
-  }
-
-  .ct-item-name em {
-    font-family: var(--font-mono);
-    font-style: normal;
-    font-size: 9.5px;
-    color: var(--dim);
-    margin-right: 5px;
-  }
-
-  /* ---------- 右侧正文 ---------- */
   .course-main {
     min-width: 0;
   }
@@ -377,7 +134,7 @@ const total = rendered.length;
   }
 
   .cm-can {
-    margin: 18px 0 40px;
+    margin: 18px 0 24px;
     padding: 16px 20px;
     border: 1px solid var(--line);
     border-left: 2px solid var(--accent);
@@ -406,16 +163,38 @@ const total = rendered.length;
     line-height: 1.7;
   }
 
+  .cm-start {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--accent-line);
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 12.5px;
+  }
+
+  .cm-start:hover {
+    background: color-mix(in srgb, var(--accent) 18%, transparent);
+  }
+
+  .cm-list-note {
+    margin: 14px 0 34px;
+    font-size: 11.5px;
+    color: var(--dim);
+  }
+
   .cm-module {
-    margin-bottom: 44px;
+    margin-bottom: 34px;
   }
 
   .cm-module-head {
     display: flex;
     align-items: baseline;
     gap: 12px;
-    padding-bottom: 12px;
-    margin-bottom: 8px;
+    padding-bottom: 10px;
+    margin-bottom: 6px;
     border-bottom: 1px solid var(--line-strong);
   }
 
@@ -431,119 +210,87 @@ const total = rendered.length;
     letter-spacing: -0.01em;
   }
 
-  .chapter {
-    padding: 22px 0 26px;
-    border-bottom: 1px dashed var(--line);
-    scroll-margin-top: 90px;
-  }
-
-  .ch-head {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 6px;
-  }
-
-  .ch-no {
+  .cm-module-count {
+    margin-left: auto;
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 10.5px;
+    color: var(--dim);
+  }
+
+  .cm-chapters {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cm-ch {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 13px 10px;
+    border-bottom: 1px dashed var(--line);
+    border-radius: 6px;
+    color: var(--text);
+    transition: background 0.15s;
+  }
+
+  .cm-ch:hover {
+    background: var(--panel);
+  }
+
+  .cm-ch-no {
+    flex: 0 0 auto;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
     font-weight: 600;
     color: var(--accent);
     border: 1px solid var(--accent-line);
-    border-radius: 6px;
-    padding: 2px 7px;
+    border-radius: 5px;
+    padding: 1px 6px;
+    margin-top: 2px;
+  }
+
+  .cm-ch-body {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .cm-ch-title {
+    font-size: 14px;
+    font-weight: 600;
     line-height: 1.5;
   }
 
-  .ch-head h3 {
-    flex: 1;
-    margin: 0;
-    font-size: 19px;
-    letter-spacing: -0.02em;
-  }
-
-  .chapter.done h3 {
-    color: var(--muted);
-  }
-
-  .ch-done {
-    flex: 0 0 auto;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    padding: 4px 10px;
-    border-radius: 20px;
-    border: 1px solid var(--line);
-    background: transparent;
-    color: var(--dim);
-    cursor: pointer;
-    transition: color 0.15s, border-color 0.15s, background 0.15s;
-  }
-
-  .ch-done:hover {
-    color: var(--text);
-    border-color: var(--line-strong);
-  }
-
-  .ch-done.on {
-    color: var(--ok);
-    border-color: color-mix(in srgb, var(--ok) 40%, transparent);
-    background: color-mix(in srgb, var(--ok) 10%, transparent);
-  }
-
-  .ch-done-box {
-    font-size: 10px;
-    line-height: 1;
-  }
-
-  .ch-summary {
-    margin: 0 0 14px;
-    font-size: 12.5px;
-    color: var(--dim);
-    line-height: 1.7;
-    padding-left: 12px;
-    border-left: 2px solid var(--line-strong);
-  }
-
-  .ch-nav {
-    margin-top: 18px;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .ch-nav a {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+  .cm-ch-sum {
     font-size: 12px;
-    color: var(--muted);
-    padding: 7px 12px;
-    border: 1px solid var(--line);
-    border-radius: 8px;
+    color: var(--dim);
+    line-height: 1.6;
   }
 
-  .ch-nav a:hover {
+  .cm-ch-min {
+    flex: 0 0 auto;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--dim);
+    margin-top: 3px;
+  }
+
+  .cm-ch :global(svg) {
+    flex: 0 0 auto;
+    margin-top: 4px;
+    color: var(--dim);
+  }
+
+  .cm-ch:hover :global(svg) {
     color: var(--accent);
-    border-color: var(--accent-line);
   }
 
   @media (max-width: 980px) {
     .course-wrap {
       grid-template-columns: minmax(0, 1fr);
       gap: 18px;
-    }
-    .coursetree {
-      position: static;
-      max-height: none;
-      border-right: 0;
-      border-bottom: 1px solid var(--line);
-      padding: 0 0 16px;
-    }
-    .ct-tree {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 6px 16px;
     }
   }
 </style>

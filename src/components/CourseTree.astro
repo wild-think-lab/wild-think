@@ -1,0 +1,254 @@
+---
+import Icon from './Icon.astro';
+import { u } from '../lib/url';
+
+interface TreeItem {
+  no: string;
+  title: string;
+  href: string;
+  key: string;
+}
+interface TreeModule {
+  name: string;
+  items: TreeItem[];
+}
+
+const { course, modules, total, activeKey = '' } = Astro.props as {
+  course: { id: string; name: string };
+  modules: TreeModule[];
+  total: number;
+  activeKey?: string;
+};
+---
+
+<aside class="coursetree" aria-label="课程目录">
+  <div class="ct-head">
+    <a class="ct-back" href={u('/learn')}>
+      <Icon name="chevron" size={12} />
+      学习中心
+    </a>
+    <a class="ct-name" href={u(`/learn/${course.id}`)}>{course.name}</a>
+    <div class="ct-progress">
+      <div class="ct-bar"><i id="ct-bar"></i></div>
+      <span id="ct-pct">0 / {total} 已学</span>
+    </div>
+  </div>
+
+  <div class="ct-tree">
+    {
+      modules.map((m, mi) => (
+        <div class="ct-group">
+          <div class="ct-group-title">
+            <span>{String(mi + 1).padStart(2, '0')}</span>
+            {m.name}
+          </div>
+          {m.items.map((it) => (
+            <a
+              class:list={['ct-item', { active: it.key === activeKey }]}
+              href={it.href}
+              data-ch={it.key}
+            >
+              <i class="ct-dot" aria-hidden="true"></i>
+              <span class="ct-item-name">
+                <em>{it.no}</em>
+                {it.title}
+              </span>
+            </a>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</aside>
+
+<script is:inline define:vars={{ courseId: course.id, total }}>
+  (function () {
+    const key = 'wt-learn-' + courseId;
+    const read = () => {
+      try {
+        return new Set(JSON.parse(localStorage.getItem(key) || '[]'));
+      } catch (e) {
+        return new Set();
+      }
+    };
+
+    function sync() {
+      const done = read();
+      document.querySelectorAll('.ct-item').forEach((a) => {
+        a.classList.toggle('done', done.has(a.dataset.ch));
+        if (a.classList.contains('active')) a.classList.remove('done');
+      });
+      const btn = document.querySelector('.ch-done');
+      if (btn) btn.classList.toggle('on', done.has(btn.dataset.ch));
+      const bar = document.getElementById('ct-bar');
+      const pct = document.getElementById('ct-pct');
+      if (bar) bar.style.width = (done.size / total) * 100 + '%';
+      if (pct) pct.textContent = done.size + ' / ' + total + ' 已学';
+    }
+
+    document.addEventListener('wt-learn-update', sync);
+    sync();
+  })();
+</script>
+
+<style>
+  .coursetree {
+    position: sticky;
+    top: 84px;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    border-right: 1px solid var(--line);
+    padding-right: 14px;
+    align-self: start;
+  }
+
+  .ct-head {
+    padding: 0 0 14px 2px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 14px;
+  }
+
+  .ct-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--dim);
+    margin-bottom: 10px;
+  }
+
+  .ct-back:hover {
+    color: var(--accent);
+  }
+
+  .ct-back svg {
+    transform: rotate(180deg);
+  }
+
+  .ct-name {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .ct-name:hover {
+    color: var(--accent);
+  }
+
+  .ct-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .ct-bar {
+    height: 3px;
+    border-radius: 3px;
+    background: var(--line);
+    overflow: hidden;
+  }
+
+  .ct-bar i {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: var(--accent);
+    transition: width 0.3s;
+  }
+
+  .ct-progress span {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--dim);
+  }
+
+  .ct-group {
+    margin-bottom: 16px;
+  }
+
+  .ct-group-title {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    color: var(--dim);
+    margin-bottom: 6px;
+    padding-left: 2px;
+  }
+
+  .ct-group-title span {
+    font-family: var(--font-mono);
+    color: var(--accent);
+  }
+
+  .ct-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 6px 6px 6px 2px;
+    border-radius: 6px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--muted);
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .ct-item:hover {
+    background: var(--panel);
+    color: var(--text);
+  }
+
+  .ct-item.active {
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  .ct-item.done {
+    color: var(--dim);
+  }
+
+  .ct-dot {
+    flex: 0 0 auto;
+    width: 5px;
+    height: 5px;
+    margin-top: 8px;
+    border-radius: 50%;
+    background: var(--line-strong);
+  }
+
+  .ct-item.done .ct-dot {
+    background: var(--ok);
+  }
+
+  .ct-item.active .ct-dot {
+    background: var(--accent);
+  }
+
+  .ct-item-name em {
+    font-family: var(--font-mono);
+    font-style: normal;
+    font-size: 9.5px;
+    color: var(--dim);
+    margin-right: 5px;
+  }
+
+  @media (max-width: 980px) {
+    .coursetree {
+      position: static;
+      max-height: none;
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+      padding: 0 0 16px;
+    }
+    .ct-tree {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 6px 16px;
+    }
+  }
+</style>
