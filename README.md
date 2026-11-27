@@ -50,22 +50,19 @@ src/
 
 ## 部署
 
-当前线上通过 **gh-pages 分支** 发布（GitHub Pages 的 source 设为 `gh-pages` 分支）：
+推送到 `main` 即自动构建发布，无需本地打包：`.github/workflows/deploy.yml` 会执行
+`npm ci` → `npm run build` → 上传 `dist/` 到 GitHub Pages，线上地址
+https://wild-think-lab.github.io/wild-think/
 
-```bash
-npm run build
-# 将 dist/ 内容提交到 gh-pages 分支（保持 .nojekyll）
-```
+Pages 的 Source 已设为 **GitHub Actions**（`build_type=workflow`）。`gh-pages` 分支是早期手动发布的
+历史产物，仅作回滚参考，可以删除。
 
-想要"推 main 自动发布"，可在本机执行一次授权，让 GitHub CLI 拿到 workflow 权限，然后把
-`docs/deploy-actions.example.yml` 复制为 `.github/workflows/deploy.yml` 并提交：
+排查构建失败：仓库 Actions 页 → Deploy to GitHub Pages → 看 build 步骤日志；
+本地复现用 `npm ci && npm run build`。
 
-```bash
-gh auth refresh -s workflow,repo,read:org
-```
+> 注意：OAuth App 令牌若无 `workflow` 权限，GitHub 会拒绝推送 `.github/workflows/` 下的文件，
+> 需要先执行 `gh auth refresh -s workflow,repo,read:org`。
 
-随后在仓库 Settings → Pages 把 Source 改为 **GitHub Actions**，删除 gh-pages 分支即可。
-OAuth App 令牌没有 `workflow` 权限时，GitHub 会拒绝推送任何 `.github/workflows/` 下的文件。
 
 > 说明：站点挂在项目页 `/wild-think/` 子路径下，所有内链必须经过 `src/lib/url.ts` 的 `u()` 包装，否则会 404。
 >
