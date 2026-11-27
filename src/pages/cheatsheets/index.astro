@@ -1,0 +1,64 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import { u } from '../../lib/url';
+
+const all = await getCollection('sheets');
+const sorted = all.sort((a, b) => (a.data.order ?? 100) - (b.data.order ?? 100) || a.id.localeCompare(b.id));
+
+const groups = new Map();
+for (const s of sorted) {
+  const g = s.data.group || '常用';
+  if (!groups.has(g)) groups.set(g, []);
+  groups.get(g).push(s);
+}
+const groupList = Array.from(groups.entries());
+---
+<BaseLayout
+  title="速查表"
+  description="敲代码、配服务器时最常查的那些命令：Linux、Kubernetes、网络、Docker、Git、SQL、systemd、SSH，一页一张，直接照抄。"
+  active="sheets"
+>
+  <section class="section">
+    <div class="container">
+      <div class="page-head">
+        <div class="kicker">CHEATSHEET · 速查表</div>
+        <h1>不用背命令，<br />把常用的抄在手边</h1>
+        <p>
+          每一页只留真正高频的东西：命令、参数、判断标准、出错时先看哪一行。写文档时可以直接引用，运维现场可以直接照抄。
+        </p>
+      </div>
+
+      <div class="sheet-stats">
+        <div><b>{all.length}</b><span>张速查表</span></div>
+        <div><b>{groupList.length}</b><span>个分组</span></div>
+        <div><b>{sorted.reduce((n, s) => n + (s.body?.split('\n').length ?? 0), 0)}</b><span>行内容</span></div>
+      </div>
+
+      {groupList.map(([g, list]) => (
+        <div class="sheet-group">
+          <div class="sheet-group-head">
+            <h2>{g}</h2>
+            <em>{list.length}</em>
+          </div>
+          <div class="sheet-grid">
+            {list.map((s) => (
+              <a class="sheet-card" href={u(`/cheatsheets/${s.id.replace(/\.md$/, "")}`)}>
+                <div class="sc-top">
+                  <span class="sc-tag">{s.data.group}</span>
+                  <Icon name="arrowRight" size={14} />
+                </div>
+                <h3>{s.data.title}</h3>
+                <p>{s.data.summary}</p>
+                <div class="sc-tags">
+                  {(s.data.tags ?? []).slice(0, 4).map((t) => <span>#{t}</span>)}
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

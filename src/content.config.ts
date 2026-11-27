@@ -36,4 +36,20 @@ const learn = defineCollection({
   }),
 });
 
-export const collections = { posts, learn };
+/**
+ * 速查表：src/content/sheets/<slug>.md
+ * 一页一张，列表页按 group 分组。
+ */
+const sheets = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/sheets' }),
+  schema: z.object({
+    title: z.string(),
+    summary: z.string().default(''),
+    group: z.string().default('常用'),
+    /** 列表排序，越小越前 */
+    order: z.number().default(100),
+    tags: z.array(z.string()).default([]),
+  }),
+});
+
+const collections = { posts, learn, sheets };

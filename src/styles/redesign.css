@@ -928,3 +928,35 @@
 .article-meta {
   gap: 10px;
 }
+
+/* ============ 速查表 cheatsheets ============ */
+.sheet-stats{display:flex;gap:38px;margin:26px 0 8px;flex-wrap:wrap}
+.sheet-stats div{display:flex;flex-direction:column;gap:2px}
+.sheet-stats b{font-family:var(--font-mono);font-size:26px;color:var(--fg);letter-spacing:-.02em}
+.sheet-stats span{font-size:12px;color:var(--dim);letter-spacing:.02em}
+.sheet-group{margin-top:44px}
+.sheet-group-head{display:flex;align-items:baseline;gap:10px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.sheet-group-head h2{font-size:15px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--fg);margin:0}
+.sheet-group-head em{font-family:var(--font-mono);font-style:normal;font-size:11px;color:var(--dim)}
+.sheet-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:18px}
+.sheet-card{display:flex;flex-direction:column;gap:8px;padding:20px 20px 18px;border:1px solid var(--line);border-radius:14px;background:var(--bg-soft);transition:border-color .18s ease,transform .18s ease,background .18s ease}
+.sheet-card:hover{border-color:var(--accent);transform:translateY(-2px);background:var(--bg-card)}
+.sc-top{display:flex;align-items:center;justify-content:space-between;color:var(--dim)}
+.sc-tag{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.sheet-card h3{font-size:16.5px;font-weight:600;line-height:1.4;margin:0;color:var(--fg)}
+.sheet-card p{font-size:13px;line-height:1.7;color:var(--dim);margin:0}
+.sc-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+.sc-tags span{font-family:var(--font-mono);font-size:10.5px;color:var(--dim);opacity:.75}
+.sheet-wrap{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:48px;align-items:start;padding:26px 0 70px}
+.sheet-doc{min-width:0}
+.sheet-prose table{width:100%;border-collapse:collapse;font-size:13px;margin:18px 0}
+.sheet-prose th,.sheet-prose td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+.sheet-prose th{background:var(--bg-soft);font-weight:600;font-size:12.5px}
+.sheet-prose code{font-size:12.5px}
+.chip-static{display:inline-block;font-family:var(--font-mono);font-size:11px;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:3px 9px}
+@media(max-width:900px){
+  .sheet-wrap{grid-template-columns:1fr;gap:0}
+  .sheet-wrap .toc{display:none}
+  .sheet-grid{grid-template-columns:1fr}
+  .sheet-stats{gap:22px}
+}
