@@ -1,0 +1,245 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import toolbox from '../data/toolbox.json';
+
+type Item = { name: string; url: string; desc: string };
+type Group = { group: string; items: Item[] };
+
+const raw = toolbox as Group[];
+
+// 展示顺序：技术类靠前，生活娱乐靠后
+const ORDER = [
+  '🛠️ 效率工具',
+  '🐧 奇妙的 Linux 世界',
+  '🧑‍💻 编程开发',
+  '🧰 网络调试',
+  '🐳 云原生容器化',
+  '🪞 镜像加速',
+  '🔐 安全相关',
+  '🌠 探索 GitHub',
+  '🤖 AI 新世界',
+  '👨‍💻 AI 编程',
+  '📕 AI 翻译利器',
+  '🖼 AI 绘图',
+  '☁ 云服务',
+  '🎁 玩转 NixOS',
+  '🍎 苹果实验室',
+  '🔎 搜索引擎',
+  '📔 博客网摘',
+  '🏢 职来职往',
+  '📰 新闻资讯',
+  '📧 电子邮件',
+  '🖼 绘图设计',
+  '🚖 出行服务',
+  '🤹‍♂️ 趣站酷软',
+  '📷 光影时刻',
+  '🎸 音乐之声',
+  '🕹 头号玩家',
+];
+
+const rank = (name: string) => {
+  const i = ORDER.indexOf(name);
+  return i === -1 ? 999 : i;
+};
+const groups = [...raw].sort((a, b) => rank(a.group) - rank(b.group));
+
+const totalItems = groups.reduce((n, g) => n + g.items.length, 0);
+const gid = (i: number) => `g-${i}`;
+
+// 分类名去掉 emoji，用于侧栏与搜索关键词
+const plain = (s: string) => s.replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}\uFE0F]/gu, '').trim();
+
+const withDesc = groups.reduce((n, g) => n + g.items.filter((i) => i.desc).length, 0);
+const hosts = new Set(
+  groups.flatMap((g) =>
+    g.items
+      .map((i) => {
+        try {
+          return new URL(i.url).hostname;
+        } catch {
+          return '';
+        }
+      })
+      .filter(Boolean)
+  )
+);
+---
+
+<BaseLayout
+  title="工具箱"
+  description="野生思考工具箱：26 个分类、789 个技术站点与在线工具，覆盖效率、Linux、网络调试、云原生、安全、AI、开发与生活场景，全部可跳转。"
+  active="toolbox"
+>
+  <section class="section tool-page">
+    <div class="container">
+      <div class="page-head">
+        <div class="kicker">TOOLBOX · 工具导航</div>
+        <h1>把好用的工具，<br />收进一座随身的小仓库</h1>
+        <p>
+          日常排障、写代码、查资料、做图会反复打开的那些站点，按场景收在这里。
+          每条都能直接跳转，带一句话说明它到底解决什么问题——不用再靠记忆去翻收藏夹。
+        </p>
+      </div>
+
+      <div class="tool-stats">
+        <div class="stat"><b>{groups.length}</b><span>个分类</span></div>
+        <div class="stat"><b>{totalItems}</b><span>个工具 / 站点</span></div>
+        <div class="stat"><b>{hosts.size}</b><span>个独立域名</span></div>
+        <div class="stat"><b>{withDesc}</b><span>条带用途说明</span></div>
+      </div>
+
+      <div class="tool-search">
+        <Icon name="search" size={18} />
+        <input
+          id="tool-q"
+          type="search"
+          placeholder="搜工具名、用途或分类，例如 nginx、截图、镜像加速"
+          autocomplete="off"
+          aria-label="搜索工具"
+        />
+        <span class="tool-count" id="tool-count">{totalItems} 条</span>
+        <kbd>/</kbd>
+      </div>
+
+      <div class="tool-layout">
+        <aside class="tool-side">
+          <div class="tool-side-inner">
+            <div class="tool-side-title">分类目录</div>
+            {
+              groups.map((g, i) => (
+                <a class="tool-side-link" href={`#${gid(i)}`} data-target={gid(i)}>
+                  <span>{plain(g.group)}</span>
+                  <em>{g.items.length}</em>
+                </a>
+              ))
+            }
+            <a class="tool-side-link tool-side-top" href="#top">
+              <span>回到顶部</span>
+            </a>
+          </div>
+        </aside>
+
+        <div class="tool-body" id="tool-body">
+          {
+            groups.map((g, i) => (
+              <section class="tool-group" id={gid(i)} data-group={plain(g.group)}>
+                <h2 class="tool-group-title">
+                  {g.group}
+                  <em>{g.items.length}</em>
+                </h2>
+                <div class="tool-grid">
+                  {g.items.map((it) => (
+                    <a
+                      class="titem"
+                      href={it.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-k={`${it.name} ${it.desc} ${plain(g.group)}`.toLowerCase()}
+                    >
+                      <span class="titem-name">
+                        {it.name}
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                          <path d="M7 17L17 7M17 7H9M17 7v8" />
+                        </svg>
+                      </span>
+                      {it.desc && <span class="titem-desc">{it.desc}</span>}
+                    </a>
+                  ))}
+                </div>
+              </section>
+            ))
+          }
+          <div class="tool-empty" id="tool-empty" hidden>
+            没有匹配的工具，换个关键词试试。
+          </div>
+        </div>
+      </div>
+
+      <p class="tool-note">
+        收录原则：只留还在维护、打开就能用的站点；分类按使用场景而非公司品牌划分。
+        部分链接指向第三方在线工具，敏感数据不要往里贴。
+      </p>
+    </div>
+  </section>
+
+  <script>
+    const q = document.getElementById('tool-q') as HTMLInputElement | null;
+    const countEl = document.getElementById('tool-count');
+    const emptyEl = document.getElementById('tool-empty');
+    const body = document.getElementById('tool-body');
+    const groups = Array.from(document.querySelectorAll('.tool-group')) as HTMLElement[];
+    const items = Array.from(document.querySelectorAll('.titem')) as HTMLElement[];
+    const total = items.length;
+
+    const apply = (kw: string) => {
+      const k = kw.trim().toLowerCase();
+      let shown = 0;
+      for (const it of items) {
+        const hit = !k || (it.dataset.k || '').includes(k);
+        it.style.display = hit ? '' : 'none';
+        if (hit) shown++;
+      }
+      for (const g of groups) {
+        const visible = Array.from(g.querySelectorAll('.titem')).some(
+          (it) => (it as HTMLElement).style.display !== 'none'
+        );
+        g.style.display = visible ? '' : 'none';
+        const em = g.querySelector('.tool-group-title em');
+        if (em) {
+          const local = Array.from(g.querySelectorAll('.titem')).filter(
+            (it) => (it as HTMLElement).style.display !== 'none'
+          ).length;
+          em.textContent = k ? String(local) : (em.dataset.n || em.textContent);
+        }
+      }
+      if (countEl) countEl.textContent = k ? `${shown} 条匹配` : `${total} 条`;
+      if (emptyEl) emptyEl.hidden = shown !== 0;
+    };
+
+    // 记录每组初始计数，搜索清空后还原
+    for (const g of groups) {
+      const em = g.querySelector('.tool-group-title em');
+      if (em) em.dataset.n = em.textContent || '';
+    }
+
+    let timer: number | undefined;
+    q?.addEventListener('input', () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => apply(q.value), 80);
+    });
+
+    q?.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        q.value = '';
+        apply('');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      const t = e.target as HTMLElement | null;
+      const typing = t && /^(INPUT|TEXTAREA)$/.test(t.tagName);
+      if (e.key === '/' && !typing) {
+        e.preventDefault();
+        q?.focus();
+      }
+    });
+
+    // 侧栏滚动高亮
+    const links = Array.from(document.querySelectorAll('.tool-side-link[data-target]')) as HTMLElement[];
+    const map = new Map(links.map((l) => [l.dataset.target!, l]));
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const en of entries) {
+          if (!en.isIntersecting) continue;
+          const link = map.get((en.target as HTMLElement).id);
+          if (!link) continue;
+          for (const l of links) l.classList.remove('active');
+          link.classList.add('active');
+        }
+      },
+      { rootMargin: '-96px 0px -70% 0px', threshold: 0 }
+    );
+    for (const g of groups) io.observe(g);
+  </script>
+</BaseLayout>

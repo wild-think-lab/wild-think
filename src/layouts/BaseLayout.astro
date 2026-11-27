@@ -25,6 +25,8 @@ const canonical = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.si
 const nav = [
   { key: 'topics', label: '专题', href: u('/topics') },
   { key: 'writing', label: '文章', href: u('/writing') },
+  { key: 'toolbox', label: '工具箱', href: u('/toolbox') },
+  { key: 'roadmap', label: '路线', href: u('/roadmap') },
   { key: 'tags', label: '标签', href: u('/tags') },
   { key: 'archive', label: '归档', href: u('/archive') },
   { key: 'about', label: '关于', href: u('/about') },
@@ -136,6 +138,7 @@ const isActive = (href: string) => {
           <div class="footer-col">
             <h4>站点</h4>
             <a href={u('/writing')}>全部文章</a>
+            <a href={u('/toolbox')}>工具箱</a>
             <a href={u('/archive')}>归档</a>
             <a href={u('/tags')}>标签</a>
             <a href={u('/about')}>关于本站</a>

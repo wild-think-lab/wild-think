@@ -41,6 +41,19 @@ const others = TOPICS.filter((t) => t.id !== topic.id).slice(0, 4);
 
     <div style="display:grid;gap:40px" class="topic-body">
       <div>
+        {
+          topic.id === 'tools' && (
+            <a class="tool-callout" href={u('/toolbox')}>
+              <div class="tc-left">
+                <span class="tc-kicker">TOOLBOX · 789 个站点</span>
+                <h3>工具箱导航已上线 →</h3>
+                <p>26 个分类、789 个工具站点，支持按用途搜索，按场景直达。</p>
+              </div>
+              <span class="tc-go">打开工具箱</span>
+            </a>
+          )
+        }
+
         <div class="section-head" style="margin-top:10px">
           <h2>本专题文章 <span class="mono">/ {topicPosts.length} NOTES</span></h2>
         </div>

@@ -1,0 +1,590 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { u } from '../lib/url';
+
+type Level = { tag: string; title: string; skills: string[]; prove: string };
+type Track = {
+  id: string;
+  name: string;
+  en: string;
+  icon: string;
+  accent: string;
+  topic: string;
+  summary: string;
+  levels: Level[];
+};
+
+const tracks: Track[] = [
+  {
+    id: 'linux-ops',
+    name: 'Linux 运维 / 系统工程师',
+    en: 'LINUX OPS',
+    icon: 'terminal',
+    accent: '#ff8a3d',
+    topic: 'linux',
+    summary: '从"会敲命令"到"能对一台线上机器负责"。判断标准不是知道多少命令，而是面对陌生故障能不能自己收口。',
+    levels: [
+      {
+        tag: 'L1',
+        title: '会用',
+        skills: ['文件与权限（rwx、umask、ACL）', '包管理与源修复', '进程与信号、systemd 单元', '日志三件套 journalctl/dmesg/应用日志', 'SSH 密钥登录与免密', '磁盘与 inode 概念'],
+        prove: '能在空白机器上从零部署一个 Web 服务并设成开机自启，出问题能自己看日志定位。',
+      },
+      {
+        tag: 'L2',
+        title: '能排',
+        skills: ['CPU/内存/IO 三类高负载定位（top/vmstat/iostat/pidstat）', '磁盘写满与"删了文件不释放"', '服务启动失败四层排查', '网络连通性四层递进排查', '定时任务与 crontab 陷阱', '内核参数与文件描述符'],
+        prove: '给出一个"服务 502"的现场，20 分钟内说清瓶颈在应用、系统还是网络，并给出证据链。',
+      },
+      {
+        tag: 'L3',
+        title: '能设计',
+        skills: ['多环境与配置管理', '备份恢复与演练（RTO/RPO）', '批量运维（Ansible/脚本）', '变更流程与回滚', '容量与基线（监控项设计）', '安全基线加固'],
+        prove: '为一套 20 台机器的业务写出部署、备份、监控、回滚四份可执行文档，新人照做能跑通。',
+      },
+      {
+        tag: 'L4',
+        title: '能兜底',
+        skills: ['故障演练与预案', '架构取舍（单点、跨可用区）', '成本与资源治理', '运维体系沉淀（SOP/知识库）', '带人评审与值班机制'],
+        prove: '在核心业务故障时能指挥处置、事后产出复盘并落地改进项，而不是只会上手敲命令。',
+      },
+    ],
+  },
+  {
+    id: 'sre',
+    name: 'SRE / 云原生',
+    en: 'SRE & CLOUD NATIVE',
+    icon: 'cloud',
+    accent: '#a78bfa',
+    topic: 'sre-cloud',
+    summary: 'SRE 的核心不是 K8s，是把"稳定性"变成可度量、可预算的东西：SLI/SLO、容量、变更与告警质量。',
+    levels: [
+      {
+        tag: 'L1',
+        title: '会用',
+        skills: ['容器与镜像分层、Dockerfile 优化', 'K8s 核心对象（Pod/Deployment/Service/ConfigMap）', 'kubectl 最小集与 describe/logs', 'Prometheus 抓取与 Grafana 看板', 'CI/CD 流水线跑通一次'],
+        prove: '能把自己的应用容器化并部署到 K8s，滚动更新不中断，日志与指标都能在平台看到。',
+      },
+      {
+        tag: 'L2',
+        title: '能排',
+        skills: ['Pod 五层排查（调度/镜像/配置/网络/存储）', 'CrashLoopBackOff 与退出码', 'Service 不通与 DNS 解析', '探针配错导致的假故障', '节点 NotReady 与资源压力', '容器内存与 OOMKilled'],
+        prove: '给一个"服务偶发 5xx"，能用指标 + 日志 + 事件三条线索在 1 小时内定位到具体层。',
+      },
+      {
+        tag: 'L3',
+        title: '能设计',
+        skills: ['SLI/SLO 与错误预算', '告警分级与降噪（for/抑制/聚合）', '容量规划与压测', '多副本与反亲和、PDB', '日志与链路（统一采集、采样）', '发布策略（蓝绿/金丝雀/回滚）'],
+        prove: '为一个核心接口定义 SLO，写出对应的指标、告警、值班手册，并证明误报率低于阈值。',
+      },
+      {
+        tag: 'L4',
+        title: '能兜底',
+        skills: ['混沌演练与故障注入', '爆炸半径控制与隔离', '成本优化（资源画像）', '多集群与灾备切换', '平台化（自助发布与治理）'],
+        prove: '能在一次真实 P1 中做决策：先止血还是先定位、切流还是降级，并把决策依据讲清楚。',
+      },
+    ],
+  },
+  {
+    id: 'network',
+    name: '网络工程师 / 路由交换',
+    en: 'NETWORK',
+    icon: 'network',
+    accent: '#5eb0ff',
+    topic: 'network',
+    summary: '网络是最讲究"证据"的方向：配置对不对不重要，包到没到才重要。练的是从现象回到三层/四层的能力。',
+    levels: [
+      {
+        tag: 'L1',
+        title: '会用',
+        skills: ['TCP/IP 分层与封装', '子网划分与 VLSM', 'VLAN 与三层互通', '静态路由与默认路由', 'NAT 类型与选择', 'ping/traceroute/telnet 诊断'],
+        prove: '能手算任意网段的可用地址范围，并在模拟器里搭出"两个 VLAN 经三层设备互通"。',
+      },
+      {
+        tag: 'L2',
+        title: '能排',
+        skills: ['OSPF 邻居状态机与七类原因', 'MTU 与分片问题', 'ACL 误伤与策略顺序', '抓包读握手/重传/RST', 'DNS 解析链路', '单向链路与镜像端口'],
+        prove: '给一个"能 ping 通但连不上服务"的现场，用两端抓包 30 分钟内给出结论。',
+      },
+      {
+        tag: 'L3',
+        title: '能设计',
+        skills: ['三层架构与冗余（VRRP/堆叠）', 'OSPF 多区域与路由汇总', 'BGP 基础与多出口', 'QoS 与带宽规划', '网络分段与安全域', 'IP 地址规划表'],
+        prove: '输出一份可施工的网络方案：拓扑、地址规划、路由策略、故障切换验证步骤。',
+      },
+      {
+        tag: 'L4',
+        title: '能兜底',
+        skills: ['割接方案与回滚', '链路质量与 SLA 度量', '大规模故障定位（分段收敛）', '网络与云环境的边界问题', '变更评审机制'],
+        prove: '能主持一次网络割接：窗口、验证点、回滚触发条件都提前写死，出问题 5 分钟内回到原状。',
+      },
+    ],
+  },
+  {
+    id: 'security',
+    name: '安全工程师（防守 / 渗透）',
+    en: 'SECURITY',
+    icon: 'shield',
+    accent: '#7ae582',
+    topic: 'security',
+    summary: '安全的价值在于"提前发现"而不是"事后解释"。能力分两半：看得见资产与暴露面，说得清漏洞与影响。',
+    levels: [
+      {
+        tag: 'L1',
+        title: '会用',
+        skills: ['资产与端口清点（nmap/ss）', '常见 Web 漏洞原理（注入/XSS/越权）', '基线加固（SSH/账号/权限）', '日志与审计（auth.log、access.log）', '密码与密钥管理', '备份与恢复'],
+        prove: '独立完成一台服务器的基线加固，并给出加固前后的扫描对比。',
+      },
+      {
+        tag: 'L2',
+        title: '能排',
+        skills: ['入侵痕迹排查（进程/定时任务/启动项/网络连接）', '应急响应六阶段', 'WebShell 与后门识别', '日志缺失下的时间线重建', '横向移动路径分析', '样本与 IOC 提取'],
+        prove: '给一台"疑似被入侵"的机器，4 小时内产出时间线与处置建议，并说明证据来源。',
+      },
+      {
+        tag: 'L3',
+        title: '能设计',
+        skills: ['暴露面收敛机制与清单', '权限模型与最小权限落地', '等级保护/合规条款对应', 'WAF 与访问控制策略', '密钥与证书生命周期', '安全左移（依赖与镜像扫描）'],
+        prove: '设计一套"新服务上线必须过"的安全卡口，并证明它能拦住至少两类真实风险。',
+      },
+      {
+        tag: 'L4',
+        title: '能兜底',
+        skills: ['攻防演练组织', '事件分级与对外沟通', '供应链与第三方风险', '数据分类分级', '安全度量（MTTD/MTTR）'],
+        prove: '在演练或真实事件中担任指挥角色，处置过程可复盘、可度量、可改进。',
+      },
+    ],
+  },
+];
+
+const plan = [
+  {
+    window: '第 1–2 周',
+    title: '先把地基打平',
+    items: ['Linux 文件/权限/进程/日志四条主线过一遍', '装一台虚拟机，从零部署 Nginx + 数据库', '把 systemd 与 journalctl 用熟', '建立自己的命令速查笔记'],
+    out: '一台能自启、能看日志、挂了能重启的"最小可用服务器"。',
+  },
+  {
+    window: '第 3–6 周',
+    title: '选一条主线深入',
+    items: ['按路线图挑一个方向（运维/SRE/网络/安全）', '把该方向 L2 的技能点逐条做实验', '每个实验都留：拓扑、命令、验证、踩坑', '遇到报错先自己查，查不到再搜'],
+    out: '4–6 篇可复现的实验记录，而不是收藏夹里的教程链接。',
+  },
+  {
+    window: '第 7–10 周',
+    title: '做一次综合实验',
+    items: ['搭一个"有真实味道"的环境：Web + 数据库 + 监控 + 反向代理', '故意制造 5 个故障并逐个定位', '写故障注入清单与恢复步骤', '把监控告警配到"该响的时候响"'],
+    out: '一份能交给别人照着做的部署+排障手册。',
+  },
+  {
+    window: '第 11–13 周',
+    title: '输出与复盘',
+    items: ['把三个月的笔记整理成 8–10 篇文章', '每篇必须包含：结论、证据、坑、回滚', '做一次模拟面试，按三层答法讲 5 个题', '列出下一个季度的能力缺口'],
+    out: '可展示的作品集 + 一张诚实的能力自评表。',
+  },
+];
+
+const checks = [
+  '给你一台陌生机器和一个"服务慢"的投诉，你能不能在没有文档的情况下定位到具体层？',
+  '你上次遇到的最难故障，能不能用 5 句话讲清因果链，并说清"下次怎么提前发现"？',
+  '你的笔记里，有多少条是"我验证过"，有多少条只是"我看过"？',
+];
+---
+
+<BaseLayout
+  title="能力路线"
+  description="野生思考能力路线图：Linux 运维、SRE 云原生、网络、安全四条主线，每条分 L1 会用 / L2 能排 / L3 能设计 / L4 能兜底 四级，附 90 天落地计划。"
+  active="roadmap"
+>
+  <section class="section roadmap-page">
+    <div class="container">
+      <div class="page-head">
+        <div class="kicker">ROADMAP · 能力路线</div>
+        <h1>技术这条路，<br />不靠攒课程，靠攒证据</h1>
+        <p>
+          四条主线，每条四级：会用、能排、能设计、能兜底。每一级都配一句"能被验证的产出"——
+          说不清产出，就说明这一级还没到手。
+        </p>
+      </div>
+
+      <div class="rm-legend">
+        <div><b>L1</b><span>会用：能照着文档跑通</span></div>
+        <div><b>L2</b><span>能排：能给故障下结论</span></div>
+        <div><b>L3</b><span>能设计：能出方案并被采纳</span></div>
+        <div><b>L4</b><span>能兜底：能指挥处置并复盘</span></div>
+      </div>
+
+      {
+        tracks.map((t) => (
+          <div class="rm-track" style={`--t-accent:${t.accent}`}>
+            <div class="rm-track-head">
+              <span class="rm-icon"><Icon name={t.icon} size={20} /></span>
+              <div>
+                <h2>{t.name}</h2>
+                <p>{t.summary}</p>
+              </div>
+              <a class="rm-more" href={u(`/topics/${t.topic}`)}>
+                对应专题
+                <Icon name="arrowRight" size={14} />
+              </a>
+            </div>
+
+            <div class="rm-levels">
+              {t.levels.map((l) => (
+                <div class="rm-level">
+                  <div class="rm-level-tag">{l.tag}<em>{l.title}</em></div>
+                  <ul>
+                    {l.skills.map((s) => <li>{s}</li>)}
+                  </ul>
+                  <div class="rm-prove">
+                    <span>验收</span>
+                    <p>{l.prove}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+
+      <div class="section-head rm-plan-head">
+        <h2>90 天落地计划 <span class="mono">/ 3 MONTH PLAN</span></h2>
+      </div>
+
+      <div class="rm-plan">
+        {
+          plan.map((p, i) => (
+            <div class="rm-step">
+              <div class="rm-step-no">{String(i + 1).padStart(2, '0')}</div>
+              <div class="rm-step-body">
+                <div class="rm-step-window">{p.window}</div>
+                <h3>{p.title}</h3>
+                <ul>
+                  {p.items.map((it) => <li>{it}</li>)}
+                </ul>
+                <div class="rm-step-out"><b>产出</b>{p.out}</div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="rm-checks">
+        <h2>三条自测题</h2>
+        <ol>
+          {checks.map((c) => <li>{c}</li>)}
+        </ol>
+        <p class="rm-checks-note">
+          三条都能答上来，说明已经从"看过"进入"做过"；答不上来的那一条，就是下一个季度的重点。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .roadmap-page {
+      padding-top: 54px;
+      padding-bottom: 90px;
+    }
+
+    .rm-legend {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 26px 0 40px;
+    }
+
+    .rm-legend > div {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--panel);
+    }
+
+    .rm-legend b {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent);
+    }
+
+    .rm-legend span {
+      font-size: 11.5px;
+      color: var(--dim);
+    }
+
+    .rm-track {
+      margin-bottom: 46px;
+      padding-top: 6px;
+    }
+
+    .rm-track-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .rm-icon {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      color: var(--t-accent);
+      background: color-mix(in srgb, var(--t-accent) 12%, transparent);
+    }
+
+    .rm-track-head h2 {
+      margin: 0 0 4px;
+      font-size: 17px;
+      letter-spacing: -0.01em;
+    }
+
+    .rm-track-head p {
+      margin: 0;
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 62ch;
+    }
+
+    .rm-more {
+      margin-left: auto;
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      color: var(--muted);
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+    }
+
+    .rm-more:hover {
+      color: var(--accent);
+      border-color: var(--accent-line);
+    }
+
+    .rm-more :global(svg) {
+      stroke: currentColor;
+    }
+
+    .rm-levels {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .rm-level {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 14px 16px 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+
+    .rm-level-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--t-accent);
+      letter-spacing: 0.08em;
+    }
+
+    .rm-level-tag em {
+      font-family: var(--font-sans);
+      font-style: normal;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0;
+    }
+
+    .rm-level ul {
+      margin: 0;
+      padding: 0 0 0 15px;
+      list-style: disc;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .rm-level ul li {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .rm-level ul li::marker {
+      color: var(--line-strong);
+      font-size: 10px;
+    }
+
+    .rm-prove {
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px dashed var(--line);
+    }
+
+    .rm-prove span {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--dim);
+    }
+
+    .rm-prove p {
+      margin: 5px 0 0;
+      font-size: 11.5px;
+      line-height: 1.65;
+      color: var(--text);
+    }
+
+    .rm-plan-head {
+      margin-top: 10px;
+    }
+
+    .rm-plan {
+      position: relative;
+      margin-left: 16px;
+      padding-left: 34px;
+      border-left: 1px solid var(--line);
+    }
+
+    .rm-step {
+      position: relative;
+      padding: 0 0 28px;
+    }
+
+    .rm-step-no {
+      position: absolute;
+      left: -47px;
+      top: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid var(--accent-line);
+      background: var(--bg);
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      display: grid;
+      place-items: center;
+      line-height: 1;
+    }
+
+    .rm-step-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .rm-step-window {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      color: var(--dim);
+    }
+
+    .rm-step-body h3 {
+      margin: 4px 0 8px;
+      font-size: 15px;
+    }
+
+    .rm-step-body ul {
+      margin: 0 0 8px;
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .rm-step-body ul li {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .rm-step-out {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.65;
+      padding: 8px 12px;
+      border-left: 2px solid var(--accent-line);
+      background: var(--accent-soft);
+      border-radius: 0 6px 6px 0;
+    }
+
+    .rm-step-out b {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      margin-right: 8px;
+    }
+
+    .rm-checks {
+      margin-top: 20px;
+      padding: 22px 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+
+    .rm-checks h2 {
+      margin: 0 0 14px;
+      font-size: 15px;
+    }
+
+    .rm-checks ol {
+      margin: 0;
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .rm-checks ol li {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .rm-checks-note {
+      margin: 16px 0 0;
+      font-size: 12px;
+      color: var(--dim);
+    }
+
+    @media (max-width: 1080px) {
+      .rm-levels {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .rm-legend,
+      .rm-levels {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .rm-track-head {
+        flex-wrap: wrap;
+      }
+      .rm-more {
+        margin-left: 52px;
+      }
+    }
+  </style>
+</BaseLayout>
