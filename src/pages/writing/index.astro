@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { u } from '../../lib/url';
-import { allPosts, postHref, postTopicId, fmtDate, readingMinutes } from '../../lib/posts';
+import { allPosts, postHref, postTopicId, fmtDate } from '../../lib/posts';
 import { topicById } from '../../lib/site';
 
 const posts = await allPosts();
@@ -25,7 +25,7 @@ const posts = await allPosts();
                 <h3>{p.data.title}</h3>
                 <p>{p.data.description}</p>
               </div>
-              <span class="pr-topic">{t?.en ?? 'NOTES'} · {readingMinutes(p)}min</span>
+              <span class="pr-topic">{t?.en ?? 'NOTES'}</span>
             </a>
           );
         })

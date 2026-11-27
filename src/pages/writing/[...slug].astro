@@ -10,7 +10,6 @@ import {
   postSlug,
   postTopicId,
   fmtDate,
-  readingMinutes,
 } from '../../lib/posts';
 
 export async function getStaticPaths() {
@@ -24,7 +23,6 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content, headings } = await render(post);
 const topic = topicById(postTopicId(post));
-const minutes = readingMinutes(post);
 
 const all = await allPosts();
 const idx = all.findIndex((p) => p.id === post.id);
@@ -58,10 +56,6 @@ const updated = post.data.updated;
               <a class="topic-pill" href={u(`/topics/${topic.id}`)}>{topic.en}</a>
             )}
             <span>{fmtDate(post.data.date)}</span>
-            <span class="sep">·</span>
-            <span style="display:inline-flex;align-items:center;gap:4px">
-              <Icon name="clock" size={13} /> {minutes} min
-            </span>
             {updated && (
               <>
                 <span class="sep">·</span>

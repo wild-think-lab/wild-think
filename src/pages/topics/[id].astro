@@ -2,8 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
 import { u } from '../../lib/url';
-import { TOPICS, topicById } from '../../lib/site';
-import { postsByTopic, postHref, fmtDate, readingMinutes } from '../../lib/posts';
+import { TOPICS, CATEGORIES, topicById } from '../../lib/site';
+import { postsByTopic, postHref, fmtDate } from '../../lib/posts';
 
 export async function getStaticPaths() {
   return TOPICS.map((t) => ({ params: { id: t.id }, props: { topic: t } }));
@@ -11,107 +11,135 @@ export async function getStaticPaths() {
 
 const { topic } = Astro.props;
 const topicPosts = await postsByTopic(topic.id);
-const others = TOPICS.filter((t) => t.id !== topic.id).slice(0, 4);
+const cat = CATEGORIES.find((c) => c.id === topic.category);
+const siblings = TOPICS.filter((t) => t.category === topic.category && t.id !== topic.id);
+const next = TOPICS[(TOPICS.findIndex((t) => t.id === topic.id) + 1) % TOPICS.length];
 ---
+
 <BaseLayout
   title={topic.name}
   description={`${topic.name}：${topic.desc}`}
   active="topics"
 >
-  <div class="container">
-    <div class="breadcrumb">
-      <a href={u('/')}>首页</a><i>/</i>
-      <a href={u('/topics')}>专题</a><i>/</i>
-      <span>{topic.name}</span>
-    </div>
-
-    <div class="page-head" style="border-bottom:0;padding-bottom:8px">
-      <div class="kicker" style={`color:${topic.accent}`}>TOPIC {topic.index} · {topic.en}</div>
-      <h1 style={`display:flex;align-items:center;gap:14px`}>
-        <span
-          class="tc-icon"
-          style={`--card-accent:${topic.accent};width:42px;height:42px`}
-        >
-          <Icon name={topic.icon} size={20} />
-        </span>
-        {topic.name}
-      </h1>
-      <p>{topic.desc}</p>
-    </div>
-
-    <div style="display:grid;gap:40px" class="topic-body">
-      <div>
-        {
-          topic.id === 'starter' && (
-            <a class="tool-callout" href={u('/learn')}>
-              <div class="tc-left">
-                <span class="tc-kicker">LEARN · 按章节推进</span>
-                <h3>想要"从第一章读到最后一章"？</h3>
-                <p>学习中心里有 Linux、Python、网络三门课，分模块、按顺序，左边是章节树，学完一章能自己验证。</p>
-              </div>
-              <span class="tc-go">进入学习中心</span>
-            </a>
-          )
-        }
-
-        {
-          topic.id === 'tools' && (
-            <a class="tool-callout" href={u('/toolbox')}>
-              <div class="tc-left">
-                <span class="tc-kicker">TOOLBOX · 789 个站点</span>
-                <h3>工具箱导航已上线 →</h3>
-                <p>26 个分类、789 个工具站点，支持按用途搜索，按场景直达。</p>
-              </div>
-              <span class="tc-go">打开工具箱</span>
-            </a>
-          )
-        }
-
-        <div class="section-head" style="margin-top:10px">
-          <h2>本专题文章 <span class="mono">/ {topicPosts.length} NOTES</span></h2>
-        </div>
-        {
-          topicPosts.length === 0 ? (
-            <div class="empty">// 内容正在整理，稍后更新</div>
-          ) : (
-            <div class="post-list">
-              {topicPosts.map((p) => (
-                <a class="post-row" href={u(postHref(p))}>
-                  <time>{fmtDate(p.data.date)}</time>
-                  <div class="pr-main">
-                    <h3>{p.data.title}</h3>
-                    <p>{p.data.description}</p>
-                  </div>
-                  <span class="pr-topic">{readingMinutes(p)} MIN</span>
-                </a>
-              ))}
-            </div>
-          )
-        }
+  <section class="topic-hero" style={`--acc:${topic.accent}`}>
+    <div class="container">
+      <div class="breadcrumb" style="padding-top:0">
+        <a href={u('/')}>首页</a><i>/</i>
+        <a href={u('/topics')}>知识地图</a><i>/</i>
+        <span>{topic.name}</span>
       </div>
 
-      <aside>
-        <div class="about-card">
-          <h3>相邻专题</h3>
-          {
-            others.map((o) => (
-              <a class="kv" href={u(`/topics/${o.id}`)} style="text-decoration:none">
-                <span style={`color:${o.accent};font-family:var(--font-mono)`}>{o.index}</span>
-                <b>{o.name}</b>
-              </a>
-            ))
-          }
+      <div class="th-inner">
+        <span class="th-icon"><Icon name={topic.icon} size={22} /></span>
+        <div class="th-text">
+          <div class="th-kicker">
+            TOPIC {topic.index} · {topic.en}
+            {cat && <span class="th-cat">{cat.name}</span>}
+          </div>
+          <h1>{topic.name}</h1>
+          <p>{topic.desc}</p>
+          <div class="th-meta">
+            <span><b>{topicPosts.length}</b> 篇笔记</span>
+            <span class="th-dot"></span>
+            <span>{cat?.note}</span>
+          </div>
         </div>
-      </aside>
+      </div>
     </div>
+  </section>
+
+  <div class="container topic-wrap">
+    <main>
+      {
+        topic.id === 'starter' && (
+          <a class="callout" href={u('/learn')}>
+            <div>
+              <span class="cl-kicker">LEARN · 按章节推进</span>
+              <h3>想“从第一章读到最后一章”？</h3>
+              <p>学习中心里有 Linux、Python、网络三门课，分模块、按顺序，左边章节树，学完一章能自己验证。</p>
+            </div>
+            <span class="cl-go">进入学习中心 <Icon name="arrowRight" size={14} /></span>
+          </a>
+        )
+      }
+      {
+        topic.id === 'tools' && (
+          <a class="callout" href={u('/toolbox')}>
+            <div>
+              <span class="cl-kicker">TOOLBOX · 789 个站点</span>
+              <h3>工具箱导航</h3>
+              <p>26 个分类、789 个工具站点，支持按用途搜索，按场景直达。</p>
+            </div>
+            <span class="cl-go">打开工具箱 <Icon name="arrowRight" size={14} /></span>
+          </a>
+        )
+      }
+
+      <div class="list-head">
+        <h2>本专题笔记</h2>
+        <span class="mono">{topicPosts.length} NOTES</span>
+      </div>
+
+      {
+        topicPosts.length === 0 ? (
+          <div class="empty">// 内容正在整理，稍后更新</div>
+        ) : (
+          <div class="note-list">
+            {topicPosts.map((p, i) => (
+              <a class="note-item" href={u(postHref(p))}>
+                <span class="ni-no">{String(i + 1).padStart(2, '0')}</span>
+                <span class="ni-main">
+                  <strong>{p.data.title}</strong>
+                  <em>{p.data.description}</em>
+                  <span class="ni-tags">
+                    {p.data.tags.slice(0, 3).map((t) => (
+                      <span>#{t}</span>
+                    ))}
+                  </span>
+                </span>
+                <time>{fmtDate(p.data.date)}</time>
+                <Icon name="arrowRight" size={14} />
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </main>
+
+    <aside class="topic-aside">
+      {
+        next && (
+          <a class="side-next" href={u(`/topics/${next.id}`)} style={`--acc:${next.accent}`}>
+            <span class="sn-kicker">下一个专题</span>
+            <strong>{next.name}</strong>
+            <em>{next.en}</em>
+          </a>
+        )
+      }
+
+      {siblings.length > 0 && (
+        <div class="side-block">
+          <div class="sb-title">同一分类</div>
+          {siblings.map((o) => (
+            <a class="sb-link" href={u(`/topics/${o.id}`)}>
+              <span style={`color:${o.accent}`}>
+                <Icon name={o.icon} size={14} />
+              </span>
+              {o.name}
+            </a>
+          ))}
+        </div>
+      )}
+
+      <div class="side-block">
+        <div class="sb-title">分类</div>
+        {CATEGORIES.map((c) => (
+          <a class="sb-link" href={u('/topics')}>
+            <span class="mono">{TOPICS.filter((t) => t.category === c.id).length}</span>
+            {c.name}
+          </a>
+        ))}
+      </div>
+    </aside>
   </div>
 </BaseLayout>
-
-<style>
-  @media (min-width: 980px) {
-    .topic-body {
-      grid-template-columns: minmax(0, 1fr) 300px;
-      align-items: start;
-    }
-  }
-</style>

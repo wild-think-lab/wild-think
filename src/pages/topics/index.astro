@@ -2,53 +2,86 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
 import { u } from '../../lib/url';
-import { TOPICS } from '../../lib/site';
-import { allPosts, postTopicId, postHref, fmtDate } from '../../lib/posts';
+import { TOPICS, CATEGORIES } from '../../lib/site';
+import { allPosts, postTopicId, postHref } from '../../lib/posts';
 
 const posts = await allPosts();
-const groups = TOPICS.map((t) => ({
-  ...t,
-  posts: posts.filter((p) => postTopicId(p) === t.id),
-}));
----
-<BaseLayout title="知识库专题" description="野生思考的十个技术知识库专题，覆盖 Linux、网络、安全、云原生、数据库、全栈、面试、实验、工具箱与项目。" active="topics">
-  <div class="container">
-    <div class="page-head">
-      <div class="kicker">INDEX / 10 TOPICS</div>
-      <h1>知识库专题</h1>
-      <p>
-        按方向切分，而不是按时间堆叠。每个专题内部自成体系：先概念，再动手，最后是排错与追问。
-      </p>
-    </div>
 
-    {
-      groups.map((t) => (
-        <div class="year-group">
-          <div class="year-head">
-            <b style={`color:${t.accent}`}>{t.index}</b>
-            <a href={u(`/topics/${t.id}`)} style="font-weight:700;letter-spacing:-.01em">
-              {t.name}
-            </a>
-            <span class="line" />
-            <span>{t.posts.length} 篇</span>
-          </div>
-          <div style="display:grid;gap:2px">
-            {t.posts.length === 0 && (
-              <div class="empty" style="padding:24px 0;text-align:left">// 该专题正在整理中</div>
-            )}
-            {t.posts.map((p) => (
-              <a class="post-row" href={u(postHref(p))}>
-                <time>{fmtDate(p.data.date)}</time>
-                <div class="pr-main">
-                  <h3>{p.data.title}</h3>
-                  <p>{p.data.description}</p>
-                </div>
-                <span class="pr-topic">{t.en}</span>
-              </a>
-            ))}
-          </div>
+const grouped = CATEGORIES.map((c) => {
+  const list = TOPICS.filter((t) => t.category === c.id).map((t) => {
+    const ps = posts.filter((p) => postTopicId(p) === t.id);
+    return { ...t, count: ps.length, latest: ps.slice(0, 2) };
+  });
+  return { ...c, topics: list };
+});
+---
+
+<BaseLayout
+  title="知识地图"
+  description="野生思考知识地图：从零基础到系统、网络、运维自动化、云原生、虚拟化、交付、数据库、安全、开发与实战，16 个专题按类归属。"
+  active="topics"
+>
+  <section class="section map-page">
+    <div class="container">
+      <div class="page-head">
+        <div class="kicker">KNOWLEDGE MAP</div>
+        <h1>一张能走完的技术地图</h1>
+        <p>
+          16 个专题、8 个大类。不按时间堆文章，按“你在哪个阶段、要解决什么问题”来分：
+          先看懂机器和网络，再学会自动化和交付，最后才谈安全、性能与架构。
+        </p>
+      </div>
+
+      <div class="map-legend">
+        {CATEGORIES.map((c) => (
+          <a class="legend-item" href={`#cat-${c.id}`}>
+            <b>{c.name}</b>
+            <span>{TOPICS.filter((t) => t.category === c.id).length} 专题</span>
+          </a>
+        ))}
+      </div>
+
+      {
+        grouped.map((g, gi) => (
+          <section class="map-cat" id={`cat-${g.id}`}>
+            <div class="mc-head">
+              <span class="mc-no">{String(gi + 1).padStart(2, '0')}</span>
+              <h2>{g.name}</h2>
+              <span class="mc-en">{g.en}</span>
+              <span class="mc-note">{g.note}</span>
+            </div>
+
+            <div class="mc-grid">
+              {g.topics.map((t) => (
+                <a class="map-card" href={u(`/topics/${t.id}`)} style={`--acc:${t.accent}`}>
+                  <div class="mp-top">
+                    <span class="mp-icon"><Icon name={t.icon} size={17} /></span>
+                    <span class="mp-no">{t.index}</span>
+                  </div>
+                  <h3>{t.name}</h3>
+                  <div class="mp-en">{t.en}</div>
+                  <p>{t.desc}</p>
+                  <div class="mp-foot">
+                    <span>{t.count} 篇</span>
+                    {t.latest[0] && <em>{t.latest[0].data.title}</em>}
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+        ))
+      }
+
+      <div class="map-cta">
+        <div>
+          <b>不知道从哪儿开始？</b>
+          <p>按章节顺序走的课程在「学习中心」；按职业阶段走的在「能力路线」。</p>
         </div>
-      ))
-    }
-  </div>
+        <div class="map-cta-links">
+          <a class="btn btn-primary" href={u('/learn')}>学习中心 <Icon name="arrowRight" size={15} /></a>
+          <a class="btn" href={u('/roadmap')}>能力路线</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

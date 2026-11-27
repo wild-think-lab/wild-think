@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
-import { u, f, tagHref } from '../lib/url';
-import { SITE, TOPICS, topicById } from '../lib/site';
+import { u, tagHref } from '../lib/url';
+import { SITE, TOPICS, CATEGORIES, topicById } from '../lib/site';
 import { allPosts, allTags, postHref, postTopicId, fmtDate } from '../lib/posts';
 import { getCollection } from 'astro:content';
 import { COURSES } from '../data/courses';
@@ -11,34 +11,21 @@ const posts = await allPosts();
 const latest = posts.slice(0, 6);
 const tags = (await allTags()).slice(0, 14);
 
-// 学习中心：每门课多少章
 const learnEntries = await getCollection('learn');
 const courseCount = (id: string) =>
   learnEntries.filter((e) => e.id.startsWith(id + '/')).length;
 
-const paths = [
-  {
-    title: '完全不懂，从这里开始',
-    desc: '服务器是干什么的 → 命令行 12 个命令 → 网络四件事 → 亲手做完 LAMP 实验，跟着走能自己搭出一个网站。',
-    links: ['starter', 'linux', 'network'],
-  },
-  {
-    title: '从运维起步',
-    desc: 'Linux 基础 → Shell 与权限 → 服务与日志 → 故障排查，先把一台机器管住。',
-    links: ['linux', 'lab', 'tools'],
-  },
-  {
-    title: '往网络深入',
-    desc: '协议栈 → 子网与 VLAN → 路由与 NAT → 抓包定位，把链路问题说清楚。',
-    links: ['network', 'security', 'interview'],
-  },
-  {
-    title: '朝平台演进',
-    desc: '容器与 K8s → 监控告警 → CI/CD → 容量与高可用，从单机走向体系。',
-    links: ['sre-cloud', 'db', 'project'],
-  },
-];
+const topicCount = (id: string) => posts.filter((p) => postTopicId(p) === id).length;
+
+const map = CATEGORIES.map((c) => ({
+  ...c,
+  topics: TOPICS.filter((t) => t.category === c.id),
+}));
+
+const featured = posts.filter((p) => p.data.featured).slice(0, 3);
+const picks = featured.length >= 3 ? featured : posts.slice(0, 3);
 ---
+
 <BaseLayout title="" description={SITE.desc} active="home">
   <section class="hero">
     <div class="container hero-grid">
@@ -56,8 +43,8 @@ const paths = [
             从零开始学
             <Icon name="arrowRight" size={16} />
           </a>
-          <a class="btn" href={u('/topics')}>进入知识库</a>
-          <a class="btn" href={u('/writing')}>浏览全部文章</a>
+          <a class="btn" href={u('/topics')}>知识地图</a>
+          <a class="btn" href={u('/writing')}>全部文章</a>
         </div>
 
         <div class="hero-stats">
@@ -84,8 +71,9 @@ const paths = [
           <div><span class="p">➜</span> <span class="cmd">cat README.md</span></div>
           <div class="cmt"># 一个写给底层技术实践者的知识库</div>
           <div><span class="p">➜</span> <span class="cmd">ls topics/</span></div>
-          <div class="cmt">linux network security sre-cloud db</div>
-          <div class="cmt">fullstack interview lab tools project</div>
+          <div class="cmt">linux windows network shell monitor</div>
+          <div class="cmt">sre-cloud virtual devops db security</div>
+          <div class="cmt">fullstack lab project tools interview</div>
           <div><span class="p">➜</span> <span class="cmd">make reproduce</span></div>
           <div class="ok">✔ 环境就绪 · 步骤可验证 · 结果可回滚</div>
           <div><span class="p">➜</span> <span class="cmd">echo $PHILOSOPHY</span></div>
@@ -95,88 +83,30 @@ const paths = [
     </div>
   </section>
 
-  <section class="section">
+  <!-- 01 从这里开始 -->
+  <section class="section home-start">
     <div class="container">
-      <div class="section-head">
-        <h2>知识库专题 <span class="mono">/ {TOPICS.length} TOPICS</span></h2>
-        <a class="more" href={u('/topics')}>全部专题 <Icon name="arrowRight" size={14} /></a>
-      </div>
-
-      <div class="topic-grid">
-        {
-          TOPICS.map((topic) => {
-            const list = posts.filter((p) => postTopicId(p) === topic.id);
-            return (
-              <a
-                class="topic-card"
-                href={u(`/topics/${topic.id}`)}
-                style={`--card-accent:${topic.accent}`}
-              >
-                <div class="tc-top">
-                  <span class="tc-icon"><Icon name={topic.icon} size={17} /></span>
-                  <span class="tc-index">{topic.index}</span>
-                </div>
-                <h3 class="tc-name">{topic.name}</h3>
-                <div class="tc-en">{topic.en}</div>
-                <p class="tc-desc">{topic.desc}</p>
-                <div class="tc-foot">
-                  <span>{list.length} 篇</span>
-                  <span class="go"><Icon name="arrowRight" size={14} /></span>
-                </div>
-              </a>
-            );
-          })
-        }
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <h2>最近更新 <span class="mono">/ LATEST</span></h2>
-        <a class="more" href={u('/writing')}>全部文章 <Icon name="arrowRight" size={14} /></a>
-      </div>
-
-      <div class="post-list">
-        {
-          latest.map((post) => {
-            const t = topicById(postTopicId(post));
-            return (
-              <a class="post-row" href={u(postHref(post))}>
-                <time>{fmtDate(post.data.date)}</time>
-                <div class="pr-main">
-                  <h3>{post.data.title}</h3>
-                  <p>{post.data.description}</p>
-                </div>
-                <span class="pr-topic">{t?.en ?? 'NOTES'}</span>
-              </a>
-            );
-          })
-        }
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <div class="section-head">
-        <h2>学习中心 <span class="mono">/ LEARN FROM ZERO</span></h2>
+      <div class="sec-head">
+        <span class="sec-no">01</span>
+        <h2>从这里开始，按顺序学</h2>
+        <span class="sec-en">START FROM ZERO</span>
         <a class="more" href={u('/learn')}>全部课程 <Icon name="arrowRight" size={14} /></a>
       </div>
-      <p style="margin:-6px 0 18px;font-size:13px;color:var(--muted);line-height:1.8;max-width:640px">
-        选一门，从第一章按顺序往下走。左边是章节树，右边是正文，每章末尾都有能动手验证的练习。
-      </p>
-      <div class="home-learn">
+
+      <div class="course-row">
         {
           COURSES.map((c) => (
-            <a class="hl-card" href={u(`/learn/${c.id}`)} style={`--card-accent:${c.accent}`}>
-              <span class="hl-icon"><Icon name={c.icon} size={16} /></span>
-              <span class="hl-main">
-                <strong>{c.name}</strong>
-                <em>{c.desc}</em>
-              </span>
-              <span class="hl-meta">{courseCount(c.id)} 章</span>
+            <a class="course-card2" href={u(`/learn/${c.id}`)} style={`--acc:${c.accent}`}>
+              <div class="cc2-top">
+                <span class="cc2-icon"><Icon name={c.icon} size={18} /></span>
+                <span class="cc2-tag">{c.tag}</span>
+              </div>
+              <h3>{c.name}</h3>
+              <p>{c.desc}</p>
+              <div class="cc2-foot">
+                <span class="cc2-ch">{courseCount(c.id)} 章 · 按顺序</span>
+                <span class="cc2-go">开始 <Icon name="arrowRight" size={13} /></span>
+              </div>
             </a>
           ))
         }
@@ -184,38 +114,31 @@ const paths = [
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <!-- 02 知识地图 -->
+  <section class="section home-map">
     <div class="container">
-      <div class="section-head">
-        <h2>四条阅读路径 <span class="mono">/ ROADMAP</span></h2>
+      <div class="sec-head">
+        <span class="sec-no">02</span>
+        <h2>知识地图</h2>
+        <span class="sec-en">{TOPICS.length} TOPICS / {CATEGORIES.length} GROUPS</span>
+        <a class="more" href={u('/topics')}>完整地图 <Icon name="arrowRight" size={14} /></a>
       </div>
-      <div class="topic-grid">
+
+      <div class="map-mini">
         {
-          paths.map((p, i) => (
-            <div class="topic-card" style={`--card-accent:var(--accent)`}>
-              <div class="tc-top">
-                <span class="tc-icon"><Icon name="layers" size={17} /></span>
-                <span class="tc-index">PATH 0{i + 1}</span>
+          map.map((g) => (
+            <div class="mm-group">
+              <div class="mm-title">
+                <b>{g.name}</b>
+                <span>{g.topics.length}</span>
               </div>
-              <h3 class="tc-name">{p.title}</h3>
-              <p class="tc-desc">{p.desc}</p>
-              <div style="display:flex;flex-direction:column;margin-top:14px">
-                {p.links.map((id, i) => {
-                  const t = topicById(id);
-                  return (
-                    <a
-                      href={u(`/topics/${id}`)}
-                      style="display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--muted);padding:7px 0;border-top:1px dashed var(--line)"
-                    >
-                      <span style="font-family:var(--font-mono);font-size:10.5px;color:var(--dim)">
-                        0{i + 1}
-                      </span>
-                      <span style="flex:1">{t?.name}</span>
-                      <Icon name="chevron" size={13} />
-                    </a>
-                  );
-                })}
-              </div>
+              {g.topics.map((t) => (
+                <a class="mm-link" href={u(`/topics/${t.id}`)} style={`--acc:${t.accent}`}>
+                  <span class="mm-icon"><Icon name={t.icon} size={13} /></span>
+                  <span class="mm-name">{t.name}</span>
+                  <span class="mm-count">{topicCount(t.id)}</span>
+                </a>
+              ))}
             </div>
           ))
         }
@@ -223,10 +146,100 @@ const paths = [
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <!-- 03 精选 -->
+  <section class="section home-featured">
     <div class="container">
-      <div class="section-head">
-        <h2>标签 <span class="mono">/ TAGS</span></h2>
+      <div class="sec-head">
+        <span class="sec-no">03</span>
+        <h2>先读这几篇</h2>
+        <span class="sec-en">PICKS</span>
+      </div>
+
+      <div class="pick-grid">
+        {
+          picks.map((p, i) => {
+            const t = topicById(postTopicId(p));
+            return (
+              <a class="pick-card" href={u(postHref(p))} style={`--acc:${t?.accent ?? '#ff8a3d'}`}>
+                <span class="pk-no">{String(i + 1).padStart(2, '0')}</span>
+                <span class="pk-topic">{t?.name ?? '笔记'}</span>
+                <h3>{p.data.title}</h3>
+                <p>{p.data.description}</p>
+                <span class="pk-date">{fmtDate(p.data.date)}</span>
+              </a>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 最近更新 -->
+  <section class="section home-latest">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-no">04</span>
+        <h2>最近更新</h2>
+        <span class="sec-en">LATEST</span>
+        <a class="more" href={u('/writing')}>全部文章 <Icon name="arrowRight" size={14} /></a>
+      </div>
+
+      <div class="note-list">
+        {
+          latest.map((post, i) => {
+            const t = topicById(postTopicId(post));
+            return (
+              <a class="note-item" href={u(postHref(post))}>
+                <span class="ni-no">{String(i + 1).padStart(2, '0')}</span>
+                <span class="ni-main">
+                  <strong>{post.data.title}</strong>
+                  <em>{post.data.description}</em>
+                </span>
+                <span class="ni-meta">
+                  <em>{t?.en ?? 'NOTES'}</em>
+                  <time>{fmtDate(post.data.date)}</time>
+                </span>
+              </a>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 工具与路线 -->
+  <section class="section home-duo">
+    <div class="container">
+      <div class="duo-grid">
+        <a class="duo-card" href={u('/toolbox')}>
+          <div class="dc-top">
+            <span class="dc-icon"><Icon name="tool" size={18} /></span>
+            <span class="dc-kicker">TOOLBOX · 789 SITES</span>
+          </div>
+          <h3>工具箱</h3>
+          <p>26 个分类、789 个工具站点，按用途搜索，按场景直达。找不到合适的工具时，先来这里翻一遍。</p>
+          <span class="dc-go">打开工具箱 <Icon name="arrowRight" size={14} /></span>
+        </a>
+        <a class="duo-card" href={u('/roadmap')}>
+          <div class="dc-top">
+            <span class="dc-icon"><Icon name="layers" size={18} /></span>
+            <span class="dc-kicker">ROADMAP · 4 TRACKS</span>
+          </div>
+          <h3>能力路线</h3>
+          <p>运维、SRE、网络、安全四条主线，每条分 L1–L4 四级，每一级都有可验证的产出标准。</p>
+          <span class="dc-go">查看路线 <Icon name="arrowRight" size={14} /></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 标签 -->
+  <section class="section home-tags">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-no">05</span>
+        <h2>标签</h2>
+        <span class="sec-en">TAGS</span>
         <a class="more" href={u('/tags')}>全部标签 <Icon name="arrowRight" size={14} /></a>
       </div>
       <div class="chips">
