@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { u, tagHref } from '../../lib/url';
+import { allTags } from '../../lib/posts';
+const tags = await allTags();
+---
+<BaseLayout title="标签" description="野生思考的全部标签索引。" active="tags">
+  <div class="container narrow" style="max-width:860px">
+    <div class="page-head">
+      <div class="kicker">TAGS</div>
+      <h1>标签索引</h1>
+      <p>{tags.length} 个标签，点击进入对应文章聚合页。</p>
+    </div>
+
+    <div class="chips tag-page">
+      {
+        tags.map((t) => (
+          <a class="chip" href={tagHref(t.tag)}>
+            #{t.tag} <span style="color:var(--dim);margin-left:4px">{t.count}</span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import { u } from '../../lib/url';
+import { TOPICS, topicById } from '../../lib/site';
+import { postsByTopic, postHref, fmtDate, readingMinutes } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  return TOPICS.map((t) => ({ params: { id: t.id }, props: { topic: t } }));
+}
+
+const { topic } = Astro.props;
+const topicPosts = await postsByTopic(topic.id);
+const others = TOPICS.filter((t) => t.id !== topic.id).slice(0, 4);
+---
+<BaseLayout
+  title={topic.name}
+  description={`${topic.name}：${topic.desc}`}
+  active="topics"
+>
+  <div class="container">
+    <div class="breadcrumb">
+      <a href={u('/')}>首页</a><i>/</i>
+      <a href={u('/topics')}>专题</a><i>/</i>
+      <span>{topic.name}</span>
+    </div>
+
+    <div class="page-head" style="border-bottom:0;padding-bottom:8px">
+      <div class="kicker" style={`color:${topic.accent}`}>TOPIC {topic.index} · {topic.en}</div>
+      <h1 style={`display:flex;align-items:center;gap:14px`}>
+        <span
+          class="tc-icon"
+          style={`--card-accent:${topic.accent};width:42px;height:42px`}
+        >
+          <Icon name={topic.icon} size={20} />
+        </span>
+        {topic.name}
+      </h1>
+      <p>{topic.desc}</p>
+    </div>
+
+    <div style="display:grid;gap:40px" class="topic-body">
+      <div>
+        <div class="section-head" style="margin-top:10px">
+          <h2>本专题文章 <span class="mono">/ {topicPosts.length} NOTES</span></h2>
+        </div>
+        {
+          topicPosts.length === 0 ? (
+            <div class="empty">// 内容正在整理，稍后更新</div>
+          ) : (
+            <div class="post-list">
+              {topicPosts.map((p) => (
+                <a class="post-row" href={u(postHref(p))}>
+                  <time>{fmtDate(p.data.date)}</time>
+                  <div class="pr-main">
+                    <h3>{p.data.title}</h3>
+                    <p>{p.data.description}</p>
+                  </div>
+                  <span class="pr-topic">{readingMinutes(p)} MIN</span>
+                </a>
+              ))}
+            </div>
+          )
+        }
+      </div>
+
+      <aside>
+        <div class="about-card">
+          <h3>相邻专题</h3>
+          {
+            others.map((o) => (
+              <a class="kv" href={u(`/topics/${o.id}`)} style="text-decoration:none">
+                <span style={`color:${o.accent};font-family:var(--font-mono)`}>{o.index}</span>
+                <b>{o.name}</b>
+              </a>
+            ))
+          }
+        </div>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  @media (min-width: 980px) {
+    .topic-body {
+      grid-template-columns: minmax(0, 1fr) 300px;
+      align-items: start;
+    }
+  }
+</style>

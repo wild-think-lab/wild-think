@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { u } from '../../lib/url';
+import { allPosts, postHref, postTopicId, fmtDate, readingMinutes } from '../../lib/posts';
+import { topicById } from '../../lib/site';
+
+const posts = await allPosts();
+---
+<BaseLayout title="全部文章" description="野生思考的全部技术笔记，按发布时间倒序。" active="writing">
+  <div class="container narrow" style="max-width:900px">
+    <div class="page-head">
+      <div class="kicker">ALL NOTES</div>
+      <h1>全部文章</h1>
+      <p>共 {posts.length} 篇，按更新时间倒序。想按方向看，请到「专题」。</p>
+    </div>
+
+    <div class="post-list">
+      {
+        posts.map((p) => {
+          const t = topicById(postTopicId(p));
+          return (
+            <a class="post-row" href={u(postHref(p))}>
+              <time>{fmtDate(p.data.date)}</time>
+              <div class="pr-main">
+                <h3>{p.data.title}</h3>
+                <p>{p.data.description}</p>
+              </div>
+              <span class="pr-topic">{t?.en ?? 'NOTES'} · {readingMinutes(p)}min</span>
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</BaseLayout>

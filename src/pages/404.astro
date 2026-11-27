@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { u } from '../lib/url';
+---
+<BaseLayout title="404 · 内容不存在" description="你访问的页面不存在。">
+  <div class="container">
+    <div class="not-found">
+      <div>
+        <div class="code">404</div>
+        <p style="color:var(--muted);font-family:var(--font-mono);font-size:13px;letter-spacing:.04em">
+          // 这条路径没有记录，可能是改过标题，也可能正在写
+        </p>
+        <div class="hero-cta" style="justify-content:center;margin-top:22px">
+          <a class="btn btn-primary" href={u('/')}>返回首页</a>
+          <a class="btn" href={u('/search')}>去搜索</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

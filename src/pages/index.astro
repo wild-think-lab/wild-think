@@ -1,0 +1,198 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { u, f, tagHref } from '../lib/url';
+import { SITE, TOPICS, topicById } from '../lib/site';
+import { allPosts, allTags, postHref, postTopicId, fmtDate } from '../lib/posts';
+
+const posts = await allPosts();
+const latest = posts.slice(0, 6);
+const tags = (await allTags()).slice(0, 14);
+
+const paths = [
+  {
+    title: '从运维起步',
+    desc: 'Linux 基础 → Shell 与权限 → 服务与日志 → 故障排查，先把一台机器管住。',
+    links: ['linux', 'lab', 'tools'],
+  },
+  {
+    title: '往网络深入',
+    desc: '协议栈 → 子网与 VLAN → 路由与 NAT → 抓包定位，把链路问题说清楚。',
+    links: ['network', 'security', 'interview'],
+  },
+  {
+    title: '朝平台演进',
+    desc: '容器与 K8s → 监控告警 → CI/CD → 容量与高可用，从单机走向体系。',
+    links: ['sre-cloud', 'db', 'project'],
+  },
+];
+---
+<BaseLayout title="" description={SITE.desc} active="home">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="kicker">野生思考 · wild think</div>
+        <h1>把复杂的技术<br />写成<em>可以走的路</em></h1>
+        <p class="hero-tagline">{SITE.tagline}</p>
+        <p class="hero-desc">
+          这里不搬运视频教程，也不堆砌命令清单。每一篇都讲清一件事：为什么这样设计、
+          在什么场景生效、怎么验证它真的生效了。
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary" href={u('/topics')}>
+            进入知识库
+            <Icon name="arrowRight" size={16} />
+          </a>
+          <a class="btn" href={u('/writing')}>浏览全部文章</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat"><b>{String(posts.length).padStart(2, '0')}</b><span>篇笔记</span></div>
+          <div class="stat"><b>10</b><span>个专题</span></div>
+          <div class="stat"><b>{String(tags.length).padStart(2, '0')}</b><span>个标签</span></div>
+          <div class="stat"><b>100%</b><span>可复现</span></div>
+        </div>
+
+        <div class="hero-strip">
+          <span class="live-dot"></span>
+          持续更新中
+          <span style="opacity:.4">/</span>
+          最后更新 {posts.length ? fmtDate(posts[0].data.date) : '—'}
+        </div>
+      </div>
+
+      <div class="term">
+        <div class="term-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="term-title">wild-think — notes</span>
+        </div>
+        <div class="term-body">
+          <div><span class="p">➜</span> <span class="cmd">cat README.md</span></div>
+          <div class="cmt"># 一个写给底层技术实践者的知识库</div>
+          <div><span class="p">➜</span> <span class="cmd">ls topics/</span></div>
+          <div class="cmt">linux network security sre-cloud db</div>
+          <div class="cmt">fullstack interview lab tools project</div>
+          <div><span class="p">➜</span> <span class="cmd">make reproduce</span></div>
+          <div class="ok">✔ 环境就绪 · 步骤可验证 · 结果可回滚</div>
+          <div><span class="p">➜</span> <span class="cmd">echo $PHILOSOPHY</span></div>
+          <div>“把复杂的技术，变成可以落地复现的思考与实践”<span class="caret"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>知识库专题 <span class="mono">/ 10 TOPICS</span></h2>
+        <a class="more" href={u('/topics')}>全部专题 <Icon name="arrowRight" size={14} /></a>
+      </div>
+
+      <div class="topic-grid">
+        {
+          TOPICS.map((topic) => {
+            const list = posts.filter((p) => postTopicId(p) === topic.id);
+            return (
+              <a
+                class="topic-card"
+                href={u(`/topics/${topic.id}`)}
+                style={`--card-accent:${topic.accent}`}
+              >
+                <div class="tc-top">
+                  <span class="tc-icon"><Icon name={topic.icon} size={17} /></span>
+                  <span class="tc-index">{topic.index}</span>
+                </div>
+                <h3 class="tc-name">{topic.name}</h3>
+                <div class="tc-en">{topic.en}</div>
+                <p class="tc-desc">{topic.desc}</p>
+                <div class="tc-foot">
+                  <span>{list.length} 篇</span>
+                  <span class="go"><Icon name="arrowRight" size={14} /></span>
+                </div>
+              </a>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>最近更新 <span class="mono">/ LATEST</span></h2>
+        <a class="more" href={u('/writing')}>全部文章 <Icon name="arrowRight" size={14} /></a>
+      </div>
+
+      <div class="post-list">
+        {
+          latest.map((post) => {
+            const t = topicById(postTopicId(post));
+            return (
+              <a class="post-row" href={u(postHref(post))}>
+                <time>{fmtDate(post.data.date)}</time>
+                <div class="pr-main">
+                  <h3>{post.data.title}</h3>
+                  <p>{post.data.description}</p>
+                </div>
+                <span class="pr-topic">{t?.en ?? 'NOTES'}</span>
+              </a>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="section-head">
+        <h2>三条阅读路径 <span class="mono">/ ROADMAP</span></h2>
+      </div>
+      <div class="topic-grid">
+        {
+          paths.map((p, i) => (
+            <div class="topic-card" style={`--card-accent:var(--accent)`}>
+              <div class="tc-top">
+                <span class="tc-icon"><Icon name="layers" size={17} /></span>
+                <span class="tc-index">PATH 0{i + 1}</span>
+              </div>
+              <h3 class="tc-name">{p.title}</h3>
+              <p class="tc-desc">{p.desc}</p>
+              <div style="display:flex;flex-direction:column;margin-top:14px">
+                {p.links.map((id, i) => {
+                  const t = topicById(id);
+                  return (
+                    <a
+                      href={u(`/topics/${id}`)}
+                      style="display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--muted);padding:7px 0;border-top:1px dashed var(--line)"
+                    >
+                      <span style="font-family:var(--font-mono);font-size:10.5px;color:var(--dim)">
+                        0{i + 1}
+                      </span>
+                      <span style="flex:1">{t?.name}</span>
+                      <Icon name="chevron" size={13} />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="section-head">
+        <h2>标签 <span class="mono">/ TAGS</span></h2>
+        <a class="more" href={u('/tags')}>全部标签 <Icon name="arrowRight" size={14} /></a>
+      </div>
+      <div class="chips">
+        {tags.map((t) => <a class="chip" href={tagHref(t.tag)}>#{t.tag}</a>)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

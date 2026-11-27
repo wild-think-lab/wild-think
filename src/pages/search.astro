@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { f } from '../lib/url';
+const indexUrl = f('search-index.json');
+---
+<BaseLayout title="搜索" description="在野生思考的全部笔记中检索。" active="">
+  <div class="container narrow" style="max-width:860px">
+    <div class="page-head">
+      <div class="kicker">SEARCH / <span id="total-hint">— </span></div>
+      <h1>搜索</h1>
+      <p>标题、描述、标签与正文关键词都会参与匹配。按 <kbd>/</kbd> 可随时回到这里。</p>
+    </div>
+
+    <div class="search-box">
+      <Icon name="search" size={17} />
+      <input
+        id="q"
+        type="search"
+        placeholder="例如：OSPF、慢查询、journald、Pod 排障…"
+        autocomplete="off"
+        autofocus
+      />
+    </div>
+
+    <p class="search-hint" id="hint">输入关键词开始检索</p>
+    <div id="results"></div>
+  </div>
+
+  <script define:vars={{ indexUrl }}>
+    const input = document.getElementById('q');
+    const results = document.getElementById('results');
+    const hint = document.getElementById('hint');
+    const totalHint = document.getElementById('total-hint');
+    let data = [];
+    let loaded = false;
+
+    function esc(s) {
+      return String(s).replace(/[&<>"']/g, (c) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+
+    function mark(text, q) {
+      const safe = esc(text);
+      if (!q) return safe;
+      const re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+      return safe.replace(re, '<span style="color:var(--accent)">$1</span>');
+    }
+
+    function render(q) {
+      if (!loaded) return;
+      const key = q.trim().toLowerCase();
+      if (!key) {
+        results.innerHTML = '';
+        hint.textContent = '输入关键词开始检索 · 共 ' + data.length + ' 篇可搜索';
+        return;
+      }
+      const hits = data.filter((d) => {
+        const hay = (d.title + ' ' + d.desc + ' ' + d.tags.join(' ') + ' ' + d.text).toLowerCase();
+        return hay.includes(key);
+      });
+      hint.textContent = '匹配 ' + hits.length + ' 篇 · 关键词「' + q.trim() + '」';
+      if (!hits.length) {
+        results.innerHTML = '<div class="empty">// 没有找到相关内容，换个关键词试试</div>';
+        return;
+      }
+      results.innerHTML = hits
+        .map((d) => {
+          const excerpt = d.text.length > 140 ? d.text.slice(0, 140) + '…' : d.text;
+          return (
+            '<a class="search-result" href="' + d.url + '">' +
+              '<h3>' + mark(d.title, key) + '</h3>' +
+              '<p>' + mark(excerpt, key) + '</p>' +
+              '<div class="sr-meta">' + esc(d.topic) + ' · ' + d.date +
+                (d.tags.length ? ' · ' + d.tags.map((t) => '#' + t).join(' ') : '') +
+              '</div>' +
+            '</a>'
+          );
+        })
+        .join('');
+    }
+
+    const params = new URLSearchParams(location.search);
+    if (params.get('q')) input.value = params.get('q');
+
+    fetch(indexUrl)
+      .then((r) => r.json())
+      .then((json) => {
+        data = json;
+        loaded = true;
+        totalHint.textContent = data.length + ' NOTES';
+        render(input.value);
+      })
+      .catch(() => {
+        hint.textContent = '搜索索引加载失败，请刷新重试';
+      });
+
+    let timer;
+    input.addEventListener('input', () => {
+      clearTimeout(timer);
+      const v = input.value;
+      timer = setTimeout(() => render(v), 180);
+    });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && e.target.value.trim()) {
+        history.replaceState(null, '', '?q=' + encodeURIComponent(e.target.value.trim()));
+      }
+    });
+  </script>
+</BaseLayout>

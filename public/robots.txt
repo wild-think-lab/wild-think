@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wild-think-lab.github.io/wild-think/sitemap.xml

@@ -1,0 +1,229 @@
+---
+import '../styles/global.css';
+import Icon from '../components/Icon.astro';
+import { u, f } from '../lib/url';
+import { SITE, TOPICS } from '../lib/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** 用于导航高亮：home / topics / writing / tags / archive / about */
+  active?: string;
+  ogType?: string;
+}
+
+const {
+  title,
+  description = SITE.desc,
+  active = '',
+  ogType = 'website',
+} = Astro.props;
+
+const fullTitle = title ? `${title} · ${SITE.title}` : `${SITE.title} · ${SITE.tagline}`;
+const canonical = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site).href;
+
+const nav = [
+  { key: 'topics', label: '专题', href: u('/topics') },
+  { key: 'writing', label: '文章', href: u('/writing') },
+  { key: 'tags', label: '标签', href: u('/tags') },
+  { key: 'archive', label: '归档', href: u('/archive') },
+  { key: 'about', label: '关于', href: u('/about') },
+];
+
+const isActive = (href: string) => {
+  const cur = Astro.url.pathname.replace(/\/$/, '');
+  const target = href.replace(/\/$/, '');
+  return cur === target || cur.startsWith(target + '/');
+};
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={SITE.author} />
+    <meta name="theme-color" content="#08080a" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={f('favicon.svg')} />
+    <link rel="alternate" type="application/rss+xml" title={SITE.title} href={f('rss.xml')} />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script is:inline>
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light') document.documentElement.classList.add('light');
+      } catch (e) {}
+    </script>
+  </head>
+
+  <body>
+    <a class="skip" href="#main">跳到正文</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href={u('/')}>
+          <span class="brand-mark">野</span>
+          <span>{SITE.title}</span>
+          <span class="brand-sub">/ wild-think</span>
+        </a>
+
+        <nav class="nav" aria-label="主导航">
+          {
+            nav.map((item) => (
+              <a
+                href={item.href}
+                aria-current={isActive(item.href) ? 'true' : undefined}
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+
+        <div class="header-actions">
+          <a class="icon-btn" href={u('/search')} aria-label="搜索" title="搜索 ( / )">
+            <Icon name="search" size={17} />
+          </a>
+          <button class="icon-btn" id="theme-toggle" aria-label="切换深浅色" title="切换主题">
+            <Icon name="sun" size={17} cls="theme-sun" />
+            <Icon name="moon" size={17} cls="theme-moon" />
+          </button>
+          <button class="icon-btn menu-btn" id="menu-toggle" aria-label="打开菜单">
+            <Icon name="menu" size={18} />
+          </button>
+        </div>
+      </div>
+
+      <nav class="mobile-nav container" id="mobile-nav" aria-label="移动端导航">
+        {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+        <a href={u('/search')}>搜索</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href={u('/')}>
+              <span class="brand-mark">野</span>
+              <span>{SITE.title}</span>
+            </a>
+            <p>{SITE.tagline}</p>
+          </div>
+
+          <div class="footer-col">
+            <h4>专题</h4>
+            {
+              TOPICS.slice(0, 5).map((t) => (
+                <a href={u(`/topics/${t.id}`)}>{t.name}</a>
+              ))
+            }
+          </div>
+
+          <div class="footer-col">
+            <h4>站点</h4>
+            <a href={u('/writing')}>全部文章</a>
+            <a href={u('/archive')}>归档</a>
+            <a href={u('/tags')}>标签</a>
+            <a href={u('/about')}>关于本站</a>
+            <a href={f('rss.xml')}>RSS 订阅</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© {SITE.since}–{new Date().getFullYear()} {SITE.title} · wild-think-lab</span>
+          <span class="sig">// 把复杂的技术，写成可以走的路</span>
+        </div>
+      </div>
+    </footer>
+
+    <button class="to-top" id="to-top" aria-label="回到顶部">
+      <Icon name="arrowUp" size={17} />
+    </button>
+
+    <script>
+      // 主题切换
+      const root = document.documentElement;
+      const toggle = document.getElementById('theme-toggle');
+      toggle?.addEventListener('click', () => {
+        root.classList.toggle('light');
+        try {
+          localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+        } catch (e) {}
+      });
+
+      // 移动端菜单
+      const menuBtn = document.getElementById('menu-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      menuBtn?.addEventListener('click', () => {
+        mobileNav?.classList.toggle('open');
+      });
+
+      // 回到顶部
+      const toTop = document.getElementById('to-top');
+      const onScroll = () => {
+        toTop?.classList.toggle('show', window.scrollY > 700);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+      toTop?.addEventListener('click', () =>
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      );
+
+      // 快捷键 / 打开搜索
+      document.addEventListener('keydown', (e) => {
+        const target = e.target as HTMLElement | null;
+        const typing = target && /^(INPUT|TEXTAREA)$/.test(target.tagName);
+        if (e.key === '/' && !typing) {
+          e.preventDefault();
+          location.href = '/wild-think/search/';
+        }
+      });
+    </script>
+
+    <style is:global>
+      @media (prefers-color-scheme: light) {
+        /* 默认仍为深色，用户手动切换后以本地存储为准 */
+      }
+      .skip {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        padding: 10px 16px;
+        background: var(--accent);
+        color: #180c04;
+        border-radius: 0 0 8px 0;
+        z-index: 200;
+      }
+      .skip:focus {
+        left: 0;
+      }
+      #theme-toggle > svg {
+        grid-area: 1 / 1;
+      }
+      #theme-toggle > svg.theme-sun,
+      #theme-toggle > svg.theme-moon {
+        display: block;
+      }
+      html:not(.light) #theme-toggle > svg.theme-sun {
+        display: none;
+      }
+      html.light #theme-toggle > svg.theme-moon {
+        display: none;
+      }
+    </style>
+  </body>
+</html>

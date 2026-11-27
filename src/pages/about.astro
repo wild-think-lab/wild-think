@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { u } from '../lib/url';
+import { TOPICS } from '../lib/site';
+import { allPosts, allTags } from '../lib/posts';
+
+const posts = await allPosts();
+const tags = await allTags();
+---
+<BaseLayout title="关于本站" description="野生思考是一个面向底层技术实践者的知识库：讲原理、可复现、重排错。" active="about">
+  <div class="container">
+    <div class="page-head">
+      <div class="kicker">ABOUT</div>
+      <h1>关于「野生思考」</h1>
+      <p>一个只写自己跑过、验证过、踩过坑的内容的技术知识库。</p>
+    </div>
+
+    <div class="about-grid">
+      <div>
+        <div class="prose" style="max-width:66ch">
+          <h2>为什么叫野生思考</h2>
+          <p>
+            不是学院派的教科书，也不是流水线的八股笔记。这里的内容来自实际动手：装过、配过、
+            打穿过的实验，崩过、救回来的线上故障，被追着问了三层的面试题。
+            它们不成体系地被记下来，再被整理成体系——这就是「野生」的含义。
+          </p>
+
+          <h2>写内容的三条原则</h2>
+          <ul>
+            <li><strong>先讲原理，再给命令。</strong>命令谁都会抄，能解释「为什么这样配」才算掌握。</li>
+            <li><strong>必须可复现。</strong>实验类文章会写清环境、版本、拓扑与验证方式，照着做能得到同样结果。</li>
+            <li><strong>写清失败路径。</strong>踩坑记录和成功步骤同样重要，报错原文、判断依据、回滚方式都会保留。</li>
+          </ul>
+
+          <h2>十个专题的关系</h2>
+          <p>
+            十个专题不是十个孤岛。<code>Linux</code> 是地基，<code>网络</code> 决定连通性，
+            <code>安全</code> 是边界约束，<code>云原生与 SRE</code> 是运行形态，
+            <code>数据库</code> 是有状态的那部分，<code>全栈</code> 让工程落地，
+            <code>面试</code> 检验理解深度，<code>实验</code> 提供验证场景，
+            <code>工具箱</code> 缩短操作路径，<code>项目</code> 把以上全部串成闭环。
+          </p>
+
+          <h2>关于本站的技术实现</h2>
+          <p>
+            纯静态站点，Astro 构建，无后端、无第三方统计脚本、无广告。全文搜索在浏览器端完成，
+            索引随站点一起发布，所以你的搜索词不会被发送到任何服务器。
+          </p>
+        </div>
+      </div>
+
+      <aside style="display:grid;gap:16px;align-content:start">
+        <div class="about-card">
+          <h3>站点信息</h3>
+          <div class="kv"><span>名称</span><b>野生思考 / wild-think</b></div>
+          <div class="kv"><span>笔记</span><b>{posts.length} 篇</b></div>
+          <div class="kv"><span>专题</span><b>{TOPICS.length} 个</b></div>
+          <div class="kv"><span>标签</span><b>{tags.length} 个</b></div>
+          <div class="kv"><span>自建</span><b>2026</b></div>
+        </div>
+
+        <div class="about-card">
+          <h3>联系与订阅</h3>
+          <a class="kv" href="https://github.com/wild-think-lab" target="_blank" rel="noopener">
+            <span>GitHub</span><b>wild-think-lab</b>
+          </a>
+          <a class="kv" href={u('/rss.xml')}><span>RSS</span><b>rss.xml</b></a>
+          <a class="kv" href={u('/search')}><span>检索</span><b>全文搜索</b></a>
+        </div>
+
+        <div class="about-card">
+          <h3>从这里开始</h3>
+          <a class="kv" href={u('/topics')}><span>01</span><b>知识库专题</b></a>
+          <a class="kv" href={u('/writing')}><span>02</span><b>全部文章</b></a>
+          <a class="kv" href={u('/archive')}><span>03</span><b>时间归档</b></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>

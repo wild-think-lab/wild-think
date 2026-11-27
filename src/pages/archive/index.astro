@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { u } from '../../lib/url';
+import { postsByYear, postHref, postTopicId, shortDate } from '../../lib/posts';
+import { topicById } from '../../lib/site';
+
+const years = await postsByYear();
+const total = years.reduce((n, y) => n + y.posts.length, 0);
+---
+<BaseLayout title="归档" description="野生思考全部文章的时间归档。" active="archive">
+  <div class="container narrow" style="max-width:860px">
+    <div class="page-head">
+      <div class="kicker">ARCHIVE</div>
+      <h1>时间归档</h1>
+      <p>{total} 篇 · {years.length} 个年份</p>
+    </div>
+
+    {
+      years.map((y) => (
+        <div class="year-group">
+          <div class="year-head">
+            <b>{y.year}</b>
+            <span class="line" />
+            <span>{y.posts.length} 篇</span>
+          </div>
+          <div style="display:grid;gap:0">
+            {y.posts.map((p) => (
+              <a class="post-row" href={u(postHref(p))} style="grid-template-columns:64px minmax(0,1fr) auto">
+                <time>{shortDate(p.data.date)}</time>
+                <div class="pr-main"><h3 style="margin:0">{p.data.title}</h3></div>
+                <span class="pr-topic">{topicById(postTopicId(p))?.en ?? 'NOTES'}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</BaseLayout>

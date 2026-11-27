@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { u } from '../../lib/url';
+import { allPosts, allTags, postHref, postTopicId, fmtDate } from '../../lib/posts';
+import { topicById } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const tags = await allTags();
+  return tags.map((t) => ({ params: { tag: t.tag }, props: { tag: t.tag } }));
+}
+
+const { tag } = Astro.props;
+const posts = (await allPosts()).filter((p) => p.data.tags.includes(tag));
+const tags = await allTags();
+---
+<BaseLayout title={`#${tag}`} description={`标签 #${tag} 下的全部文章。`} active="tags">
+  <div class="container narrow" style="max-width:900px">
+    <div class="breadcrumb" style="padding-top:26px">
+      <a href={u('/')}>首页</a><i>/</i><a href={u('/tags')}>标签</a><i>/</i><span>#{tag}</span>
+    </div>
+
+    <div class="page-head">
+      <div class="kicker">TAG</div>
+      <h1>#{tag}</h1>
+      <p>{posts.length} 篇相关笔记</p>
+    </div>
+
+    <div class="post-list">
+      {
+        posts.map((p) => (
+          <a class="post-row" href={u(postHref(p))}>
+            <time>{fmtDate(p.data.date)}</time>
+            <div class="pr-main">
+              <h3>{p.data.title}</h3>
+              <p>{p.data.description}</p>
+            </div>
+            <span class="pr-topic">{topicById(postTopicId(p))?.en ?? 'NOTES'}</span>
+          </a>
+        ))
+      }
+    </div>
+
+    <div style="margin-top:34px" class="chips">
+      {
+        tags
+          .filter((t) => t.tag !== tag)
+          .slice(0, 12)
+          .map((t) => (
+            <a class="chip" href={u(`/tags/${encodeURIComponent(t.tag)}`)}>#{t.tag}</a>
+          ))
+      }
+    </div>
+  </div>
+</BaseLayout>
