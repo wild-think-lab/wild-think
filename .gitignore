@@ -18,3 +18,5 @@ npm-install.log
 .idea/
 .DS_Store
 Thumbs.db
+
+preview.log
